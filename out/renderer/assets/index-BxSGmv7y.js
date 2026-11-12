@@ -12448,6 +12448,31 @@ function DataRoutes2({ routes, manifest, future, state, isStatic, onError }) {
 		future
 	});
 }
+function Navigate({ to, replace: replace2, state, relative }) {
+	invariant(useInRouterContext(), `<Navigate> may be used only in the context of a <Router> component.`);
+	let { static: isStatic, navigator } = import_react.useContext(NavigationContext);
+	warning(!isStatic, `<Navigate> must not be used on the initial render in a <StaticRouter>. This is a no-op, but you should modify your code so the <Navigate> is only ever rendered in response to some user interaction or state change.`);
+	let { matches } = import_react.useContext(RouteContext);
+	let { pathname: locationPathname } = useLocation();
+	let navigate = useNavigate();
+	let path = resolveTo(to, getResolveToMatches(matches), locationPathname, relative === "path");
+	validateNavigationTarget(typeof to === "string" ? to : createPath(to), navigator.createHref(path), getNavigatorCurrentUrl(navigator), "reject");
+	let jsonPath = JSON.stringify(path);
+	import_react.useEffect(() => {
+		navigate(JSON.parse(jsonPath), {
+			replace: replace2,
+			state,
+			relative
+		});
+	}, [
+		navigate,
+		jsonPath,
+		relative,
+		replace2,
+		state
+	]);
+	return null;
+}
 function Outlet(props) {
 	return useOutlet(props.context);
 }
@@ -13642,6 +13667,111 @@ function createLucideIcon(iconDataOrName, iconNode = [], aliases = []) {
 	if (iconData.name) Component.displayName = toPascalCase(iconData.name);
 	return Component;
 }
+// node_modules/lucide-react/dist/esm/icons/alarm-clock.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$20 = {
+	name: "alarm-clock",
+	size: 24,
+	node: [
+		["circle", {
+			cx: "12",
+			cy: "13",
+			r: "8",
+			key: "3y4lt7"
+		}],
+		["path", {
+			d: "M12 9v4l2 2",
+			key: "1c63tq"
+		}],
+		["path", {
+			d: "M5 3 2 6",
+			key: "18tl5t"
+		}],
+		["path", {
+			d: "m22 6-3-3",
+			key: "1opdir"
+		}],
+		["path", {
+			d: "M6.38 18.7 4 21",
+			key: "17xu3x"
+		}],
+		["path", {
+			d: "M17.64 18.67 20 21",
+			key: "kv2oe2"
+		}]
+	]
+};
+__iconData$20.node;
+var AlarmClock = createLucideIcon(__iconData$20);
+// node_modules/lucide-react/dist/esm/icons/arrow-left-right.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$19 = {
+	name: "arrow-left-right",
+	size: 24,
+	node: [
+		["path", {
+			d: "M8 3 4 7l4 4",
+			key: "9rb6wj"
+		}],
+		["path", {
+			d: "M4 7h16",
+			key: "6tx8e3"
+		}],
+		["path", {
+			d: "m16 21 4-4-4-4",
+			key: "siv7j2"
+		}],
+		["path", {
+			d: "M20 17H4",
+			key: "h6l3hr"
+		}]
+	]
+};
+__iconData$19.node;
+var ArrowLeftRight = createLucideIcon(__iconData$19);
+// node_modules/lucide-react/dist/esm/icons/banknote.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$18 = {
+	name: "banknote",
+	size: 24,
+	node: [
+		["rect", {
+			width: "20",
+			height: "12",
+			x: "2",
+			y: "6",
+			rx: "2",
+			key: "9lu3g6"
+		}],
+		["circle", {
+			cx: "12",
+			cy: "12",
+			r: "2",
+			key: "1c9p78"
+		}],
+		["path", {
+			d: "M6 12h.01M18 12h.01",
+			key: "113zkx"
+		}]
+	]
+};
+__iconData$18.node;
+var Banknote = createLucideIcon(__iconData$18);
 // node_modules/lucide-react/dist/esm/icons/bell.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13649,7 +13779,7 @@ function createLucideIcon(iconDataOrName, iconNode = [], aliases = []) {
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$13 = {
+var __iconData$17 = {
 	name: "bell",
 	size: 24,
 	node: [["path", {
@@ -13660,8 +13790,8 @@ var __iconData$13 = {
 		key: "11g9vi"
 	}]]
 };
-__iconData$13.node;
-var Bell = createLucideIcon(__iconData$13);
+__iconData$17.node;
+var Bell = createLucideIcon(__iconData$17);
 // node_modules/lucide-react/dist/esm/icons/chart-no-axes-combined.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13669,7 +13799,7 @@ var Bell = createLucideIcon(__iconData$13);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$12 = {
+var __iconData$16 = {
 	name: "chart-no-axes-combined",
 	size: 24,
 	node: [
@@ -13699,8 +13829,8 @@ var __iconData$12 = {
 		}]
 	]
 };
-__iconData$12.node;
-var ChartNoAxesCombined = createLucideIcon(__iconData$12);
+__iconData$16.node;
+var ChartNoAxesCombined = createLucideIcon(__iconData$16);
 // node_modules/lucide-react/dist/esm/icons/chef-hat.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13708,7 +13838,7 @@ var ChartNoAxesCombined = createLucideIcon(__iconData$12);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$11 = {
+var __iconData$15 = {
 	name: "chef-hat",
 	size: 24,
 	node: [
@@ -13730,8 +13860,8 @@ var __iconData$11 = {
 		}]
 	]
 };
-__iconData$11.node;
-var ChefHat = createLucideIcon(__iconData$11);
+__iconData$15.node;
+var ChefHat = createLucideIcon(__iconData$15);
 // node_modules/lucide-react/dist/esm/icons/circle-user-round.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13739,7 +13869,7 @@ var ChefHat = createLucideIcon(__iconData$11);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$10 = {
+var __iconData$14 = {
 	name: "circle-user-round",
 	size: 24,
 	node: [
@@ -13762,8 +13892,8 @@ var __iconData$10 = {
 	],
 	aliases: ["user-circle-2"]
 };
-__iconData$10.node;
-var CircleUserRound = createLucideIcon(__iconData$10);
+__iconData$14.node;
+var CircleUserRound = createLucideIcon(__iconData$14);
 // node_modules/lucide-react/dist/esm/icons/clipboard-list.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13771,7 +13901,7 @@ var CircleUserRound = createLucideIcon(__iconData$10);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$9 = {
+var __iconData$13 = {
 	name: "clipboard-list",
 	size: 24,
 	node: [
@@ -13806,8 +13936,61 @@ var __iconData$9 = {
 		}]
 	]
 };
-__iconData$9.node;
-var ClipboardList = createLucideIcon(__iconData$9);
+__iconData$13.node;
+var ClipboardList = createLucideIcon(__iconData$13);
+// node_modules/lucide-react/dist/esm/icons/eye.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$12 = {
+	name: "eye",
+	size: 24,
+	node: [["path", {
+		d: "M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0",
+		key: "1nclc0"
+	}], ["circle", {
+		cx: "12",
+		cy: "12",
+		r: "3",
+		key: "1v7zrd"
+	}]]
+};
+__iconData$12.node;
+var Eye = createLucideIcon(__iconData$12);
+// node_modules/lucide-react/dist/esm/icons/eye-off.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$11 = {
+	name: "eye-off",
+	size: 24,
+	node: [
+		["path", {
+			d: "M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49",
+			key: "ct8e1f"
+		}],
+		["path", {
+			d: "M14.084 14.158a3 3 0 0 1-4.242-4.242",
+			key: "151rxh"
+		}],
+		["path", {
+			d: "M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143",
+			key: "13bj9a"
+		}],
+		["path", {
+			d: "m2 2 20 20",
+			key: "1ooewy"
+		}]
+	]
+};
+__iconData$11.node;
+var EyeOff = createLucideIcon(__iconData$11);
 // node_modules/lucide-react/dist/esm/icons/layout-dashboard.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13815,7 +13998,7 @@ var ClipboardList = createLucideIcon(__iconData$9);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$8 = {
+var __iconData$10 = {
 	name: "layout-dashboard",
 	size: 24,
 	node: [
@@ -13853,8 +14036,8 @@ var __iconData$8 = {
 		}]
 	]
 };
-__iconData$8.node;
-var LayoutDashboard = createLucideIcon(__iconData$8);
+__iconData$10.node;
+var LayoutDashboard = createLucideIcon(__iconData$10);
 // node_modules/lucide-react/dist/esm/icons/log-out.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13862,7 +14045,7 @@ var LayoutDashboard = createLucideIcon(__iconData$8);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$7 = {
+var __iconData$9 = {
 	name: "log-out",
 	size: 24,
 	node: [
@@ -13880,8 +14063,8 @@ var __iconData$7 = {
 		}]
 	]
 };
-__iconData$7.node;
-var LogOut = createLucideIcon(__iconData$7);
+__iconData$9.node;
+var LogOut = createLucideIcon(__iconData$9);
 // node_modules/lucide-react/dist/esm/icons/monitor-play.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13889,7 +14072,7 @@ var LogOut = createLucideIcon(__iconData$7);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$6 = {
+var __iconData$8 = {
 	name: "monitor-play",
 	size: 24,
 	node: [
@@ -13915,8 +14098,39 @@ var __iconData$6 = {
 		}]
 	]
 };
-__iconData$6.node;
-var MonitorPlay = createLucideIcon(__iconData$6);
+__iconData$8.node;
+var MonitorPlay = createLucideIcon(__iconData$8);
+// node_modules/lucide-react/dist/esm/icons/package.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$7 = {
+	name: "package",
+	size: 24,
+	node: [
+		["path", {
+			d: "M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z",
+			key: "1a0edw"
+		}],
+		["path", {
+			d: "M12 22V12",
+			key: "d0xqtd"
+		}],
+		["polyline", {
+			points: "3.29 7 12 12 20.71 7",
+			key: "ousv84"
+		}],
+		["path", {
+			d: "m7.5 4.27 9 5.15",
+			key: "1c824w"
+		}]
+	]
+};
+__iconData$7.node;
+var Package = createLucideIcon(__iconData$7);
 // node_modules/lucide-react/dist/esm/icons/pizza.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13924,7 +14138,7 @@ var MonitorPlay = createLucideIcon(__iconData$6);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$5 = {
+var __iconData$6 = {
 	name: "pizza",
 	size: 24,
 	node: [
@@ -13950,8 +14164,28 @@ var __iconData$5 = {
 		}]
 	]
 };
+__iconData$6.node;
+var Pizza = createLucideIcon(__iconData$6);
+// node_modules/lucide-react/dist/esm/icons/plus.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$5 = {
+	name: "plus",
+	size: 24,
+	node: [["path", {
+		d: "M5 12h14",
+		key: "1ays0h"
+	}], ["path", {
+		d: "M12 5v14",
+		key: "s699le"
+	}]]
+};
 __iconData$5.node;
-var Pizza = createLucideIcon(__iconData$5);
+var Plus = createLucideIcon(__iconData$5);
 // node_modules/lucide-react/dist/esm/icons/settings.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14161,13 +14395,456 @@ var require_react_jsx_runtime_production = /* @__PURE__ */ __commonJSMin(((expor
 var require_jsx_runtime = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	module.exports = require_react_jsx_runtime_production();
 }));
-// src/disenos/componentes/BarraLateral.jsx
+// src/modulos/autenticacion/componentes/CampoContrasena.jsx
 var import_client = /* @__PURE__ */ __toESM(require_client(), 1);
 var import_jsx_runtime = require_jsx_runtime();
+function CampoContrasena({ value, onChange, placeholder = "Contraseña", autoComplete = "current-password" }) {
+	const [visible, setVisible] = (0, import_react.useState)(false);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "relative",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+			type: visible ? "text" : "password",
+			value,
+			onChange: (e) => onChange(e.target.value),
+			placeholder,
+			autoComplete,
+			className: "w-full rounded-xl border border-slate-200 bg-white px-4 py-3 pr-12 outline-none transition focus:border-violet-500 focus:ring-2 focus:ring-violet-100"
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+			type: "button",
+			onClick: () => setVisible(!visible),
+			className: "absolute right-4 top-1/2 -translate-y-1/2 text-slate-500",
+			"aria-label": visible ? "Ocultar contraseña" : "Mostrar contraseña",
+			children: visible ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EyeOff, { size: 19 }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Eye, { size: 19 })
+		})]
+	});
+}
+// src/modulos/autenticacion/validaciones/esquemas.js
+function validarCredenciales(datos) {
+	const errores = {};
+	if (!datos.usuario?.trim()) errores.usuario = "Ingresa tu usuario.";
+	if (!datos.contrasena) errores.contrasena = "Ingresa tu contraseña.";
+	return errores;
+}
+function validarAdministrador(datos) {
+	const errores = {};
+	if (!datos.nombre?.trim()) errores.nombre = "El nombre es obligatorio.";
+	if (!datos.usuario?.trim()) errores.usuario = "El usuario es obligatorio.";
+	if (!datos.contrasena || datos.contrasena.length < 8) errores.contrasena = "Utiliza al menos 8 caracteres.";
+	if (datos.contrasena !== datos.confirmarContrasena) errores.confirmarContrasena = "Las contraseñas no coinciden.";
+	return errores;
+}
+// src/modulos/autenticacion/componentes/FormularioInicioSesion.jsx
+function FormularioInicioSesion({ onIngresar }) {
+	const [datos, setDatos] = (0, import_react.useState)({
+		usuario: "",
+		contrasena: ""
+	});
+	const [errores, setErrores] = (0, import_react.useState)({});
+	const [errorGeneral, setErrorGeneral] = (0, import_react.useState)("");
+	const [cargando, setCargando] = (0, import_react.useState)(false);
+	async function enviar(e) {
+		e.preventDefault();
+		const validaciones = validarCredenciales(datos);
+		setErrores(validaciones);
+		setErrorGeneral("");
+		if (Object.keys(validaciones).length) return;
+		try {
+			setCargando(true);
+			await onIngresar(datos);
+		} catch (error) {
+			setErrorGeneral(error.message || "No se pudo iniciar sesión.");
+		} finally {
+			setCargando(false);
+		}
+	}
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+		onSubmit: enviar,
+		className: "space-y-5",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+					className: "mb-2 block text-sm font-medium text-slate-700",
+					children: "Usuario"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+					value: datos.usuario,
+					onChange: (e) => setDatos({
+						...datos,
+						usuario: e.target.value
+					}),
+					autoComplete: "username",
+					placeholder: "Tu nombre de usuario",
+					className: "w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100"
+				}),
+				errores.usuario && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-1 text-sm text-red-500",
+					children: errores.usuario
+				})
+			] }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+					className: "mb-2 block text-sm font-medium text-slate-700",
+					children: "Contraseña"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CampoContrasena, {
+					value: datos.contrasena,
+					onChange: (contrasena) => setDatos({
+						...datos,
+						contrasena
+					})
+				}),
+				errores.contrasena && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-1 text-sm text-red-500",
+					children: errores.contrasena
+				})
+			] }),
+			errorGeneral && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "rounded-xl bg-red-50 p-3 text-sm text-red-700",
+				children: errorGeneral
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+				type: "submit",
+				disabled: cargando,
+				className: "w-full rounded-xl bg-violet-600 px-4 py-3 font-semibold text-white transition hover:bg-violet-700 disabled:opacity-50",
+				children: cargando ? "Ingresando..." : "Iniciar sesión"
+			})
+		]
+	});
+}
+// src/modulos/autenticacion/componentes/FormularioAdministrador.jsx
+function FormularioAdministrador({ onCrear }) {
+	const [datos, setDatos] = (0, import_react.useState)({
+		nombre: "",
+		usuario: "",
+		contrasena: "",
+		confirmarContrasena: ""
+	});
+	const [errores, setErrores] = (0, import_react.useState)({});
+	const [errorGeneral, setErrorGeneral] = (0, import_react.useState)("");
+	const [cargando, setCargando] = (0, import_react.useState)(false);
+	async function enviar(e) {
+		e.preventDefault();
+		const validaciones = validarAdministrador(datos);
+		setErrores(validaciones);
+		setErrorGeneral("");
+		if (Object.keys(validaciones).length) return;
+		try {
+			setCargando(true);
+			await onCrear(datos);
+		} catch (error) {
+			setErrorGeneral(error.message || "No se pudo crear el administrador.");
+		} finally {
+			setCargando(false);
+		}
+	}
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+		onSubmit: enviar,
+		className: "space-y-4",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+					className: "mb-2 block text-sm font-medium",
+					children: "Nombre completo"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+					value: datos.nombre,
+					onChange: (e) => setDatos({
+						...datos,
+						nombre: e.target.value
+					}),
+					placeholder: "Nombre del administrador",
+					className: "w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-violet-500"
+				}),
+				errores.nombre && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-sm text-red-500",
+					children: errores.nombre
+				})
+			] }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+					className: "mb-2 block text-sm font-medium",
+					children: "Usuario"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+					value: datos.usuario,
+					onChange: (e) => setDatos({
+						...datos,
+						usuario: e.target.value
+					}),
+					placeholder: "Nombre de usuario",
+					autoComplete: "username",
+					className: "w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-violet-500"
+				}),
+				errores.usuario && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-sm text-red-500",
+					children: errores.usuario
+				})
+			] }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+					className: "mb-2 block text-sm font-medium",
+					children: "Contraseña"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CampoContrasena, {
+					value: datos.contrasena,
+					onChange: (contrasena) => setDatos({
+						...datos,
+						contrasena
+					}),
+					placeholder: "Mínimo 8 caracteres",
+					autoComplete: "new-password"
+				}),
+				errores.contrasena && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-sm text-red-500",
+					children: errores.contrasena
+				})
+			] }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+					className: "mb-2 block text-sm font-medium",
+					children: "Confirmar contraseña"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CampoContrasena, {
+					value: datos.confirmarContrasena,
+					onChange: (confirmarContrasena) => setDatos({
+						...datos,
+						confirmarContrasena
+					}),
+					placeholder: "Repite la contraseña",
+					autoComplete: "new-password"
+				}),
+				errores.confirmarContrasena && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-sm text-red-500",
+					children: errores.confirmarContrasena
+				})
+			] }),
+			errorGeneral && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "rounded-xl bg-red-50 p-3 text-sm text-red-700",
+				children: errorGeneral
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+				disabled: cargando,
+				className: "w-full rounded-xl bg-violet-600 px-4 py-3 font-semibold text-white hover:bg-violet-700 disabled:opacity-50",
+				children: cargando ? "Creando cuenta..." : "Crear administrador"
+			})
+		]
+	});
+}
+// src/modulos/autenticacion/servicios/autenticacion.js
+var api = window.sistema;
+var servicioAutenticacion = {
+	obtenerEstadoInicial() {
+		return api.autenticacion.estadoInicial();
+	},
+	crearAdministrador(datos) {
+		return api.autenticacion.crearAdministrador(datos);
+	},
+	iniciarSesion(datos) {
+		return api.autenticacion.iniciarSesion(datos);
+	},
+	cerrarSesion() {
+		return api.autenticacion.cerrarSesion();
+	},
+	obtenerSesion() {
+		return api.autenticacion.obtenerSesion();
+	}
+};
+// src/modulos/autenticacion/paginas/ConfiguracionInicial.jsx
+function ConfiguracionInicial({ onTerminar }) {
+	async function crear(datos) {
+		await servicioAutenticacion.crearAdministrador(datos);
+		await onTerminar();
+	}
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", {
+		className: "min-h-screen bg-slate-50 flex items-center justify-center p-5",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+			className: "w-full max-w-lg rounded-3xl bg-white p-8 shadow-xl shadow-slate-200/60",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mb-7",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-100 text-violet-700",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "text-xl font-bold",
+							children: "SG"
+						})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+						className: "text-2xl font-bold text-slate-900",
+						children: "Configuración inicial"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-2 text-sm text-slate-500",
+						children: "Crea la cuenta del administrador principal del sistema."
+					})
+				]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FormularioAdministrador, { onCrear: crear })]
+		})
+	});
+}
+// node_modules/zustand/esm/vanilla.mjs
+var createStoreImpl = (createState) => {
+	let state;
+	const listeners = /* @__PURE__ */ new Set();
+	const setState = (partial, replace) => {
+		const nextState = typeof partial === "function" ? partial(state) : partial;
+		if (!Object.is(nextState, state)) {
+			const previousState = state;
+			state = (replace != null ? replace : typeof nextState !== "object" || nextState === null) ? nextState : Object.assign({}, state, nextState);
+			listeners.forEach((listener) => listener(state, previousState));
+		}
+	};
+	const getState = () => state;
+	const getInitialState = () => initialState;
+	const subscribe = (listener) => {
+		listeners.add(listener);
+		return () => listeners.delete(listener);
+	};
+	const api = {
+		setState,
+		getState,
+		getInitialState,
+		subscribe
+	};
+	const initialState = state = createState(setState, getState, api);
+	return api;
+};
+var createStore = ((createState) => createState ? createStoreImpl(createState) : createStoreImpl);
+// node_modules/zustand/esm/react.mjs
+var identity = (arg) => arg;
+function useStore(api, selector = identity) {
+	const slice = import_react.useSyncExternalStore(api.subscribe, import_react.useCallback(() => selector(api.getState()), [api, selector]), () => selector(api.getInitialState()));
+	import_react.useDebugValue(slice);
+	return slice;
+}
+var createImpl = (createState) => {
+	const api = createStore(createState);
+	const useBoundStore = (selector) => useStore(api, selector);
+	Object.assign(useBoundStore, api);
+	return useBoundStore;
+};
+var create = ((createState) => createState ? createImpl(createState) : createImpl);
+// src/modulos/autenticacion/estado/EstadoAutenticacion.js
+var useEstadoAutenticacion = create((set) => ({
+	usuario: null,
+	cargando: true,
+	necesitaAdministrador: false,
+	inicializar: async () => {
+		try {
+			const estado = await servicioAutenticacion.obtenerEstadoInicial();
+			set({
+				usuario: estado.sesion,
+				necesitaAdministrador: estado.necesitaAdministrador,
+				cargando: false
+			});
+		} catch (error) {
+			set({ cargando: false });
+			throw error;
+		}
+	},
+	iniciarSesion: async (datos) => {
+		const usuario = await servicioAutenticacion.iniciarSesion(datos);
+		set({
+			usuario,
+			cargando: false
+		});
+		return usuario;
+	},
+	cerrarSesion: async () => {
+		await servicioAutenticacion.cerrarSesion();
+		set({
+			usuario: null,
+			cargando: false
+		});
+	}
+}));
+// src/modulos/autenticacion/paginas/InicioSesion.jsx
+function InicioSesion() {
+	const navigate = useNavigate();
+	const [inicializado, setInicializado] = (0, import_react.useState)(false);
+	const [necesitaAdministrador, setNecesitaAdministrador] = (0, import_react.useState)(false);
+	const [error, setError] = (0, import_react.useState)("");
+	const iniciarSesion = useEstadoAutenticacion((estado) => estado.iniciarSesion);
+	async function comprobarEstado() {
+		try {
+			const estado = await window.sistema.autenticacion.estadoInicial();
+			setNecesitaAdministrador(estado.necesitaAdministrador);
+			useEstadoAutenticacion.setState({
+				usuario: estado.sesion,
+				necesitaAdministrador: estado.necesitaAdministrador,
+				cargando: false
+			});
+			if (estado.sesion) navigate("/tablero", { replace: true });
+		} catch (error) {
+			setError(error.message);
+			useEstadoAutenticacion.setState({ cargando: false });
+		} finally {
+			setInicializado(true);
+		}
+	}
+	(0, import_react.useEffect)(() => {
+		comprobarEstado();
+	}, []);
+	async function ingresar(datos) {
+		await iniciarSesion(datos);
+		navigate("/tablero", { replace: true });
+	}
+	if (!inicializado) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "flex min-h-screen items-center justify-center",
+		children: "Comprobando sistema..."
+	});
+	if (necesitaAdministrador) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ConfiguracionInicial, { onTerminar: async () => {
+		setNecesitaAdministrador(false);
+	} });
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
+		className: "grid min-h-screen bg-white lg:grid-cols-2",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+			className: "hidden items-center justify-center bg-gradient-to-br from-violet-800 to-violet-950 p-12 text-white lg:flex",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "max-w-md",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/15 text-2xl font-bold",
+						children: "SG"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+						className: "text-4xl font-bold",
+						children: "Sistema de Gestión"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-4 text-lg text-violet-100",
+						children: "Administra tus pedidos, productos, clientes y operaciones desde un solo lugar."
+					})
+				]
+			})
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+			className: "flex items-center justify-center p-6",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "w-full max-w-md",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						className: "text-3xl font-bold text-slate-900",
+						children: "Bienvenido"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mb-8 mt-2 text-slate-500",
+						children: "Ingresa tus credenciales para continuar."
+					}),
+					error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "mb-4 rounded-xl bg-red-50 p-3 text-sm text-red-700",
+						children: error
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(FormularioInicioSesion, { onIngresar: ingresar })
+				]
+			})
+		})]
+	});
+}
+// src/disenos/componentes/BarraLateral.jsx
 var opciones = [
 	{
 		nombre: "Tablero",
-		ruta: "/",
+		ruta: "/tablero",
 		icono: LayoutDashboard
 	},
 	{
@@ -14301,17 +14978,240 @@ function DisenoPrincipal() {
 		})]
 	});
 }
+// src/modulos/tablero/componentes/TarjetaIndicador.jsx
+function TarjetaIndicador({ titulo, valor = "—", descripcion, icono: Icono, color = "morado" }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+		className: "bg-white border border-borde rounded-2xl p-5 shadow-sm",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "flex items-start justify-between",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "text-sm font-medium text-texto-secundario",
+				children: titulo
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+				className: "text-3xl font-bold text-texto mt-3",
+				children: valor
+			})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: `w-12 h-12 rounded-xl flex items-center justify-center ${{
+					morado: "bg-morado-50 text-morado-700",
+					azul: "bg-blue-50 text-blue-700",
+					naranja: "bg-orange-50 text-orange-700",
+					rojo: "bg-red-50 text-red-700"
+				}[color]}`,
+				children: Icono && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icono, { size: 23 })
+			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+			className: "text-xs text-texto-secundario mt-4",
+			children: descripcion
+		})]
+	});
+}
+// src/modulos/tablero/componentes/ResumenPagos.jsx
+function ResumenPagos() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+		className: "bg-white border border-borde rounded-2xl p-6",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+				className: "text-lg font-bold text-texto",
+				children: "Resumen de pagos"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "text-sm text-texto-secundario mt-1",
+				children: "Cobros registrados durante el día"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "grid grid-cols-2 gap-4 mt-6",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "bg-slate-50 rounded-xl p-4",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex items-center gap-2 text-texto-secundario",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Banknote, { size: 19 }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "text-sm",
+								children: "Efectivo"
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-xl font-bold mt-3",
+							children: "—"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-xs text-texto-secundario",
+							children: "Pendiente de datos"
+						})
+					]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "bg-slate-50 rounded-xl p-4",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex items-center gap-2 text-texto-secundario",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowLeftRight, { size: 19 }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "text-sm",
+								children: "Transferencias"
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-xl font-bold mt-3",
+							children: "—"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-xs text-texto-secundario",
+							children: "Pendiente de datos"
+						})
+					]
+				})]
+			})
+		]
+	});
+}
+// src/modulos/tablero/componentes/ActividadReciente.jsx
+function ActividadReciente() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+		className: "bg-white border border-borde rounded-2xl p-6",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "flex items-center justify-between",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+				className: "text-lg font-bold text-texto",
+				children: "Actividad reciente"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "text-sm text-texto-secundario mt-1",
+				children: "Últimos pedidos registrados"
+			})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+				to: "/pedidos",
+				className: "text-sm text-morado-700 font-semibold hover:text-morado-900",
+				children: "Ver pedidos"
+			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "py-12 flex flex-col items-center text-center",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "w-14 h-14 rounded-full bg-morado-50 text-morado-700 flex items-center justify-center",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ClipboardList, { size: 26 })
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+					className: "font-semibold text-texto mt-4",
+					children: "Sin actividad registrada"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-sm text-texto-secundario mt-2 max-w-xs",
+					children: "Cuando se registren pedidos, aparecerán aquí sus movimientos más recientes."
+				})
+			]
+		})]
+	});
+}
 // src/modulos/tablero/paginas/Pagina.jsx
 function Pagina$10() {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-		className: "bg-white rounded-xl border border-slate-200 p-8",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-			className: "text-2xl font-bold text-slate-800",
-			children: "Tablero"
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-			className: "mt-2 text-slate-500",
-			children: "Módulo preparado. Su funcionalidad se desarrollará en su fase correspondiente."
-		})]
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "space-y-7",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				className: "flex items-center justify-between flex-wrap gap-4",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+					className: "text-2xl font-bold text-texto",
+					children: "Tablero principal"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-sm text-texto-secundario mt-1",
+					children: "Resumen general de las operaciones de tu pizzería."
+				})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+					to: "/punto-venta",
+					className: "inline-flex items-center gap-2 bg-morado-700 hover:bg-morado-800 text-white px-5 py-3 rounded-xl font-semibold shadow-sm transition-colors",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { size: 19 }), "Nuevo pedido"]
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "grid grid-cols-4 gap-4",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TarjetaIndicador, {
+						titulo: "Ventas del día",
+						valor: "—",
+						descripcion: "Total de cobros registrados",
+						icono: Wallet,
+						color: "morado"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TarjetaIndicador, {
+						titulo: "Pedidos activos",
+						valor: "—",
+						descripcion: "Pedidos pendientes de completar",
+						icono: ClipboardList,
+						color: "azul"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TarjetaIndicador, {
+						titulo: "En preparación",
+						valor: "—",
+						descripcion: "Pedidos actualmente en cocina",
+						icono: ChefHat,
+						color: "naranja"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TarjetaIndicador, {
+						titulo: "Pedidos retrasados",
+						valor: "—",
+						descripcion: "Pedidos que requieren atención",
+						icono: AlarmClock,
+						color: "rojo"
+					})
+				]
+			}) }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				className: "grid grid-cols-5 gap-5",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "col-span-2",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ResumenPagos, {})
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "col-span-3",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ActividadReciente, {})
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+				className: "text-lg font-bold text-texto mb-4",
+				children: "Accesos rápidos"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "grid grid-cols-3 gap-4",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+						to: "/punto-venta",
+						className: "bg-white border border-borde rounded-xl p-5 flex items-center gap-4 hover:border-morado-300 hover:shadow-sm transition-all",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "w-11 h-11 rounded-xl bg-morado-50 text-morado-700 flex items-center justify-center",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShoppingCart, { size: 22 })
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "font-semibold text-texto",
+							children: "Punto de venta"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-xs text-texto-secundario mt-1",
+							children: "Registrar un pedido"
+						})] })]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+						to: "/clientes",
+						className: "bg-white border border-borde rounded-xl p-5 flex items-center gap-4 hover:border-morado-300 hover:shadow-sm transition-all",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "w-11 h-11 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Users, { size: 22 })
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "font-semibold text-texto",
+							children: "Clientes"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-xs text-texto-secundario mt-1",
+							children: "Consultar clientes"
+						})] })]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+						to: "/productos",
+						className: "bg-white border border-borde rounded-xl p-5 flex items-center gap-4 hover:border-morado-300 hover:shadow-sm transition-all",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "w-11 h-11 rounded-xl bg-orange-50 text-orange-700 flex items-center justify-center",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Package, { size: 22 })
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "font-semibold text-texto",
+							children: "Productos"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-xs text-texto-secundario mt-1",
+							children: "Consultar catálogo"
+						})] })]
+					})
+				]
+			})] })
+		]
 	});
 }
 // src/modulos/punto-venta/paginas/Pagina.jsx
@@ -14472,59 +15372,82 @@ function PantallaTV() {
 		})]
 	});
 }
+// src/compartidos/componentes/RutaProtegida.jsx
+function RutaProtegida({ roles }) {
+	const usuario = useEstadoAutenticacion((estado) => estado.usuario);
+	if (useEstadoAutenticacion((estado) => estado.cargando)) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "flex min-h-screen items-center justify-center",
+		children: "Cargando sesión..."
+	});
+	if (!usuario) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Navigate, {
+		to: "/",
+		replace: true
+	});
+	if (roles && !roles.includes(usuario.rol)) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Navigate, {
+		to: "/tablero",
+		replace: true
+	});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Outlet, {});
+}
 // src/rutas/RutasAplicacion.jsx
 function RutasAplicacion() {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HashRouter, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Routes, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
-		element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DisenoPrincipal, {}),
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-				path: "/",
-				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$10, {})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-				path: "/punto-venta",
-				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$9, {})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-				path: "/pedidos",
-				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$8, {})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-				path: "/cocina",
-				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$7, {})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-				path: "/clientes",
-				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$6, {})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-				path: "/productos",
-				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$5, {})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-				path: "/publicidad",
-				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$4, {})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-				path: "/caja",
-				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$3, {})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-				path: "/reportes",
-				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$2, {})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-				path: "/usuarios",
-				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$1, {})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-				path: "/configuracion",
-				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina, {})
-			})
-		]
-	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-		path: "/pantalla-tv",
-		element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PantallaTV, {})
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HashRouter, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Routes, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+		path: "/",
+		element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InicioSesion, {})
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
+		element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RutaProtegida, {}),
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+			path: "/pantalla-tv",
+			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PantallaTV, {})
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
+			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DisenoPrincipal, {}),
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/tablero",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$10, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/punto-venta",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$9, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/pedidos",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$8, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/cocina",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$7, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/clientes",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$6, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/productos",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$5, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/publicidad",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$4, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/caja",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$3, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/reportes",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$2, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/usuarios",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$1, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/configuracion",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina, {})
+				})
+			]
+		})]
 	})] }) });
 }
 // src/Aplicacion.jsx

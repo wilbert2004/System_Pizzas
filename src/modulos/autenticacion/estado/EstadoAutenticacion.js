@@ -23,12 +23,12 @@ export const useEstadoAutenticacion = create((set) => ({
 
   iniciarSesion: async (datos) => {
     const usuario = await servicioAutenticacion.iniciarSesion(datos);
-    set({ usuario });
+    set({ usuario, cargando: false });
     return usuario;
   },
 
   cerrarSesion: async () => {
     await servicioAutenticacion.cerrarSesion();
-    set({ usuario: null });
+    set({ usuario: null, cargando: false });
   },
 }));

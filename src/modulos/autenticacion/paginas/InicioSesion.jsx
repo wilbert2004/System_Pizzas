@@ -20,12 +20,18 @@ export default function InicioSesion() {
       const estado = await window.sistema.autenticacion.estadoInicial();
       setNecesitaAdministrador(estado.necesitaAdministrador);
 
+      useEstadoAutenticacion.setState({
+        usuario: estado.sesion,
+        necesitaAdministrador: estado.necesitaAdministrador,
+        cargando: false,
+      });
+
       if (estado.sesion) {
-        useEstadoAutenticacion.setState({ usuario: estado.sesion });
         navigate("/tablero", { replace: true });
       }
     } catch (error) {
       setError(error.message);
+      useEstadoAutenticacion.setState({ cargando: false });
     } finally {
       setInicializado(true);
     }
