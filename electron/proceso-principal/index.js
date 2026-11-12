@@ -1,12 +1,18 @@
-import { app, BrowserWindow, ipcMain } from "electron";
+import { app, BrowserWindow, screen } from "electron";
 import { join } from "node:path";
-//agreagremos las iompoprtaciones de la bd
+
 import { inicializarBaseDatos } from "./base-datos/inicializacion.js";
 
 import { cerrarConexion } from "./base-datos/conexion.js";
 
+import { registrarCanalesIPC } from "./ipc/index.js";
+
+import { crearVentanaTV, cerrarVentanaTV } from "./ventanas/ventana-tv.js";
+
+let ventanaPrincipal = null;
+
 function crearVentanaPrincipal() {
-  const ventana = new BrowserWindow({
+  ventanaPrincipal = new BrowserWindow({
     width: 1366,
     height: 850,
     minWidth: 1100,
@@ -14,38 +20,60 @@ function crearVentanaPrincipal() {
     show: false,
 
     webPreferences: {
-      preload: join(__dirname, "../preload/index.cjs"),
+      preload: join(__dirname, "../preload/index.js"),
       contextIsolation: true,
       nodeIntegration: false,
       sandbox: true,
     },
   });
 
-  ventana.once("ready-to-show", () => {
-    ventana.show();
+  ventanaPrincipal.once("ready-to-show", () => {
+    ventanaPrincipal.show();
   });
 
   if (process.env.ELECTRON_RENDERER_URL) {
-    ventana.loadURL(process.env.ELECTRON_RENDERER_URL);
+    ventanaPrincipal.loadURL(`${process.env.ELECTRON_RENDERER_URL}/#/`);
   } else {
-    ventana.loadFile(join(__dirname, "../renderer/index.html"));
+    ventanaPrincipal.loadFile(join(__dirname, "../renderer/index.html"), {
+      hash: "/",
+    });
   }
+
+  ventanaPrincipal.on("closed", () => {
+    ventanaPrincipal = null;
+    cerrarVentanaTV();
+  });
 }
 
-ipcMain.handle("aplicacion:obtener-version", () => {
-  return app.getVersion();
-});
-
 app.whenReady().then(() => {
-  // Inicializamos la base de datos\
   inicializarBaseDatos();
+
+  registrarCanalesIPC();
+
   crearVentanaPrincipal();
+
+  crearVentanaTV();
+
+  screen.on("display-added", () => {
+    crearVentanaTV();
+  });
+
+  screen.on("display-removed", () => {
+    cerrarVentanaTV();
+    crearVentanaTV();
+  });
 
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       crearVentanaPrincipal();
+      crearVentanaTV();
     }
   });
+});
+
+app.on("before-quit", () => {
+  cerrarVentanaTV();
+  cerrarConexion();
 });
 
 app.on("window-all-closed", () => {

@@ -1,16 +1,20 @@
 {
-  "name": "pizzeria-system",
+  "name": "sistema-pizzeria",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Sistema de gestión para pizzería",
+  "author": "Chanw",
   "type": "module",
   "scripts": {
     "dev": "electron-vite dev",
     "build": "electron-vite build",
     "lint": "eslint .",
     "preview": "electron-vite preview",
-    "rebuild:nativos": "electron-rebuild -f -w better-sqlite3"
+    "rebuild:nativos": "electron-rebuild -f -w better-sqlite3",
+    "dist:win": "npm run rebuild:nativos && npm run build && electron-builder --win nsis --x64"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "better-sqlite3": "^13.1.1",
     "lucide-react": "^1.72.0",
     "react": "^19.3.1",
@@ -35,6 +39,40 @@
     "globals": "^17.13.0",
     "tailwindcss": "^4.3.5",
     "vite": "^8.3.6"
+  },
+  "build": {
+    "appId": "local.pizzeria.gestion",
+    "productName": "Sistema de Gestion para Pizzeria",
+    "directories": {
+      "output": "distribucion"
+    },
+    "files": [
+      "out/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "asarUnpack": [
+      "**/*.node"
+    ],
+    "npmRebuild": true,
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Sistema de Gestion para Pizzeria"
+    }
   },
   "main": "out/main/index.js"
 }
