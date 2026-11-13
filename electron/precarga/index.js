@@ -92,4 +92,19 @@ contextBridge.exposeInMainWorld("sistema", {
         ipcRenderer.invoke("productos:adicionales:asignar", datos),
     },
   },
+  clientes: {
+    listar: (filtros) => ipcRenderer.invoke("clientes:listar", filtros),
+
+    obtener: (id) => ipcRenderer.invoke("clientes:obtener", id),
+
+    crear: (datos) => ipcRenderer.invoke("clientes:crear", datos),
+
+    actualizar: (id, datos) =>
+      ipcRenderer.invoke("clientes:actualizar", id, datos),
+
+    cambiarEstado: (id, activo) =>
+      ipcRenderer.invoke("clientes:cambiar-estado", id, activo),
+
+    obtenerHistorial: (id) => ipcRenderer.invoke("clientes:historial", id),
+  },
 });
