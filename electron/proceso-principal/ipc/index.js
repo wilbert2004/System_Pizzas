@@ -6,6 +6,7 @@ import { registrarControladoresAutenticacion } from "./modulos/autenticacion/con
 import { obtenerConexion } from "../base-datos/conexion.js";
 //importamos los registros de productos
 import { registrarControladoresProductos } from "./modulos/productos/controlador.js";
+import { registrarControladoresClientes } from "./modulos/clientes/controlador.js";
 
 export function registrarCanalesIPC() {
   const db = obtenerConexion();
@@ -17,6 +18,9 @@ export function registrarCanalesIPC() {
   registrarCanalesAplicacion();
   registrarCanalesBaseDatos();
   registrarControladoresProductos(ipcMain, db, () =>
+    servicioAutenticacion.obtenerSesion(),
+  );
+  registrarControladoresClientes(ipcMain, db, () =>
     servicioAutenticacion.obtenerSesion(),
   );
 
