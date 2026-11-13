@@ -15844,7 +15844,7 @@ function ActividadReciente() {
 	});
 }
 // src/modulos/tablero/paginas/Pagina.jsx
-function Pagina$6() {
+function Pagina$5() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "space-y-7",
 		children: [
@@ -22189,19 +22189,6 @@ function PaginaPedidos() {
 		]
 	});
 }
-// src/modulos/cocina/paginas/Pagina.jsx
-function Pagina$5() {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-		className: "bg-white rounded-xl border border-slate-200 p-8",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-			className: "text-2xl font-bold text-slate-800",
-			children: "Cocina"
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-			className: "mt-2 text-slate-500",
-			children: "Módulo preparado. Su funcionalidad se desarrollará en su fase correspondiente."
-		})]
-	});
-}
 // src/modulos/publicidad/paginas/Pagina.jsx
 function Pagina$4() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
@@ -25418,6 +25405,833 @@ function PaginaPuntoVenta() {
 		]
 	});
 }
+// src/modulos/cocina/servicios/cocina.js
+var API = () => {
+	if (!window.sistema?.pedidos) throw new Error("El servicio de Pedidos no está disponible.");
+	return window.sistema.pedidos;
+};
+var ESTADOS_COCINA = [
+	"Nuevo",
+	"Preparando",
+	"En horno",
+	"Listo"
+];
+var servicioCocina = {
+	async listarPedidos() {
+		const api = API();
+		const pedidos = await api.listar({ limite: 200 });
+		if (!Array.isArray(pedidos)) return [];
+		const pedidosCocina = pedidos.filter((pedido) => ESTADOS_COCINA.includes(pedido.estado)).sort((a, b) => {
+			return new Date(a.fecha_creacion || 0).getTime() - new Date(b.fecha_creacion || 0).getTime();
+		});
+		return Promise.all(pedidosCocina.map(async (pedido) => {
+			return await api.obtener(pedido.id) || pedido;
+		}));
+	},
+	async obtenerPedido(id) {
+		return API().obtener(id);
+	},
+	async cambiarEstado(id, estado, motivo = null) {
+		return API().cambiarEstado(id, estado, motivo);
+	},
+	async obtenerResumen() {
+		return API().resumen();
+	}
+};
+// src/modulos/cocina/estado/EstadoCocina.js
+var useEstadoCocina = create((set, get) => ({
+	pedidos: [],
+	pedidoSeleccionado: null,
+	cargando: false,
+	actualizando: false,
+	error: null,
+	ultimaActualizacion: null,
+	cargarPedidos: async (silencioso = false) => {
+		try {
+			if (silencioso) set({ actualizando: true });
+			else set({ cargando: true });
+			const pedidos = await servicioCocina.listarPedidos();
+			set({
+				pedidos,
+				ultimaActualizacion: /* @__PURE__ */ new Date(),
+				error: null
+			});
+			const seleccionado = get().pedidoSeleccionado;
+			if (seleccionado) set({ pedidoSeleccionado: pedidos.find((pedido) => pedido.id === seleccionado.id) || null });
+			return pedidos;
+		} catch (error) {
+			console.error("Error al cargar pedidos de cocina:", error);
+			set({ error: error.message || "No se pudieron cargar los pedidos." });
+			return [];
+		} finally {
+			set({
+				cargando: false,
+				actualizando: false
+			});
+		}
+	},
+	seleccionarPedido: (pedido) => {
+		set({ pedidoSeleccionado: pedido });
+	},
+	cerrarDetalle: () => {
+		set({ pedidoSeleccionado: null });
+	},
+	avanzarPedido: async (pedido, nuevoEstado) => {
+		try {
+			await servicioCocina.cambiarEstado(pedido.id, nuevoEstado);
+			await get().cargarPedidos(true);
+			return { correcto: true };
+		} catch (error) {
+			console.error("Error al cambiar estado del pedido:", error);
+			set({ error: error.message || "No se pudo actualizar el pedido." });
+			return {
+				correcto: false,
+				error: error.message
+			};
+		}
+	},
+	limpiarError: () => set({ error: null })
+}));
+// src/modulos/cocina/hooks/useAlarmasCocina.js
+function useAlarmasCocina(pedidos, temporizadores = {}) {
+	const audioRef = (0, import_react.useRef)(null);
+	const [ahora, setAhora] = (0, import_react.useState)(() => Date.now());
+	const [sonidoActivo, setSonidoActivo] = (0, import_react.useState)(false);
+	const reproducirTono = (audio) => {
+		const inicio = audio.currentTime;
+		[
+			880,
+			660,
+			880
+		].forEach((frecuencia, indice) => {
+			const oscilador = audio.createOscillator();
+			const volumen = audio.createGain();
+			const momento = inicio + indice * .3;
+			oscilador.type = "sine";
+			oscilador.frequency.value = frecuencia;
+			volumen.gain.setValueAtTime(1e-4, momento);
+			volumen.gain.exponentialRampToValueAtTime(.15, momento + .03);
+			volumen.gain.exponentialRampToValueAtTime(1e-4, momento + .22);
+			oscilador.connect(volumen);
+			volumen.connect(audio.destination);
+			oscilador.start(momento);
+			oscilador.stop(momento + .25);
+		});
+	};
+	const activarSonido = async () => {
+		const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+		if (!AudioContextClass) throw new Error("Este equipo no admite sonido de alarmas.");
+		if (!audioRef.current) audioRef.current = new AudioContextClass();
+		await audioRef.current.resume();
+		reproducirTono(audioRef.current);
+		setSonidoActivo(true);
+	};
+	(0, import_react.useEffect)(() => {
+		const intervalo = setInterval(() => setAhora(Date.now()), 1e3);
+		return () => clearInterval(intervalo);
+	}, []);
+	const pedidosRetrasados = pedidos.filter((pedido) => {
+		if (!["Preparando", "En horno"].includes(pedido.estado)) return false;
+		const temporizador = temporizadores[pedido.id];
+		const fechaInicio = pedido.estado === "En horno" ? temporizador?.iniciadoEn || pedido.fecha_entrada_horno : pedido.fecha_inicio_preparacion;
+		if (!fechaInicio) return false;
+		const inicio = new Date(fechaInicio).getTime();
+		const estimado = Number(pedido.estado === "En horno" ? temporizador?.minutos || pedido.tiempo_estimado_minutos : pedido.tiempo_estimado_minutos) || 20;
+		return (ahora - inicio) / 6e4 > estimado;
+	});
+	const cantidadRetrasados = pedidosRetrasados.length;
+	const pedidosParaAvisar = (0, import_react.useMemo)(() => pedidos.filter((pedido) => {
+		if (!["Preparando", "En horno"].includes(pedido.estado)) return false;
+		const temporizador = temporizadores[pedido.id];
+		const fechaInicio = pedido.estado === "En horno" ? temporizador?.iniciadoEn || pedido.fecha_entrada_horno : pedido.fecha_inicio_preparacion;
+		const inicio = fechaInicio ? new Date(fechaInicio).getTime() : NaN;
+		const estimado = Number(pedido.estado === "En horno" ? temporizador?.minutos || pedido.tiempo_estimado_minutos : pedido.tiempo_estimado_minutos);
+		return Number.isFinite(inicio) && Number.isFinite(estimado) && estimado > 0 && ahora - inicio >= estimado * 6e4;
+	}), [
+		pedidos,
+		ahora,
+		temporizadores
+	]);
+	const identificadorAvisos = pedidosParaAvisar.map((pedido) => {
+		const etapa = pedido.estado === "En horno" ? "horno" : "preparacion";
+		return `${pedido.id}-${etapa}`;
+	}).sort().join(",");
+	(0, import_react.useEffect)(() => {
+		if (!sonidoActivo || pedidosParaAvisar.length === 0) return;
+		try {
+			const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+			if (!AudioContextClass) return;
+			const audio = audioRef.current || new AudioContextClass();
+			audioRef.current = audio;
+			reproducirTono(audio);
+			audio.resume().catch(() => {});
+			const intervalo = setInterval(() => {
+				reproducirTono(audio);
+			}, 3e3);
+			return () => clearInterval(intervalo);
+		} catch (error) {
+			console.warn("No se pudo reproducir la alarma:", error);
+		}
+	}, [
+		identificadorAvisos,
+		pedidosParaAvisar.length,
+		sonidoActivo
+	]);
+	(0, import_react.useEffect)(() => {
+		return () => {
+			audioRef.current?.close().catch(() => {});
+			audioRef.current = null;
+		};
+	}, []);
+	return {
+		pedidosRetrasados,
+		cantidadRetrasados,
+		sonidoActivo,
+		activarSonido
+	};
+}
+// src/modulos/cocina/componentes/Temporizador.jsx
+function calcularTiempo(fechaInicio, ahora) {
+	if (!fechaInicio) return 0;
+	const inicio = new Date(fechaInicio).getTime();
+	if (Number.isNaN(inicio)) return 0;
+	return Math.max(0, Math.floor((ahora - inicio) / 1e3));
+}
+function Temporizador({ fechaInicio, minutosEstimados = 0 }) {
+	const [ahora, setAhora] = (0, import_react.useState)(() => Date.now());
+	(0, import_react.useEffect)(() => {
+		const intervalo = setInterval(() => {
+			setAhora(Date.now());
+		}, 1e3);
+		return () => clearInterval(intervalo);
+	}, []);
+	const segundos = calcularTiempo(fechaInicio, ahora);
+	const estimadoSegundos = Math.max(0, Number(minutosEstimados || 0) * 60);
+	const progreso = estimadoSegundos > 0 ? Math.min(100, segundos / estimadoSegundos * 100) : 0;
+	const tiempoCumplido = estimadoSegundos > 0 && segundos >= estimadoSegundos;
+	const horas = Math.floor(segundos / 3600);
+	const minutos = Math.floor(segundos % 3600 / 60);
+	const restantes = segundos % 60;
+	const formato = horas > 0 ? `${String(horas).padStart(2, "0")}:${String(minutos).padStart(2, "0")}:${String(restantes).padStart(2, "0")}` : `${String(minutos).padStart(2, "0")}:${String(restantes).padStart(2, "0")}`;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "min-w-40",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "flex items-center justify-between gap-2",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: `font-mono font-bold tabular-nums ${tiempoCumplido ? "text-red-600" : ""}`,
+					children: formato
+				}), estimadoSegundos > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+					className: "text-[11px] font-medium text-slate-400",
+					children: [
+						"/ ",
+						minutosEstimados,
+						" min"
+					]
+				})]
+			}),
+			estimadoSegundos > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "mt-1.5 h-2 overflow-hidden rounded-full bg-slate-200",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: `h-full rounded-full transition-[width] ${tiempoCumplido ? "bg-red-500" : "bg-violet-500"}`,
+					style: { width: `${progreso}%` }
+				})
+			}),
+			tiempoCumplido && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "mt-1 text-[11px] font-semibold text-red-600",
+				children: "Tiempo cumplido"
+			})
+		]
+	});
+}
+// src/modulos/cocina/componentes/TarjetaPedido.jsx
+var ACCIONES = {
+	Nuevo: {
+		siguiente: "Preparando",
+		texto: "Iniciar preparación"
+	},
+	Preparando: {
+		siguiente: "En horno",
+		texto: "Enviar al horno"
+	},
+	"En horno": {
+		siguiente: "Listo",
+		texto: "Marcar como listo"
+	}
+};
+function obtenerHora(fecha) {
+	if (!fecha) return "--:--";
+	return new Date(fecha).toLocaleTimeString("es-MX", {
+		hour: "2-digit",
+		minute: "2-digit"
+	});
+}
+function TarjetaPedido({ pedido, retrasado, onSeleccionar, onAvanzar, procesando, temporizador }) {
+	const accion = ACCIONES[pedido.estado];
+	const detalles = pedido.detalles || pedido.productos || pedido.pedido_detalles || [];
+	const estaEnHorno = pedido.estado === "En horno";
+	const fechaTemporizador = estaEnHorno ? temporizador?.iniciadoEn || pedido.fecha_entrada_horno : pedido.fecha_inicio_preparacion;
+	const minutosEstimados = estaEnHorno ? temporizador?.minutos || pedido.tiempo_estimado_minutos : pedido.tiempo_estimado_minutos;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+		className: `rounded-2xl border bg-white p-4 shadow-sm ${retrasado ? "border-red-300 ring-1 ring-red-100" : "border-slate-200"}`,
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "flex items-start justify-between gap-3",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+					className: "text-lg font-extrabold text-slate-900",
+					children: pedido.folio || `Pedido #${pedido.id}`
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-xs text-slate-500",
+					children: obtenerHora(pedido.fecha_creacion)
+				})] }), retrasado && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "rounded-full bg-red-100 px-3 py-1 text-xs font-bold text-red-700",
+					children: "¡Retrasado!"
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mt-3 flex flex-wrap gap-2",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "rounded-lg bg-violet-100 px-2 py-1 text-xs font-semibold text-violet-800",
+					children: pedido.tipo === "domicilio" ? "Domicilio" : "Recoger"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "rounded-lg bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700",
+					children: pedido.canal || "Mostrador"
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mt-4 space-y-2",
+				children: [detalles.slice(0, 4).map((detalle, indice) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex justify-between gap-3 text-sm",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "font-semibold text-slate-800",
+						children: [
+							detalle.cantidad,
+							" × ",
+							detalle.nombre_producto || detalle.producto
+						]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "text-slate-500",
+						children: detalle.nombre_presentacion || detalle.presentacion || ""
+					})]
+				}, detalle.id || indice)), detalles.length > 4 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+					className: "text-xs text-slate-500",
+					children: [
+						"+",
+						detalles.length - 4,
+						" productos más"
+					]
+				})]
+			}),
+			pedido.notas && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mt-3 rounded-xl bg-amber-50 p-3 text-sm text-amber-900",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Notas:" }),
+					" ",
+					pedido.notas
+				]
+			}),
+			["Preparando", "En horno"].includes(pedido.estado) && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mt-4 flex items-center justify-between rounded-xl bg-slate-50 p-3",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "text-xs font-semibold text-slate-500",
+					children: estaEnHorno ? "Tiempo en horno" : "Tiempo de preparación"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: retrasado ? "text-red-600" : "text-violet-700",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Temporizador, {
+						fechaInicio: fechaTemporizador,
+						minutosEstimados
+					})
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mt-4 flex gap-2",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					type: "button",
+					onClick: () => onSeleccionar(pedido),
+					className: "flex-1 rounded-xl border border-slate-200 px-3 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50",
+					children: "Ver detalles"
+				}), accion && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					type: "button",
+					disabled: procesando,
+					onClick: () => onAvanzar(pedido, accion.siguiente),
+					className: "flex-1 rounded-xl bg-violet-600 px-3 py-3 text-sm font-bold text-white transition hover:bg-violet-700 disabled:cursor-not-allowed disabled:opacity-50",
+					children: procesando ? "Actualizando..." : accion.texto
+				})]
+			})
+		]
+	});
+}
+// src/modulos/cocina/componentes/ColumnaPedidos.jsx
+function ColumnaPedidos({ titulo, pedidos, retrasados, onSeleccionar, onAvanzar, procesandoId, color, temporizadores }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+		className: "flex min-w-[290px] flex-1 flex-col",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
+			className: `mb-3 flex items-center justify-between rounded-xl px-4 py-3 ${color}`,
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+				className: "font-bold",
+				children: titulo
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+				className: "rounded-full bg-white/80 px-3 py-1 text-sm font-extrabold",
+				children: pedidos.length
+			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "flex flex-1 flex-col gap-3",
+			children: pedidos.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "rounded-2xl border-2 border-dashed border-slate-200 p-6 text-center text-sm text-slate-400",
+				children: "No hay pedidos en esta sección"
+			}) : pedidos.map((pedido) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TarjetaPedido, {
+				pedido,
+				retrasado: retrasados.some((item) => item.id === pedido.id),
+				onSeleccionar,
+				onAvanzar,
+				procesando: procesandoId === pedido.id,
+				temporizador: temporizadores[pedido.id]
+			}, pedido.id))
+		})]
+	});
+}
+// src/modulos/cocina/componentes/DetalleProductos.jsx
+function DetalleProductos({ pedido, onCerrar }) {
+	if (!pedido) return null;
+	const detalles = pedido.detalles || pedido.productos || pedido.pedido_detalles || [];
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 p-4",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white shadow-2xl",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
+				className: "sticky top-0 flex items-center justify-between border-b border-slate-200 bg-white p-5",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+					className: "text-xl font-extrabold text-slate-900",
+					children: pedido.folio || `Pedido #${pedido.id}`
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-sm text-slate-500",
+					children: "Detalle completo del pedido"
+				})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					type: "button",
+					onClick: onCerrar,
+					className: "rounded-xl px-3 py-2 text-sm font-bold text-slate-600 hover:bg-slate-100",
+					children: "Cerrar"
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "space-y-5 p-5",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "grid grid-cols-2 gap-3",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "rounded-xl bg-slate-50 p-3",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-xs text-slate-500",
+								children: "Estado"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "font-bold",
+								children: pedido.estado
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "rounded-xl bg-slate-50 p-3",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-xs text-slate-500",
+								children: "Tipo"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "font-bold",
+								children: pedido.tipo
+							})]
+						})]
+					}),
+					pedido.cliente_nombre && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+						className: "mb-1 font-bold",
+						children: "Cliente"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "text-sm text-slate-600",
+						children: pedido.cliente_nombre
+					})] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+						className: "mb-3 font-bold",
+						children: "Productos"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "space-y-3",
+						children: [detalles.map((detalle, indice) => {
+							const adicionales = detalle.adicionales || detalle.pedido_detalle_adicionales || [];
+							return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "rounded-xl border border-slate-200 p-4",
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: "flex justify-between gap-3",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+											className: "font-bold text-slate-900",
+											children: [
+												detalle.cantidad,
+												" ×",
+												" ",
+												detalle.nombre_producto || detalle.producto
+											]
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+											className: "text-sm text-slate-500",
+											children: detalle.nombre_presentacion || detalle.presentacion || ""
+										})] })
+									}),
+									adicionales.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "mt-3",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+											className: "text-xs font-bold uppercase text-slate-500",
+											children: "Adicionales"
+										}), adicionales.map((adicional, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+											className: "text-sm text-slate-700",
+											children: [
+												"• ",
+												adicional.cantidad || 1,
+												" ×",
+												" ",
+												adicional.nombre_adicional || adicional.nombre
+											]
+										}, adicional.id || i))]
+									}),
+									detalle.notas && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+										className: "mt-3 rounded-lg bg-amber-50 p-3 text-sm text-amber-900",
+										children: [
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Indicaciones:" }),
+											" ",
+											detalle.notas
+										]
+									})
+								]
+							}, detalle.id || indice);
+						}), detalles.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-sm text-slate-500",
+							children: "No se encontraron detalles de productos."
+						})]
+					})] }),
+					pedido.notas && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "rounded-xl bg-amber-50 p-4 text-sm text-amber-900",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Notas generales:" }),
+							" ",
+							pedido.notas
+						]
+					}),
+					pedido.tipo === "domicilio" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+							className: "mb-1 font-bold",
+							children: "Entrega a domicilio"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-sm text-slate-700",
+							children: pedido.direccion_entrega || "Sin dirección registrada"
+						}),
+						pedido.referencias_entrega && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+							className: "mt-1 text-sm text-slate-500",
+							children: ["Referencias: ", pedido.referencias_entrega]
+						})
+					] })
+				]
+			})]
+		})
+	});
+}
+// src/modulos/cocina/componentes/AlertaRetraso.jsx
+function AlertaRetraso({ cantidad }) {
+	if (!cantidad) return null;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "flex items-center gap-3 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-red-800",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+			className: "text-2xl",
+			children: "⚠️"
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+			className: "font-bold",
+			children: [
+				cantidad,
+				" ",
+				cantidad === 1 ? "pedido retrasado" : "pedidos retrasados"
+			]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+			className: "text-sm",
+			children: "Revisa los pedidos marcados en rojo."
+		})] })]
+	});
+}
+// src/modulos/cocina/paginas/Pagina.jsx
+var COLUMNAS = [
+	{
+		estado: "Nuevo",
+		titulo: "Pedidos nuevos",
+		color: "bg-blue-100 text-blue-900"
+	},
+	{
+		estado: "Preparando",
+		titulo: "En preparación",
+		color: "bg-violet-100 text-violet-900"
+	},
+	{
+		estado: "En horno",
+		titulo: "En horno",
+		color: "bg-orange-100 text-orange-900"
+	},
+	{
+		estado: "Listo",
+		titulo: "Pedidos listos",
+		color: "bg-emerald-100 text-emerald-900"
+	}
+];
+function PaginaCocina() {
+	const pedidos = useEstadoCocina((estado) => estado.pedidos);
+	const cargando = useEstadoCocina((estado) => estado.cargando);
+	const error = useEstadoCocina((estado) => estado.error);
+	const ultimaActualizacion = useEstadoCocina((estado) => estado.ultimaActualizacion);
+	const cargarPedidos = useEstadoCocina((estado) => estado.cargarPedidos);
+	const avanzarPedido = useEstadoCocina((estado) => estado.avanzarPedido);
+	const limpiarError = useEstadoCocina((estado) => estado.limpiarError);
+	const [pedidoSeleccionado, setPedidoSeleccionado] = (0, import_react.useState)(null);
+	const [procesandoId, setProcesandoId] = (0, import_react.useState)(null);
+	const [pantallaCompleta, setPantallaCompleta] = (0, import_react.useState)(false);
+	const [temporizadores, setTemporizadores] = (0, import_react.useState)(() => {
+		try {
+			return JSON.parse(localStorage.getItem("cocina-temporizadores") || "{}");
+		} catch {
+			return {};
+		}
+	});
+	const [temporizadorPendiente, setTemporizadorPendiente] = (0, import_react.useState)(null);
+	const { pedidosRetrasados, cantidadRetrasados, sonidoActivo, activarSonido } = useAlarmasCocina(pedidos, temporizadores);
+	(0, import_react.useEffect)(() => {
+		localStorage.setItem("cocina-temporizadores", JSON.stringify(temporizadores));
+	}, [temporizadores]);
+	(0, import_react.useEffect)(() => {
+		cargarPedidos();
+		const intervalo = setInterval(() => {
+			cargarPedidos(true);
+		}, 5e3);
+		return () => clearInterval(intervalo);
+	}, [cargarPedidos]);
+	const pedidosPorEstado = (0, import_react.useMemo)(() => {
+		return COLUMNAS.map((columna) => ({
+			...columna,
+			pedidos: pedidos.filter((pedido) => pedido.estado === columna.estado)
+		}));
+	}, [pedidos]);
+	const abrirDetalle = (0, import_react.useCallback)(async (pedido) => {
+		try {
+			const detalle = await servicioCocina.obtenerPedido(pedido.id);
+			setPedidoSeleccionado(detalle || pedido);
+		} catch (error) {
+			console.error("No se pudo obtener el detalle:", error);
+			setPedidoSeleccionado(pedido);
+		}
+	}, []);
+	const cambiarEstado = async (pedido, nuevoEstado) => {
+		if (nuevoEstado === "En horno") {
+			setTemporizadorPendiente({
+				pedido,
+				minutos: String(pedido.tiempo_estimado_minutos || 15)
+			});
+			return;
+		}
+		if (!window.confirm(`¿Deseas cambiar el pedido ${pedido.folio || pedido.id} a "${nuevoEstado}"?`)) return;
+		setProcesandoId(pedido.id);
+		limpiarError();
+		const resultado = await avanzarPedido(pedido, nuevoEstado);
+		setProcesandoId(null);
+		if (!resultado.correcto) {
+			window.alert(resultado.error || "No se pudo actualizar el pedido.");
+			return;
+		}
+		if (pedidoSeleccionado?.id === pedido.id) setPedidoSeleccionado(null);
+	};
+	const confirmarTemporizadorHorno = async () => {
+		const minutos = Number(temporizadorPendiente?.minutos);
+		if (!Number.isInteger(minutos) || minutos < 1 || minutos > 600) return;
+		const { pedido } = temporizadorPendiente;
+		setProcesandoId(pedido.id);
+		limpiarError();
+		const resultado = await avanzarPedido(pedido, "En horno");
+		setProcesandoId(null);
+		if (!resultado.correcto) return;
+		setTemporizadores((actuales) => ({
+			...actuales,
+			[pedido.id]: {
+				minutos,
+				iniciadoEn: (/* @__PURE__ */ new Date()).toISOString()
+			}
+		}));
+		setTemporizadorPendiente(null);
+	};
+	const alternarPantallaCompleta = async () => {
+		try {
+			if (!document.fullscreenElement) {
+				await document.documentElement.requestFullscreen();
+				setPantallaCompleta(true);
+			} else {
+				await document.exitFullscreen();
+				setPantallaCompleta(false);
+			}
+		} catch (error) {
+			console.error("No se pudo cambiar a pantalla completa:", error);
+		}
+	};
+	(0, import_react.useEffect)(() => {
+		const actualizarPantalla = () => {
+			setPantallaCompleta(Boolean(document.fullscreenElement));
+		};
+		document.addEventListener("fullscreenchange", actualizarPantalla);
+		return () => {
+			document.removeEventListener("fullscreenchange", actualizarPantalla);
+		};
+	}, []);
+	const totalActivos = pedidos.length;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
+		className: "min-h-screen space-y-5 bg-slate-50 p-4 md:p-6",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
+				className: "flex flex-wrap items-center justify-between gap-4",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex items-center gap-3",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-600 text-2xl text-white",
+						children: "🍕"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+						className: "text-2xl font-extrabold text-slate-900",
+						children: "Cocina"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "text-sm text-slate-500",
+						children: "Control de preparación de pedidos"
+					})] })]
+				}) }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex flex-wrap items-center gap-2",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "rounded-xl border border-slate-200 bg-white px-4 py-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-xs text-slate-500",
+								children: "Pedidos activos"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-xl font-extrabold text-slate-900",
+								children: totalActivos
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "rounded-xl border border-slate-200 bg-white px-4 py-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-xs text-slate-500",
+								children: "Retrasados"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-xl font-extrabold text-red-600",
+								children: cantidadRetrasados
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							type: "button",
+							onClick: () => cargarPedidos(),
+							disabled: cargando,
+							className: "rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-100 disabled:opacity-50",
+							children: cargando ? "Cargando..." : "↻ Actualizar"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+							type: "button",
+							onClick: () => activarSonido().catch(() => {}),
+							className: `inline-flex items-center gap-2 rounded-xl border px-4 py-3 text-sm font-bold ${sonidoActivo ? "border-emerald-200 bg-emerald-50 text-emerald-700" : "border-red-200 bg-white text-red-700 hover:bg-red-50"}`,
+							children: [sonidoActivo ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Volume2, { size: 17 }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(VolumeX, { size: 17 }), sonidoActivo ? "Sonido activo" : "Activar sonido"]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							type: "button",
+							onClick: alternarPantallaCompleta,
+							className: "rounded-xl bg-violet-600 px-4 py-3 text-sm font-bold text-white hover:bg-violet-700",
+							children: pantallaCompleta ? "Salir de pantalla completa" : "Pantalla completa"
+						})
+					]
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AlertaRetraso, { cantidad: cantidadRetrasados }),
+			error && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "flex items-center justify-between rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: error }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					type: "button",
+					onClick: limpiarError,
+					className: "font-bold",
+					children: "Cerrar"
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "flex items-center justify-between text-xs text-slate-500",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Actualización automática cada 5 segundos" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [
+					"Última actualización:",
+					" ",
+					ultimaActualizacion ? ultimaActualizacion.toLocaleTimeString("es-MX") : "Pendiente"
+				] })]
+			}),
+			cargando && pedidos.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "rounded-2xl border border-slate-200 bg-white p-12 text-center text-slate-500",
+				children: "Cargando pedidos de cocina..."
+			}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "grid grid-cols-1 items-start gap-4 xl:grid-cols-4",
+				children: pedidosPorEstado.map((columna) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ColumnaPedidos, {
+					titulo: columna.titulo,
+					pedidos: columna.pedidos,
+					retrasados: pedidosRetrasados,
+					color: columna.color,
+					onSeleccionar: abrirDetalle,
+					onAvanzar: cambiarEstado,
+					procesandoId,
+					temporizadores
+				}, columna.estado))
+			}),
+			pedidoSeleccionado && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DetalleProductos, {
+				pedido: pedidoSeleccionado,
+				onCerrar: () => setPedidoSeleccionado(null)
+			}),
+			temporizadorPendiente && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							className: "text-lg font-bold text-slate-800",
+							children: "Temporizador del horno"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+							className: "mt-1 text-sm text-slate-500",
+							children: [
+								"Define cuánto tiempo debe hornearse ",
+								temporizadorPendiente.pedido.folio,
+								"."
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+							className: "mt-5 block",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "text-sm font-medium text-slate-700",
+								children: "Minutos"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								type: "number",
+								min: "1",
+								max: "600",
+								value: temporizadorPendiente.minutos,
+								onChange: (evento) => setTemporizadorPendiente((actual) => ({
+									...actual,
+									minutos: evento.target.value
+								})),
+								className: "mt-2 w-full rounded-xl border border-slate-200 px-3 py-3 outline-none focus:border-violet-500 focus:ring-4 focus:ring-violet-100",
+								autoFocus: true
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "mt-5 flex gap-3",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								type: "button",
+								onClick: () => setTemporizadorPendiente(null),
+								className: "flex-1 rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-600 hover:bg-slate-50",
+								children: "Cancelar"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								type: "button",
+								onClick: confirmarTemporizadorHorno,
+								disabled: procesandoId === temporizadorPendiente.pedido.id,
+								className: "flex-1 rounded-xl bg-violet-600 px-4 py-3 text-sm font-semibold text-white hover:bg-violet-700 disabled:opacity-50",
+								children: "Iniciar horno"
+							})]
+						})
+					]
+				})
+			})
+		]
+	});
+}
 // src/rutas/RutasAplicacion.jsx
 function RutasAplicacion() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HashRouter, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Routes, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
@@ -25433,7 +26247,7 @@ function RutasAplicacion() {
 			children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
 					path: "/tablero",
-					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$6, {})
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$5, {})
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
 					path: "/punto-venta",
@@ -25445,7 +26259,7 @@ function RutasAplicacion() {
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
 					path: "/cocina",
-					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$5, {})
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaCocina, {})
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
 					path: "/clientes",
