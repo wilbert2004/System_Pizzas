@@ -28,6 +28,7 @@ export default function PaginaPublicidad() {
   const eliminarPublicidad = useEstadoTV((estado) => estado.eliminarPublicidad);
 
   const [nombre, setNombre] = useState("");
+  const [modoDuracion, setModoDuracion] = useState("automatico");
   const [duracion, setDuracion] = useState(10);
   const [archivo, setArchivo] = useState(null);
   const [guardando, setGuardando] = useState(false);
@@ -159,11 +160,13 @@ export default function PaginaPublicidad() {
         ruta: importado.ruta,
         tipo: archivo.tipo,
         duracion_segundos: Number(duracion),
+        duracion_modo: modoDuracion,
         orden: publicidad.length + 1,
         activo: 1,
       });
 
       setNombre("");
+      setModoDuracion("automatico");
       setDuracion(10);
       setArchivo(null);
 
@@ -399,18 +402,12 @@ export default function PaginaPublicidad() {
         </div>
 
         <div>
-          <label className="mb-2 block text-sm font-semibold text-slate-700">
-            Duración de imagen (segundos)
-          </label>
-
-          <input
-            type="number"
-            min="3"
-            max="300"
-            value={duracion}
-            onChange={(evento) => setDuracion(evento.target.value)}
-            className="w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-violet-500"
-          />
+            <label className="mb-2 block text-sm font-semibold text-slate-700">Duración de reproducción</label>
+            <select value={modoDuracion} onChange={(evento) => setModoDuracion(evento.target.value)} className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 outline-none focus:border-violet-500">
+              <option value="automatico">Automática · video completo, imágenes 10 segundos</option>
+              <option value="manual">Manual · elegir duración</option>
+            </select>
+            {modoDuracion === "manual" && <input aria-label="Duración manual en segundos" type="number" min="3" max="300" value={duracion} onChange={(evento) => setDuracion(evento.target.value)} className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-violet-500" />}
         </div>
 
         <div className="md:col-span-2">
@@ -465,7 +462,7 @@ export default function PaginaPublicidad() {
                 <p className="font-bold text-slate-900">{elemento.nombre}</p>
                 <p className="mt-1 flex items-center gap-1 text-xs text-slate-500">
                   {elemento.tipo === "video" ? <Video size={13} /> : <Image size={13} />}
-                  {elemento.tipo} · {elemento.duracion_segundos || 10}s
+                  {elemento.tipo} · {elemento.duracion_modo === "automatico" ? (elemento.tipo === "video" ? "video completo" : "10 s") : `${elemento.duracion_segundos || 10}s · manual`}
                 </p>
               </div>
               <span className={`rounded-full px-2 py-1 text-[11px] font-semibold ${

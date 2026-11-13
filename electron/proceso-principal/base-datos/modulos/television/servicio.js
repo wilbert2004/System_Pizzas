@@ -37,6 +37,7 @@ export function crearServicioTelevision(db, obtenerSesion = () => null) {
           ruta_archivo AS ruta,
           tipo,
           duracion_segundos,
+          duracion_modo,
           orden,
           activo,
           fecha_creacion,
@@ -58,6 +59,7 @@ export function crearServicioTelevision(db, obtenerSesion = () => null) {
     const ruta = String(datos?.ruta || datos?.ruta_archivo || "").trim();
     const tipo = String(datos?.tipo || "");
     const duracion = Number(datos?.duracion_segundos || 10);
+    const duracionModo = datos?.duracion_modo === "manual" ? "manual" : "automatico";
     const orden = Number(datos?.orden || 0);
 
     if (!nombre || !ruta || !["imagen", "video"].includes(tipo)) {
@@ -71,11 +73,11 @@ export function crearServicioTelevision(db, obtenerSesion = () => null) {
     return db
       .prepare(
         `
-        INSERT INTO multimedia (nombre, ruta_archivo, tipo, duracion_segundos, orden)
-        VALUES (?, ?, ?, ?, ?)
+        INSERT INTO multimedia (nombre, ruta_archivo, tipo, duracion_segundos, duracion_modo, orden)
+        VALUES (?, ?, ?, ?, ?, ?)
       `,
       )
-      .run(nombre, ruta, tipo, duracion, Number.isInteger(orden) ? orden : 0);
+      .run(nombre, ruta, tipo, duracion, duracionModo, Number.isInteger(orden) ? orden : 0);
   }
 
   function actualizarMultimedia(id, datos) {
