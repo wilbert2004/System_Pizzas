@@ -404,6 +404,8 @@ export default function PaginaClientes() {
   const [modal, setModal] = useState(null);
   const [clienteEditando, setClienteEditando] = useState(null);
   const [guardando, setGuardando] = useState(false);
+  const [clienteConfirmacion, setClienteConfirmacion] = useState(null);
+  const [errorLocal, setErrorLocal] = useState("");
 
   useEffect(() => {
     cargarClientes().catch(() => {});
@@ -447,19 +449,11 @@ export default function PaginaClientes() {
 
   const cambiarEstado = async (cliente) => {
     const nuevoEstado = !cliente.activo;
-
-    const confirmado = window.confirm(
-      nuevoEstado
-        ? `¿Deseas reactivar a ${cliente.nombre}?`
-        : `¿Deseas desactivar a ${cliente.nombre}?`,
-    );
-
-    if (!confirmado) return;
-
     try {
       await cambiarEstadoCliente(cliente.id, nuevoEstado);
+      setClienteConfirmacion(null);
     } catch (err) {
-      window.alert(err.message || "No se pudo cambiar el estado.");
+      setErrorLocal(err.message || "No se pudo cambiar el estado.");
     }
   };
 
@@ -496,18 +490,16 @@ export default function PaginaClientes() {
           </p>
         </div>
 
-        <div className="rounded-xl bg-violet-50 px-4 py-3 text-sm text-violet-700">
-          {clientes.length} clientes {incluirInactivos ? "en total" : "activos"}
-        </div>
+        <div className="flex items-center gap-3"><span className="rounded-xl bg-violet-50 px-4 py-3 text-sm text-violet-700">{clientes.length} clientes {incluirInactivos ? "en total" : "activos"}</span><button type="button" onClick={abrirNuevo} className="inline-flex items-center gap-2 rounded-xl bg-violet-600 px-4 py-3 text-sm font-semibold text-white hover:bg-violet-700"><Plus size={17} /> Nuevo cliente</button></div>
       </header>
 
-      {error && (
+      {(errorLocal || error) && (
         <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-          {error}
+          {errorLocal || error}
         </div>
       )}
 
-      <div className="grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
+      <div className="grid gap-6">
         <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 p-5">
             <h2 className="text-lg font-semibold text-slate-800">
@@ -585,7 +577,7 @@ export default function PaginaClientes() {
                         <button
                           onClick={() =>
                             seleccionarCliente(cliente.id).catch((err) =>
-                              window.alert(err.message),
+                              setErrorLocal(err.message),
                             )
                           }
                           className="font-semibold text-slate-800 hover:text-violet-700"
@@ -626,7 +618,7 @@ export default function PaginaClientes() {
                           <button
                             onClick={() =>
                               seleccionarCliente(cliente.id).catch((err) =>
-                                window.alert(err.message),
+                                setErrorLocal(err.message),
                               )
                             }
                             title="Ver ficha e historial"
@@ -647,7 +639,7 @@ export default function PaginaClientes() {
 
                           {esAdministrador && (
                             <button
-                              onClick={() => cambiarEstado(cliente)}
+                              onClick={() => setClienteConfirmacion(cliente)}
                               title={
                                 cliente.activo ? "Desactivar" : "Reactivar"
                               }
@@ -670,21 +662,6 @@ export default function PaginaClientes() {
           )}
         </section>
 
-        <button
-          type="button"
-          onClick={abrirNuevo}
-          className="flex min-h-64 flex-col items-center justify-center rounded-2xl border-2 border-dashed border-violet-200 bg-violet-50/60 p-6 text-center transition hover:border-violet-400 hover:bg-violet-50"
-        >
-          <span className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-600 text-white shadow-lg shadow-violet-200">
-            <Plus size={28} />
-          </span>
-          <span className="text-lg font-bold text-slate-800">
-            Registrar cliente
-          </span>
-          <span className="mt-1 text-sm text-slate-500">
-            Agrega sus datos de contacto y domicilio
-          </span>
-        </button>
       </div>
 
       {modal && (
@@ -700,6 +677,7 @@ export default function PaginaClientes() {
           />
         </Modal>
       )}
+      {clienteConfirmacion && <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4"><section role="alertdialog" aria-modal="true" className="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl"><h2 className="text-lg font-bold text-slate-900">{clienteConfirmacion.activo ? "Desactivar cliente" : "Reactivar cliente"}</h2><p className="mt-2 text-sm text-slate-600">¿Deseas {clienteConfirmacion.activo ? "desactivar" : "reactivar"} a {clienteConfirmacion.nombre}?</p><div className="mt-6 flex justify-end gap-3"><button type="button" onClick={() => setClienteConfirmacion(null)} className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700">Cancelar</button><button type="button" onClick={() => cambiarEstado(clienteConfirmacion)} className="rounded-lg bg-violet-700 px-4 py-2 text-sm font-semibold text-white">Confirmar</button></div></section></div>}
     </div>
   );
 }

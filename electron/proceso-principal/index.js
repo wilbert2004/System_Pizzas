@@ -1,8 +1,10 @@
 /* global __dirname */
-import { app, BrowserWindow, net, protocol } from "electron";
+import { app, BrowserWindow, net, protocol, ipcMain } from "electron";
 import { join } from "node:path";
 import process from "node:process";
 import { pathToFileURL } from "node:url";
+
+app.commandLine.appendSwitch("autoplay-policy", "no-user-gesture-required");
 
 import { inicializarBaseDatos } from "./base-datos/inicializacion.js";
 
@@ -11,6 +13,7 @@ import { cerrarConexion } from "./base-datos/conexion.js";
 import { registrarCanalesIPC } from "./ipc/index.js";
 
 import { cerrarVentanaTV } from "./ventanas/ventana-tv.js";
+import { cerrarVentanaProduccion } from "./ventanas/ventana-produccion.js";
 
 protocol.registerSchemesAsPrivileged([
   {
@@ -26,13 +29,18 @@ protocol.registerSchemesAsPrivileged([
 ]);
 
 let ventanaPrincipal = null;
+let servicioRespaldos = null;
+let esperaRespaldoAntesDeSalir = false;
+let cierreListo = false;
+let permitirCierreVentana = false;
+let solicitudCierreEnviada = false;
 
 function crearVentanaPrincipal() {
   ventanaPrincipal = new BrowserWindow({
     width: 1366,
     height: 850,
-    minWidth: 1100,
-    minHeight: 700,
+    minWidth: 760,
+    minHeight: 560,
     show: false,
 
     webPreferences: {
@@ -47,6 +55,18 @@ function crearVentanaPrincipal() {
     ventanaPrincipal.show();
   });
 
+  ventanaPrincipal.on("close", (evento) => {
+    if (permitirCierreVentana) {
+      permitirCierreVentana = false;
+      return;
+    }
+    evento.preventDefault();
+    if (!solicitudCierreEnviada) {
+      solicitudCierreEnviada = true;
+      ventanaPrincipal.webContents.send("aplicacion:solicitar-cierre");
+    }
+  });
+
   if (process.env.ELECTRON_RENDERER_URL) {
     ventanaPrincipal.loadURL(`${process.env.ELECTRON_RENDERER_URL}/#/`);
   } else {
@@ -57,9 +77,23 @@ function crearVentanaPrincipal() {
 
   ventanaPrincipal.on("closed", () => {
     ventanaPrincipal = null;
+    solicitudCierreEnviada = false;
     cerrarVentanaTV();
+    cerrarVentanaProduccion();
   });
 }
+
+ipcMain.on("aplicacion:finalizar-cierre", (evento) => {
+  const ventana = BrowserWindow.fromWebContents(evento.sender);
+  if (!ventana || ventana !== ventanaPrincipal) return;
+  solicitudCierreEnviada = false;
+  permitirCierreVentana = true;
+  ventana.close();
+});
+
+ipcMain.on("aplicacion:cancelar-cierre", (evento) => {
+  if (BrowserWindow.fromWebContents(evento.sender) === ventanaPrincipal) solicitudCierreEnviada = false;
+});
 
 app.whenReady().then(() => {
   protocol.handle("pizzeria-media", (solicitud) => {
@@ -76,7 +110,7 @@ app.whenReady().then(() => {
 
   inicializarBaseDatos();
 
-  registrarCanalesIPC();
+  servicioRespaldos = registrarCanalesIPC();
 
   crearVentanaPrincipal();
 
@@ -87,9 +121,39 @@ app.whenReady().then(() => {
   });
 });
 
-app.on("before-quit", () => {
+app.on("before-quit", (evento) => {
   cerrarVentanaTV();
-  cerrarConexion();
+  cerrarVentanaProduccion();
+  if (cierreListo) {
+    cerrarConexion();
+    return;
+  }
+  if (esperaRespaldoAntesDeSalir) {
+    evento.preventDefault();
+    return;
+  }
+
+  let respaldar = false;
+  try { respaldar = servicioRespaldos?.preferenciaAlCerrar() ?? false; }
+  catch (error) { console.error("No se pudo leer la preferencia de respaldos:", error); }
+
+  if (!respaldar) {
+    cierreListo = true;
+    permitirCierreVentana = true;
+    cerrarConexion();
+    return;
+  }
+
+  evento.preventDefault();
+  esperaRespaldoAntesDeSalir = true;
+  void servicioRespaldos.crear("automatico")
+    .catch((error) => console.error("No se pudo crear el respaldo automático al cerrar:", error))
+    .finally(() => {
+      cierreListo = true;
+      permitirCierreVentana = true;
+      cerrarConexion();
+      app.quit();
+    });
 });
 
 app.on("window-all-closed", () => {

@@ -39,6 +39,22 @@ export const servicioTelevision = {
     return obtenerAPI().television.eliminarMultimedia(id);
   },
 
+  async obtenerMusica() {
+    return obtenerAPI().television.obtenerMusica();
+  },
+
+  async guardarMusica(archivo) {
+    return obtenerAPI().television.guardarMusica(archivo);
+  },
+
+  async guardarVolumenMusica(volumen) {
+    return obtenerAPI().television.guardarVolumenMusica(volumen);
+  },
+
+  async quitarMusica() {
+    return obtenerAPI().television.quitarMusica();
+  },
+
   async listarPantallas() {
     return obtenerAPI().television.listarPantallas();
   },

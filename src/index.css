@@ -84,3 +84,34 @@ button:disabled {
   background: #ddd6fe;
   color: #4c1d95;
 }
+
+@media print {
+  body,
+  #root {
+    min-height: 0;
+    height: auto;
+    background: white;
+  }
+
+  aside,
+  header,
+  button,
+  nav {
+    display: none !important;
+  }
+
+  main {
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+
+  .ml-64 {
+    margin-left: 0 !important;
+  }
+
+  section,
+  article {
+    break-inside: avoid;
+    box-shadow: none !important;
+  }
+}

@@ -37,6 +37,7 @@ export default function PaginaProductos() {
   const [busqueda, setBusqueda] = useState("");
   const [mensaje, setMensaje] = useState("");
   const [error, setError] = useState("");
+  const [confirmacion, setConfirmacion] = useState(null);
   const [modalProductoAbierto, setModalProductoAbierto] = useState(false);
   const [modalCategoriaAbierto, setModalCategoriaAbierto] = useState(false);
   const [modalAdicionalAbierto, setModalAdicionalAbierto] = useState(false);
@@ -155,8 +156,9 @@ export default function PaginaProductos() {
     setModalCategoriaAbierto(true);
   }
 
-  async function eliminarCategoria(id) {
-    if (!window.confirm("¿Deseas eliminar esta categoría del catálogo?")) {
+  async function eliminarCategoria(id, confirmado = false) {
+    if (!confirmado) {
+      setConfirmacion({ mensaje: "¿Deseas eliminar esta categoría del catálogo?", accion: () => eliminarCategoria(id, true) });
       return;
     }
 
@@ -176,8 +178,9 @@ export default function PaginaProductos() {
     setModalAdicionalAbierto(true);
   }
 
-  async function eliminarAdicional(id) {
-    if (!window.confirm("¿Deseas eliminar este ingrediente adicional?")) {
+  async function eliminarAdicional(id, confirmado = false) {
+    if (!confirmado) {
+      setConfirmacion({ mensaje: "¿Deseas eliminar este ingrediente adicional?", accion: () => eliminarAdicional(id, true) });
       return;
     }
 
@@ -318,14 +321,11 @@ export default function PaginaProductos() {
     lector.readAsDataURL(archivo);
   }
 
-  async function cambiarEstado(id, activo) {
-    const confirmar = window.confirm(
-      activo
-        ? "¿Deseas eliminar este producto del catálogo?"
-        : "¿Deseas activar este elemento?",
-    );
-
-    if (!confirmar) return;
+  async function cambiarEstado(id, activo, confirmado = false) {
+    if (!confirmado) {
+      setConfirmacion({ mensaje: activo ? "¿Deseas eliminar este producto del catálogo?" : "¿Deseas activar este elemento?", accion: () => cambiarEstado(id, activo, true) });
+      return;
+    }
 
     await ejecutar(async () => {
       await servicioProductos.cambiarEstado({ id, activo: !activo });
@@ -378,8 +378,9 @@ export default function PaginaProductos() {
     setModalPresentacionAbierto(true);
   }
 
-  async function eliminarPresentacion(presentacionSeleccionada) {
-    if (!window.confirm("¿Deseas eliminar esta presentación?")) {
+  async function eliminarPresentacion(presentacionSeleccionada, confirmado = false) {
+    if (!confirmado) {
+      setConfirmacion({ mensaje: "¿Deseas eliminar esta presentación?", accion: () => eliminarPresentacion(presentacionSeleccionada, true) });
       return;
     }
 
@@ -467,9 +468,7 @@ export default function PaginaProductos() {
           </p>
         </div>
 
-        <div className="rounded-xl bg-violet-50 px-4 py-3 text-sm text-violet-700">
-          {productos.length} productos activos
-        </div>
+        <div className="flex items-center gap-3"><span className="rounded-xl bg-violet-50 px-4 py-3 text-sm text-violet-700">{productos.length} productos activos</span>{esAdministrador && <button type="button" onClick={() => { limpiarMensajes(); setModalProductoAbierto(true); }} className="inline-flex items-center gap-2 rounded-xl bg-violet-600 px-4 py-3 text-sm font-semibold text-white hover:bg-violet-700"><Plus size={17} /> Nuevo producto</button>}</div>
       </header>
 
       {mensaje && (
@@ -513,7 +512,7 @@ export default function PaginaProductos() {
       )}
 
       {pestana === "productos" && (
-        <div className="grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
+        <div className="grid gap-6">
           <section className="rounded-2xl border border-slate-200 bg-white p-5">
             <div className="mb-4 flex flex-wrap justify-between gap-3">
               <h2 className="text-lg font-semibold">Catálogo actual</h2>
@@ -588,25 +587,6 @@ export default function PaginaProductos() {
 
           {esAdministrador && (
             <>
-              <button
-                type="button"
-                onClick={() => {
-                  limpiarMensajes();
-                  setModalProductoAbierto(true);
-                }}
-                className="flex min-h-64 flex-col items-center justify-center rounded-2xl border-2 border-dashed border-violet-200 bg-violet-50/60 p-6 text-center transition hover:border-violet-400 hover:bg-violet-50"
-              >
-                <span className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-600 text-white shadow-lg shadow-violet-200">
-                  <Plus size={28} />
-                </span>
-                <span className="text-lg font-bold text-slate-800">
-                  {producto.id ? "Editar producto" : "Crear producto"}
-                </span>
-                <span className="mt-1 text-sm text-slate-500">
-                  Agrega nombre, precios e imagen
-                </span>
-              </button>
-
               {modalProductoAbierto && (
                 <div
                   className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4 backdrop-blur-sm"
@@ -1347,6 +1327,7 @@ export default function PaginaProductos() {
           Solo el administrador puede gestionar presentaciones y precios.
         </div>
       )}
+      {confirmacion && <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4"><section role="alertdialog" aria-modal="true" className="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl"><h2 className="text-lg font-bold text-slate-900">Confirmar acción</h2><p className="mt-2 text-sm text-slate-600">{confirmacion.mensaje}</p><div className="mt-6 flex justify-end gap-3"><button type="button" onClick={() => setConfirmacion(null)} className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold">Cancelar</button><button type="button" onClick={() => { const accion = confirmacion.accion; setConfirmacion(null); void accion(); }} className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white">Confirmar</button></div></section></div>}
     </div>
   );
 }

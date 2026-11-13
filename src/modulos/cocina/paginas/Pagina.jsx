@@ -43,6 +43,7 @@ export default function PaginaCocina() {
   const cargarPedidos = useEstadoCocina((estado) => estado.cargarPedidos);
   const avanzarPedido = useEstadoCocina((estado) => estado.avanzarPedido);
   const limpiarError = useEstadoCocina((estado) => estado.limpiarError);
+  const [pedidoConfirmacion, setPedidoConfirmacion] = useState(null);
 
   const [pedidoSeleccionado, setPedidoSeleccionado] = useState(null);
   const [procesandoId, setProcesandoId] = useState(null);
@@ -109,12 +110,6 @@ export default function PaginaCocina() {
       return;
     }
 
-    const confirmado = window.confirm(
-      `¿Deseas cambiar el pedido ${pedido.folio || pedido.id} a "${nuevoEstado}"?`,
-    );
-
-    if (!confirmado) return;
-
     setProcesandoId(pedido.id);
     limpiarError();
 
@@ -123,9 +118,10 @@ export default function PaginaCocina() {
     setProcesandoId(null);
 
     if (!resultado.correcto) {
-      window.alert(resultado.error || "No se pudo actualizar el pedido.");
+      useEstadoCocina.setState({ error: resultado.error || "No se pudo actualizar el pedido." });
       return;
     }
+    setPedidoConfirmacion(null);
 
     if (pedidoSeleccionado?.id === pedido.id) {
       setPedidoSeleccionado(null);
@@ -288,7 +284,7 @@ export default function PaginaCocina() {
               retrasados={pedidosRetrasados}
               color={columna.color}
               onSeleccionar={abrirDetalle}
-              onAvanzar={cambiarEstado}
+              onAvanzar={(pedido, estado) => { if (estado === "En horno") cambiarEstado(pedido, estado); else setPedidoConfirmacion({ pedido, estado }); }}
               procesandoId={procesandoId}
               temporizadores={temporizadores}
             />
@@ -351,6 +347,7 @@ export default function PaginaCocina() {
           </div>
         </div>
       )}
+      {pedidoConfirmacion && <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4"><section role="alertdialog" aria-modal="true" className="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl"><h2 className="text-lg font-bold text-slate-900">Actualizar pedido</h2><p className="mt-2 text-sm text-slate-600">¿Cambiar el pedido {pedidoConfirmacion.pedido.folio || pedidoConfirmacion.pedido.id} a “{pedidoConfirmacion.estado}”?</p><div className="mt-6 flex justify-end gap-3"><button type="button" onClick={() => setPedidoConfirmacion(null)} className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold">Cancelar</button><button type="button" onClick={() => cambiarEstado(pedidoConfirmacion.pedido, pedidoConfirmacion.estado)} className="rounded-lg bg-violet-700 px-4 py-2 text-sm font-semibold text-white">Confirmar</button></div></section></div>}
     </main>
   );
 }

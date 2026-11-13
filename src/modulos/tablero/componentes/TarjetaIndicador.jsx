@@ -6,29 +6,24 @@ function TarjetaIndicador({
   color = "morado",
 }) {
   const estilos = {
-    morado: "bg-morado-50 text-morado-700",
-    azul: "bg-blue-50 text-blue-700",
-    naranja: "bg-orange-50 text-orange-700",
-    rojo: "bg-red-50 text-red-700",
+    morado: "bg-violet-50 text-violet-700 ring-violet-100",
+    azul: "bg-blue-50 text-blue-700 ring-blue-100",
+    naranja: "bg-orange-50 text-orange-700 ring-orange-100",
+    rojo: "bg-rose-50 text-rose-700 ring-rose-100",
   };
 
   return (
-    <article className="bg-white border border-borde rounded-2xl p-5 shadow-sm">
-      <div className="flex items-start justify-between">
-        <div>
-          <p className="text-sm font-medium text-texto-secundario">{titulo}</p>
-
-          <h3 className="text-3xl font-bold text-texto mt-3">{valor}</h3>
+    <article className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0">
+          <p className="text-sm font-medium text-slate-500">{titulo}</p>
+          <h3 className="mt-3 text-3xl font-black tracking-tight text-slate-900">{valor}</h3>
         </div>
-
-        <div
-          className={`w-12 h-12 rounded-xl flex items-center justify-center ${estilos[color]}`}
-        >
-          {Icono && <Icono size={23} />}
-        </div>
+        <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ring-1 ${estilos[color]}`}>
+          {Icono && <Icono size={21} strokeWidth={2.1} />}
+        </span>
       </div>
-
-      <p className="text-xs text-texto-secundario mt-4">{descripcion}</p>
+      <p className="mt-4 border-t border-slate-100 pt-3 text-xs text-slate-500">{descripcion}</p>
     </article>
   );
 }

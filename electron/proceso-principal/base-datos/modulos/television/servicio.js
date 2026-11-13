@@ -1,8 +1,20 @@
-export function crearServicioTelevision(db) {
+export function crearServicioTelevision(db, obtenerSesion = () => null) {
+  function exigirSesion(esAdministrador = false) {
+    const sesion = obtenerSesion();
+    if (!sesion?.id) throw new Error("Debes iniciar sesión.");
+    if (esAdministrador && sesion.rol !== "administrador") {
+      throw new Error("Solo un administrador puede cambiar la música de la TV.");
+    }
+  }
+
   function normalizarRuta(ruta) {
     const valor = String(ruta || "");
 
     if (valor.startsWith("pizzeria-media://")) return valor;
+
+    if (/^[A-Za-z]:[\\/]/.test(valor) || valor.startsWith("/")) {
+      return `pizzeria-media://archivo?ruta=${encodeURIComponent(valor)}`;
+    }
 
     if (valor.startsWith("file://")) {
       const rutaLocal = decodeURIComponent(
@@ -98,11 +110,63 @@ export function crearServicioTelevision(db) {
     db.prepare("DELETE FROM multimedia WHERE id = ?").run(Number(id));
   }
 
+  function obtenerMusica() {
+    exigirSesion();
+    const valores = db.prepare(`SELECT clave, valor FROM configuracion
+      WHERE clave IN ('television_musica_ruta', 'television_musica_nombre', 'television_musica_volumen')`).all();
+    const datos = Object.fromEntries(valores.map(({ clave, valor }) => [clave, valor]));
+    return {
+      nombre: datos.television_musica_nombre || "",
+      ruta: datos.television_musica_ruta ? normalizarRuta(datos.television_musica_ruta) : "",
+      volumen: Number(datos.television_musica_volumen ?? 35),
+    };
+  }
+
+  function guardarVolumenMusica(valor) {
+    exigirSesion(true);
+    const volumen = Number(valor);
+    if (!Number.isInteger(volumen) || volumen < 0 || volumen > 100) {
+      throw new Error("El volumen debe estar entre 0 y 100.");
+    }
+    db.prepare(`INSERT INTO configuracion (clave, valor, descripcion)
+      VALUES ('television_musica_volumen', ?, 'Volumen de la música de la TV de promociones')
+      ON CONFLICT(clave) DO UPDATE SET valor = excluded.valor,
+      descripcion = excluded.descripcion, actualizado_en = CURRENT_TIMESTAMP`).run(String(volumen));
+    return obtenerMusica();
+  }
+
+  function guardarMusica({ ruta, nombre }) {
+    exigirSesion(true);
+    const rutaValida = String(ruta || "").trim();
+    const nombreValido = String(nombre || "").trim();
+    if (!rutaValida || !nombreValido || nombreValido.length > 180) {
+      throw new Error("El archivo de música no es válido.");
+    }
+    const guardar = db.prepare(`INSERT INTO configuracion (clave, valor, descripcion)
+      VALUES (?, ?, ?) ON CONFLICT(clave) DO UPDATE SET valor = excluded.valor,
+      descripcion = excluded.descripcion, actualizado_en = CURRENT_TIMESTAMP`);
+    const transaccion = db.transaction(() => {
+      guardar.run("television_musica_ruta", rutaValida, "Archivo de música ambiental para la pantalla de TV");
+      guardar.run("television_musica_nombre", nombreValido, "Nombre del archivo de música ambiental para la TV");
+    });
+    transaccion();
+    return obtenerMusica();
+  }
+
+  function quitarMusica() {
+    exigirSesion(true);
+    db.prepare("DELETE FROM configuracion WHERE clave IN ('television_musica_ruta', 'television_musica_nombre')").run();
+  }
+
   return {
     listarMultimedia,
     crearMultimedia,
     actualizarMultimedia,
     cambiarEstadoMultimedia,
     eliminarMultimedia,
+    obtenerMusica,
+    guardarMusica,
+    guardarVolumenMusica,
+    quitarMusica,
   };
 }

@@ -1,12 +1,15 @@
-import { BrowserWindow, app, ipcMain, net, protocol, screen } from "electron";
-import { basename, extname, join } from "node:path";
+import { BrowserWindow, app, dialog, ipcMain, net, protocol, screen } from "electron";
+import { basename, dirname, extname, join } from "node:path";
 import process from "node:process";
 import { pathToFileURL } from "node:url";
 import Database from "better-sqlite3";
-import { mkdirSync } from "node:fs";
+import { mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import bcrypt from "bcryptjs";
+import { createHash, randomBytes, randomUUID, verify } from "node:crypto";
 import { Buffer as Buffer$1 } from "node:buffer";
-import { mkdir, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, writeFile } from "node:fs/promises";
+import { execFileSync } from "node:child_process";
+import { arch, cpus, hostname, networkInterfaces, platform } from "node:os";
 // -- CommonJS Shims --
 import __shims_module__ from "node:module";
 import.meta.filename;
@@ -45,12 +48,12 @@ function cerrarConexion() {
 }
 // electron/proceso-principal/base-datos/migraciones/001-base.js
 var _001_base_exports = /* @__PURE__ */ __exportAll({
-	descripcion: () => descripcion$1,
-	sql: () => sql$1,
+	descripcion: () => descripcion$2,
+	sql: () => sql$2,
 	version: () => 1
 });
-var descripcion$1 = "Preparacion inicial de la base de datos";
-var sql$1 = `
+var descripcion$2 = "Preparacion inicial de la base de datos";
+var sql$2 = `
   CREATE TABLE IF NOT EXISTS configuracion (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     clave TEXT NOT NULL UNIQUE,
@@ -65,12 +68,12 @@ var sql$1 = `
 `;
 // electron/proceso-principal/base-datos/migraciones/002-estructura-principal.js
 var _002_estructura_principal_exports = /* @__PURE__ */ __exportAll({
-	descripcion: () => descripcion,
-	sql: () => sql,
+	descripcion: () => descripcion$1,
+	sql: () => sql$1,
 	version: () => 2
 });
-var descripcion = "Creacion de la estructura principal del sistema";
-var sql = `
+var descripcion$1 = "Creacion de la estructura principal del sistema";
+var sql$1 = `
   -- =====================================================
   -- ACTUALIZAR CONFIGURACION EXISTENTE
   -- =====================================================
@@ -604,8 +607,24 @@ var sql = `
   CREATE INDEX idx_multimedia_activo_orden
     ON multimedia(activo, orden);
 `;
+// electron/proceso-principal/base-datos/migraciones/003-pagos-efectivo.js
+var _003_pagos_efectivo_exports = /* @__PURE__ */ __exportAll({
+	descripcion: () => descripcion,
+	sql: () => sql,
+	version: () => 3
+});
+var descripcion = "Registro del efectivo recibido y el cambio de los pagos";
+var sql = `
+  ALTER TABLE pagos ADD COLUMN monto_recibido_centavos INTEGER NOT NULL DEFAULT 0 CHECK (monto_recibido_centavos >= 0);
+  ALTER TABLE pagos ADD COLUMN cambio_centavos INTEGER NOT NULL DEFAULT 0 CHECK (cambio_centavos >= 0);
+  UPDATE pagos SET monto_recibido_centavos = monto_centavos WHERE monto_recibido_centavos = 0;
+`;
 // electron/proceso-principal/base-datos/inicializacion.js
-var migraciones = [_001_base_exports, _002_estructura_principal_exports];
+var migraciones = [
+	_001_base_exports,
+	_002_estructura_principal_exports,
+	_003_pagos_efectivo_exports
+];
 function inicializarBaseDatos() {
 	const db = obtenerConexion();
 	db.exec(`
@@ -634,6 +653,12 @@ function inicializarBaseDatos() {
 		})();
 		console.log(`Migracion ${migracion.version} aplicada correctamente`);
 	}
+	const columnasPago = new Set(db.pragma("table_info(pagos)").map((columna) => columna.name));
+	if (!columnasPago.has("monto_recibido_centavos")) {
+		db.exec("ALTER TABLE pagos ADD COLUMN monto_recibido_centavos INTEGER NOT NULL DEFAULT 0 CHECK (monto_recibido_centavos >= 0)");
+		db.exec("UPDATE pagos SET monto_recibido_centavos = monto_centavos WHERE monto_recibido_centavos = 0");
+	}
+	if (!columnasPago.has("cambio_centavos")) db.exec("ALTER TABLE pagos ADD COLUMN cambio_centavos INTEGER NOT NULL DEFAULT 0 CHECK (cambio_centavos >= 0)");
 	console.log("Base de datos inicializada correctamente");
 	const tablas = db.prepare(`
   SELECT name
@@ -699,12 +724,38 @@ function registrarActividad(db, usuarioId, accion, descripcion) {
   `).run(usuarioId ?? null, accion, descripcion);
 }
 function crearServicioAutenticacion(db) {
+	const tokensRecuperacion = /* @__PURE__ */ new Map();
+	function guardarSesionPersistente(usuarioId) {
+		db.prepare(`INSERT INTO configuracion (clave, valor, descripcion) VALUES ('sesion_persistente_usuario_id', ?, 'Usuario para restaurar sesión si queda una caja abierta') ON CONFLICT(clave) DO UPDATE SET valor=excluded.valor, descripcion=excluded.descripcion`).run(String(usuarioId));
+	}
+	function limpiarSesionPersistente() {
+		db.prepare("DELETE FROM configuracion WHERE clave = 'sesion_persistente_usuario_id'").run();
+	}
+	function restaurarSesionSiCajaSigueAbierta() {
+		if (sesionActual) return sesionActual;
+		const idGuardado = db.prepare("SELECT valor FROM configuracion WHERE clave = 'sesion_persistente_usuario_id'").get()?.valor;
+		if (!idGuardado) return null;
+		const cajaAbierta = db.prepare("SELECT id FROM sesiones_caja WHERE estado = 'abierta' LIMIT 1").get();
+		const usuario = db.prepare("SELECT id, nombre, usuario, rol, activo FROM usuarios WHERE id = ?").get(Number(idGuardado));
+		if (!cajaAbierta || !usuario?.activo) {
+			limpiarSesionPersistente();
+			return null;
+		}
+		sesionActual = {
+			id: usuario.id,
+			nombre: usuario.nombre,
+			usuario: usuario.usuario,
+			rol: usuario.rol
+		};
+		return sesionActual;
+	}
 	function contarUsuarios() {
 		return db.prepare(`
       SELECT COUNT(*) AS total FROM usuarios
     `).get().total;
 	}
 	function obtenerEstadoInicial() {
+		restaurarSesionSiCajaSigueAbierta();
 		return {
 			necesitaAdministrador: contarUsuarios() === 0,
 			sesion: sesionActual
@@ -751,12 +802,82 @@ function crearServicioAutenticacion(db) {
 			usuario: registro.usuario,
 			rol: registro.rol
 		};
+		guardarSesionPersistente(registro.id);
 		registrarActividad(db, registro.id, "INICIO_SESION", "El usuario inició sesión.");
 		return sesionActual;
 	}
 	function cerrarSesion() {
 		if (sesionActual) registrarActividad(db, sesionActual.id, "CIERRE_SESION", "El usuario cerró sesión.");
 		sesionActual = null;
+		limpiarSesionPersistente();
+		return true;
+	}
+	function actualizarPerfil(datos) {
+		const sesion = obtenerSesion();
+		if (!sesion) throw new Error("Debes iniciar sesión.");
+		const nombre = String(datos?.nombre || "").trim();
+		const usuario = normalizarUsuario(String(datos?.usuario || ""));
+		if (!nombre || nombre.length > 100 || !usuario || usuario.length > 50) throw new Error("El nombre y usuario son obligatorios y deben respetar el largo máximo.");
+		db.prepare(`UPDATE usuarios SET nombre = ?, usuario = ?, fecha_actualizacion = CURRENT_TIMESTAMP WHERE id = ?`).run(nombre, usuario, sesion.id);
+		registrarActividad(db, sesion.id, "ACTUALIZAR_PERFIL", "El usuario actualizó su perfil.");
+		sesionActual = {
+			...sesion,
+			nombre,
+			usuario
+		};
+		return sesionActual;
+	}
+	function cambiarContrasenaPropia(datos) {
+		const sesion = obtenerSesion();
+		if (!sesion) throw new Error("Debes iniciar sesión.");
+		const actual = String(datos?.contrasenaActual || "");
+		const nueva = datos?.contrasenaNueva;
+		validarContrasena(nueva);
+		const registro = db.prepare("SELECT contrasena_hash FROM usuarios WHERE id = ?").get(sesion.id);
+		if (!actual || !bcrypt.compareSync(actual, registro.contrasena_hash)) throw new Error("La contraseña actual es incorrecta.");
+		if (actual === nueva) throw new Error("La contraseña nueva debe ser diferente.");
+		const hash = bcrypt.hashSync(nueva, 12);
+		db.prepare("UPDATE usuarios SET contrasena_hash = ?, fecha_actualizacion = CURRENT_TIMESTAMP WHERE id = ?").run(hash, sesion.id);
+		registrarActividad(db, sesion.id, "CAMBIAR_CONTRASENA", "El usuario cambió su contraseña desde el perfil.");
+		return true;
+	}
+	function solicitarTokenRecuperacion(datos) {
+		const usuarioAdministrador = normalizarUsuario(String(datos?.usuarioAdministrador || ""));
+		const passwordAdministrador = String(datos?.contrasenaAdministrador || "");
+		const nombreBuscado = String(datos?.nombre || "").trim();
+		if (!nombreBuscado || !usuarioAdministrador || !passwordAdministrador) throw new Error("Completa el nombre de la cuenta y las credenciales del administrador.");
+		const administrador = db.prepare("SELECT id, contrasena_hash, activo, rol FROM usuarios WHERE usuario = ?").get(usuarioAdministrador);
+		if (!administrador || !administrador.activo || administrador.rol !== "administrador" || !bcrypt.compareSync(passwordAdministrador, administrador.contrasena_hash)) throw new Error("No se pudo autorizar la recuperación con esas credenciales de administrador.");
+		const encontrados = db.prepare("SELECT id, nombre, usuario FROM usuarios WHERE activo = 1 AND (lower(usuario) = lower(?) OR lower(trim(nombre)) = lower(trim(?)))").all(nombreBuscado, nombreBuscado);
+		if (encontrados.length !== 1) throw new Error(encontrados.length ? "Hay varias cuentas con ese nombre. Escribe el usuario exacto." : "No se encontró una cuenta activa con ese usuario o nombre.");
+		const objetivo = encontrados[0];
+		const token = randomBytes(8).toString("hex").toUpperCase();
+		const hash = createHash("sha256").update(token).digest("hex");
+		tokensRecuperacion.set(hash, {
+			usuarioId: objetivo.id,
+			vence: Date.now() + 6e5
+		});
+		registrarActividad(db, administrador.id, "AUTORIZAR_RECUPERACION", `Autorizó un token de recuperación para ${objetivo.usuario}.`);
+		return {
+			token,
+			nombre: objetivo.nombre,
+			venceEnMinutos: 10
+		};
+	}
+	function restablecerConToken(datos) {
+		const token = String(datos?.token || "").replace(/\s/g, "").toUpperCase();
+		const hash = createHash("sha256").update(token).digest("hex");
+		const autorizado = tokensRecuperacion.get(hash);
+		if (!autorizado || autorizado.vence < Date.now()) {
+			tokensRecuperacion.delete(hash);
+			throw new Error("El token no es válido o ya venció. Solicita uno nuevo al administrador.");
+		}
+		validarContrasena(datos?.contrasenaNueva);
+		db.transaction(() => {
+			db.prepare("UPDATE usuarios SET contrasena_hash = ?, fecha_actualizacion = CURRENT_TIMESTAMP WHERE id = ?").run(bcrypt.hashSync(datos.contrasenaNueva, 12), autorizado.usuarioId);
+			registrarActividad(db, autorizado.usuarioId, "RESTABLECER_CONTRASENA", "Se cambió la contraseña con un token autorizado por administrador.");
+		})();
+		tokensRecuperacion.delete(hash);
 		return true;
 	}
 	function obtenerSesion() {
@@ -894,6 +1015,10 @@ function crearServicioAutenticacion(db) {
 		crearAdministradorInicial,
 		iniciarSesion,
 		cerrarSesion,
+		actualizarPerfil,
+		cambiarContrasenaPropia,
+		solicitarTokenRecuperacion,
+		restablecerConToken,
 		obtenerSesion,
 		listarUsuarios,
 		crearUsuario,
@@ -920,6 +1045,10 @@ function registrarControladoresAutenticacion(ipcMain, db) {
 	ipcMain.handle("autenticacion:obtener-sesion", () => {
 		return servicio.obtenerSesion();
 	});
+	ipcMain.handle("autenticacion:actualizar-perfil", (_evento, datos) => servicio.actualizarPerfil(datos));
+	ipcMain.handle("autenticacion:cambiar-contrasena-propia", (_evento, datos) => servicio.cambiarContrasenaPropia(datos));
+	ipcMain.handle("autenticacion:solicitar-token-recuperacion", (_evento, datos) => servicio.solicitarTokenRecuperacion(datos));
+	ipcMain.handle("autenticacion:restablecer-con-token", (_evento, datos) => servicio.restablecerConToken(datos));
 	ipcMain.handle("usuarios:listar", () => {
 		return servicio.listarUsuarios();
 	});
@@ -1585,7 +1714,11 @@ function crearServicioPuntoVenta(db, obtenerSesion) {
 				...producto,
 				requiere_presentacion: Boolean(producto.requiere_presentacion),
 				presentaciones: presentaciones.filter((presentacion) => presentacion.producto_id === producto.id),
-				adicionales: adicionales.filter((adicional) => adicional.producto_id === producto.id).map(({ producto_id, ...adicional }) => adicional)
+				adicionales: adicionales.filter((adicional) => adicional.producto_id === producto.id).map((adicional) => {
+					const resultado = { ...adicional };
+					delete resultado.producto_id;
+					return resultado;
+				})
 			}))
 		};
 	}
@@ -1651,7 +1784,9 @@ function crearServicioPuntoVenta(db, obtenerSesion) {
 		const direccion = String(datos.direccionEntrega || "").trim();
 		const referencias = String(datos.referenciasEntrega || "").trim();
 		if (datos.tipo === "domicilio" && !direccion) throw new Error("Escribe la dirección de entrega.");
-		const tiempoEstimado = datos.tiempoEstimadoMinutos ?? null;
+		const configuracionTiempo = db.prepare(`SELECT valor FROM configuracion
+      WHERE clave = 'tiempo_preparacion_minutos'`).get()?.valor;
+		const tiempoEstimado = datos.tiempoEstimadoMinutos ?? Number(configuracionTiempo || 20);
 		if (tiempoEstimado !== null && (!Number.isInteger(tiempoEstimado) || tiempoEstimado < 1 || tiempoEstimado > 600)) throw new Error("El tiempo estimado debe estar entre 1 y 600 minutos.");
 		const notasPedido = String(datos.notas || "").trim();
 		if (notasPedido.length > 1e3) throw new Error("Las notas generales son demasiado largas.");
@@ -2040,6 +2175,7 @@ function crearServicioPedidos(db, obtenerSesion) {
 			if (nuevoEstado === "En reparto" && pedido.tipo !== "domicilio") throw new Error("Solo los pedidos a domicilio pueden salir a reparto.");
 			if (nuevoEstado === "Entregado" && pedido.tipo === "domicilio" && estadoActual !== "En reparto") throw new Error("El pedido a domicilio debe salir a reparto antes de entregarse.");
 			if (nuevoEstado === "Entregado" && pedido.tipo === "recoger" && estadoActual !== "Listo") throw new Error("El pedido debe estar listo antes de entregarse.");
+			if (nuevoEstado === "Entregado" && !db.prepare("SELECT id FROM pagos WHERE pedido_id = ?").get(pedidoId)) throw new Error("Registra el pago en Caja para confirmar la entrega.");
 			const campoFecha = {
 				Preparando: "inicio_preparacion",
 				"En horno": "entrada_horno",
@@ -2118,10 +2254,16 @@ function registrarControladoresPedidos(ipcMain, db, obtenerSesion) {
 	return servicio;
 }
 // electron/proceso-principal/base-datos/modulos/television/servicio.js
-function crearServicioTelevision(db) {
+function crearServicioTelevision(db, obtenerSesion = () => null) {
+	function exigirSesion(esAdministrador = false) {
+		const sesion = obtenerSesion();
+		if (!sesion?.id) throw new Error("Debes iniciar sesión.");
+		if (esAdministrador && sesion.rol !== "administrador") throw new Error("Solo un administrador puede cambiar la música de la TV.");
+	}
 	function normalizarRuta(ruta) {
 		const valor = String(ruta || "");
 		if (valor.startsWith("pizzeria-media://")) return valor;
+		if (/^[A-Za-z]:[\\/]/.test(valor) || valor.startsWith("/")) return `pizzeria-media://archivo?ruta=${encodeURIComponent(valor)}`;
 		if (valor.startsWith("file://")) {
 			const rutaLocal = decodeURIComponent(valor.replace(/^file:\/\//, "").replace(/^\/([A-Za-z]:)/, "$1"));
 			return `pizzeria-media://archivo?ruta=${encodeURIComponent(rutaLocal)}`;
@@ -2181,12 +2323,55 @@ function crearServicioTelevision(db) {
 	function eliminarMultimedia(id) {
 		db.prepare("DELETE FROM multimedia WHERE id = ?").run(Number(id));
 	}
+	function obtenerMusica() {
+		exigirSesion();
+		const valores = db.prepare(`SELECT clave, valor FROM configuracion
+      WHERE clave IN ('television_musica_ruta', 'television_musica_nombre', 'television_musica_volumen')`).all();
+		const datos = Object.fromEntries(valores.map(({ clave, valor }) => [clave, valor]));
+		return {
+			nombre: datos.television_musica_nombre || "",
+			ruta: datos.television_musica_ruta ? normalizarRuta(datos.television_musica_ruta) : "",
+			volumen: Number(datos.television_musica_volumen ?? 35)
+		};
+	}
+	function guardarVolumenMusica(valor) {
+		exigirSesion(true);
+		const volumen = Number(valor);
+		if (!Number.isInteger(volumen) || volumen < 0 || volumen > 100) throw new Error("El volumen debe estar entre 0 y 100.");
+		db.prepare(`INSERT INTO configuracion (clave, valor, descripcion)
+      VALUES ('television_musica_volumen', ?, 'Volumen de la música de la TV de promociones')
+      ON CONFLICT(clave) DO UPDATE SET valor = excluded.valor,
+      descripcion = excluded.descripcion, actualizado_en = CURRENT_TIMESTAMP`).run(String(volumen));
+		return obtenerMusica();
+	}
+	function guardarMusica({ ruta, nombre }) {
+		exigirSesion(true);
+		const rutaValida = String(ruta || "").trim();
+		const nombreValido = String(nombre || "").trim();
+		if (!rutaValida || !nombreValido || nombreValido.length > 180) throw new Error("El archivo de música no es válido.");
+		const guardar = db.prepare(`INSERT INTO configuracion (clave, valor, descripcion)
+      VALUES (?, ?, ?) ON CONFLICT(clave) DO UPDATE SET valor = excluded.valor,
+      descripcion = excluded.descripcion, actualizado_en = CURRENT_TIMESTAMP`);
+		db.transaction(() => {
+			guardar.run("television_musica_ruta", rutaValida, "Archivo de música ambiental para la pantalla de TV");
+			guardar.run("television_musica_nombre", nombreValido, "Nombre del archivo de música ambiental para la TV");
+		})();
+		return obtenerMusica();
+	}
+	function quitarMusica() {
+		exigirSesion(true);
+		db.prepare("DELETE FROM configuracion WHERE clave IN ('television_musica_ruta', 'television_musica_nombre')").run();
+	}
 	return {
 		listarMultimedia,
 		crearMultimedia,
 		actualizarMultimedia,
 		cambiarEstadoMultimedia,
-		eliminarMultimedia
+		eliminarMultimedia,
+		obtenerMusica,
+		guardarMusica,
+		guardarVolumenMusica,
+		quitarMusica
 	};
 }
 // electron/proceso-principal/ventanas/ventana-tv.js
@@ -2263,9 +2448,57 @@ async function crearVentanaTV(displayId) {
 function cerrarVentanaTV() {
 	if (ventanaTV && !ventanaTV.isDestroyed()) ventanaTV.close();
 }
+// electron/proceso-principal/ventanas/ventana-produccion.js
+var ventanaProduccion = null;
+function obtenerPantalla(displayId) {
+	const principal = screen.getPrimaryDisplay();
+	if (displayId) return screen.getAllDisplays().find((pantalla) => String(pantalla.id) === String(displayId));
+	return screen.getAllDisplays().find((pantalla) => pantalla.id !== principal.id);
+}
+function cargarPantalla(ventana) {
+	if (process.env.ELECTRON_RENDERER_URL) return ventana.loadURL(`${process.env.ELECTRON_RENDERER_URL}/#/pantalla-produccion`);
+	return ventana.loadFile(join(__dirname, "../../renderer/index.html"), { hash: "/pantalla-produccion" });
+}
+async function abrirVentanaProduccion(displayId) {
+	const pantalla = obtenerPantalla(displayId);
+	if (!pantalla) throw new Error("Conecta una segunda pantalla para proyectar producción.");
+	if (ventanaProduccion && !ventanaProduccion.isDestroyed()) {
+		ventanaProduccion.setBounds(pantalla.bounds);
+		ventanaProduccion.setFullScreen(true);
+		ventanaProduccion.show();
+		ventanaProduccion.focus();
+		return ventanaProduccion;
+	}
+	ventanaProduccion = new BrowserWindow({
+		...pantalla.bounds,
+		show: false,
+		frame: false,
+		fullscreen: true,
+		autoHideMenuBar: true,
+		backgroundColor: "#080b12",
+		webPreferences: {
+			preload: join(__dirname, "../preload/index.cjs"),
+			contextIsolation: true,
+			nodeIntegration: false,
+			sandbox: true
+		}
+	});
+	ventanaProduccion.once("ready-to-show", () => ventanaProduccion?.show());
+	ventanaProduccion.on("closed", () => {
+		ventanaProduccion = null;
+	});
+	await cargarPantalla(ventanaProduccion);
+	ventanaProduccion.setBounds(pantalla.bounds);
+	ventanaProduccion.setFullScreen(true);
+	ventanaProduccion.show();
+	return ventanaProduccion;
+}
+function cerrarVentanaProduccion() {
+	if (ventanaProduccion && !ventanaProduccion.isDestroyed()) ventanaProduccion.close();
+}
 // electron/proceso-principal/ipc/modulos/television/controlador.js
-function registrarControladoresTelevision(ipcMain, db) {
-	const servicio = crearServicioTelevision(db);
+function registrarControladoresTelevision(ipcMain, db, obtenerSesion) {
+	const servicio = crearServicioTelevision(db, obtenerSesion);
 	ipcMain.handle("television:importar-archivo", async (_evento, archivo) => {
 		const nombre = basename(String(archivo?.nombre || "archivo"));
 		const extension = extname(nombre).toLowerCase();
@@ -2290,6 +2523,33 @@ function registrarControladoresTelevision(ipcMain, db) {
 	ipcMain.handle("television:actualizar-multimedia", (_evento, id, datos) => servicio.actualizarMultimedia(id, datos));
 	ipcMain.handle("television:cambiar-estado", (_evento, id, activo) => servicio.cambiarEstadoMultimedia(id, activo));
 	ipcMain.handle("television:eliminar-multimedia", (_evento, id) => servicio.eliminarMultimedia(id));
+	ipcMain.handle("television:obtener-musica", () => servicio.obtenerMusica());
+	ipcMain.handle("television:guardar-volumen-musica", (_evento, volumen) => servicio.guardarVolumenMusica(volumen));
+	ipcMain.handle("television:guardar-musica", async (_evento, archivo) => {
+		if (obtenerSesion()?.rol !== "administrador") throw new Error("Solo un administrador puede agregar música a la TV.");
+		const nombre = basename(String(archivo?.nombre || "musica"));
+		const extension = extname(nombre).toLowerCase();
+		const permitidas = [
+			".mp3",
+			".wav",
+			".ogg",
+			".m4a"
+		];
+		const datos = archivo?.datos;
+		if (!datos || !permitidas.includes(extension)) throw new Error("Selecciona música MP3, WAV, OGG o M4A.");
+		const buffer = Buffer$1.from(datos);
+		if (buffer.length > 41943040) throw new Error("La música no puede superar 40 MB.");
+		const carpeta = join(app.getPath("userData"), "publicidad", "musica");
+		await mkdir(carpeta, { recursive: true });
+		const nombreSeguro = `${Date.now()}-${nombre.replace(/[^\w.-]/g, "_")}`;
+		const destino = join(carpeta, nombreSeguro);
+		await writeFile(destino, buffer);
+		return servicio.guardarMusica({
+			ruta: destino,
+			nombre
+		});
+	});
+	ipcMain.handle("television:quitar-musica", () => servicio.quitarMusica());
 	ipcMain.handle("television:listar-pantallas", () => listarPantallas());
 	ipcMain.handle("television:abrir-ventana", async (_evento, displayId) => {
 		await crearVentanaTV(displayId);
@@ -2299,6 +2559,741 @@ function registrarControladoresTelevision(ipcMain, db) {
 		cerrarVentanaTV();
 		return true;
 	});
+	ipcMain.handle("produccion:abrir-ventana", async (_evento, displayId) => {
+		if (!obtenerSesion()?.id) throw new Error("Debes iniciar sesión para proyectar producción.");
+		await abrirVentanaProduccion(displayId);
+		return true;
+	});
+	ipcMain.handle("produccion:cerrar-ventana", () => {
+		cerrarVentanaProduccion();
+		return true;
+	});
+}
+// electron/proceso-principal/base-datos/modulos/caja/servicio.js
+function crearServicioCaja(db, obtenerSesion) {
+	function exigirSesion() {
+		const sesion = obtenerSesion();
+		if (!sesion?.id) throw new Error("Debes iniciar sesión.");
+		return sesion;
+	}
+	function numeroCentavos(valor, campo, permitirCero = false) {
+		const numero = Number(valor);
+		if (!Number.isSafeInteger(numero) || (permitirCero ? numero < 0 : numero <= 0)) throw new Error(`El importe de ${campo} no es válido.`);
+		return numero;
+	}
+	function obtenerSesionAbierta() {
+		return db.prepare("SELECT * FROM sesiones_caja WHERE estado = 'abierta'").get();
+	}
+	function obtenerBloqueosCierre() {
+		return {
+			pedidosSinPagar: db.prepare(`
+      SELECT COUNT(*) AS cantidad FROM pedidos p
+      LEFT JOIN pagos pa ON pa.pedido_id = p.id
+      WHERE pa.id IS NULL AND p.estado != 'cancelado'
+    `).get().cantidad,
+			pedidosEnProceso: db.prepare(`
+      SELECT p.id, p.folio, p.estado, c.nombre AS cliente_nombre
+      FROM pedidos p LEFT JOIN clientes c ON c.id = p.cliente_id
+      WHERE p.estado IN ('nuevo', 'preparando', 'en_horno')
+      ORDER BY p.fecha_creacion ASC, p.id ASC LIMIT 100
+    `).all(),
+			pedidosEnProcesoCantidad: db.prepare(`
+      SELECT COUNT(*) AS cantidad FROM pedidos
+      WHERE estado IN ('nuevo', 'preparando', 'en_horno')
+    `).get().cantidad
+		};
+	}
+	function obtenerResumenSesion(sesion) {
+		const pagos = db.prepare(`
+      SELECT
+        COALESCE(SUM(CASE WHEN metodo = 'efectivo' THEN monto_centavos ELSE 0 END), 0) AS pagos_efectivo,
+        COALESCE(SUM(CASE WHEN metodo = 'transferencia' THEN monto_centavos ELSE 0 END), 0) AS pagos_transferencia
+      FROM pagos WHERE sesion_caja_id = ?
+    `).get(sesion.id);
+		const movimientos = db.prepare(`
+      SELECT
+        COALESCE(SUM(CASE WHEN metodo = 'efectivo' AND tipo = 'ingreso' THEN monto_centavos WHEN metodo = 'efectivo' AND tipo IN ('gasto', 'retiro') THEN -monto_centavos ELSE 0 END), 0) AS movimientos_efectivo,
+        COALESCE(SUM(CASE WHEN metodo = 'transferencia' AND tipo = 'ingreso' THEN monto_centavos WHEN metodo = 'transferencia' AND tipo IN ('gasto', 'retiro') THEN -monto_centavos ELSE 0 END), 0) AS movimientos_transferencia
+      FROM movimientos_caja WHERE sesion_caja_id = ?
+    `).get(sesion.id);
+		const efectivoEsperado = sesion.monto_inicial_centavos + pagos.pagos_efectivo + movimientos.movimientos_efectivo;
+		const transferencias = pagos.pagos_transferencia + movimientos.movimientos_transferencia;
+		return {
+			...sesion,
+			efectivo_esperado_centavos: efectivoEsperado,
+			transferencias_centavos: transferencias,
+			pagos_efectivo_centavos: pagos.pagos_efectivo,
+			movimientos_efectivo_centavos: movimientos.movimientos_efectivo
+		};
+	}
+	function obtenerEstado() {
+		exigirSesion();
+		const sesion = obtenerSesionAbierta();
+		const pendientes = db.prepare(`
+      SELECT p.id, p.folio, p.tipo, p.estado, p.total_centavos, p.fecha_creacion,
+        c.nombre AS cliente_nombre
+      FROM pedidos p
+      LEFT JOIN clientes c ON c.id = p.cliente_id
+      LEFT JOIN pagos pa ON pa.pedido_id = p.id
+      WHERE pa.id IS NULL AND p.estado != 'cancelado'
+      ORDER BY p.fecha_creacion ASC, p.id ASC
+      LIMIT 200
+    `).all();
+		const movimientos = sesion ? db.prepare(`
+      SELECT m.id, m.tipo, m.metodo, m.concepto, m.monto_centavos, m.fecha,
+        u.nombre AS usuario_nombre
+      FROM movimientos_caja m
+      LEFT JOIN usuarios u ON u.id = m.usuario_id
+      WHERE m.sesion_caja_id = ?
+      ORDER BY m.id DESC LIMIT 50
+    `).all(sesion.id) : [];
+		const pagos = sesion ? db.prepare(`
+      SELECT pa.id, pa.metodo, pa.monto_centavos, pa.monto_recibido_centavos, pa.cambio_centavos, pa.referencia, pa.fecha_pago,
+        p.folio, u.nombre AS usuario_nombre
+      FROM pagos pa
+      INNER JOIN pedidos p ON p.id = pa.pedido_id
+      LEFT JOIN usuarios u ON u.id = pa.usuario_id
+      WHERE pa.sesion_caja_id = ?
+      ORDER BY pa.id DESC LIMIT 50
+    `).all(sesion.id) : [];
+		const bloqueos = obtenerBloqueosCierre();
+		return {
+			sesion: sesion ? obtenerResumenSesion(sesion) : null,
+			pendientes,
+			...bloqueos,
+			movimientos,
+			pagos
+		};
+	}
+	function abrir(datos) {
+		const usuario = exigirSesion();
+		const monto = numeroCentavos(datos?.montoInicialCentavos ?? 0, "inicial", true);
+		db.transaction(() => {
+			if (obtenerSesionAbierta()) throw new Error("Ya existe una caja abierta.");
+			const resultado = db.prepare(`
+        INSERT INTO sesiones_caja (usuario_apertura_id, monto_inicial_centavos, fecha_apertura)
+        VALUES (?, ?, datetime('now', 'localtime'))
+      `).run(usuario.id, monto);
+			db.prepare(`INSERT INTO registro_actividad (usuario_id, accion, modulo, descripcion, entidad, entidad_id, fecha)
+        VALUES (?, 'abrir', 'caja', ?, 'sesion_caja', ?, datetime('now', 'localtime'))`).run(usuario.id, `Abrió caja con ${monto} centavos.`, resultado.lastInsertRowid);
+			return resultado.lastInsertRowid;
+		})();
+		return obtenerEstado();
+	}
+	function registrarPago(datos) {
+		const usuario = exigirSesion();
+		const pedidoId = Number(datos?.pedidoId);
+		const metodo = String(datos?.metodo || "");
+		const referencia = String(datos?.referencia || "").trim();
+		const montoRecibidoEnviado = datos?.montoRecibidoCentavos;
+		if (!Number.isSafeInteger(pedidoId) || pedidoId <= 0) throw new Error("El pedido no es válido.");
+		if (!["efectivo", "transferencia"].includes(metodo)) throw new Error("Selecciona un método de pago válido.");
+		if (referencia.length > 100) throw new Error("La referencia no puede superar 100 caracteres.");
+		db.transaction(() => {
+			const sesion = obtenerSesionAbierta();
+			if (!sesion) throw new Error("Abre la caja antes de registrar pagos.");
+			const pedido = db.prepare("SELECT id, folio, tipo, total_centavos, estado FROM pedidos WHERE id = ?").get(pedidoId);
+			if (!pedido || pedido.estado === "cancelado") throw new Error("El pedido no existe o fue cancelado.");
+			const estadoListoParaCobro = pedido.tipo === "domicilio" ? "en_reparto" : "listo";
+			if (pedido.estado !== estadoListoParaCobro && pedido.estado !== "entregado") throw new Error(pedido.tipo === "domicilio" ? "El pedido a domicilio debe salir a reparto antes de cobrarlo." : "El pedido debe estar listo antes de cobrarlo.");
+			if (db.prepare("SELECT id FROM pagos WHERE pedido_id = ?").get(pedidoId)) throw new Error("Este pedido ya tiene un pago registrado.");
+			const recibido = metodo === "efectivo" ? numeroCentavos(montoRecibidoEnviado, "recibido") : pedido.total_centavos;
+			if (metodo === "efectivo" && recibido < pedido.total_centavos) throw new Error("El pago no alcanza el total. No se registró ningún cobro.");
+			const cambio = metodo === "efectivo" ? recibido - pedido.total_centavos : 0;
+			db.prepare(`INSERT INTO pagos (pedido_id, sesion_caja_id, usuario_id, metodo, monto_centavos, referencia, fecha_pago, monto_recibido_centavos, cambio_centavos)
+        VALUES (?, ?, ?, ?, ?, ?, datetime('now', 'localtime'), ?, ?)`).run(pedidoId, sesion.id, usuario.id, metodo, pedido.total_centavos, referencia || null, recibido, cambio);
+			if (pedido.estado !== "entregado") {
+				db.prepare(`UPDATE pedidos SET estado = 'entregado', fecha_entregado = datetime('now', 'localtime'),
+          fecha_actualizacion = datetime('now', 'localtime') WHERE id = ?`).run(pedidoId);
+				db.prepare(`INSERT INTO historial_estados_pedido
+          (pedido_id, estado_anterior, estado_nuevo, usuario_id, fecha)
+          VALUES (?, ?, 'entregado', ?, datetime('now', 'localtime'))`).run(pedidoId, estadoListoParaCobro, usuario.id);
+			}
+			db.prepare(`INSERT INTO registro_actividad (usuario_id, accion, modulo, descripcion, entidad, entidad_id, fecha)
+        VALUES (?, 'registrar_pago', 'caja', ?, 'pedido', ?, datetime('now', 'localtime'))`).run(usuario.id, `Registró pago ${metodo} y confirmó la entrega del pedido ${pedido.folio}.`, pedidoId);
+		})();
+		return obtenerEstado();
+	}
+	function registrarMovimiento(datos) {
+		const usuario = exigirSesion();
+		const tipo = String(datos?.tipo || "");
+		const metodo = String(datos?.metodo || "");
+		const concepto = String(datos?.concepto || "").trim();
+		const monto = numeroCentavos(datos?.montoCentavos, "movimiento");
+		if (![
+			"gasto",
+			"retiro",
+			"ingreso"
+		].includes(tipo)) throw new Error("El tipo de movimiento no es válido.");
+		if (!["efectivo", "transferencia"].includes(metodo)) throw new Error("El método del movimiento no es válido.");
+		if (!concepto || concepto.length > 200) throw new Error("Escribe un concepto de hasta 200 caracteres.");
+		db.transaction(() => {
+			const sesion = obtenerSesionAbierta();
+			if (!sesion) throw new Error("Abre la caja antes de registrar movimientos.");
+			if (tipo !== "ingreso" && metodo === "efectivo") {
+				const resumen = obtenerResumenSesion(sesion);
+				if (monto > resumen.efectivo_esperado_centavos) throw new Error("El movimiento supera el efectivo disponible en caja.");
+			}
+			if (tipo !== "ingreso" && metodo === "transferencia") {
+				const resumen = obtenerResumenSesion(sesion);
+				if (monto > resumen.transferencias_centavos) throw new Error("El movimiento supera el saldo disponible de transferencias.");
+			}
+			db.prepare(`INSERT INTO movimientos_caja (sesion_caja_id, usuario_id, tipo, metodo, concepto, monto_centavos, fecha)
+        VALUES (?, ?, ?, ?, ?, ?, datetime('now', 'localtime'))`).run(sesion.id, usuario.id, tipo, metodo, concepto, monto);
+			db.prepare(`INSERT INTO registro_actividad (usuario_id, accion, modulo, descripcion, entidad, entidad_id, fecha)
+        VALUES (?, ?, 'caja', ?, 'sesion_caja', ?, datetime('now', 'localtime'))`).run(usuario.id, tipo, `${tipo} de ${monto} centavos: ${concepto}`, sesion.id);
+		})();
+		return obtenerEstado();
+	}
+	function cerrar(datos) {
+		const usuario = exigirSesion();
+		const contado = numeroCentavos(datos?.efectivoContadoCentavos, "efectivo contado", true);
+		const observaciones = String(datos?.observaciones || "").trim();
+		if (observaciones.length > 500) throw new Error("Las observaciones no pueden superar 500 caracteres.");
+		const ejecutar = db.transaction(() => {
+			const sesion = obtenerSesionAbierta();
+			if (!sesion) throw new Error("No hay una caja abierta para cerrar.");
+			const bloqueos = obtenerBloqueosCierre();
+			if (bloqueos.pedidosEnProcesoCantidad > 0) throw new Error(`No puedes cerrar la caja: hay ${bloqueos.pedidosEnProcesoCantidad} ${bloqueos.pedidosEnProcesoCantidad === 1 ? "pedido activo en cocina" : "pedidos activos en cocina"}. Termínalos o cancélalos antes del corte.`);
+			if (bloqueos.pedidosSinPagar > 0) throw new Error(`No puedes cerrar la caja: hay ${bloqueos.pedidosSinPagar} ${bloqueos.pedidosSinPagar === 1 ? "pedido sin pagar" : "pedidos sin pagar"}. Cobra los pedidos pendientes antes de hacer el corte.`);
+			const resumen = obtenerResumenSesion(sesion);
+			const diferencia = contado - resumen.efectivo_esperado_centavos;
+			db.prepare(`UPDATE sesiones_caja SET estado = 'cerrada', fecha_cierre = datetime('now', 'localtime'),
+        usuario_cierre_id = ?, efectivo_esperado_centavos = ?, transferencias_centavos = ?,
+        efectivo_contado_centavos = ?, diferencia_centavos = ?, observaciones = ? WHERE id = ?`).run(usuario.id, resumen.efectivo_esperado_centavos, resumen.transferencias_centavos, contado, diferencia, observaciones || null, sesion.id);
+			db.prepare(`INSERT INTO registro_actividad (usuario_id, accion, modulo, descripcion, entidad, entidad_id, fecha)
+        VALUES (?, 'cerrar', 'caja', ?, 'sesion_caja', ?, datetime('now', 'localtime'))`).run(usuario.id, `Cerró caja. Diferencia: ${diferencia} centavos.`, sesion.id);
+			return {
+				efectivoEsperadoCentavos: resumen.efectivo_esperado_centavos,
+				efectivoContadoCentavos: contado,
+				transferenciasCentavos: resumen.transferencias_centavos,
+				diferenciaCentavos: diferencia
+			};
+		});
+		return {
+			...obtenerEstado(),
+			cierre: ejecutar()
+		};
+	}
+	return {
+		obtenerEstado,
+		obtenerBloqueosCierre,
+		abrir,
+		registrarPago,
+		registrarMovimiento,
+		cerrar
+	};
+}
+// electron/proceso-principal/ipc/modulos/caja/controlador.js
+function registrarControladoresCaja(ipcMain, db, obtenerSesion) {
+	const servicio = crearServicioCaja(db, obtenerSesion);
+	ipcMain.handle("caja:estado", () => servicio.obtenerEstado());
+	ipcMain.handle("caja:validar-cierre", () => servicio.obtenerBloqueosCierre());
+	ipcMain.handle("caja:abrir", (_evento, datos) => servicio.abrir(datos));
+	ipcMain.handle("caja:registrar-pago", (_evento, datos) => servicio.registrarPago(datos));
+	ipcMain.handle("caja:registrar-movimiento", (_evento, datos) => servicio.registrarMovimiento(datos));
+	ipcMain.handle("caja:cerrar", (_evento, datos) => servicio.cerrar(datos));
+}
+// electron/proceso-principal/base-datos/modulos/reportes/servicio.js
+function crearServicioReportes(db, obtenerSesion) {
+	function exigirSesion() {
+		if (!obtenerSesion()?.id) throw new Error("Debes iniciar sesión.");
+	}
+	function validarFecha(fecha, campo) {
+		if (!fecha) return null;
+		if (typeof fecha !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(fecha)) throw new Error(`La fecha ${campo} no es válida.`);
+		const parsed = /* @__PURE__ */ new Date(`${fecha}T00:00:00Z`);
+		if (Number.isNaN(parsed.getTime()) || parsed.toISOString().slice(0, 10) !== fecha) throw new Error(`La fecha ${campo} no es válida.`);
+		return fecha;
+	}
+	function obtenerResumen(filtros = {}) {
+		exigirSesion();
+		const desde = validarFecha(filtros.desde, "inicial");
+		const hasta = validarFecha(filtros.hasta, "final");
+		if (desde && hasta && desde > hasta) throw new Error("La fecha inicial debe ser anterior a la final.");
+		const wherePago = [];
+		const paramsPago = [];
+		if (desde) {
+			wherePago.push("date(pa.fecha_pago) >= date(?)");
+			paramsPago.push(desde);
+		}
+		if (hasta) {
+			wherePago.push("date(pa.fecha_pago) <= date(?)");
+			paramsPago.push(hasta);
+		}
+		const wherePedido = [];
+		const paramsPedido = [];
+		if (desde) {
+			wherePedido.push("date(p.fecha_creacion) >= date(?)");
+			paramsPedido.push(desde);
+		}
+		if (hasta) {
+			wherePedido.push("date(p.fecha_creacion) <= date(?)");
+			paramsPedido.push(hasta);
+		}
+		const pagoWhere = wherePago.length ? `WHERE ${wherePago.join(" AND ")}` : "";
+		const pedidoWhere = wherePedido.length ? `WHERE ${wherePedido.join(" AND ")}` : "";
+		const pagos = db.prepare(`
+      SELECT COUNT(*) AS cantidad_pagos, COALESCE(SUM(monto_centavos), 0) AS ventas_centavos,
+        COALESCE(SUM(CASE WHEN metodo = 'efectivo' THEN monto_centavos ELSE 0 END), 0) AS efectivo_centavos,
+        COALESCE(SUM(CASE WHEN metodo = 'transferencia' THEN monto_centavos ELSE 0 END), 0) AS transferencia_centavos
+      FROM pagos pa ${pagoWhere}
+    `).get(...paramsPago);
+		const pedidos = db.prepare(`
+      SELECT COUNT(*) AS cantidad,
+        SUM(CASE WHEN p.estado = 'cancelado' THEN 1 ELSE 0 END) AS cancelados,
+        SUM(CASE WHEN p.estado NOT IN ('cancelado', 'entregado') THEN 1 ELSE 0 END) AS activos,
+        SUM(CASE WHEN p.estado IN ('preparando', 'en_horno') THEN 1 ELSE 0 END) AS preparando,
+        AVG(CASE WHEN p.inicio_preparacion IS NOT NULL AND p.fecha_listo IS NOT NULL
+          THEN (julianday(p.fecha_listo) - julianday(p.inicio_preparacion)) * 1440 END) AS promedio_preparacion_minutos,
+        SUM(CASE WHEN p.inicio_preparacion IS NOT NULL AND p.tiempo_estimado_minutos IS NOT NULL
+          AND p.estado IN ('listo', 'en_reparto', 'entregado')
+          AND (julianday(COALESCE(p.fecha_listo, p.fecha_entregado)) - julianday(p.inicio_preparacion)) * 1440 > p.tiempo_estimado_minutos
+          THEN 1 ELSE 0 END) AS retrasados
+      FROM pedidos p ${pedidoWhere}
+    `).get(...paramsPedido);
+		const metodos = db.prepare(`
+      SELECT metodo, COUNT(*) AS cantidad, COALESCE(SUM(monto_centavos), 0) AS total_centavos
+      FROM pagos pa ${pagoWhere} GROUP BY metodo ORDER BY total_centavos DESC
+    `).all(...paramsPago);
+		const productos = db.prepare(`
+      SELECT d.nombre_producto, SUM(d.cantidad) AS unidades,
+        SUM(d.subtotal_centavos) AS ventas_centavos
+      FROM pedido_detalles d INNER JOIN pedidos p ON p.id = d.pedido_id
+      ${pedidoWhere ? `${pedidoWhere} AND` : "WHERE"} p.estado != 'cancelado'
+      GROUP BY d.nombre_producto ORDER BY unidades DESC, ventas_centavos DESC LIMIT 10
+    `).all(...paramsPedido);
+		const cancelaciones = db.prepare(`
+      SELECT h.motivo, COUNT(*) AS cantidad
+      FROM historial_estados_pedido h INNER JOIN pedidos p ON p.id = h.pedido_id
+      ${pedidoWhere ? `${pedidoWhere} AND` : "WHERE"} h.estado_nuevo = 'cancelado'
+      GROUP BY h.motivo ORDER BY cantidad DESC LIMIT 10
+    `).all(...paramsPedido);
+		const movimientos = db.prepare(`
+      SELECT m.tipo, m.metodo, COUNT(*) AS cantidad, COALESCE(SUM(m.monto_centavos), 0) AS total_centavos
+      FROM movimientos_caja m INNER JOIN sesiones_caja s ON s.id = m.sesion_caja_id
+      WHERE (? IS NULL OR date(m.fecha) >= date(?)) AND (? IS NULL OR date(m.fecha) <= date(?))
+      GROUP BY m.tipo, m.metodo ORDER BY m.tipo, m.metodo
+    `).all(desde, desde, hasta, hasta);
+		const actividad = db.prepare(`
+      SELECT a.id, a.accion, a.modulo, a.descripcion, a.fecha, u.nombre AS usuario_nombre
+      FROM registro_actividad a LEFT JOIN usuarios u ON u.id = a.usuario_id
+      ORDER BY a.id DESC LIMIT 6
+    `).all();
+		return {
+			periodo: {
+				desde,
+				hasta
+			},
+			ventas: pagos.ventas_centavos,
+			efectivo: pagos.efectivo_centavos,
+			transferencias: pagos.transferencia_centavos,
+			cantidadPagos: pagos.cantidad_pagos,
+			cantidadPedidos: pedidos.cantidad || 0,
+			pedidosActivos: pedidos.activos || 0,
+			pedidosPreparando: pedidos.preparando || 0,
+			pedidosCancelados: pedidos.cancelados || 0,
+			pedidosRetrasados: pedidos.retrasados || 0,
+			promedioPreparacionMinutos: pedidos.promedio_preparacion_minutos === null ? 0 : Math.round(pedidos.promedio_preparacion_minutos),
+			metodos,
+			productos,
+			cancelaciones,
+			movimientos,
+			actividad
+		};
+	}
+	return { obtenerResumen };
+}
+// electron/proceso-principal/ipc/modulos/reportes/controlador.js
+function registrarControladoresReportes(ipcMain, db, obtenerSesion) {
+	const servicio = crearServicioReportes(db, obtenerSesion);
+	ipcMain.handle("reportes:resumen", (_evento, filtros) => servicio.obtenerResumen(filtros));
+}
+// electron/proceso-principal/base-datos/modulos/configuracion/servicio.js
+var VALORES_PREDETERMINADOS = {
+	nombre_negocio: "Pizzería",
+	telefono_negocio: "",
+	direccion_negocio: "",
+	horario_negocio: "",
+	logotipo_ruta: "",
+	moneda: "MXN",
+	tiempo_preparacion_minutos: "20",
+	volumen_notificaciones: "70"
+};
+function crearServicioConfiguracion(db, obtenerSesion) {
+	function exigirAdministrador() {
+		const sesion = obtenerSesion();
+		if (!sesion?.id) throw new Error("Debes iniciar sesión.");
+		if (sesion.rol !== "administrador") throw new Error("Solo un administrador puede cambiar la configuración.");
+		return sesion;
+	}
+	function listar() {
+		exigirAdministrador();
+		const guardados = db.prepare("SELECT clave, valor FROM configuracion").all();
+		return {
+			...VALORES_PREDETERMINADOS,
+			...Object.fromEntries(guardados.map(({ clave, valor }) => [clave, valor ?? ""]))
+		};
+	}
+	function publica() {
+		if (!obtenerSesion()?.id) throw new Error("Debes iniciar sesión.");
+		const filas = db.prepare("SELECT clave, valor FROM configuracion WHERE clave IN ('nombre_negocio', 'telefono_negocio', 'logotipo_ruta')").all();
+		return {
+			...VALORES_PREDETERMINADOS,
+			...Object.fromEntries(filas.map(({ clave, valor }) => [clave, valor ?? ""]))
+		};
+	}
+	function operativa() {
+		if (!obtenerSesion()?.id) throw new Error("Debes iniciar sesión.");
+		const guardados = db.prepare(`SELECT clave, valor FROM configuracion
+      WHERE clave IN ('tiempo_preparacion_minutos', 'volumen_notificaciones')`).all();
+		const valores = Object.fromEntries(guardados.map(({ clave, valor }) => [clave, valor]));
+		return {
+			tiempoPreparacionMinutos: Number(valores.tiempo_preparacion_minutos || VALORES_PREDETERMINADOS.tiempo_preparacion_minutos),
+			volumenNotificaciones: Number(valores.volumen_notificaciones || VALORES_PREDETERMINADOS.volumen_notificaciones)
+		};
+	}
+	function guardar(datos) {
+		const sesion = exigirAdministrador();
+		const valores = { ...VALORES_PREDETERMINADOS };
+		for (const clave of Object.keys(valores)) valores[clave] = String(datos?.[clave] ?? "").trim();
+		if (!valores.nombre_negocio || valores.nombre_negocio.length > 100) throw new Error("El nombre comercial es obligatorio y debe tener máximo 100 caracteres.");
+		if (valores.telefono_negocio.length > 30 || valores.direccion_negocio.length > 250 || valores.horario_negocio.length > 250 || valores.logotipo_ruta.length > 500) throw new Error("Revisa el largo de los datos del negocio.");
+		const preparacion = Number(valores.tiempo_preparacion_minutos);
+		const volumen = Number(valores.volumen_notificaciones);
+		if (!Number.isInteger(preparacion) || preparacion < 1 || preparacion > 600) throw new Error("El tiempo de preparación debe estar entre 1 y 600 minutos.");
+		if (!Number.isInteger(volumen) || volumen < 0 || volumen > 100) throw new Error("El volumen debe estar entre 0 y 100.");
+		if (valores.moneda !== "MXN") throw new Error("La moneda disponible actualmente es MXN.");
+		db.transaction(() => {
+			const upsert = db.prepare(`INSERT INTO configuracion (clave, valor, descripcion, actualizado_en)
+        VALUES (?, ?, ?, datetime('now', 'localtime'))
+        ON CONFLICT(clave) DO UPDATE SET valor = excluded.valor, descripcion = excluded.descripcion,
+          actualizado_en = excluded.actualizado_en`);
+			for (const [clave, valor] of Object.entries(valores)) upsert.run(clave, valor, "Configuración del negocio");
+			db.prepare(`INSERT INTO registro_actividad (usuario_id, accion, modulo, descripcion, fecha)
+        VALUES (?, 'actualizar', 'configuracion', 'Actualizó la configuración del negocio.', datetime('now', 'localtime'))`).run(sesion.id);
+		})();
+		return listar();
+	}
+	return {
+		listar,
+		publica,
+		guardar,
+		operativa
+	};
+}
+// electron/proceso-principal/ipc/modulos/configuracion/controlador.js
+function registrarControladoresConfiguracion(ipcMain, db, obtenerSesion) {
+	const servicio = crearServicioConfiguracion(db, obtenerSesion);
+	ipcMain.handle("configuracion:listar", () => servicio.listar());
+	ipcMain.handle("configuracion:publica", () => servicio.publica());
+	ipcMain.handle("configuracion:seleccionar-logotipo", async (evento) => {
+		if (obtenerSesion()?.rol !== "administrador") throw new Error("Solo un administrador puede cambiar el logotipo.");
+		const ventana = BrowserWindow.fromWebContents(evento.sender);
+		const opciones = {
+			title: "Seleccionar logotipo del negocio",
+			properties: ["openFile"],
+			filters: [{
+				name: "Imágenes",
+				extensions: [
+					"png",
+					"jpg",
+					"jpeg",
+					"webp"
+				]
+			}]
+		};
+		const { canceled, filePaths } = ventana ? await dialog.showOpenDialog(ventana, opciones) : await dialog.showOpenDialog(opciones);
+		if (canceled || !filePaths[0]) return null;
+		const origen = filePaths[0];
+		const extension = extname(origen).toLowerCase();
+		if (![
+			".png",
+			".jpg",
+			".jpeg",
+			".webp"
+		].includes(extension)) throw new Error("Elige una imagen PNG, JPG o WebP.");
+		const carpeta = join(app.getPath("userData"), "marca");
+		await mkdir(carpeta, { recursive: true });
+		const ruta = join(carpeta, `${randomUUID()}-${basename(origen).replace(/[^\w.-]/g, "_")}`);
+		await copyFile(origen, ruta);
+		return {
+			ruta,
+			url: `pizzeria-media://archivo?ruta=${encodeURIComponent(ruta)}`
+		};
+	});
+	ipcMain.handle("configuracion:operativa", () => servicio.operativa());
+	ipcMain.handle("configuracion:guardar", (_evento, datos) => servicio.guardar(datos));
+}
+// electron/proceso-principal/licencias/servicio.js
+function obtenerHuellaHardware() {
+	let semilla = "";
+	if (platform() === "win32") try {
+		semilla = execFileSync("reg", [
+			"query",
+			"HKLM\\SOFTWARE\\Microsoft\\Cryptography",
+			"/v",
+			"MachineGuid"
+		], {
+			encoding: "utf8",
+			windowsHide: true
+		}).match(/MachineGuid\s+REG_SZ\s+([^\s]+)/i)?.[1] || "";
+	} catch {}
+	if (!semilla) {
+		const macs = Object.values(networkInterfaces()).flat().filter((item) => item && !item.internal && item.mac !== "00:00:00:00:00:00").map((item) => item.mac).sort();
+		semilla = [
+			hostname(),
+			platform(),
+			arch(),
+			cpus()[0]?.model || "",
+			...macs
+		].join("|");
+	}
+	return `ST-${createHash("sha256").update(`starmy-pizzeria:${semilla}`).digest("hex").slice(0, 32).toUpperCase().match(/.{1,4}/g).join("-")}`;
+}
+function decodificar(licencia) {
+	const partes = String(licencia || "").trim().split(".");
+	if (partes.length !== 3 || partes[0] !== "STARMY1") throw new Error("La licencia no tiene un formato válido.");
+	const contenido = Buffer.from(partes[1], "base64url");
+	const firma = Buffer.from(partes[2], "base64url");
+	if (!verify(null, contenido, "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAWwAAC0sWABnnlzID01ivRzKocQ6XxKy4wDtAvtmlq5g=\n-----END PUBLIC KEY-----", firma)) throw new Error("La firma de la licencia no es válida.");
+	const datos = JSON.parse(contenido.toString("utf8"));
+	if (datos.producto !== "starmy-pizzeria" || datos.version !== 1) throw new Error("La licencia no corresponde a este sistema.");
+	return datos;
+}
+function archivoLicencia() {
+	return join(app.getPath("userData"), "licencia.json");
+}
+function archivoDemo() {
+	return join(app.getPath("userData"), "demo.json");
+}
+var DURACION_DEMO_MS = 864e6;
+var RUTA_REGISTRO_DEMO = "HKCU\\Software\\STARMY\\Pizzeria";
+function leerDemoRegistrado() {
+	let archivo = null;
+	try {
+		archivo = JSON.parse(readFileSync(archivoDemo(), "utf8"));
+	} catch {}
+	if (platform() !== "win32") return archivo;
+	try {
+		const salida = execFileSync("reg", ["query", RUTA_REGISTRO_DEMO], {
+			encoding: "utf8",
+			windowsHide: true
+		});
+		const inicio = salida.match(/DemoInicio\s+REG_SZ\s+(\S+)/i)?.[1];
+		const ultimo = salida.match(/DemoUltimoUso\s+REG_SZ\s+(\S+)/i)?.[1];
+		const registro = inicio ? {
+			inicio,
+			ultimoUso: ultimo || inicio
+		} : null;
+		if (!archivo) return registro;
+		return {
+			inicio: [archivo.inicio, registro?.inicio].filter(Boolean).sort((a, b) => Date.parse(a) - Date.parse(b))[0],
+			ultimoUso: [archivo.ultimoUso, registro?.ultimoUso].filter(Boolean).sort((a, b) => Date.parse(b) - Date.parse(a))[0]
+		};
+	} catch {
+		return archivo;
+	}
+}
+function guardarDemo(registro) {
+	const ruta = archivoDemo();
+	mkdirSync(dirname(ruta), { recursive: true });
+	writeFileSync(ruta, JSON.stringify(registro), { mode: 384 });
+	if (platform() !== "win32") return;
+	try {
+		execFileSync("reg", [
+			"add",
+			RUTA_REGISTRO_DEMO,
+			"/v",
+			"DemoInicio",
+			"/t",
+			"REG_SZ",
+			"/d",
+			registro.inicio,
+			"/f"
+		], {
+			windowsHide: true,
+			stdio: "ignore"
+		});
+		execFileSync("reg", [
+			"add",
+			RUTA_REGISTRO_DEMO,
+			"/v",
+			"DemoUltimoUso",
+			"/t",
+			"REG_SZ",
+			"/d",
+			registro.ultimoUso,
+			"/f"
+		], {
+			windowsHide: true,
+			stdio: "ignore"
+		});
+	} catch {}
+}
+function crearServicioLicencias(obtenerSesion) {
+	function estado() {
+		const hardwareId = obtenerHuellaHardware();
+		let guardada = "";
+		try {
+			guardada = JSON.parse(readFileSync(archivoLicencia(), "utf8")).licencia;
+		} catch {}
+		if (guardada) try {
+			const datos = decodificar(guardada);
+			if (datos.hardwareId === hardwareId && datos.tipo === "completa") return {
+				hardwareId,
+				activa: true,
+				demo: false,
+				diasRestantes: 0,
+				licencia: guardada,
+				cliente: datos.cliente || ""
+			};
+		} catch {}
+		const ahora = Date.now();
+		let registro = leerDemoRegistrado();
+		if (!registro) registro = {
+			inicio: new Date(ahora).toISOString(),
+			ultimoUso: new Date(ahora).toISOString(),
+			hardwareId
+		};
+		const inicio = Date.parse(registro.inicio);
+		const ultimoUso = Date.parse(registro.ultimoUso || registro.inicio);
+		const relojAtrasado = ahora + 3e5 < ultimoUso;
+		const ultimoUsoSeguro = new Date(Math.max(ahora, ultimoUso)).toISOString();
+		registro = {
+			...registro,
+			inicio: Number.isFinite(inicio) ? new Date(inicio).toISOString() : new Date(ahora).toISOString(),
+			ultimoUso: ultimoUsoSeguro
+		};
+		guardarDemo(registro);
+		const transcurrido = Math.max(0, ahora - Date.parse(registro.inicio));
+		const diasRestantes = Math.max(0, Math.ceil((DURACION_DEMO_MS - transcurrido) / 864e5));
+		const demoVigente = !relojAtrasado && transcurrido < DURACION_DEMO_MS;
+		return {
+			hardwareId,
+			activa: demoVigente,
+			demo: demoVigente,
+			expirado: !demoVigente,
+			diasRestantes,
+			licencia: "",
+			cliente: ""
+		};
+	}
+	function activar({ licencia }) {
+		const actual = estado();
+		const datos = decodificar(licencia);
+		if (datos.hardwareId !== actual.hardwareId) throw new Error("Esta licencia fue generada para otro equipo.");
+		if (datos.tipo !== "completa") throw new Error("La licencia no habilita la versión completa.");
+		const ruta = archivoLicencia();
+		mkdirSync(dirname(ruta), { recursive: true });
+		writeFileSync(ruta, JSON.stringify({ licencia: String(licencia).trim() }), { mode: 384 });
+		return {
+			activa: true,
+			cliente: datos.cliente || ""
+		};
+	}
+	return {
+		estado,
+		activar
+	};
+}
+// electron/proceso-principal/ipc/modulos/licencias/controlador.js
+function registrarControladoresLicencias(ipcMain, obtenerSesion) {
+	const servicio = crearServicioLicencias(obtenerSesion);
+	ipcMain.handle("licencias:estado", () => servicio.estado());
+	ipcMain.handle("licencias:activar", (_evento, datos) => servicio.activar(datos));
+	return servicio;
+}
+// electron/proceso-principal/base-datos/modulos/respaldos/servicio.js
+var intervaloAviso = 864e5;
+function crearServicioRespaldos(db, obtenerSesion) {
+	function exigirAdministrador() {
+		const sesion = obtenerSesion();
+		if (!sesion?.id || sesion.rol !== "administrador") throw new Error("Solo un administrador puede administrar respaldos.");
+		return sesion;
+	}
+	function preferencias() {
+		const filas = db.prepare("SELECT clave, valor FROM configuracion WHERE clave IN ('carpeta_respaldos', 'respaldo_al_cerrar')").all();
+		const config = Object.fromEntries(filas.map(({ clave, valor }) => [clave, valor]));
+		return {
+			carpeta: config.carpeta_respaldos || join(app.getPath("documents"), "STARMY", "Respaldos"),
+			alCerrar: config.respaldo_al_cerrar !== "0"
+		};
+	}
+	function listar() {
+		exigirAdministrador();
+		const historial = db.prepare("SELECT id, nombre_archivo, ruta_archivo, tipo, tamano_bytes, fecha_creacion, integridad_verificada, observaciones FROM historial_respaldos ORDER BY id DESC LIMIT 100").all();
+		const ultimo = historial[0];
+		const fechaUltimo = ultimo ? Date.parse(ultimo.fecha_creacion.replace(" ", "T") + "Z") : 0;
+		return {
+			...preferencias(),
+			historial,
+			requiereAviso: !ultimo || Date.now() - fechaUltimo >= intervaloAviso
+		};
+	}
+	function configurar({ carpeta, alCerrar }) {
+		const sesion = exigirAdministrador();
+		const directorio = String(carpeta || "").trim();
+		if (!directorio) throw new Error("Elige una carpeta para guardar los respaldos.");
+		mkdirSync(directorio, { recursive: true });
+		db.prepare(`INSERT INTO configuracion (clave, valor, descripcion, actualizado_en) VALUES ('carpeta_respaldos', ?, 'Carpeta para respaldos', datetime('now', 'localtime')) ON CONFLICT(clave) DO UPDATE SET valor=excluded.valor, actualizado_en=excluded.actualizado_en`).run(directorio);
+		db.prepare(`INSERT INTO configuracion (clave, valor, descripcion, actualizado_en) VALUES ('respaldo_al_cerrar', ?, 'Crear un respaldo automático al cerrar el sistema', datetime('now', 'localtime')) ON CONFLICT(clave) DO UPDATE SET valor=excluded.valor, actualizado_en=excluded.actualizado_en`).run(alCerrar ? "1" : "0");
+		db.prepare("INSERT INTO registro_actividad (usuario_id, accion, modulo, descripcion, fecha) VALUES (?, 'actualizar', 'respaldos', 'Actualizó las preferencias de respaldos.', datetime('now', 'localtime'))").run(sesion.id);
+		return preferencias();
+	}
+	async function crear(tipo = "manual") {
+		if (tipo === "manual") exigirAdministrador();
+		const { carpeta } = preferencias();
+		mkdirSync(carpeta, { recursive: true });
+		const nombre = `STARMY_respaldo_${(/* @__PURE__ */ new Date()).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z")}.sqlite`;
+		const ruta = join(carpeta, nombre);
+		await db.backup(ruta);
+		const comprobacion = new Database(ruta, {
+			readonly: true,
+			fileMustExist: true
+		});
+		let integridad = false;
+		try {
+			integridad = comprobacion.pragma("quick_check", { simple: true }) === "ok";
+		} finally {
+			comprobacion.close();
+		}
+		const bytes = statSync(ruta).size;
+		db.prepare("INSERT INTO historial_respaldos (nombre_archivo, ruta_archivo, tipo, tamano_bytes, integridad_verificada, observaciones) VALUES (?, ?, ?, ?, ?, ?)").run(nombre, ruta, tipo === "automatico" ? "automatico" : "manual", bytes, integridad ? 1 : 0, integridad ? "Verificación SQLite correcta" : "La verificación de integridad falló");
+		return {
+			nombre,
+			ruta,
+			bytes,
+			integridad
+		};
+	}
+	function preferenciaAlCerrar() {
+		return preferencias().alCerrar;
+	}
+	return {
+		listar,
+		configurar,
+		crear,
+		preferenciaAlCerrar
+	};
+}
+// electron/proceso-principal/ipc/modulos/respaldos/controlador.js
+function registrarControladoresRespaldos(ipcMain, db, obtenerSesion) {
+	const servicio = crearServicioRespaldos(db, obtenerSesion);
+	ipcMain.handle("respaldos:listar", () => servicio.listar());
+	ipcMain.handle("respaldos:configurar", (_evento, datos) => servicio.configurar(datos));
+	ipcMain.handle("respaldos:crear", () => servicio.crear("manual"));
+	ipcMain.handle("respaldos:seleccionar-carpeta", async (evento) => {
+		if (obtenerSesion()?.rol !== "administrador") throw new Error("Solo un administrador puede elegir la carpeta de respaldos.");
+		const opciones = {
+			defaultPath: app.getPath("documents"),
+			properties: ["openDirectory", "createDirectory"]
+		};
+		const ventana = BrowserWindow.fromWebContents(evento.sender);
+		const { canceled, filePaths } = ventana ? await dialog.showOpenDialog(ventana, opciones) : await dialog.showOpenDialog(opciones);
+		return canceled ? null : filePaths[0];
+	});
+	return servicio;
 }
 // electron/proceso-principal/ipc/index.js
 function registrarCanalesIPC() {
@@ -2310,10 +3305,17 @@ function registrarCanalesIPC() {
 	registrarControladoresClientes(ipcMain, db, () => servicioAutenticacion.obtenerSesion());
 	registrarControladoresPuntoVenta(ipcMain, db, () => servicioAutenticacion.obtenerSesion());
 	registrarControladoresPedidos(ipcMain, db, () => servicioAutenticacion.obtenerSesion());
-	registrarControladoresTelevision(ipcMain, db);
+	registrarControladoresTelevision(ipcMain, db, () => servicioAutenticacion.obtenerSesion());
+	registrarControladoresCaja(ipcMain, db, () => servicioAutenticacion.obtenerSesion());
+	registrarControladoresReportes(ipcMain, db, () => servicioAutenticacion.obtenerSesion());
+	registrarControladoresConfiguracion(ipcMain, db, () => servicioAutenticacion.obtenerSesion());
+	registrarControladoresLicencias(ipcMain, () => servicioAutenticacion.obtenerSesion());
+	const servicioRespaldos = registrarControladoresRespaldos(ipcMain, db, () => servicioAutenticacion.obtenerSesion());
 	console.log("Canales IPC registrados correctamente");
+	return servicioRespaldos;
 }
 // electron/proceso-principal/index.js
+app.commandLine.appendSwitch("autoplay-policy", "no-user-gesture-required");
 protocol.registerSchemesAsPrivileged([{
 	scheme: "pizzeria-media",
 	privileges: {
@@ -2325,12 +3327,17 @@ protocol.registerSchemesAsPrivileged([{
 	}
 }]);
 var ventanaPrincipal = null;
+var servicioRespaldos = null;
+var esperaRespaldoAntesDeSalir = false;
+var cierreListo = false;
+var permitirCierreVentana = false;
+var solicitudCierreEnviada = false;
 function crearVentanaPrincipal() {
 	ventanaPrincipal = new BrowserWindow({
 		width: 1366,
 		height: 850,
-		minWidth: 1100,
-		minHeight: 700,
+		minWidth: 760,
+		minHeight: 560,
 		show: false,
 		webPreferences: {
 			preload: join(__dirname, "../preload/index.cjs"),
@@ -2342,13 +3349,36 @@ function crearVentanaPrincipal() {
 	ventanaPrincipal.once("ready-to-show", () => {
 		ventanaPrincipal.show();
 	});
+	ventanaPrincipal.on("close", (evento) => {
+		if (permitirCierreVentana) {
+			permitirCierreVentana = false;
+			return;
+		}
+		evento.preventDefault();
+		if (!solicitudCierreEnviada) {
+			solicitudCierreEnviada = true;
+			ventanaPrincipal.webContents.send("aplicacion:solicitar-cierre");
+		}
+	});
 	if (process.env.ELECTRON_RENDERER_URL) ventanaPrincipal.loadURL(`${process.env.ELECTRON_RENDERER_URL}/#/`);
 	else ventanaPrincipal.loadFile(join(__dirname, "../renderer/index.html"), { hash: "/" });
 	ventanaPrincipal.on("closed", () => {
 		ventanaPrincipal = null;
+		solicitudCierreEnviada = false;
 		cerrarVentanaTV();
+		cerrarVentanaProduccion();
 	});
 }
+ipcMain.on("aplicacion:finalizar-cierre", (evento) => {
+	const ventana = BrowserWindow.fromWebContents(evento.sender);
+	if (!ventana || ventana !== ventanaPrincipal) return;
+	solicitudCierreEnviada = false;
+	permitirCierreVentana = true;
+	ventana.close();
+});
+ipcMain.on("aplicacion:cancelar-cierre", (evento) => {
+	if (BrowserWindow.fromWebContents(evento.sender) === ventanaPrincipal) solicitudCierreEnviada = false;
+});
 app.whenReady().then(() => {
 	protocol.handle("pizzeria-media", (solicitud) => {
 		const ruta = new URL(solicitud.url).searchParams.get("ruta");
@@ -2356,15 +3386,43 @@ app.whenReady().then(() => {
 		return net.fetch(pathToFileURL(ruta).href);
 	});
 	inicializarBaseDatos();
-	registrarCanalesIPC();
+	servicioRespaldos = registrarCanalesIPC();
 	crearVentanaPrincipal();
 	app.on("activate", () => {
 		if (BrowserWindow.getAllWindows().length === 0) crearVentanaPrincipal();
 	});
 });
-app.on("before-quit", () => {
+app.on("before-quit", (evento) => {
 	cerrarVentanaTV();
-	cerrarConexion();
+	cerrarVentanaProduccion();
+	if (cierreListo) {
+		cerrarConexion();
+		return;
+	}
+	if (esperaRespaldoAntesDeSalir) {
+		evento.preventDefault();
+		return;
+	}
+	let respaldar = false;
+	try {
+		respaldar = servicioRespaldos?.preferenciaAlCerrar() ?? false;
+	} catch (error) {
+		console.error("No se pudo leer la preferencia de respaldos:", error);
+	}
+	if (!respaldar) {
+		cierreListo = true;
+		permitirCierreVentana = true;
+		cerrarConexion();
+		return;
+	}
+	evento.preventDefault();
+	esperaRespaldoAntesDeSalir = true;
+	servicioRespaldos.crear("automatico").catch((error) => console.error("No se pudo crear el respaldo automático al cerrar:", error)).finally(() => {
+		cierreListo = true;
+		permitirCierreVentana = true;
+		cerrarConexion();
+		app.quit();
+	});
 });
 app.on("window-all-closed", () => {
 	if (process.platform !== "darwin") app.quit();

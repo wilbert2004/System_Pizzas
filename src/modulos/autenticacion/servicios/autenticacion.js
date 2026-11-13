@@ -19,6 +19,23 @@ export const servicioAutenticacion = {
   obtenerSesion() {
     return api.autenticacion.obtenerSesion();
   },
+
+  actualizarPerfil(datos) {
+    return api.autenticacion.actualizarPerfil(datos);
+  },
+
+  cambiarContrasenaPropia(datos) {
+    return api.autenticacion.cambiarContrasenaPropia(datos);
+  },
+
+  solicitarTokenRecuperacion(datos) {
+    return api.autenticacion.solicitarTokenRecuperacion(datos);
+  },
+
+  restablecerConToken(datos) {
+    return api.autenticacion.restablecerConToken(datos);
+  },
+
 };
 
 export const servicioUsuarios = {
@@ -41,4 +58,5 @@ export const servicioUsuarios = {
   cambiarEstado(datos) {
     return api.usuarios.cambiarEstado(datos);
   },
+
 };

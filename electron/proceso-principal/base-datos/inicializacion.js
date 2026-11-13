@@ -1,8 +1,9 @@
 import { obtenerConexion } from "./conexion.js";
 import * as migracion001 from "./migraciones/001-base.js";
 import * as migracion002 from "./migraciones/002-estructura-principal.js";
+import * as migracion003 from "./migraciones/003-pagos-efectivo.js";
 
-const migraciones = [migracion001, migracion002];
+const migraciones = [migracion001, migracion002, migracion003];
 
 export function inicializarBaseDatos() {
   const db = obtenerConexion();
@@ -46,6 +47,17 @@ export function inicializarBaseDatos() {
     ejecutarMigracion();
 
     console.log(`Migracion ${migracion.version} aplicada correctamente`);
+  }
+
+  // Asegura las columnas nuevas aunque una instalación ya hubiera aplicado una
+  // versión 3 anterior mientras se estaba definiendo el sistema de licencias.
+  const columnasPago = new Set(db.pragma("table_info(pagos)").map((columna) => columna.name));
+  if (!columnasPago.has("monto_recibido_centavos")) {
+    db.exec("ALTER TABLE pagos ADD COLUMN monto_recibido_centavos INTEGER NOT NULL DEFAULT 0 CHECK (monto_recibido_centavos >= 0)");
+    db.exec("UPDATE pagos SET monto_recibido_centavos = monto_centavos WHERE monto_recibido_centavos = 0");
+  }
+  if (!columnasPago.has("cambio_centavos")) {
+    db.exec("ALTER TABLE pagos ADD COLUMN cambio_centavos INTEGER NOT NULL DEFAULT 0 CHECK (cambio_centavos >= 0)");
   }
 
   console.log("Base de datos inicializada correctamente");

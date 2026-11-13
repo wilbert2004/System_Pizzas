@@ -23,6 +23,18 @@ export function registrarControladoresAutenticacion(ipcMain, db) {
     return servicio.obtenerSesion();
   });
 
+  ipcMain.handle("autenticacion:actualizar-perfil", (_evento, datos) =>
+    servicio.actualizarPerfil(datos),
+  );
+
+  ipcMain.handle("autenticacion:cambiar-contrasena-propia", (_evento, datos) =>
+    servicio.cambiarContrasenaPropia(datos),
+  );
+
+  ipcMain.handle("autenticacion:solicitar-token-recuperacion", (_evento, datos) => servicio.solicitarTokenRecuperacion(datos));
+  ipcMain.handle("autenticacion:restablecer-con-token", (_evento, datos) => servicio.restablecerConToken(datos));
+
+
   ipcMain.handle("usuarios:listar", () => {
     return servicio.listarUsuarios();
   });
@@ -42,6 +54,7 @@ export function registrarControladoresAutenticacion(ipcMain, db) {
   ipcMain.handle("usuarios:cambiar-estado", (_, datos) => {
     return servicio.cambiarEstado(datos);
   });
+
 
   return servicio;
 }

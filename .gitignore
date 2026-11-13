@@ -12,6 +12,7 @@ distribucion
 dist
 dist-ssr
 *.local
+.license-issuer/
 
 # Editor directories and files
 .vscode/*
