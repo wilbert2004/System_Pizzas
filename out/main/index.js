@@ -48,12 +48,12 @@ function cerrarConexion() {
 }
 // electron/proceso-principal/base-datos/migraciones/001-base.js
 var _001_base_exports = /* @__PURE__ */ __exportAll({
-	descripcion: () => descripcion$3,
-	sql: () => sql$3,
+	descripcion: () => descripcion$4,
+	sql: () => sql$4,
 	version: () => 1
 });
-var descripcion$3 = "Preparacion inicial de la base de datos";
-var sql$3 = `
+var descripcion$4 = "Preparacion inicial de la base de datos";
+var sql$4 = `
   CREATE TABLE IF NOT EXISTS configuracion (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     clave TEXT NOT NULL UNIQUE,
@@ -68,12 +68,12 @@ var sql$3 = `
 `;
 // electron/proceso-principal/base-datos/migraciones/002-estructura-principal.js
 var _002_estructura_principal_exports = /* @__PURE__ */ __exportAll({
-	descripcion: () => descripcion$2,
-	sql: () => sql$2,
+	descripcion: () => descripcion$3,
+	sql: () => sql$3,
 	version: () => 2
 });
-var descripcion$2 = "Creacion de la estructura principal del sistema";
-var sql$2 = `
+var descripcion$3 = "Creacion de la estructura principal del sistema";
+var sql$3 = `
   -- =====================================================
   -- ACTUALIZAR CONFIGURACION EXISTENTE
   -- =====================================================
@@ -609,33 +609,48 @@ var sql$2 = `
 `;
 // electron/proceso-principal/base-datos/migraciones/003-pagos-efectivo.js
 var _003_pagos_efectivo_exports = /* @__PURE__ */ __exportAll({
-	descripcion: () => descripcion$1,
-	sql: () => sql$1,
+	descripcion: () => descripcion$2,
+	sql: () => sql$2,
 	version: () => 3
 });
-var descripcion$1 = "Registro del efectivo recibido y el cambio de los pagos";
-var sql$1 = `
+var descripcion$2 = "Registro del efectivo recibido y el cambio de los pagos";
+var sql$2 = `
   ALTER TABLE pagos ADD COLUMN monto_recibido_centavos INTEGER NOT NULL DEFAULT 0 CHECK (monto_recibido_centavos >= 0);
   ALTER TABLE pagos ADD COLUMN cambio_centavos INTEGER NOT NULL DEFAULT 0 CHECK (cambio_centavos >= 0);
   UPDATE pagos SET monto_recibido_centavos = monto_centavos WHERE monto_recibido_centavos = 0;
 `;
 // electron/proceso-principal/base-datos/migraciones/004-duracion-publicidad.js
 var _004_duracion_publicidad_exports = /* @__PURE__ */ __exportAll({
-	descripcion: () => descripcion,
-	sql: () => sql,
+	descripcion: () => descripcion$1,
+	sql: () => sql$1,
 	version: () => 4
 });
-var descripcion = "Duración automática o manual para anuncios de televisión";
-var sql = `
+var descripcion$1 = "Duración automática o manual para anuncios de televisión";
+var sql$1 = `
   ALTER TABLE multimedia ADD COLUMN duracion_modo TEXT NOT NULL DEFAULT 'manual'
     CHECK (duracion_modo IN ('automatico', 'manual'));
+`;
+// electron/proceso-principal/base-datos/migraciones/005-productos-preparacion.js
+var _005_productos_preparacion_exports = /* @__PURE__ */ __exportAll({
+	descripcion: () => descripcion,
+	sql: () => sql,
+	version: () => 5
+});
+var descripcion = "Indicar si los productos requieren preparación";
+var sql = `
+  ALTER TABLE productos ADD COLUMN requiere_preparacion INTEGER NOT NULL DEFAULT 1
+    CHECK (requiere_preparacion IN (0, 1));
+
+  ALTER TABLE pedido_detalles ADD COLUMN requiere_preparacion INTEGER NOT NULL DEFAULT 1
+    CHECK (requiere_preparacion IN (0, 1));
 `;
 // electron/proceso-principal/base-datos/inicializacion.js
 var migraciones = [
 	_001_base_exports,
 	_002_estructura_principal_exports,
 	_003_pagos_efectivo_exports,
-	_004_duracion_publicidad_exports
+	_004_duracion_publicidad_exports,
+	_005_productos_preparacion_exports
 ];
 function inicializarBaseDatos() {
 	const db = obtenerConexion();
@@ -1220,10 +1235,11 @@ function crearServicioProductos(db, obtenerSesion) {
           descripcion,
           imagen_url,
           requiere_presentacion,
+          requiere_preparacion,
           orden
         )
-        VALUES (?, ?, ?, ?, ?, ?)
-      `).run(categoriaId, nombre, datos.descripcion?.trim() || null, datos.imagen_url?.trim() || null, requierePresentacion, Number(datos.orden) || 0).lastInsertRowid;
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+      `).run(categoriaId, nombre, datos.descripcion?.trim() || null, datos.imagen_url?.trim() || null, requierePresentacion, datos.requiere_preparacion === false ? 0 : 1, Number(datos.orden) || 0).lastInsertRowid;
 			const insertarPresentacion = db.prepare(`
         INSERT INTO presentaciones_producto (
           producto_id,
@@ -1265,10 +1281,11 @@ function crearServicioProductos(db, obtenerSesion) {
           descripcion = ?,
           imagen_url = ?,
           requiere_presentacion = ?,
+          requiere_preparacion = ?,
           orden = ?,
           fecha_actualizacion = CURRENT_TIMESTAMP
       WHERE id = ?
-    `).run(categoriaId, nombre, datos.descripcion?.trim() || null, datos.imagen_url?.trim() || null, datos.requiere_presentacion ? 1 : 0, Number(datos.orden) || 0, datos.id).changes > 0;
+    `).run(categoriaId, nombre, datos.descripcion?.trim() || null, datos.imagen_url?.trim() || null, datos.requiere_presentacion ? 1 : 0, datos.requiere_preparacion === false ? 0 : 1, Number(datos.orden) || 0, datos.id).changes > 0;
 	}
 	function cambiarEstadoProducto(datos) {
 		exigirAdministrador();
@@ -1691,6 +1708,7 @@ function crearServicioPuntoVenta(db, obtenerSesion) {
         p.descripcion,
         p.imagen_url,
         p.requiere_presentacion,
+        p.requiere_preparacion,
         p.orden
       FROM productos p
       INNER JOIN categorias c ON c.id = p.categoria_id
@@ -1725,6 +1743,7 @@ function crearServicioPuntoVenta(db, obtenerSesion) {
 			productos: productos.map((producto) => ({
 				...producto,
 				requiere_presentacion: Boolean(producto.requiere_presentacion),
+				requiere_preparacion: Boolean(producto.requiere_preparacion),
 				presentaciones: presentaciones.filter((presentacion) => presentacion.producto_id === producto.id),
 				adicionales: adicionales.filter((adicional) => adicional.producto_id === producto.id).map((adicional) => {
 					const resultado = { ...adicional };
@@ -1810,7 +1829,7 @@ function crearServicioPuntoVenta(db, obtenerSesion) {
 				const cantidad = Number(item.cantidad);
 				if (!Number.isInteger(productoId) || !Number.isInteger(presentacionId) || !Number.isInteger(cantidad) || cantidad < 1 || cantidad > 99) throw new Error("Hay un producto con datos inválidos.");
 				const producto = db.prepare(`
-          SELECT id, nombre, activo, requiere_presentacion
+          SELECT id, nombre, activo, requiere_presentacion, requiere_preparacion
           FROM productos
           WHERE id = ?
         `).get(productoId);
@@ -1862,6 +1881,7 @@ function crearServicioPuntoVenta(db, obtenerSesion) {
 			if (descuentoSolicitado > subtotal) throw new Error("El descuento no puede superar el subtotal.");
 			const total = subtotal - descuentoSolicitado + costoEnvio;
 			if (!Number.isSafeInteger(total) || total < 0) throw new Error("El total del pedido no es válido.");
+			const estadoInicial = detalles.some((detalle) => Boolean(detalle.producto.requiere_preparacion)) ? "nuevo" : "listo";
 			const folio = generarFolio();
 			const pedidoId = db.prepare(`
         INSERT INTO pedidos (
@@ -1881,16 +1901,18 @@ function crearServicioPuntoVenta(db, obtenerSesion) {
           direccion_entrega,
           referencias_entrega,
           tiempo_estimado_minutos,
+          fecha_listo,
           fecha_creacion,
           fecha_actualizacion
         )
         VALUES (
-          ?, ?, ?, ?, ?, 'nuevo',
+          ?, ?, ?, ?, ?, ?,
           ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+          CASE WHEN ? = 'listo' THEN datetime('now', 'localtime') ELSE NULL END,
           datetime('now', 'localtime'),
           datetime('now', 'localtime')
         )
-      `).run(folio, datos.clienteId || null, sesion.id, datos.canal, datos.tipo, subtotal, descuentoSolicitado, descuentoSolicitado > 0 ? String(datos.motivoDescuento).trim() : null, descuentoSolicitado > 0 ? sesion.id : null, costoEnvio, total, notasPedido || null, datos.tipo === "domicilio" ? direccion : null, datos.tipo === "domicilio" ? referencias || null : null, tiempoEstimado).lastInsertRowid;
+      `).run(folio, datos.clienteId || null, sesion.id, datos.canal, datos.tipo, estadoInicial, subtotal, descuentoSolicitado, descuentoSolicitado > 0 ? String(datos.motivoDescuento).trim() : null, descuentoSolicitado > 0 ? sesion.id : null, costoEnvio, total, notasPedido || null, datos.tipo === "domicilio" ? direccion : null, datos.tipo === "domicilio" ? referencias || null : null, tiempoEstimado, estadoInicial).lastInsertRowid;
 			const insertarDetalle = db.prepare(`
         INSERT INTO pedido_detalles (
           pedido_id,
@@ -1901,9 +1923,10 @@ function crearServicioPuntoVenta(db, obtenerSesion) {
           cantidad,
           precio_unitario_centavos,
           subtotal_centavos,
-          notas
+          notas,
+          requiere_preparacion
         )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       `);
 			const insertarAdicional = db.prepare(`
         INSERT INTO pedido_detalle_adicionales (
@@ -1917,7 +1940,7 @@ function crearServicioPuntoVenta(db, obtenerSesion) {
         VALUES (?, ?, ?, ?, ?, ?)
       `);
 			for (const detalle of detalles) {
-				const resultado = insertarDetalle.run(pedidoId, detalle.producto.id, detalle.presentacion.id, detalle.producto.nombre, detalle.presentacion.nombre, detalle.cantidad, detalle.precioUnitario, detalle.subtotalDetalle, detalle.notas || null);
+				const resultado = insertarDetalle.run(pedidoId, detalle.producto.id, detalle.presentacion.id, detalle.producto.nombre, detalle.presentacion.nombre, detalle.cantidad, detalle.precioUnitario, detalle.subtotalDetalle, detalle.notas || null, detalle.producto.requiere_preparacion ? 1 : 0);
 				for (const adicional of detalle.adicionales) insertarAdicional.run(resultado.lastInsertRowid, adicional.id, adicional.nombre, adicional.precio_centavos, adicional.cantidad, adicional.precio_centavos * adicional.cantidad);
 			}
 			db.prepare(`
@@ -1928,8 +1951,8 @@ function crearServicioPuntoVenta(db, obtenerSesion) {
           usuario_id,
           fecha
         )
-        VALUES (?, NULL, 'nuevo', ?, datetime('now', 'localtime'))
-      `).run(pedidoId, sesion.id);
+        VALUES (?, NULL, ?, ?, datetime('now', 'localtime'))
+      `).run(pedidoId, estadoInicial, sesion.id);
 			db.prepare(`
         INSERT INTO registro_actividad (
           usuario_id,
@@ -1945,7 +1968,7 @@ function crearServicioPuntoVenta(db, obtenerSesion) {
 			return {
 				id: pedidoId,
 				folio,
-				estado: "nuevo",
+				estado: estadoInicial,
 				subtotalCentavos: subtotal,
 				descuentoCentavos: descuentoSolicitado,
 				costoEnvioCentavos: costoEnvio,

@@ -3,8 +3,9 @@ import * as migracion001 from "./migraciones/001-base.js";
 import * as migracion002 from "./migraciones/002-estructura-principal.js";
 import * as migracion003 from "./migraciones/003-pagos-efectivo.js";
 import * as migracion004 from "./migraciones/004-duracion-publicidad.js";
+import * as migracion005 from "./migraciones/005-productos-preparacion.js";
 
-const migraciones = [migracion001, migracion002, migracion003, migracion004];
+const migraciones = [migracion001, migracion002, migracion003, migracion004, migracion005];
 
 export function inicializarBaseDatos() {
   const db = obtenerConexion();

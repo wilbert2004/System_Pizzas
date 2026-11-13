@@ -25,12 +25,21 @@ export const servicioCocina = {
         return fechaA - fechaB;
       });
 
-    return Promise.all(
+    const detallesPedidos = await Promise.all(
       pedidosCocina.map(async (pedido) => {
         const detalle = await api.obtener(pedido.id);
-        return detalle || pedido;
+        if (!detalle) return null;
+        const productosPreparados = (detalle.detalles || []).filter(
+          (producto) =>
+            producto.requiere_preparacion !== 0 &&
+            producto.requiere_preparacion !== false,
+        );
+        if (productosPreparados.length === 0) return null;
+        return { ...detalle, detalles: productosPreparados };
       }),
     );
+
+    return detallesPedidos.filter(Boolean);
   },
 
   async obtenerPedido(id) {

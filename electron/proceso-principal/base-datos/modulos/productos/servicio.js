@@ -276,9 +276,10 @@ export function crearServicioProductos(db, obtenerSesion) {
           descripcion,
           imagen_url,
           requiere_presentacion,
+          requiere_preparacion,
           orden
         )
-        VALUES (?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
       `,
         )
         .run(
@@ -287,6 +288,7 @@ export function crearServicioProductos(db, obtenerSesion) {
           datos.descripcion?.trim() || null,
           datos.imagen_url?.trim() || null,
           requierePresentacion,
+          datos.requiere_preparacion === false ? 0 : 1,
           Number(datos.orden) || 0,
         );
 
@@ -376,6 +378,7 @@ export function crearServicioProductos(db, obtenerSesion) {
           descripcion = ?,
           imagen_url = ?,
           requiere_presentacion = ?,
+          requiere_preparacion = ?,
           orden = ?,
           fecha_actualizacion = CURRENT_TIMESTAMP
       WHERE id = ?
@@ -387,6 +390,7 @@ export function crearServicioProductos(db, obtenerSesion) {
         datos.descripcion?.trim() || null,
         datos.imagen_url?.trim() || null,
         datos.requiere_presentacion ? 1 : 0,
+        datos.requiere_preparacion === false ? 0 : 1,
         Number(datos.orden) || 0,
         datos.id,
       );

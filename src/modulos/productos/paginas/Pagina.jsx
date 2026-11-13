@@ -20,6 +20,7 @@ const formularioInicial = {
   imagen_url: "",
   orden: 0,
   requiere_presentacion: true,
+  requiere_preparacion: true,
   presentaciones: [
     { nombre: "Chica", precio: "" },
     { nombre: "Mediana", precio: "" },
@@ -278,6 +279,7 @@ export default function PaginaProductos() {
         ...detalle,
         categoria_id: String(detalle.categoria_id),
         requiere_presentacion: Boolean(detalle.requiere_presentacion),
+        requiere_preparacion: detalle.requiere_preparacion !== 0 && detalle.requiere_preparacion !== false,
         presentaciones: (detalle.presentaciones || []).map((p) => ({
           ...p,
           precio: (p.precio_centavos / 100).toFixed(2),
@@ -745,6 +747,28 @@ export default function PaginaProductos() {
                       Presentación única
                     </button>
                   </div>
+
+                  <label className="mt-3 flex cursor-pointer items-start gap-3 rounded-xl border border-slate-200 bg-white p-3">
+                    <input
+                      type="checkbox"
+                      checked={producto.requiere_preparacion}
+                      onChange={(e) =>
+                        setProducto({
+                          ...producto,
+                          requiere_preparacion: e.target.checked,
+                        })
+                      }
+                      className="mt-1 h-4 w-4 accent-violet-600"
+                    />
+                    <span>
+                      <span className="block text-sm font-semibold text-slate-800">
+                        Se prepara en cocina
+                      </span>
+                      <span className="mt-1 block text-xs text-slate-500">
+                        Desactívalo para bebidas, botanas y otros productos que solo se entregan.
+                      </span>
+                    </span>
+                  </label>
                 </div>
 
                 <div className="space-y-3 rounded-xl bg-slate-50 p-3">

@@ -33,6 +33,7 @@ export function crearServicioPuntoVenta(db, obtenerSesion) {
         p.descripcion,
         p.imagen_url,
         p.requiere_presentacion,
+        p.requiere_preparacion,
         p.orden
       FROM productos p
       INNER JOIN categorias c ON c.id = p.categoria_id
@@ -80,6 +81,7 @@ export function crearServicioPuntoVenta(db, obtenerSesion) {
       productos: productos.map((producto) => ({
         ...producto,
         requiere_presentacion: Boolean(producto.requiere_presentacion),
+        requiere_preparacion: Boolean(producto.requiere_preparacion),
         presentaciones: presentaciones.filter(
           (presentacion) => presentacion.producto_id === producto.id,
         ),
@@ -264,7 +266,7 @@ export function crearServicioPuntoVenta(db, obtenerSesion) {
         const producto = db
           .prepare(
             `
-          SELECT id, nombre, activo, requiere_presentacion
+          SELECT id, nombre, activo, requiere_presentacion, requiere_preparacion
           FROM productos
           WHERE id = ?
         `,
@@ -378,6 +380,11 @@ export function crearServicioPuntoVenta(db, obtenerSesion) {
         throw new Error("El total del pedido no es válido.");
       }
 
+      const requierePreparacion = detalles.some(
+        (detalle) => Boolean(detalle.producto.requiere_preparacion),
+      );
+      const estadoInicial = requierePreparacion ? "nuevo" : "listo";
+
       const folio = generarFolio();
 
       const pedido = db
@@ -400,12 +407,14 @@ export function crearServicioPuntoVenta(db, obtenerSesion) {
           direccion_entrega,
           referencias_entrega,
           tiempo_estimado_minutos,
+          fecha_listo,
           fecha_creacion,
           fecha_actualizacion
         )
         VALUES (
-          ?, ?, ?, ?, ?, 'nuevo',
+          ?, ?, ?, ?, ?, ?,
           ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+          CASE WHEN ? = 'listo' THEN datetime('now', 'localtime') ELSE NULL END,
           datetime('now', 'localtime'),
           datetime('now', 'localtime')
         )
@@ -417,6 +426,7 @@ export function crearServicioPuntoVenta(db, obtenerSesion) {
           sesion.id,
           datos.canal,
           datos.tipo,
+          estadoInicial,
           subtotal,
           descuentoSolicitado,
           descuentoSolicitado > 0 ? String(datos.motivoDescuento).trim() : null,
@@ -427,6 +437,7 @@ export function crearServicioPuntoVenta(db, obtenerSesion) {
           datos.tipo === "domicilio" ? direccion : null,
           datos.tipo === "domicilio" ? referencias || null : null,
           tiempoEstimado,
+          estadoInicial,
         );
 
       const pedidoId = pedido.lastInsertRowid;
@@ -441,9 +452,10 @@ export function crearServicioPuntoVenta(db, obtenerSesion) {
           cantidad,
           precio_unitario_centavos,
           subtotal_centavos,
-          notas
+          notas,
+          requiere_preparacion
         )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       `);
 
       const insertarAdicional = db.prepare(`
@@ -469,6 +481,7 @@ export function crearServicioPuntoVenta(db, obtenerSesion) {
           detalle.precioUnitario,
           detalle.subtotalDetalle,
           detalle.notas || null,
+          detalle.producto.requiere_preparacion ? 1 : 0,
         );
 
         for (const adicional of detalle.adicionales) {
@@ -492,9 +505,9 @@ export function crearServicioPuntoVenta(db, obtenerSesion) {
           usuario_id,
           fecha
         )
-        VALUES (?, NULL, 'nuevo', ?, datetime('now', 'localtime'))
+        VALUES (?, NULL, ?, ?, datetime('now', 'localtime'))
       `,
-      ).run(pedidoId, sesion.id);
+      ).run(pedidoId, estadoInicial, sesion.id);
 
       db.prepare(
         `
@@ -514,7 +527,7 @@ export function crearServicioPuntoVenta(db, obtenerSesion) {
       return {
         id: pedidoId,
         folio,
-        estado: "nuevo",
+        estado: estadoInicial,
         subtotalCentavos: subtotal,
         descuentoCentavos: descuentoSolicitado,
         costoEnvioCentavos: costoEnvio,

@@ -67,6 +67,7 @@ El sistema deberá funcionar de manera **100 % local**, sin depender de una cone
 - **Categorías:** Pizzas, Bebidas, Extras, Complementos y Otros.
 - **Características:**
   - Tamaños pequeño, mediano y grande con precio independiente por tamaño.
+  - Cada producto indica si requiere preparación; bebidas y botanas sin preparación se entregan directamente y no aparecen en Cocina.
   - Ingredientes adicionales con costo extra.
   - Notas y modificaciones.
   - Alta, edición y desactivación gestionadas por el administrador.
@@ -81,6 +82,7 @@ El sistema deberá funcionar de manera **100 % local**, sin depender de una cone
   - Al superar el tiempo estimado, el pedido se marca como retrasado y se reproduce una alarma sonora, conservando su estado original.
   - El empleado puede reconocer/silenciar la alarma, pero el pedido seguirá marcado como retrasado hasta completarse.
 - La confirmación de pedido listo siempre será manual.
+- Los pedidos compuestos solo por productos sin preparación se registran directamente como listos; en pedidos mixtos, Cocina muestra únicamente los productos que requieren preparación.
 - Las cancelaciones exigirán un motivo obligatorio y quedarán registradas.
 
 ### 3.6 Entregas

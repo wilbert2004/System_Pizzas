@@ -660,6 +660,11 @@ export default function PaginaPuntoVenta() {
                       <span className="text-xs text-slate-400">
                         {producto.presentaciones.length} presentación(es)
                       </span>
+                      {!producto.requiere_preparacion && (
+                        <span className="rounded-full bg-emerald-50 px-2 py-1 text-[10px] font-semibold text-emerald-700">
+                          Entrega directa
+                        </span>
+                      )}
                       <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-violet-100 text-violet-700">
                         <Plus size={18} />
                       </span>
