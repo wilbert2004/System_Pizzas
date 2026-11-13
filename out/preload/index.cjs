@@ -58,5 +58,11 @@ electron.contextBridge.exposeInMainWorld("sistema", {
 		obtenerCatalogo: () => electron.ipcRenderer.invoke("punto-venta:catalogo"),
 		buscarClientes: (busqueda) => electron.ipcRenderer.invoke("punto-venta:buscar-clientes", busqueda),
 		crearPedido: (datos) => electron.ipcRenderer.invoke("punto-venta:crear-pedido", datos)
+	},
+	pedidos: {
+		listar: (filtros) => electron.ipcRenderer.invoke("pedidos:listar", filtros),
+		obtener: (id) => electron.ipcRenderer.invoke("pedidos:obtener", id),
+		cambiarEstado: (id, estado, motivo) => electron.ipcRenderer.invoke("pedidos:cambiar-estado", id, estado, motivo),
+		resumen: () => electron.ipcRenderer.invoke("pedidos:resumen")
 	}
 });

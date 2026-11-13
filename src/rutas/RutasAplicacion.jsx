@@ -4,8 +4,7 @@ import InicioSesion from "../modulos/autenticacion/paginas/InicioSesion";
 import DisenoPrincipal from "../disenos/principal/DisenoPrincipal";
 
 import Tablero from "../modulos/tablero/paginas/Pagina";
-import PuntoVenta from "../modulos/punto-venta/paginas/Pagina";
-import Pedidos from "../modulos/pedidos/paginas/Pagina";
+import PaginaPedidos from "../modulos/pedidos/paginas/Pagina.jsx";
 import Cocina from "../modulos/cocina/paginas/Pagina";
 import Publicidad from "../modulos/publicidad/paginas/Pagina";
 import Caja from "../modulos/caja/paginas/Pagina";
@@ -30,7 +29,7 @@ function RutasAplicacion() {
           <Route element={<DisenoPrincipal />}>
             <Route path="/tablero" element={<Tablero />} />
             <Route path="/punto-venta" element={<PaginaPuntoVenta />} />
-            <Route path="/pedidos" element={<Pedidos />} />
+            <Route path="/pedidos" element={<PaginaPedidos />} />
             <Route path="/cocina" element={<Cocina />} />
             <Route path="/clientes" element={<PaginaClientes />} />
             <Route path="/productos" element={<PaginaProductos />} />

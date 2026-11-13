@@ -116,4 +116,14 @@ contextBridge.exposeInMainWorld("sistema", {
     crearPedido: (datos) =>
       ipcRenderer.invoke("punto-venta:crear-pedido", datos),
   },
+  pedidos: {
+    listar: (filtros) => ipcRenderer.invoke("pedidos:listar", filtros),
+
+    obtener: (id) => ipcRenderer.invoke("pedidos:obtener", id),
+
+    cambiarEstado: (id, estado, motivo) =>
+      ipcRenderer.invoke("pedidos:cambiar-estado", id, estado, motivo),
+
+    resumen: () => ipcRenderer.invoke("pedidos:resumen"),
+  },
 });
