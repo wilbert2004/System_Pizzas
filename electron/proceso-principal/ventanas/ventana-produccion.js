@@ -17,7 +17,7 @@ function cargarPantalla(ventana) {
   if (process.env.ELECTRON_RENDERER_URL) {
     return ventana.loadURL(`${process.env.ELECTRON_RENDERER_URL}/#/pantalla-produccion`);
   }
-  return ventana.loadFile(join(__dirname, "../../renderer/index.html"), { hash: "/pantalla-produccion" });
+  return ventana.loadFile(join(__dirname, "../renderer/index.html"), { hash: "/pantalla-produccion" });
 }
 
 export async function abrirVentanaProduccion(displayId) {

@@ -2397,7 +2397,7 @@ function obtenerPantallaSecundaria(displayId) {
 }
 function cargarPantallaTV(ventana) {
 	if (process.env.ELECTRON_RENDERER_URL) return ventana.loadURL(`${process.env.ELECTRON_RENDERER_URL}/#/pantalla-tv`);
-	else return ventana.loadFile(join(__dirname, "../../renderer/index.html"), { hash: "/pantalla-tv" });
+	else return ventana.loadFile(join(__dirname, "../renderer/index.html"), { hash: "/pantalla-tv" });
 }
 function listarPantallas() {
 	const principal = screen.getPrimaryDisplay();
@@ -2471,7 +2471,7 @@ function obtenerPantalla(displayId) {
 }
 function cargarPantalla(ventana) {
 	if (process.env.ELECTRON_RENDERER_URL) return ventana.loadURL(`${process.env.ELECTRON_RENDERER_URL}/#/pantalla-produccion`);
-	return ventana.loadFile(join(__dirname, "../../renderer/index.html"), { hash: "/pantalla-produccion" });
+	return ventana.loadFile(join(__dirname, "../renderer/index.html"), { hash: "/pantalla-produccion" });
 }
 async function abrirVentanaProduccion(displayId) {
 	const pantalla = obtenerPantalla(displayId);

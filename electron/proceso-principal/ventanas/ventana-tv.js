@@ -23,7 +23,7 @@ function cargarPantallaTV(ventana) {
   if (process.env.ELECTRON_RENDERER_URL) {
     return ventana.loadURL(`${process.env.ELECTRON_RENDERER_URL}/#/pantalla-tv`);
   } else {
-    return ventana.loadFile(join(__dirname, "../../renderer/index.html"), {
+    return ventana.loadFile(join(__dirname, "../renderer/index.html"), {
       hash: "/pantalla-tv",
     });
   }
