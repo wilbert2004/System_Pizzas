@@ -4,13 +4,15 @@ import Encabezado from "../componentes/Encabezado";
 
 function DisenoPrincipal() {
   return (
-    <div className="min-h-screen flex bg-slate-100">
-      <BarraLateral />
+    <div className="flex h-screen overflow-hidden bg-slate-100">
+      <div className="fixed inset-y-0 left-0 z-30 w-64">
+        <BarraLateral />
+      </div>
 
-      <div className="flex-1 min-w-0 flex flex-col">
+      <div className="ml-64 flex h-screen min-w-0 flex-1 flex-col">
         <Encabezado />
 
-        <main className="flex-1 p-6 overflow-auto">
+        <main className="min-h-0 flex-1 overflow-y-auto p-6">
           <Outlet />
         </main>
       </div>

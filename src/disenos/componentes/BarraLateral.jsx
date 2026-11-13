@@ -31,7 +31,7 @@ const opciones = [
 
 function BarraLateral() {
   return (
-    <aside className="w-64 min-w-64 bg-slate-950 text-white min-h-screen flex flex-col">
+    <aside className="flex h-full w-64 min-w-64 flex-col bg-slate-950 text-white">
       <div className="h-20 flex items-center px-6 border-b border-slate-800">
         <div>
           <h1 className="text-xl font-bold tracking-wide">PIZZERÍA</h1>
