@@ -1,22 +1,34 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-const duracionDe = (elemento) =>
-  Math.max(3, Number(elemento?.duracion_segundos || 10));
+const duracionManual = (elemento) => Math.max(3, Number(elemento?.duracion_segundos || 10));
+const duracionImagen = (elemento) => Math.max(3, Number(elemento?.duracion_segundos || 10));
 
 export default function ReproductorMultimedia({ elementos = [] }) {
   const [indice, setIndice] = useState(0);
   const [fallidos, setFallidos] = useState(() => new Set());
-  const temporizador = useRef(null);
+  const timer = useRef(null);
+  const watchdog = useRef(null);
+  const ultimoTiempo = useRef(0);
+  const sinProgresoDesde = useRef(0);
+  const videoRef = useRef(null);
   const elementosValidos = useMemo(
     () => elementos.filter((elemento) => elemento?.url || elemento?.ruta),
     [elementos],
   );
   const firma = elementosValidos.map((elemento) => `${elemento.id}:${elemento.url || elemento.ruta}`).join("|");
-  const elemento = elementosValidos.length ? elementosValidos[indice % elementosValidos.length] : null;
+  const indiceActual = elementosValidos.length ? indice % elementosValidos.length : 0;
+  const elemento = elementosValidos[indiceActual];
+  const elementoId = elemento?.id;
+  const rutaElemento = elemento?.url || elemento?.ruta;
+  const tipoElemento = elemento?.tipo;
+  const modoElemento = elemento?.duracion_modo;
+  const duracionElemento = elemento?.duracion_segundos;
 
-  const avanzar = useCallback((indiceActual = indice) => {
+  const avanzar = useCallback((desde = indiceActual) => {
+    clearTimeout(timer.current);
+    clearInterval(watchdog.current);
     setIndice((actual) => {
-      const base = indiceActual === actual ? actual : indiceActual;
+      const base = desde === actual ? actual : desde;
       if (!elementosValidos.length) return 0;
       for (let paso = 1; paso <= elementosValidos.length; paso += 1) {
         const candidato = (base + paso) % elementosValidos.length;
@@ -24,11 +36,11 @@ export default function ReproductorMultimedia({ elementos = [] }) {
       }
       return base;
     });
-  }, [elementosValidos, fallidos, indice]);
+  }, [elementosValidos.length, fallidos, indiceActual]);
 
-  const programarAvance = useCallback((segundos) => {
-    clearTimeout(temporizador.current);
-    temporizador.current = setTimeout(() => avanzar(), Math.max(3, segundos) * 1000);
+  const marcarFallido = useCallback((actual) => {
+    setFallidos((anteriores) => new Set(anteriores).add(actual));
+    avanzar(actual);
   }, [avanzar]);
 
   useEffect(() => {
@@ -36,21 +48,47 @@ export default function ReproductorMultimedia({ elementos = [] }) {
     setFallidos(new Set());
   }, [firma]);
 
-  useEffect(() => {
-    if (!elemento) return undefined;
-    if (elemento.tipo === "video") {
-      // Respaldo para códecs o archivos que no emiten el evento ended en ciertas TVs.
-      programarAvance(duracionDe(elemento));
-    } else {
-      programarAvance(duracionDe(elemento));
-    }
-    return () => clearTimeout(temporizador.current);
-  }, [elemento, indice, programarAvance]);
+  useEffect(() => () => {
+    clearTimeout(timer.current);
+    clearInterval(watchdog.current);
+  }, []);
 
-  const marcarFallido = (indiceActual) => {
-    setFallidos((actuales) => new Set(actuales).add(indiceActual));
-    avanzar(indiceActual);
-  };
+  useEffect(() => {
+    clearTimeout(timer.current);
+    clearInterval(watchdog.current);
+    if (!elemento) return undefined;
+
+    const manual = elemento.duracion_modo !== "automatico";
+    const segundos = duracionManual(elemento);
+    ultimoTiempo.current = 0;
+    sinProgresoDesde.current = Date.now();
+
+    if (elemento.tipo !== "video" || manual) {
+      timer.current = setTimeout(() => avanzar(indiceActual), segundos * 1000);
+      return () => clearTimeout(timer.current);
+    }
+
+    // El video automático avanza al terminar. Este plazo rescata archivos cuyo
+    // decodificador nunca entrega metadatos o se queda bloqueado.
+    timer.current = setTimeout(() => marcarFallido(indiceActual), 30000);
+    watchdog.current = setInterval(() => {
+      const video = videoRef.current;
+      if (!video) return;
+      if (video.currentTime > ultimoTiempo.current + 0.15) {
+        ultimoTiempo.current = video.currentTime;
+        sinProgresoDesde.current = Date.now();
+        return;
+      }
+      if (video.ended) return avanzar(indiceActual);
+      if (Date.now() - sinProgresoDesde.current > 18000) {
+        marcarFallido(indiceActual);
+      }
+    }, 3000);
+    return () => {
+      clearTimeout(timer.current);
+      clearInterval(watchdog.current);
+    };
+  }, [elementoId, rutaElemento, tipoElemento, modoElemento, duracionElemento, indiceActual, avanzar, marcarFallido]);
 
   if (!elemento || fallidos.size >= elementosValidos.length) {
     return (
@@ -65,11 +103,12 @@ export default function ReproductorMultimedia({ elementos = [] }) {
   }
 
   const ruta = elemento.url || elemento.ruta;
-  const indiceActual = indice % elementosValidos.length;
+  const modoAutomatico = elemento.duracion_modo === "automatico";
 
   if (elemento.tipo === "video") {
     return (
       <video
+        ref={videoRef}
         key={`${elemento.id || ruta}-${indiceActual}`}
         src={ruta}
         autoPlay
@@ -78,12 +117,24 @@ export default function ReproductorMultimedia({ elementos = [] }) {
         preload="auto"
         onEnded={() => avanzar(indiceActual)}
         onError={() => marcarFallido(indiceActual)}
-        onStalled={() => programarAvance(8)}
-        onLoadedMetadata={(evento) => {
-          const duracion = evento.currentTarget.duration;
-          programarAvance(Number.isFinite(duracion) && duracion > 0 ? duracion + 1 : duracionDe(elemento));
-          evento.currentTarget.play().catch(() => {});
+        onCanPlay={(evento) => {
+          sinProgresoDesde.current = Date.now();
+          evento.currentTarget.play().catch(() => marcarFallido(indiceActual));
         }}
+        onTimeUpdate={(evento) => {
+          ultimoTiempo.current = evento.currentTarget.currentTime;
+          sinProgresoDesde.current = Date.now();
+        }}
+        onLoadedMetadata={(evento) => {
+          const video = evento.currentTarget;
+          if (modoAutomatico && Number.isFinite(video.duration) && video.duration > 0) {
+            clearTimeout(timer.current);
+            // Respaldo extra por si el evento ended no llega en la TV.
+            timer.current = setTimeout(() => avanzar(indiceActual), (video.duration + 12) * 1000);
+          }
+          video.play().catch(() => marcarFallido(indiceActual));
+        }}
+        onStalled={() => { sinProgresoDesde.current = Date.now(); }}
         className="h-full w-full rounded-[22px] bg-[#080a10] object-contain"
       />
     );

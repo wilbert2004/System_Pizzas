@@ -48,12 +48,12 @@ function cerrarConexion() {
 }
 // electron/proceso-principal/base-datos/migraciones/001-base.js
 var _001_base_exports = /* @__PURE__ */ __exportAll({
-	descripcion: () => descripcion$2,
-	sql: () => sql$2,
+	descripcion: () => descripcion$3,
+	sql: () => sql$3,
 	version: () => 1
 });
-var descripcion$2 = "Preparacion inicial de la base de datos";
-var sql$2 = `
+var descripcion$3 = "Preparacion inicial de la base de datos";
+var sql$3 = `
   CREATE TABLE IF NOT EXISTS configuracion (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     clave TEXT NOT NULL UNIQUE,
@@ -68,12 +68,12 @@ var sql$2 = `
 `;
 // electron/proceso-principal/base-datos/migraciones/002-estructura-principal.js
 var _002_estructura_principal_exports = /* @__PURE__ */ __exportAll({
-	descripcion: () => descripcion$1,
-	sql: () => sql$1,
+	descripcion: () => descripcion$2,
+	sql: () => sql$2,
 	version: () => 2
 });
-var descripcion$1 = "Creacion de la estructura principal del sistema";
-var sql$1 = `
+var descripcion$2 = "Creacion de la estructura principal del sistema";
+var sql$2 = `
   -- =====================================================
   -- ACTUALIZAR CONFIGURACION EXISTENTE
   -- =====================================================
@@ -609,21 +609,33 @@ var sql$1 = `
 `;
 // electron/proceso-principal/base-datos/migraciones/003-pagos-efectivo.js
 var _003_pagos_efectivo_exports = /* @__PURE__ */ __exportAll({
-	descripcion: () => descripcion,
-	sql: () => sql,
+	descripcion: () => descripcion$1,
+	sql: () => sql$1,
 	version: () => 3
 });
-var descripcion = "Registro del efectivo recibido y el cambio de los pagos";
-var sql = `
+var descripcion$1 = "Registro del efectivo recibido y el cambio de los pagos";
+var sql$1 = `
   ALTER TABLE pagos ADD COLUMN monto_recibido_centavos INTEGER NOT NULL DEFAULT 0 CHECK (monto_recibido_centavos >= 0);
   ALTER TABLE pagos ADD COLUMN cambio_centavos INTEGER NOT NULL DEFAULT 0 CHECK (cambio_centavos >= 0);
   UPDATE pagos SET monto_recibido_centavos = monto_centavos WHERE monto_recibido_centavos = 0;
+`;
+// electron/proceso-principal/base-datos/migraciones/004-duracion-publicidad.js
+var _004_duracion_publicidad_exports = /* @__PURE__ */ __exportAll({
+	descripcion: () => descripcion,
+	sql: () => sql,
+	version: () => 4
+});
+var descripcion = "Duración automática o manual para anuncios de televisión";
+var sql = `
+  ALTER TABLE multimedia ADD COLUMN duracion_modo TEXT NOT NULL DEFAULT 'manual'
+    CHECK (duracion_modo IN ('automatico', 'manual'));
 `;
 // electron/proceso-principal/base-datos/inicializacion.js
 var migraciones = [
 	_001_base_exports,
 	_002_estructura_principal_exports,
-	_003_pagos_efectivo_exports
+	_003_pagos_efectivo_exports,
+	_004_duracion_publicidad_exports
 ];
 function inicializarBaseDatos() {
 	const db = obtenerConexion();
@@ -2278,6 +2290,7 @@ function crearServicioTelevision(db, obtenerSesion = () => null) {
           ruta_archivo AS ruta,
           tipo,
           duracion_segundos,
+          duracion_modo,
           orden,
           activo,
           fecha_creacion,
@@ -2294,13 +2307,14 @@ function crearServicioTelevision(db, obtenerSesion = () => null) {
 		const ruta = String(datos?.ruta || datos?.ruta_archivo || "").trim();
 		const tipo = String(datos?.tipo || "");
 		const duracion = Number(datos?.duracion_segundos || 10);
+		const duracionModo = datos?.duracion_modo === "manual" ? "manual" : "automatico";
 		const orden = Number(datos?.orden || 0);
 		if (!nombre || !ruta || !["imagen", "video"].includes(tipo)) throw new Error("Los datos de la publicidad no son válidos.");
 		if (!Number.isInteger(duracion) || duracion < 3 || duracion > 300) throw new Error("La duración debe estar entre 3 y 300 segundos.");
 		return db.prepare(`
-        INSERT INTO multimedia (nombre, ruta_archivo, tipo, duracion_segundos, orden)
-        VALUES (?, ?, ?, ?, ?)
-      `).run(nombre, ruta, tipo, duracion, Number.isInteger(orden) ? orden : 0);
+        INSERT INTO multimedia (nombre, ruta_archivo, tipo, duracion_segundos, duracion_modo, orden)
+        VALUES (?, ?, ?, ?, ?, ?)
+      `).run(nombre, ruta, tipo, duracion, duracionModo, Number.isInteger(orden) ? orden : 0);
 	}
 	function actualizarMultimedia(id, datos) {
 		const multimediaId = Number(id);
