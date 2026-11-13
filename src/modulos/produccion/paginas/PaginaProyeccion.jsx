@@ -158,7 +158,28 @@ export default function PaginaProyeccionProduccion() {
     void cargar();
     const consulta = setInterval(() => void cargar(), 5000);
     const reloj = setInterval(() => setAhora(Date.now()), 1000);
-    return () => { clearInterval(consulta); clearInterval(reloj); };
+    const canal = typeof BroadcastChannel !== "undefined"
+      ? new BroadcastChannel("pizzeria-cocina")
+      : null;
+    const actualizarPorMensaje = (evento) => {
+      if (evento.data?.tipo === "pedido-actualizado") void cargar();
+    };
+    const actualizarPorStorage = (evento) => {
+      if (evento.key === "cocina-temporizadores" || evento.type === "cocina:temporizadores-actualizados") {
+        setAhora(Date.now());
+      }
+    };
+    canal?.addEventListener("message", actualizarPorMensaje);
+    window.addEventListener("storage", actualizarPorStorage);
+    window.addEventListener("cocina:temporizadores-actualizados", actualizarPorStorage);
+    return () => {
+      clearInterval(consulta);
+      clearInterval(reloj);
+      canal?.removeEventListener("message", actualizarPorMensaje);
+      canal?.close();
+      window.removeEventListener("storage", actualizarPorStorage);
+      window.removeEventListener("cocina:temporizadores-actualizados", actualizarPorStorage);
+    };
   }, [cargar]);
 
   const temporizadores = leerTemporizadores();

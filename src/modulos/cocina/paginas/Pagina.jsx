@@ -67,7 +67,6 @@ export default function PaginaCocina() {
   const [modoOperacion, setModoOperacion] = useState(() =>
     localStorage.getItem("cocina-modo-operacion") === "automatico" ? "automatico" : "manual",
   );
-  const [ahora, setAhora] = useState(Date.now());
   const avancesAutomaticos = useRef(new Set());
 
   const {
@@ -85,11 +84,6 @@ export default function PaginaCocina() {
   useEffect(() => {
     localStorage.setItem("cocina-modo-operacion", modoOperacion);
   }, [modoOperacion]);
-
-  useEffect(() => {
-    const intervalo = setInterval(() => setAhora(Date.now()), 1000);
-    return () => clearInterval(intervalo);
-  }, []);
 
   useEffect(() => {
     cargarPedidos();
@@ -201,21 +195,6 @@ export default function PaginaCocina() {
       useEstadoCocina.setState({ error: resultado.error || "No se pudo avanzar el pedido automáticamente." });
     }
   }, [avanzarPedido, limpiarError, notificarPedidoListo, temporizadores]);
-
-  useEffect(() => {
-    if (modoOperacion !== "automatico") return;
-    for (const pedido of pedidos) {
-      const temporizador = temporizadores[pedido.id];
-      const fase = pedido.estado === "Preparando"
-        ? temporizador?.preparacion
-        : pedido.estado === "En horno"
-          ? temporizador
-          : null;
-      if (!fase?.automatico || !fase.iniciadoEn || !fase.minutos) continue;
-      const venceEn = new Date(fase.iniciadoEn).getTime() + Number(fase.minutos) * 60000;
-      if (ahora >= venceEn) void avanzarEtapaAutomatica(pedido);
-    }
-  }, [ahora, pedidos, temporizadores, avanzarEtapaAutomatica, modoOperacion]);
 
   const confirmarPedidoListo = async () => {
     if (!pedidoConfirmacion) return;

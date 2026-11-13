@@ -26077,6 +26077,7 @@ var formularioInicial = {
 	imagen_url: "",
 	orden: 0,
 	requiere_presentacion: true,
+	requiere_preparacion: true,
 	presentaciones: [
 		{
 			nombre: "Chica",
@@ -26278,6 +26279,7 @@ function PaginaProductos() {
 				...detalle,
 				categoria_id: String(detalle.categoria_id),
 				requiere_presentacion: Boolean(detalle.requiere_presentacion),
+				requiere_preparacion: detalle.requiere_preparacion !== 0 && detalle.requiere_preparacion !== false,
 				presentaciones: (detalle.presentaciones || []).map((p) => ({
 					...p,
 					precio: (p.precio_centavos / 100).toFixed(2)
@@ -26670,23 +26672,44 @@ function PaginaProductos() {
 										children: "Quitar imagen"
 									})
 								] }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-									className: "mb-2 block text-sm font-medium",
-									children: "Tipo de producto"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "flex flex-wrap gap-2",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-										type: "button",
-										onClick: () => cambiarTipoPresentacion(true),
-										className: `rounded-xl px-3 py-2 text-sm ${producto.requiere_presentacion ? "bg-violet-600 text-white" : "bg-slate-100 text-slate-700"}`,
-										children: "Varios tamaños"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-										type: "button",
-										onClick: () => cambiarTipoPresentacion(false),
-										className: `rounded-xl px-3 py-2 text-sm ${!producto.requiere_presentacion ? "bg-violet-600 text-white" : "bg-slate-100 text-slate-700"}`,
-										children: "Presentación única"
-									})]
-								})] }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+										className: "mb-2 block text-sm font-medium",
+										children: "Tipo de producto"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "flex flex-wrap gap-2",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+											type: "button",
+											onClick: () => cambiarTipoPresentacion(true),
+											className: `rounded-xl px-3 py-2 text-sm ${producto.requiere_presentacion ? "bg-violet-600 text-white" : "bg-slate-100 text-slate-700"}`,
+											children: "Varios tamaños"
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+											type: "button",
+											onClick: () => cambiarTipoPresentacion(false),
+											className: `rounded-xl px-3 py-2 text-sm ${!producto.requiere_presentacion ? "bg-violet-600 text-white" : "bg-slate-100 text-slate-700"}`,
+											children: "Presentación única"
+										})]
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+										className: "mt-3 flex cursor-pointer items-start gap-3 rounded-xl border border-slate-200 bg-white p-3",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+											type: "checkbox",
+											checked: producto.requiere_preparacion,
+											onChange: (e) => setProducto({
+												...producto,
+												requiere_preparacion: e.target.checked
+											}),
+											className: "mt-1 h-4 w-4 accent-violet-600"
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: "block text-sm font-semibold text-slate-800",
+											children: "Se prepara en cocina"
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: "mt-1 block text-xs text-slate-500",
+											children: "Desactívalo para bebidas, botanas y otros productos que solo se entregan."
+										})] })]
+									})
+								] }),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 									className: "space-y-3 rounded-xl bg-slate-50 p-3",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -28787,13 +28810,20 @@ function PaginaPuntoVenta() {
 										}),
 										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 											className: "mt-3 flex items-center justify-between",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-												className: "text-xs text-slate-400",
-												children: [producto.presentaciones.length, " presentación(es)"]
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: "flex h-8 w-8 items-center justify-center rounded-xl bg-violet-100 text-violet-700",
-												children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { size: 18 })
-											})]
+											children: [
+												/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+													className: "text-xs text-slate-400",
+													children: [producto.presentaciones.length, " presentación(es)"]
+												}),
+												!producto.requiere_preparacion && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+													className: "rounded-full bg-emerald-50 px-2 py-1 text-[10px] font-semibold text-emerald-700",
+													children: "Entrega directa"
+												}),
+												/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+													className: "flex h-8 w-8 items-center justify-center rounded-xl bg-violet-100 text-violet-700",
+													children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { size: 18 })
+												})
+											]
 										})
 									]
 								})]
@@ -29209,15 +29239,28 @@ var servicioCocina = {
 		const pedidosCocina = pedidos.filter((pedido) => ESTADOS_COCINA.includes(pedido.estado)).sort((a, b) => {
 			return new Date(a.fecha_creacion || 0).getTime() - new Date(b.fecha_creacion || 0).getTime();
 		});
-		return Promise.all(pedidosCocina.map(async (pedido) => {
-			return await api.obtener(pedido.id) || pedido;
-		}));
+		return (await Promise.all(pedidosCocina.map(async (pedido) => {
+			const detalle = await api.obtener(pedido.id);
+			if (!detalle) return null;
+			const productosPreparados = (detalle.detalles || []).filter((producto) => producto.requiere_preparacion !== 0 && producto.requiere_preparacion !== false);
+			if (productosPreparados.length === 0) return null;
+			return {
+				...detalle,
+				detalles: productosPreparados
+			};
+		}))).filter(Boolean);
 	},
 	async obtenerPedido(id) {
-		return API().obtener(id);
+		const pedido = await API().obtener(id);
+		if (!pedido) return pedido;
+		const productosPreparados = (pedido.detalles || []).filter((producto) => producto.requiere_preparacion !== 0 && producto.requiere_preparacion !== false);
+		return {
+			...pedido,
+			detalles: productosPreparados
+		};
 	},
-	async cambiarEstado(id, estado, motivo = null) {
-		return API().cambiarEstado(id, estado, motivo);
+	async cambiarEstado(id, estado, motivo = null, tiempoEstimadoMinutos = null) {
+		return API().cambiarEstado(id, estado, motivo, tiempoEstimadoMinutos);
 	},
 	async obtenerResumen() {
 		return API().resumen();
@@ -29261,9 +29304,9 @@ var useEstadoCocina = create((set, get) => ({
 	cerrarDetalle: () => {
 		set({ pedidoSeleccionado: null });
 	},
-	avanzarPedido: async (pedido, nuevoEstado) => {
+	avanzarPedido: async (pedido, nuevoEstado, tiempoEstimadoMinutos = null) => {
 		try {
-			await servicioCocina.cambiarEstado(pedido.id, nuevoEstado);
+			await servicioCocina.cambiarEstado(pedido.id, nuevoEstado, null, tiempoEstimadoMinutos);
 			await get().cargarPedidos(true);
 			return { correcto: true };
 		} catch (error) {
@@ -29278,6 +29321,14 @@ var useEstadoCocina = create((set, get) => ({
 	limpiarError: () => set({ error: null })
 }));
 // src/modulos/cocina/hooks/useAlarmasCocina.js
+function obtenerTemporizador(pedido, temporizadores) {
+	const temporizador = temporizadores[pedido.id];
+	const enHorno = pedido.estado === "En horno";
+	return {
+		fechaInicio: enHorno ? temporizador?.iniciadoEn || pedido.fecha_entrada_horno : temporizador?.preparacion?.iniciadoEn || pedido.fecha_inicio_preparacion,
+		minutos: Number(enHorno ? temporizador?.minutos || pedido.tiempo_estimado_minutos || 15 : temporizador?.preparacion?.minutos || pedido.tiempo_estimado_minutos || 20)
+	};
+}
 function useAlarmasCocina(pedidos, temporizadores = {}) {
 	const audioRef = (0, import_react.useRef)(null);
 	const volumenNotificacionesRef = (0, import_react.useRef)(.7);
@@ -29321,26 +29372,26 @@ function useAlarmasCocina(pedidos, temporizadores = {}) {
 		reproducirTono(audioRef.current);
 		setSonidoActivo(true);
 	};
+	const notificarPedidoListo = (0, import_react.useCallback)(() => {
+		if (!sonidoActivo || !audioRef.current) return;
+		audioRef.current.resume().then(() => reproducirTono(audioRef.current)).catch(() => {});
+	}, [sonidoActivo]);
 	(0, import_react.useEffect)(() => {
 		const intervalo = setInterval(() => setAhora(Date.now()), 1e3);
 		return () => clearInterval(intervalo);
 	}, []);
 	const pedidosRetrasados = pedidos.filter((pedido) => {
 		if (!["Preparando", "En horno"].includes(pedido.estado)) return false;
-		const temporizador = temporizadores[pedido.id];
-		const fechaInicio = pedido.estado === "En horno" ? temporizador?.iniciadoEn || pedido.fecha_entrada_horno : pedido.fecha_inicio_preparacion;
+		const { fechaInicio, minutos: estimado } = obtenerTemporizador(pedido, temporizadores);
 		if (!fechaInicio) return false;
 		const inicio = new Date(fechaInicio).getTime();
-		const estimado = Number(pedido.estado === "En horno" ? temporizador?.minutos || pedido.tiempo_estimado_minutos : pedido.tiempo_estimado_minutos) || 20;
 		return (ahora - inicio) / 6e4 > estimado;
 	});
 	const cantidadRetrasados = pedidosRetrasados.length;
 	const pedidosParaAvisar = (0, import_react.useMemo)(() => pedidos.filter((pedido) => {
 		if (!["Preparando", "En horno"].includes(pedido.estado)) return false;
-		const temporizador = temporizadores[pedido.id];
-		const fechaInicio = pedido.estado === "En horno" ? temporizador?.iniciadoEn || pedido.fecha_entrada_horno : pedido.fecha_inicio_preparacion;
+		const { fechaInicio, minutos: estimado } = obtenerTemporizador(pedido, temporizadores);
 		const inicio = fechaInicio ? new Date(fechaInicio).getTime() : NaN;
-		const estimado = Number(pedido.estado === "En horno" ? temporizador?.minutos || pedido.tiempo_estimado_minutos : pedido.tiempo_estimado_minutos);
 		return Number.isFinite(inicio) && Number.isFinite(estimado) && estimado > 0 && ahora - inicio >= estimado * 6e4;
 	}), [
 		pedidos,
@@ -29348,8 +29399,7 @@ function useAlarmasCocina(pedidos, temporizadores = {}) {
 		temporizadores
 	]);
 	const identificadorAvisos = pedidosParaAvisar.map((pedido) => {
-		const etapa = pedido.estado === "En horno" ? "horno" : "preparacion";
-		return `${pedido.id}-${etapa}`;
+		return `${pedido.id}-${pedido.estado === "En horno" ? "horno" : "preparacion"}`;
 	}).sort().join(",");
 	(0, import_react.useEffect)(() => {
 		if (!sonidoActivo || pedidosParaAvisar.length === 0) return;
@@ -29382,61 +29432,79 @@ function useAlarmasCocina(pedidos, temporizadores = {}) {
 		pedidosRetrasados,
 		cantidadRetrasados,
 		sonidoActivo,
-		activarSonido
+		activarSonido,
+		notificarPedidoListo
 	};
 }
-// src/modulos/cocina/componentes/Temporizador.jsx
-function calcularTiempo(fechaInicio, ahora) {
-	if (!fechaInicio) return 0;
-	const inicio = new Date(fechaInicio).getTime();
-	if (Number.isNaN(inicio)) return 0;
-	return Math.max(0, Math.floor((ahora - inicio) / 1e3));
+// src/modulos/cocina/servicios/tiemposPedido.js
+function obtenerRestante(iniciadoEn, minutos, ahora) {
+	const estimado = Number(minutos);
+	const inicio = iniciadoEn ? new Date(iniciadoEn).getTime() : NaN;
+	if (!Number.isFinite(inicio) || !Number.isFinite(estimado) || estimado <= 0) return null;
+	return Math.ceil((inicio + estimado * 6e4 - ahora) / 1e3);
 }
-function Temporizador({ fechaInicio, minutosEstimados = 0 }) {
-	const [ahora, setAhora] = (0, import_react.useState)(() => Date.now());
+function formatearCuenta(segundos) {
+	if (segundos === null || !Number.isFinite(segundos)) return "—";
+	const retrasado = segundos < 0;
+	const valor = Math.abs(segundos);
+	const horas = Math.floor(valor / 3600);
+	const minutos = Math.floor(valor % 3600 / 60);
+	const resto = valor % 60;
+	const texto = horas > 0 ? `${String(horas).padStart(2, "0")}:${String(minutos).padStart(2, "0")}:${String(resto).padStart(2, "0")}` : `${String(minutos).padStart(2, "0")}:${String(resto).padStart(2, "0")}`;
+	return retrasado ? `+${texto}` : texto;
+}
+function calcularTiemposPedido(pedido, temporizador = {}, ahora = Date.now()) {
+	if (pedido.estado === "Nuevo") return {
+		fase: "Preparación",
+		faseRestante: null,
+		totalRestante: null
+	};
+	if (pedido.estado === "Listo") return {
+		fase: "Listo",
+		faseRestante: 0,
+		totalRestante: 0
+	};
+	const enHorno = pedido.estado === "En horno";
+	enHorno || temporizador.preparacion;
+	const faseRestante = obtenerRestante(enHorno ? temporizador.iniciadoEn || pedido.fecha_entrada_horno : temporizador.preparacion?.iniciadoEn || pedido.fecha_inicio_preparacion, enHorno ? temporizador.minutos || pedido.tiempo_estimado_minutos : temporizador.preparacion?.minutos || pedido.tiempo_estimado_minutos, ahora);
+	const minutosHornoSiguiente = enHorno ? 0 : Number(temporizador.preparacion?.minutosHorno || temporizador.minutosHorno || 12);
+	const totalRestante = faseRestante === null ? null : Math.max(0, faseRestante) + minutosHornoSiguiente * 60;
+	return {
+		fase: enHorno ? "Horno" : "Preparación",
+		faseRestante,
+		totalRestante
+	};
+}
+// src/modulos/cocina/componentes/CuentaRegresivaPedido.jsx
+function CuentaRegresivaPedido({ pedido, temporizador }) {
+	const [ahora, setAhora] = (0, import_react.useState)(Date.now());
 	(0, import_react.useEffect)(() => {
-		const intervalo = setInterval(() => {
-			setAhora(Date.now());
-		}, 1e3);
+		const intervalo = setInterval(() => setAhora(Date.now()), 1e3);
 		return () => clearInterval(intervalo);
 	}, []);
-	const segundos = calcularTiempo(fechaInicio, ahora);
-	const estimadoSegundos = Math.max(0, Number(minutosEstimados || 0) * 60);
-	const progreso = estimadoSegundos > 0 ? Math.min(100, segundos / estimadoSegundos * 100) : 0;
-	const tiempoCumplido = estimadoSegundos > 0 && segundos >= estimadoSegundos;
-	const horas = Math.floor(segundos / 3600);
-	const minutos = Math.floor(segundos % 3600 / 60);
-	const restantes = segundos % 60;
-	const formato = horas > 0 ? `${String(horas).padStart(2, "0")}:${String(minutos).padStart(2, "0")}:${String(restantes).padStart(2, "0")}` : `${String(minutos).padStart(2, "0")}:${String(restantes).padStart(2, "0")}`;
+	const tiempos = calcularTiemposPedido(pedido, temporizador, ahora);
+	const vencida = tiempos.faseRestante !== null && tiempos.faseRestante < 0;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "min-w-40",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "flex items-center justify-between gap-2",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: `font-mono font-bold tabular-nums ${tiempoCumplido ? "text-red-600" : ""}`,
-					children: formato
-				}), estimadoSegundos > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-					className: "text-[11px] font-medium text-slate-400",
-					children: [
-						"/ ",
-						minutosEstimados,
-						" min"
-					]
-				})]
-			}),
-			estimadoSegundos > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "mt-1.5 h-2 overflow-hidden rounded-full bg-slate-200",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: `h-full rounded-full transition-[width] ${tiempoCumplido ? "bg-red-500" : "bg-violet-500"}`,
-					style: { width: `${progreso}%` }
-				})
-			}),
-			tiempoCumplido && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-				className: "mt-1 text-[11px] font-semibold text-red-600",
-				children: "Tiempo cumplido"
-			})
-		]
+		className: "mt-4 grid grid-cols-2 gap-2 rounded-xl bg-slate-50 p-3",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "min-w-0",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "text-[11px] font-semibold text-slate-500",
+				children: tiempos.fase
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: `font-mono text-lg font-black tabular-nums ${vencida ? "text-red-600" : "text-violet-700"}`,
+				children: formatearCuenta(tiempos.faseRestante)
+			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "min-w-0 border-l border-slate-200 pl-3",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "text-[11px] font-semibold text-slate-500",
+				children: "Total restante"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "font-mono text-lg font-black tabular-nums text-slate-800",
+				children: formatearCuenta(tiempos.totalRestante)
+			})]
+		})]
 	});
 }
 // src/modulos/cocina/componentes/TarjetaPedido.jsx
@@ -29461,12 +29529,15 @@ function obtenerHora(fecha) {
 		minute: "2-digit"
 	});
 }
-function TarjetaPedido({ pedido, retrasado, onSeleccionar, onAvanzar, procesando, temporizador }) {
-	const accion = ACCIONES[pedido.estado];
+function TarjetaPedido({ pedido, retrasado, onSeleccionar, onAvanzar, onAjustarTiempo, procesando, temporizador, modoAutomatico }) {
+	const accionBase = ACCIONES[pedido.estado];
 	const detalles = pedido.detalles || pedido.productos || pedido.pedido_detalles || [];
-	const estaEnHorno = pedido.estado === "En horno";
-	const fechaTemporizador = estaEnHorno ? temporizador?.iniciadoEn || pedido.fecha_entrada_horno : pedido.fecha_inicio_preparacion;
-	const minutosEstimados = estaEnHorno ? temporizador?.minutos || pedido.tiempo_estimado_minutos : pedido.tiempo_estimado_minutos;
+	const faseAutomatica = pedido.estado === "En horno" ? temporizador?.automatico : temporizador?.preparacion?.automatico;
+	const accion = accionBase && {
+		...accionBase,
+		texto: pedido.estado === "Nuevo" && modoAutomatico ? "Iniciar / configurar tiempos" : faseAutomatica && modoAutomatico ? "Avanzar ahora" : pedido.estado === "Preparando" ? "Meter al horno" : accionBase.texto
+	};
+	const puedeAjustarTiempo = ["Preparando", "En horno"].includes(pedido.estado);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
 		className: `rounded-2xl border bg-white p-4 shadow-sm ${retrasado ? "border-red-300 ring-1 ring-red-100" : "border-slate-200"}`,
 		children: [
@@ -29485,37 +29556,78 @@ function TarjetaPedido({ pedido, retrasado, onSeleccionar, onAvanzar, procesando
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "mt-3 flex flex-wrap gap-2",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: "rounded-lg bg-violet-100 px-2 py-1 text-xs font-semibold text-violet-800",
-					children: pedido.tipo === "domicilio" ? "Domicilio" : "Recoger"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: "rounded-lg bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700",
-					children: pedido.canal || "Mostrador"
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "rounded-lg bg-violet-100 px-2 py-1 text-xs font-semibold text-violet-800",
+						children: pedido.tipo === "domicilio" ? "Domicilio" : "Recoger"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "rounded-lg bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700",
+						children: pedido.canal || "Mostrador"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "rounded-lg bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700",
+						children: [
+							detalles.length,
+							" ",
+							detalles.length === 1 ? "producto" : "productos",
+							" para preparar"
+						]
+					})
+				]
+			}),
+			pedido.cliente_nombre && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+				className: "mt-3 text-sm text-slate-600",
+				children: ["Cliente: ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
+					className: "text-slate-800",
+					children: pedido.cliente_nombre
 				})]
 			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "mt-4 space-y-2",
-				children: [detalles.slice(0, 4).map((detalle, indice) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex justify-between gap-3 text-sm",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-						className: "font-semibold text-slate-800",
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "mt-4 space-y-3",
+				children: detalles.map((detalle, indice) => {
+					const adicionales = detalle.adicionales || detalle.pedido_detalle_adicionales || [];
+					return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "rounded-xl border border-slate-200 bg-slate-50 p-3",
 						children: [
-							detalle.cantidad,
-							" × ",
-							detalle.nombre_producto || detalle.producto
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex items-start gap-2",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "flex h-8 min-w-8 items-center justify-center rounded-lg bg-violet-600 px-2 text-sm font-black text-white",
+									children: [detalle.cantidad, "×"]
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "min-w-0 flex-1",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										className: "font-bold leading-5 text-slate-900",
+										children: detalle.nombre_producto || detalle.producto
+									}), (detalle.nombre_presentacion || detalle.presentacion) && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										className: "mt-0.5 text-xs font-semibold text-slate-600",
+										children: detalle.nombre_presentacion || detalle.presentacion
+									})]
+								})]
+							}),
+							adicionales.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "mt-2 border-t border-slate-200 pt-2",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "text-[10px] font-bold uppercase tracking-wide text-slate-500",
+									children: "Agregados"
+								}), adicionales.map((extra, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+									className: "text-sm font-medium text-slate-800",
+									children: [
+										"+ ",
+										extra.cantidad || 1,
+										" × ",
+										extra.nombre_adicional || extra.nombre
+									]
+								}, extra.id || i))]
+							}),
+							detalle.notas && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+								className: "mt-2 rounded-lg border border-amber-200 bg-amber-100 p-2 text-sm font-semibold text-amber-950",
+								children: ["Indicaciones: ", detalle.notas]
+							})
 						]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "text-slate-500",
-						children: detalle.nombre_presentacion || detalle.presentacion || ""
-					})]
-				}, detalle.id || indice)), detalles.length > 4 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-					className: "text-xs text-slate-500",
-					children: [
-						"+",
-						detalles.length - 4,
-						" productos más"
-					]
-				})]
+					}, detalle.id || indice);
+				})
 			}),
 			pedido.notas && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "mt-3 rounded-xl bg-amber-50 p-3 text-sm text-amber-900",
@@ -29525,41 +29637,42 @@ function TarjetaPedido({ pedido, retrasado, onSeleccionar, onAvanzar, procesando
 					pedido.notas
 				]
 			}),
-			["Preparando", "En horno"].includes(pedido.estado) && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "mt-4 flex items-center justify-between rounded-xl bg-slate-50 p-3",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: "text-xs font-semibold text-slate-500",
-					children: estaEnHorno ? "Tiempo en horno" : "Tiempo de preparación"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: retrasado ? "text-red-600" : "text-violet-700",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Temporizador, {
-						fechaInicio: fechaTemporizador,
-						minutosEstimados
-					})
-				})]
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CuentaRegresivaPedido, {
+				pedido,
+				temporizador
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "mt-4 flex gap-2",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-					type: "button",
-					onClick: () => onSeleccionar(pedido),
-					className: "flex-1 rounded-xl border border-slate-200 px-3 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50",
-					children: "Ver detalles"
-				}), accion && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-					type: "button",
-					disabled: procesando,
-					onClick: () => onAvanzar(pedido, accion.siguiente),
-					className: "flex-1 rounded-xl bg-violet-600 px-3 py-3 text-sm font-bold text-white transition hover:bg-violet-700 disabled:cursor-not-allowed disabled:opacity-50",
-					children: procesando ? "Actualizando..." : accion.texto
-				})]
+				className: "mt-4 grid grid-cols-2 gap-2",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						type: "button",
+						onClick: () => onSeleccionar(pedido),
+						className: "rounded-xl border border-slate-200 px-3 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50",
+						children: "Ver detalles"
+					}),
+					puedeAjustarTiempo && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+						type: "button",
+						disabled: procesando,
+						onClick: () => onAjustarTiempo(pedido),
+						className: "inline-flex items-center justify-center gap-1.5 rounded-xl border border-amber-200 bg-amber-50 px-2 py-3 text-xs font-bold text-amber-800 transition hover:bg-amber-100 disabled:opacity-50",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Timer, { size: 15 }), "Ajustar tiempo"]
+					}),
+					accion && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						type: "button",
+						disabled: procesando,
+						onClick: () => onAvanzar(pedido, accion.siguiente),
+						className: "col-span-2 rounded-xl bg-violet-600 px-3 py-3 text-sm font-bold text-white transition hover:bg-violet-700 disabled:cursor-not-allowed disabled:opacity-50",
+						children: procesando ? "Actualizando..." : accion.texto
+					})
+				]
 			})
 		]
 	});
 }
 // src/modulos/cocina/componentes/ColumnaPedidos.jsx
-function ColumnaPedidos({ titulo, pedidos, retrasados, onSeleccionar, onAvanzar, procesandoId, color, temporizadores }) {
+function ColumnaPedidos({ titulo, pedidos, retrasados, onSeleccionar, onAvanzar, onAjustarTiempo, procesandoId, color, temporizadores, modoAutomatico }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-		className: "flex min-w-[290px] flex-1 flex-col",
+		className: "flex min-w-0 flex-1 flex-col",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
 			className: `mb-3 flex items-center justify-between rounded-xl px-4 py-3 ${color}`,
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
@@ -29579,8 +29692,10 @@ function ColumnaPedidos({ titulo, pedidos, retrasados, onSeleccionar, onAvanzar,
 				retrasado: retrasados.some((item) => item.id === pedido.id),
 				onSeleccionar,
 				onAvanzar,
+				onAjustarTiempo,
 				procesando: procesandoId === pedido.id,
-				temporizador: temporizadores[pedido.id]
+				temporizador: temporizadores[pedido.id],
+				modoAutomatico
 			}, pedido.id))
 		})]
 	});
@@ -29598,9 +29713,15 @@ function DetalleProductos({ pedido, onCerrar }) {
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
 					className: "text-xl font-extrabold text-slate-900",
 					children: pedido.folio || `Pedido #${pedido.id}`
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
 					className: "text-sm text-slate-500",
-					children: "Detalle completo del pedido"
+					children: [
+						"Comanda de cocina · ",
+						detalles.length,
+						" ",
+						detalles.length === 1 ? "producto" : "productos",
+						" por preparar"
+					]
 				})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 					type: "button",
 					onClick: onCerrar,
@@ -29652,7 +29773,7 @@ function DetalleProductos({ pedido, onCerrar }) {
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 										className: "flex justify-between gap-3",
 										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-											className: "font-bold text-slate-900",
+											className: "text-lg font-extrabold text-slate-900",
 											children: [
 												detalle.cantidad,
 												" ×",
@@ -29660,7 +29781,7 @@ function DetalleProductos({ pedido, onCerrar }) {
 												detalle.nombre_producto || detalle.producto
 											]
 										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-											className: "text-sm text-slate-500",
+											className: "mt-1 text-sm font-semibold text-slate-700",
 											children: detalle.nombre_presentacion || detalle.presentacion || ""
 										})] })
 									}),
@@ -29766,6 +29887,19 @@ var COLUMNAS = [
 		color: "bg-emerald-100 text-emerald-900"
 	}
 ];
+function leerTemporizadores$2() {
+	try {
+		return JSON.parse(localStorage.getItem("cocina-temporizadores") || "{}");
+	} catch {
+		return {};
+	}
+}
+function obtenerMinutosRestantes(iniciadoEn, minutos) {
+	const estimado = Number(minutos) || 1;
+	if (!iniciadoEn) return estimado;
+	const restante = Math.ceil((new Date(iniciadoEn).getTime() + estimado * 6e4 - Date.now()) / 6e4);
+	return Number.isFinite(restante) ? Math.max(1, restante) : estimado;
+}
 function PaginaCocina() {
 	const pedidos = useEstadoCocina((estado) => estado.pedidos);
 	const cargando = useEstadoCocina((estado) => estado.cargando);
@@ -29774,22 +29908,21 @@ function PaginaCocina() {
 	const cargarPedidos = useEstadoCocina((estado) => estado.cargarPedidos);
 	const avanzarPedido = useEstadoCocina((estado) => estado.avanzarPedido);
 	const limpiarError = useEstadoCocina((estado) => estado.limpiarError);
-	const [pedidoConfirmacion, setPedidoConfirmacion] = (0, import_react.useState)(null);
 	const [pedidoSeleccionado, setPedidoSeleccionado] = (0, import_react.useState)(null);
 	const [procesandoId, setProcesandoId] = (0, import_react.useState)(null);
 	const [pantallaCompleta, setPantallaCompleta] = (0, import_react.useState)(false);
-	const [temporizadores, setTemporizadores] = (0, import_react.useState)(() => {
-		try {
-			return JSON.parse(localStorage.getItem("cocina-temporizadores") || "{}");
-		} catch {
-			return {};
-		}
-	});
+	const [temporizadores, setTemporizadores] = (0, import_react.useState)(leerTemporizadores$2);
 	const [temporizadorPendiente, setTemporizadorPendiente] = (0, import_react.useState)(null);
-	const { pedidosRetrasados, cantidadRetrasados, sonidoActivo, activarSonido } = useAlarmasCocina(pedidos, temporizadores);
+	const [pedidoConfirmacion, setPedidoConfirmacion] = (0, import_react.useState)(null);
+	const [modoOperacion, setModoOperacion] = (0, import_react.useState)(() => localStorage.getItem("cocina-modo-operacion") === "automatico" ? "automatico" : "manual");
+	const avancesAutomaticos = (0, import_react.useRef)(/* @__PURE__ */ new Set());
+	const { pedidosRetrasados, cantidadRetrasados, sonidoActivo, activarSonido, notificarPedidoListo } = useAlarmasCocina(pedidos, temporizadores);
 	(0, import_react.useEffect)(() => {
 		localStorage.setItem("cocina-temporizadores", JSON.stringify(temporizadores));
 	}, [temporizadores]);
+	(0, import_react.useEffect)(() => {
+		localStorage.setItem("cocina-modo-operacion", modoOperacion);
+	}, [modoOperacion]);
 	(0, import_react.useEffect)(() => {
 		cargarPedidos();
 		const intervalo = setInterval(() => {
@@ -29813,10 +29946,23 @@ function PaginaCocina() {
 		}
 	}, []);
 	const cambiarEstado = async (pedido, nuevoEstado) => {
-		if (nuevoEstado === "En horno") {
+		const temporizadorPedido = temporizadores[pedido.id];
+		if (modoOperacion === "automatico" && (pedido.estado === "Preparando" && temporizadorPedido?.preparacion?.automatico || pedido.estado === "En horno" && temporizadorPedido?.automatico)) {
+			await avanzarEtapaAutomatica(pedido);
+			return;
+		}
+		if (nuevoEstado === "Listo") {
+			setPedidoConfirmacion(pedido);
+			return;
+		}
+		if (["Preparando", "En horno"].includes(nuevoEstado)) {
+			const etapa = nuevoEstado === "En horno" ? "horno" : "preparacion";
 			setTemporizadorPendiente({
 				pedido,
-				minutos: String(pedido.tiempo_estimado_minutos || 15)
+				etapa,
+				modo: pedido.estado === "Nuevo" && modoOperacion === "automatico" ? "iniciar-automatico" : "cambiar-estado",
+				minutos: String(etapa === "horno" ? temporizadores[pedido.id]?.minutos || 15 : pedido.tiempo_estimado_minutos || 20),
+				minutosHorno: String(temporizadores[pedido.id]?.minutosHorno || 12)
 			});
 			return;
 		}
@@ -29828,25 +29974,121 @@ function PaginaCocina() {
 			useEstadoCocina.setState({ error: resultado.error || "No se pudo actualizar el pedido." });
 			return;
 		}
-		setPedidoConfirmacion(null);
 		if (pedidoSeleccionado?.id === pedido.id) setPedidoSeleccionado(null);
 	};
-	const confirmarTemporizadorHorno = async () => {
+	const avanzarEtapaAutomatica = (0, import_react.useCallback)(async (pedido) => {
+		if (avancesAutomaticos.current.has(pedido.id)) return;
+		avancesAutomaticos.current.add(pedido.id);
+		setProcesandoId(pedido.id);
+		limpiarError();
+		const temporizadorPedido = temporizadores[pedido.id] || {};
+		let resultado;
+		if (pedido.estado === "Preparando") {
+			resultado = await avanzarPedido(pedido, "En horno");
+			if (resultado.correcto) {
+				const marcaTiempo = {
+					minutos: temporizadorPedido.preparacion?.minutosHorno || temporizadorPedido.minutosHorno || 12,
+					iniciadoEn: (/* @__PURE__ */ new Date()).toISOString(),
+					automatico: true,
+					minutosHorno: temporizadorPedido.preparacion?.minutosHorno || temporizadorPedido.minutosHorno || 12
+				};
+				setTemporizadores((actuales) => ({
+					...actuales,
+					[pedido.id]: {
+						...actuales[pedido.id],
+						...marcaTiempo
+					}
+				}));
+			}
+		} else if (pedido.estado === "En horno") {
+			resultado = await avanzarPedido(pedido, "Listo");
+			if (resultado.correcto) notificarPedidoListo();
+		}
+		setProcesandoId(null);
+		avancesAutomaticos.current.delete(pedido.id);
+		if (resultado && !resultado.correcto) useEstadoCocina.setState({ error: resultado.error || "No se pudo avanzar el pedido automáticamente." });
+	}, [
+		avanzarPedido,
+		limpiarError,
+		notificarPedidoListo,
+		temporizadores
+	]);
+	const confirmarPedidoListo = async () => {
+		if (!pedidoConfirmacion) return;
+		const pedido = pedidoConfirmacion;
+		setProcesandoId(pedido.id);
+		limpiarError();
+		const resultado = await avanzarPedido(pedido, "Listo");
+		setProcesandoId(null);
+		if (!resultado.correcto) {
+			useEstadoCocina.setState({ error: resultado.error || "No se pudo marcar el pedido como listo." });
+			return;
+		}
+		setPedidoConfirmacion(null);
+		if (pedidoSeleccionado?.id === pedido.id) setPedidoSeleccionado(null);
+		notificarPedidoListo();
+	};
+	const ajustarTiempo = (pedido) => {
+		const etapa = pedido.estado === "En horno" ? "horno" : "preparacion";
+		const temporizador = temporizadores[pedido.id];
+		setTemporizadorPendiente({
+			pedido,
+			etapa,
+			modo: "ajustar",
+			minutos: String(obtenerMinutosRestantes(etapa === "horno" ? temporizador?.iniciadoEn || pedido.fecha_entrada_horno : temporizador?.preparacion?.iniciadoEn || pedido.fecha_inicio_preparacion, etapa === "horno" ? temporizador?.minutos || pedido.tiempo_estimado_minutos || 15 : temporizador?.preparacion?.minutos || pedido.tiempo_estimado_minutos || 20))
+		});
+	};
+	const confirmarTemporizador = async () => {
 		const minutos = Number(temporizadorPendiente?.minutos);
 		if (!Number.isInteger(minutos) || minutos < 1 || minutos > 600) return;
 		const { pedido } = temporizadorPendiente;
-		setProcesandoId(pedido.id);
-		limpiarError();
-		const resultado = await avanzarPedido(pedido, "En horno");
-		setProcesandoId(null);
-		if (!resultado.correcto) return;
-		setTemporizadores((actuales) => ({
-			...actuales,
-			[pedido.id]: {
-				minutos,
-				iniciadoEn: (/* @__PURE__ */ new Date()).toISOString()
+		const { etapa, modo } = temporizadorPendiente;
+		if (modo === "cambiar-estado" || modo === "iniciar-automatico") {
+			setProcesandoId(pedido.id);
+			limpiarError();
+			const resultado = await avanzarPedido(pedido, etapa === "horno" ? "En horno" : "Preparando", etapa === "preparacion" ? minutos : null);
+			setProcesandoId(null);
+			if (!resultado.correcto) return;
+		}
+		const marcaTiempo = {
+			minutos,
+			iniciadoEn: (/* @__PURE__ */ new Date()).toISOString()
+		};
+		setTemporizadores((actuales) => {
+			const temporizadorActual = actuales[pedido.id] || {};
+			if (modo === "iniciar-automatico") {
+				const minutosHorno = Number(temporizadorPendiente.minutosHorno);
+				return {
+					...actuales,
+					[pedido.id]: {
+						...temporizadorActual,
+						preparacion: {
+							...marcaTiempo,
+							automatico: true,
+							minutosHorno
+						},
+						minutosHorno
+					}
+				};
 			}
-		}));
+			const temporizadorNuevo = etapa === "horno" ? {
+				...temporizadorActual,
+				...marcaTiempo,
+				automatico: modo === "ajustar" ? Boolean(temporizadorActual.automatico) : false
+			} : {
+				...temporizadorActual,
+				preparacion: {
+					...marcaTiempo,
+					automatico: modo === "ajustar" ? Boolean(temporizadorActual.preparacion?.automatico) : false,
+					minutosHorno: temporizadorActual.preparacion?.minutosHorno || temporizadorActual.minutosHorno || Number(temporizadorPendiente.minutosHorno) || 12
+				},
+				minutosHorno: temporizadorActual.minutosHorno || Number(temporizadorPendiente.minutosHorno) || 12
+			};
+			return {
+				...actuales,
+				[pedido.id]: temporizadorNuevo
+			};
+		});
 		setTemporizadorPendiente(null);
 	};
 	const alternarPantallaCompleta = async () => {
@@ -29892,6 +30134,23 @@ function PaginaCocina() {
 				}) }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "flex flex-wrap items-center gap-2",
 					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "inline-flex rounded-xl border border-slate-200 bg-white p-1",
+							"aria-label": "Modo de operación de cocina",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								type: "button",
+								"aria-pressed": modoOperacion === "manual",
+								onClick: () => setModoOperacion("manual"),
+								className: `rounded-lg px-3 py-2 text-xs font-bold ${modoOperacion === "manual" ? "bg-violet-600 text-white" : "text-slate-600 hover:bg-slate-100"}`,
+								children: "Modo Manual"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								type: "button",
+								"aria-pressed": modoOperacion === "automatico",
+								onClick: () => setModoOperacion("automatico"),
+								className: `rounded-lg px-3 py-2 text-xs font-bold ${modoOperacion === "automatico" ? "bg-emerald-600 text-white" : "text-slate-600 hover:bg-slate-100"}`,
+								children: "Automático por tiempos"
+							})]
+						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							className: "rounded-xl border border-slate-200 bg-white px-4 py-2",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
@@ -29956,22 +30215,18 @@ function PaginaCocina() {
 				className: "rounded-2xl border border-slate-200 bg-white p-12 text-center text-slate-500",
 				children: "Cargando pedidos de cocina..."
 			}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "grid grid-cols-1 items-start gap-4 xl:grid-cols-4",
+				className: "grid grid-cols-1 items-start gap-4 md:grid-cols-2 xl:grid-cols-4",
 				children: pedidosPorEstado.map((columna) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ColumnaPedidos, {
 					titulo: columna.titulo,
 					pedidos: columna.pedidos,
 					retrasados: pedidosRetrasados,
 					color: columna.color,
 					onSeleccionar: abrirDetalle,
-					onAvanzar: (pedido, estado) => {
-						if (estado === "En horno") cambiarEstado(pedido, estado);
-						else setPedidoConfirmacion({
-							pedido,
-							estado
-						});
-					},
+					onAvanzar: cambiarEstado,
+					onAjustarTiempo: ajustarTiempo,
 					procesandoId,
-					temporizadores
+					temporizadores,
+					modoAutomatico: modoOperacion === "automatico"
 				}, columna.estado))
 			}),
 			pedidoSeleccionado && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DetalleProductos, {
@@ -29985,25 +30240,22 @@ function PaginaCocina() {
 					children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
 							className: "text-lg font-bold text-slate-800",
-							children: "Temporizador del horno"
+							children: temporizadorPendiente.modo === "iniciar-automatico" ? "Configurar tiempos por fase" : temporizadorPendiente.etapa === "horno" ? "Tiempo de horno" : "Tiempo de preparación"
 						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 							className: "mt-1 text-sm text-slate-500",
-							children: [
-								"Define cuánto tiempo debe hornearse ",
-								temporizadorPendiente.pedido.folio,
-								"."
-							]
+							children: temporizadorPendiente.modo === "ajustar" ? `Ajusta el tiempo restante del pedido ${temporizadorPendiente.pedido.folio}. El estado no cambiará.` : temporizadorPendiente.modo === "iniciar-automatico" ? `Configura ambas fases del pedido ${temporizadorPendiente.pedido.folio}. Avanzará automáticamente al terminar cada tiempo.` : temporizadorPendiente.etapa === "horno" ? `Define cuánto tiempo estará en el horno el pedido ${temporizadorPendiente.pedido.folio}.` : `Define el tiempo de preparación del pedido ${temporizadorPendiente.pedido.folio}.`
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
 							className: "mt-5 block",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 								className: "text-sm font-medium text-slate-700",
-								children: "Minutos"
+								children: temporizadorPendiente.modo === "iniciar-automatico" ? "Minutos en preparación" : "Minutos"
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
 								type: "number",
 								min: "1",
 								max: "600",
+								step: "1",
 								value: temporizadorPendiente.minutos,
 								onChange: (evento) => setTemporizadorPendiente((actual) => ({
 									...actual,
@@ -30011,6 +30263,24 @@ function PaginaCocina() {
 								})),
 								className: "mt-2 w-full rounded-xl border border-slate-200 px-3 py-3 outline-none focus:border-violet-500 focus:ring-4 focus:ring-violet-100",
 								autoFocus: true
+							})]
+						}),
+						temporizadorPendiente.modo === "iniciar-automatico" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+							className: "mt-4 block",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "text-sm font-medium text-slate-700",
+								children: "Minutos en horno"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								type: "number",
+								min: "1",
+								max: "600",
+								step: "1",
+								value: temporizadorPendiente.minutosHorno,
+								onChange: (evento) => setTemporizadorPendiente((actual) => ({
+									...actual,
+									minutosHorno: evento.target.value
+								})),
+								className: "mt-2 w-full rounded-xl border border-slate-200 px-3 py-3 outline-none focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
 							})]
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -30022,10 +30292,10 @@ function PaginaCocina() {
 								children: "Cancelar"
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 								type: "button",
-								onClick: confirmarTemporizadorHorno,
-								disabled: procesandoId === temporizadorPendiente.pedido.id,
+								onClick: confirmarTemporizador,
+								disabled: procesandoId === temporizadorPendiente.pedido.id || !Number.isInteger(Number(temporizadorPendiente.minutos)) || Number(temporizadorPendiente.minutos) < 1 || Number(temporizadorPendiente.minutos) > 600 || temporizadorPendiente.modo === "iniciar-automatico" && (!Number.isInteger(Number(temporizadorPendiente.minutosHorno)) || Number(temporizadorPendiente.minutosHorno) < 1 || Number(temporizadorPendiente.minutosHorno) > 600),
 								className: "flex-1 rounded-xl bg-violet-600 px-4 py-3 text-sm font-semibold text-white hover:bg-violet-700 disabled:opacity-50",
-								children: "Iniciar horno"
+								children: temporizadorPendiente.modo === "ajustar" ? "Guardar tiempo" : temporizadorPendiente.modo === "iniciar-automatico" ? "Confirmar e iniciar" : temporizadorPendiente.etapa === "horno" ? "Enviar al horno" : "Iniciar preparación"
 							})]
 						})
 					]
@@ -30033,37 +30303,38 @@ function PaginaCocina() {
 			}),
 			pedidoConfirmacion && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					role: "alertdialog",
 					"aria-modal": "true",
+					"aria-labelledby": "confirmar-listo-titulo",
 					className: "w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl",
 					children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-							className: "text-lg font-bold text-slate-900",
-							children: "Actualizar pedido"
+							id: "confirmar-listo-titulo",
+							className: "text-lg font-bold text-slate-800",
+							children: "¿Marcar pedido como listo?"
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
 							className: "mt-2 text-sm text-slate-600",
 							children: [
-								"¿Cambiar el pedido ",
-								pedidoConfirmacion.pedido.folio || pedidoConfirmacion.pedido.id,
-								" a “",
-								pedidoConfirmacion.estado,
-								"”?"
+								"El pedido ",
+								pedidoConfirmacion.folio,
+								" terminó su paso por cocina y pasará a pedidos listos."
 							]
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "mt-6 flex justify-end gap-3",
+							className: "mt-5 flex gap-3",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 								type: "button",
 								onClick: () => setPedidoConfirmacion(null),
-								className: "rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold",
-								children: "Cancelar"
+								className: "flex-1 rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-600 hover:bg-slate-50",
+								children: "Seguir en horno"
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 								type: "button",
-								onClick: () => cambiarEstado(pedidoConfirmacion.pedido, pedidoConfirmacion.estado),
-								className: "rounded-lg bg-violet-700 px-4 py-2 text-sm font-semibold text-white",
-								children: "Confirmar"
+								onClick: confirmarPedidoListo,
+								disabled: procesandoId === pedidoConfirmacion.id,
+								className: "flex-1 rounded-xl bg-emerald-600 px-4 py-3 text-sm font-semibold text-white hover:bg-emerald-700 disabled:opacity-50",
+								children: procesandoId === pedidoConfirmacion.id ? "Actualizando..." : "Sí, está listo"
 							})]
 						})
 					]
@@ -30079,13 +30350,32 @@ var obtenerAPI = () => {
 };
 var servicioTelevision = {
 	async listarPedidos() {
-		const pedidos = await obtenerAPI().pedidos.listar({ limite: 200 });
+		const api = obtenerAPI();
+		const pedidos = await api.pedidos.listar({ limite: 200 });
 		if (!Array.isArray(pedidos)) return [];
-		return pedidos.filter((pedido) => [
+		const pedidosEnPantalla = pedidos.filter((pedido) => [
 			"Preparando",
 			"En horno",
 			"Listo"
 		].includes(pedido.estado));
+		return (await Promise.all(pedidosEnPantalla.map(async (pedido) => {
+			try {
+				const detalle = await api.pedidos.obtener(pedido.id);
+				if (!detalle) return null;
+				const productos = (detalle.detalles || []).filter((producto) => producto.requiere_preparacion !== 0 && producto.requiere_preparacion !== false).map((producto) => ({
+					cantidad: producto.cantidad,
+					nombre: producto.nombre_producto,
+					presentacion: producto.nombre_presentacion
+				}));
+				if (productos.length === 0) return null;
+				return {
+					...pedido,
+					productosTV: productos
+				};
+			} catch {
+				return null;
+			}
+		}))).filter(Boolean);
 	},
 	async listarPublicidad() {
 		return obtenerAPI().television?.listarMultimedia?.() || [];
@@ -30193,7 +30483,16 @@ function usePedidosTV() {
 		const intervalo = setInterval(() => {
 			cargarPedidos();
 		}, 5e3);
-		return () => clearInterval(intervalo);
+		const canal = typeof BroadcastChannel !== "undefined" ? new BroadcastChannel("pizzeria-cocina") : null;
+		const actualizarPedidos = (evento) => {
+			if (evento.data?.tipo === "pedido-actualizado") cargarPedidos();
+		};
+		canal?.addEventListener("message", actualizarPedidos);
+		return () => {
+			clearInterval(intervalo);
+			canal?.removeEventListener("message", actualizarPedidos);
+			canal?.close();
+		};
 	}, [cargarPedidos]);
 	(0, import_react.useEffect)(() => {
 		if (!ultimaActualizacion) return;
@@ -30294,6 +30593,19 @@ function EncabezadoTV({ empresa }) {
 		]
 	});
 }
+// src/modulos/television/componentes/ResumenProductosTV.jsx
+function ResumenProductosTV({ productos = [] }) {
+	if (!productos.length) return null;
+	const resumen = productos.map((producto) => {
+		const nombre = producto.nombre || "Producto";
+		const presentacion = producto.presentacion ? ` (${producto.presentacion})` : "";
+		return `${producto.cantidad}× ${nombre}${presentacion}`;
+	}).join(" · ");
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+		className: "line-clamp-2 text-[10px] font-semibold leading-4 text-white/75 sm:text-xs",
+		children: resumen
+	});
+}
 // src/modulos/television/componentes/PedidoListoTV.jsx
 function PedidoListoTV({ pedido }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
@@ -30311,11 +30623,11 @@ function PedidoListoTV({ pedido }) {
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
 							className: "mt-1 truncate text-lg font-black leading-tight tracking-tight text-white sm:text-xl",
-							children: pedido.cliente_nombre || "Pedido rápido"
+							children: pedido.cliente_nombre || "Pedido de mostrador"
 						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-							className: "mt-0.5 text-[10px] font-semibold text-emerald-100/70 sm:text-xs",
-							children: ["Orden ", pedido.folio || `#${pedido.id}`]
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "truncate text-[9px] text-white/50 sm:text-[10px]",
+							children: pedido.folio || `#${pedido.id}`
 						})
 					]
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
@@ -30326,6 +30638,10 @@ function PedidoListoTV({ pedido }) {
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 				className: "relative mt-1.5 border-t border-white/[0.08] pt-1.5 text-[10px] font-semibold text-emerald-100 sm:text-xs",
 				children: pedido.tipo === "domicilio" ? "Listo para salir a reparto" : "Puedes pasar a recogerlo"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "relative mt-1",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ResumenProductosTV, { productos: pedido.productosTV })
 			})
 		]
 	});
@@ -30363,25 +30679,32 @@ function Columna({ pedidos, listos = false, titulo, eyebrow, tono }) {
 				className: "grid min-h-0 flex-1 grid-cols-1 content-start gap-2 overflow-hidden sm:grid-cols-2",
 				children: [visibles.map((pedido) => listos ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PedidoListoTV, { pedido }, pedido.id) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
 					className: "flex min-w-0 flex-col justify-center rounded-xl border border-white/[0.08] bg-gradient-to-br from-[#171a28] to-[#11141e] px-3 py-2.5 shadow-lg",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "flex items-center justify-between gap-2",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "min-w-0",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								className: "truncate text-base font-black tracking-tight sm:text-lg",
-								children: pedido.cliente_nombre || "Pedido rápido"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-								className: "mt-0.5 text-[10px] font-semibold text-white/45",
-								children: ["Orden ", pedido.folio || `#${pedido.id}`]
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex items-center justify-between gap-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "min-w-0",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+									className: "truncate text-base font-black tracking-tight sm:text-lg",
+									children: pedido.cliente_nombre || "Pedido de mostrador"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "truncate text-[9px] text-white/45 sm:text-[10px]",
+									children: pedido.folio || `#${pedido.id}`
+								})]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "shrink-0 rounded-full bg-violet-400/15 px-2 py-1 text-[9px] font-bold text-violet-200",
+								children: pedido.estado
 							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "shrink-0 rounded-full bg-violet-400/15 px-2 py-1 text-[9px] font-bold text-violet-200",
-							children: pedido.estado
-						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						className: "mt-1.5 text-xs text-white/65",
-						children: pedido.estado === "En horno" ? "Tu pedido está en el horno" : "Estamos preparando tu pedido"
-					})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "mt-1 text-[10px] text-white/55 sm:text-xs",
+							children: pedido.estado === "En horno" ? "En el horno" : "En preparación"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "mt-1.5",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ResumenProductosTV, { productos: pedido.productosTV })
+						})
+					]
 				}, pedido.id)), !pedidos.length && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 					className: "col-span-full flex items-center justify-center rounded-xl border border-dashed border-white/10 text-center text-xs text-white/40",
 					children: listos ? "Aún no hay pedidos listos" : "No hay pedidos en preparación"
@@ -30707,24 +31030,30 @@ function PaginaTV() {
 				"aria-live": "assertive",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "w-full max-w-2xl animate-[fade-in_250ms_ease-out] rounded-2xl border border-emerald-200/30 bg-emerald-950/95 px-5 py-4 text-center shadow-2xl shadow-emerald-950/50 ring-1 ring-emerald-100/10 backdrop-blur-xl sm:px-8 sm:py-5",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "text-[10px] font-black uppercase tracking-[0.24em] text-emerald-200",
-							children: "¡Recién salido de cocina!"
-						}),
-						avisosListos.map((pedido) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-							className: "mt-1 text-lg font-black text-white sm:text-2xl",
-							children: [
-								pedido.cliente_nombre || "Pedido rápido",
-								" · orden ",
-								pedido.folio || `#${pedido.id}`
-							]
-						}, pedido.id)),
-						avisosListos.map((pedido) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "mt-1 text-xs font-semibold text-emerald-100/80 sm:text-sm",
-							children: pedido.tipo === "domicilio" ? "Tu pedido está listo para salir a reparto." : "Tu pedido está listo; puedes pasar a recogerlo."
-						}, `mensaje-${pedido.id}`))
-					]
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "text-[10px] font-black uppercase tracking-[0.24em] text-emerald-200",
+						children: "¡Recién salido de cocina!"
+					}), avisosListos.map((pedido) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "mt-2",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-lg font-black text-white sm:text-2xl",
+								children: pedido.cliente_nombre || "Pedido de mostrador"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-0.5 text-[10px] text-white/50",
+								children: pedido.folio || `#${pedido.id}`
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-1 text-xs font-semibold text-emerald-100/80 sm:text-sm",
+								children: pedido.tipo === "domicilio" ? "Listo para salir a reparto." : "Listo para recoger."
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "mt-1 flex justify-center",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ResumenProductosTV, { productos: pedido.productosTV })
+							})
+						]
+					}, pedido.id))]
 				})
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("footer", {
@@ -31830,63 +32159,86 @@ function PaginaProduccion() {
 var ESTADOS_EN_PANTALLA = [
 	"Nuevo",
 	"Preparando",
-	"En horno"
+	"En horno",
+	"Listo"
 ];
-var ESTADOS_CON_AVISO = [...ESTADOS_EN_PANTALLA, "Listo"];
-function leerTemporizadores() {
+var ESTADOS_CON_AVISO = ESTADOS_EN_PANTALLA;
+function leerTemporizadores$1() {
 	try {
 		return JSON.parse(localStorage.getItem("cocina-temporizadores") || "{}");
 	} catch {
 		return {};
 	}
 }
-function mostrarTiempo(segundos) {
-	const minutos = Math.floor(segundos / 60);
-	const segundosRestantes = segundos % 60;
-	return `${String(minutos).padStart(2, "0")}:${String(segundosRestantes).padStart(2, "0")}`;
+function textoAnuncioPedido(pedido) {
+	return {
+		cliente: pedido.cliente_nombre || "mostrador",
+		productos: (pedido.detalles || []).map((detalle) => {
+			const cantidad = Number(detalle.cantidad) || 1;
+			const nombre = detalle.nombre_producto || detalle.producto || "producto";
+			const presentacion = detalle.nombre_presentacion || detalle.presentacion;
+			return `${cantidad} ${nombre}${presentacion ? ` ${presentacion}` : ""}`;
+		}).join(", ")
+	};
 }
 function calcularReloj(pedido, temporizadores, ahora) {
+	const temporizador = temporizadores[pedido.id];
+	const tiempos = calcularTiemposPedido(pedido, temporizador, ahora);
 	if (pedido.estado === "Nuevo") return {
 		texto: "EN COLA",
 		estado: "nuevo",
-		progreso: 0
+		progreso: 0,
+		totalRestante: tiempos.totalRestante
 	};
-	const timer = temporizadores[pedido.id];
+	if (pedido.estado === "Listo") return {
+		texto: "LISTO",
+		estado: "listo",
+		progreso: 100,
+		totalRestante: tiempos.totalRestante
+	};
 	const enHorno = pedido.estado === "En horno";
-	const inicio = enHorno ? timer?.iniciadoEn || pedido.fecha_entrada_horno : pedido.fecha_inicio_preparacion;
-	const minutos = Number((enHorno ? timer?.minutos : null) || pedido.tiempo_estimado_minutos || 0);
-	const inicioMs = inicio ? new Date(inicio).getTime() : NaN;
-	if (!Number.isFinite(inicioMs) || minutos <= 0) return {
+	const minutos = Number(enHorno ? temporizador?.minutos || pedido.tiempo_estimado_minutos || 15 : temporizador?.preparacion?.minutos || pedido.tiempo_estimado_minutos || 20);
+	const restante = tiempos.faseRestante;
+	if (restante === null || minutos <= 0) return {
 		texto: "SIN ESTIMADO",
 		estado: "sin-estimado",
-		progreso: 0
+		progreso: 0,
+		etapa: enHorno ? "horno" : "preparacion",
+		totalRestante: tiempos.totalRestante
 	};
 	const totalSegundos = minutos * 60;
-	const restante = Math.ceil((inicioMs + totalSegundos * 1e3 - ahora) / 1e3);
 	const progreso = Math.min(100, Math.max(0, (totalSegundos - restante) / totalSegundos * 100));
 	if (restante < 0) return {
-		texto: `+${mostrarTiempo(Math.abs(restante))}`,
+		texto: formatearCuenta(restante),
 		estado: "retrasado",
-		progreso
+		progreso,
+		etapa: enHorno ? "horno" : "preparacion",
+		totalRestante: tiempos.totalRestante
 	};
 	if (restante <= 120) return {
-		texto: mostrarTiempo(restante),
+		texto: formatearCuenta(restante),
 		estado: "por-terminar",
-		progreso
+		progreso,
+		etapa: enHorno ? "horno" : "preparacion",
+		totalRestante: tiempos.totalRestante
 	};
 	return {
-		texto: mostrarTiempo(restante),
+		texto: formatearCuenta(restante),
 		estado: "a-tiempo",
-		progreso
+		progreso,
+		etapa: enHorno ? "horno" : "preparacion",
+		totalRestante: tiempos.totalRestante
 	};
 }
 function TarjetaProduccion({ pedido, reloj }) {
+	const detalles = (pedido.detalles || []).filter((detalle) => detalle.requiere_preparacion !== 0 && detalle.requiere_preparacion !== false);
 	const tono = {
 		nuevo: "border-slate-700 bg-slate-900 text-slate-300",
 		"sin-estimado": "border-slate-700 bg-slate-900 text-slate-300",
 		"a-tiempo": "border-emerald-400/30 bg-emerald-950/40 text-emerald-300",
 		"por-terminar": "border-amber-400/40 bg-amber-950/50 text-amber-200",
-		retrasado: "border-red-400/50 bg-red-950/60 text-red-200"
+		retrasado: "border-red-400/50 bg-red-950/60 text-red-200",
+		listo: "border-sky-300/40 bg-sky-950/50 text-sky-200"
 	}[reloj.estado];
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
 		className: `flex h-full min-w-0 flex-col overflow-hidden rounded-3xl border p-3 shadow-xl sm:p-4 ${tono}`,
@@ -31902,11 +32254,11 @@ function TarjetaProduccion({ pedido, reloj }) {
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
 							className: "mt-2 truncate text-xl font-black text-white sm:text-2xl",
-							children: pedido.folio || `Pedido #${pedido.id}`
+							children: pedido.cliente_nombre || "Pedido de mostrador"
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "mt-1 truncate text-sm text-white/65",
-							children: pedido.cliente_nombre || "Pedido de mostrador"
+							className: "mt-1 truncate text-xs text-white/50",
+							children: pedido.folio || `Pedido #${pedido.id}`
 						})
 					]
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
@@ -31914,23 +32266,41 @@ function TarjetaProduccion({ pedido, reloj }) {
 					children: pedido.tipo === "domicilio" ? "DOMICILIO" : "RECOGER"
 				})]
 			}),
-			pedido.detalles?.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("ul", {
-				className: "mt-2 space-y-0.5 border-t border-white/10 pt-2 text-xs text-white/80",
-				children: [pedido.detalles.slice(0, 2).map((detalle, indice) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
-					className: "truncate",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("strong", { children: [detalle.cantidad, "×"] }),
-						" ",
-						detalle.nombre_producto || detalle.producto,
-						detalle.nombre_presentacion || detalle.presentacion ? ` · ${detalle.nombre_presentacion || detalle.presentacion}` : ""
-					]
-				}, detalle.id || indice)), pedido.detalles.length > 2 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
-					className: "text-[10px] text-white/45",
-					children: [
-						"+",
-						pedido.detalles.length - 2,
-						" productos más"
-					]
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mt-3 min-h-0 flex-1 border-t border-white/10 pt-2",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+					className: "space-y-2 text-xs text-white/85 sm:text-sm",
+					children: detalles.map((detalle, indice) => {
+						const adicionales = detalle.adicionales || detalle.pedido_detalle_adicionales || [];
+						return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+							className: "rounded-xl bg-white/[0.05] p-2.5",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+									className: "font-bold text-white",
+									children: [
+										detalle.cantidad,
+										"× ",
+										detalle.nombre_producto || detalle.producto,
+										(detalle.nombre_presentacion || detalle.presentacion) && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: "font-medium text-white/60",
+											children: ` · ${detalle.nombre_presentacion || detalle.presentacion}`
+										})
+									]
+								}),
+								adicionales.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+									className: "mt-1 leading-5 text-emerald-200",
+									children: ["Agregados: ", adicionales.map((extra) => `${extra.cantidad || 1}× ${extra.nombre_adicional || extra.nombre}`).join(", ")]
+								}),
+								detalle.notas && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+									className: "mt-1 rounded-lg bg-amber-300/15 px-2 py-1.5 font-semibold leading-5 text-amber-100",
+									children: ["Indicaciones: ", detalle.notas]
+								})
+							]
+						}, detalle.id || indice);
+					})
+				}), pedido.notas && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+					className: "mt-2 rounded-xl border border-amber-300/20 bg-amber-300/10 p-2.5 text-xs font-semibold leading-5 text-amber-100 sm:text-sm",
+					children: ["Nota del pedido: ", pedido.notas]
 				})]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -31940,13 +32310,13 @@ function TarjetaProduccion({ pedido, reloj }) {
 						className: "flex items-center justify-between gap-2",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
 							className: "flex items-center gap-2 text-[9px] font-bold uppercase tracking-[0.18em] opacity-70 sm:text-[10px]",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Clock3, { size: 13 }), reloj.estado === "retrasado" ? "Tiempo excedido" : reloj.estado === "nuevo" ? "Siguiente pedido" : "Tiempo restante"]
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Clock3, { size: 13 }), reloj.estado === "retrasado" ? "Tiempo excedido" : reloj.estado === "nuevo" ? "Siguiente pedido" : reloj.estado === "listo" ? "Preparación terminada" : reloj.etapa === "horno" ? "Tiempo de horno" : "Tiempo de preparación"]
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 							className: "text-[10px] font-bold tabular-nums text-white/55",
-							children: reloj.estado === "nuevo" || reloj.estado === "sin-estimado" ? "" : `${Math.round(reloj.progreso)}%`
+							children: reloj.estado === "nuevo" || reloj.estado === "sin-estimado" || reloj.estado === "listo" ? "" : `${Math.round(reloj.progreso)}%`
 						})]
 					}),
-					reloj.estado !== "nuevo" && reloj.estado !== "sin-estimado" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					reloj.estado !== "nuevo" && reloj.estado !== "sin-estimado" && reloj.estado !== "listo" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						className: "mt-2 h-2 overflow-hidden rounded-full bg-white/10",
 						role: "progressbar",
 						"aria-label": "Tiempo transcurrido",
@@ -31958,9 +32328,22 @@ function TarjetaProduccion({ pedido, reloj }) {
 							style: { width: `${reloj.progreso}%` }
 						})
 					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						className: "mt-2 font-mono text-4xl font-black leading-none tracking-tight text-white sm:text-5xl",
-						children: reloj.texto
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "mt-2 flex items-end justify-between gap-2",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "font-mono text-4xl font-black leading-none tracking-tight text-white sm:text-5xl",
+							children: reloj.texto
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+							className: "text-right text-[10px] font-semibold text-white/60 sm:text-xs",
+							children: [
+								"Total restante",
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "font-mono text-base font-black tabular-nums text-white sm:text-lg",
+									children: formatearCuenta(reloj.totalRestante)
+								})
+							]
+						})]
 					})
 				]
 			})
@@ -31987,12 +32370,18 @@ function PaginaProyeccionProduccion() {
 			const activos = Array.isArray(resultado) ? resultado.filter((pedido) => ESTADOS_CON_AVISO.includes(pedido.estado)) : [];
 			const pedidosConDetalle = await Promise.all(activos.map(async (pedido) => {
 				try {
-					return await window.sistema.pedidos.obtener(pedido.id) || pedido;
+					const detalle = await window.sistema.pedidos.obtener(pedido.id) || pedido;
+					const productosPreparados = (detalle.detalles || []).filter((producto) => producto.requiere_preparacion !== 0 && producto.requiere_preparacion !== false);
+					if (productosPreparados.length === 0) return null;
+					return {
+						...detalle,
+						detalles: productosPreparados
+					};
 				} catch {
-					return pedido;
+					return null;
 				}
 			}));
-			setPedidos(pedidosConDetalle);
+			setPedidos(pedidosConDetalle.filter(Boolean));
 		} catch (e) {
 			setError(e.message || "No se pudieron actualizar los pedidos de producción.");
 		} finally {
@@ -32003,12 +32392,26 @@ function PaginaProyeccionProduccion() {
 		cargar();
 		const consulta = setInterval(() => void cargar(), 5e3);
 		const reloj = setInterval(() => setAhora(Date.now()), 1e3);
+		const canal = typeof BroadcastChannel !== "undefined" ? new BroadcastChannel("pizzeria-cocina") : null;
+		const actualizarPorMensaje = (evento) => {
+			if (evento.data?.tipo === "pedido-actualizado") cargar();
+		};
+		const actualizarPorStorage = (evento) => {
+			if (evento.key === "cocina-temporizadores" || evento.type === "cocina:temporizadores-actualizados") setAhora(Date.now());
+		};
+		canal?.addEventListener("message", actualizarPorMensaje);
+		window.addEventListener("storage", actualizarPorStorage);
+		window.addEventListener("cocina:temporizadores-actualizados", actualizarPorStorage);
 		return () => {
 			clearInterval(consulta);
 			clearInterval(reloj);
+			canal?.removeEventListener("message", actualizarPorMensaje);
+			canal?.close();
+			window.removeEventListener("storage", actualizarPorStorage);
+			window.removeEventListener("cocina:temporizadores-actualizados", actualizarPorStorage);
 		};
 	}, [cargar]);
-	const temporizadores = leerTemporizadores();
+	const temporizadores = leerTemporizadores$1();
 	const pedidosOrdenados = (0, import_react.useMemo)(() => pedidos.filter((pedido) => ESTADOS_EN_PANTALLA.includes(pedido.estado)).sort((a, b) => new Date(a.fecha_creacion || 0) - new Date(b.fecha_creacion || 0)), [pedidos]);
 	const retrasados = pedidosOrdenados.filter((pedido) => calcularReloj(pedido, temporizadores, ahora).estado === "retrasado").length;
 	(0, import_react.useEffect)(() => {
@@ -32023,11 +32426,24 @@ function PaginaProyeccionProduccion() {
 		const frases = [];
 		for (const pedido of pedidos) {
 			const estadoAnterior = estadosAnteriores.current.get(pedido.id);
-			if (vozActiva && !estadosAnteriores.current.has(pedido.id) && pedido.estado === "Nuevo") frases.push(`Nuevo pedido ${pedido.folio || pedido.id}.`);
-			else if (vozActiva && pedido.estado === "Listo" && estadoAnterior && estadoAnterior !== "Listo") frases.push(`Pedido ${pedido.folio || pedido.id}, listo.`);
+			const { cliente, productos } = textoAnuncioPedido(pedido);
+			const entrante = !estadosAnteriores.current.has(pedido.id) && pedido.estado === "Nuevo";
+			if (vozActiva && (entrante || estadoAnterior && estadoAnterior !== pedido.estado && pedido.estado === "Nuevo")) frases.push(`Nuevo pedido de ${cliente}: ${productos || "sin productos detallados"}.`);
+			else if (vozActiva && estadoAnterior && estadoAnterior !== pedido.estado) {
+				const contextoPedido = productos ? `${cliente}, ${productos}` : cliente;
+				if (pedido.estado === "Preparando") frases.push(`Pedido de ${contextoPedido}, en preparación.`);
+				else if (pedido.estado === "En horno") frases.push(`Pedido de ${contextoPedido}, en horno.`);
+				else if (pedido.estado === "Listo") {
+					const avisoListo = `Pedido de ${contextoPedido}, listo.`;
+					frases.push(`${avisoListo} ${avisoListo}`);
+				}
+			}
 		}
 		if (vozActiva) {
-			for (const pedido of pedidosOrdenados) if (retrasosActuales.has(pedido.id) && !retrasosAnteriores.current.has(pedido.id)) frases.push(`Atención. Pedido ${pedido.folio || pedido.id} superó su tiempo estimado.`);
+			for (const pedido of pedidosOrdenados) if (retrasosActuales.has(pedido.id) && !retrasosAnteriores.current.has(pedido.id)) {
+				const { cliente, productos } = textoAnuncioPedido(pedido);
+				frases.push(`Atención. El pedido de ${cliente}${productos ? `, ${productos}` : ""}, superó su tiempo estimado.`);
+			}
 		}
 		estadosAnteriores.current = actuales;
 		retrasosAnteriores.current = retrasosActuales;
@@ -32060,8 +32476,14 @@ function PaginaProyeccionProduccion() {
 	}, []);
 	const maxColumnas = Math.max(1, Math.floor((dimensiones.ancho - 64) / 500));
 	const columnas = Math.min(maxColumnas, Math.max(1, Math.min(pedidosOrdenados.length, 4)));
-	const altoFila = Math.max(270, Math.min(340, Math.round(dimensiones.alto * .31)));
-	const pedidosPorPagina = columnas * Math.max(1, Math.min(3, Math.floor((dimensiones.alto - 190) / altoFila)));
+	const renglonesMaximos = Math.max(1, ...pedidosOrdenados.map((pedido) => {
+		return (pedido.detalles || []).reduce((total, detalle) => {
+			const adicionales = detalle.adicionales || detalle.pedido_detalle_adicionales || [];
+			return total + 1 + adicionales.length + Math.ceil(String(detalle.notas || "").length / 60);
+		}, 0) + Math.ceil(String(pedido.notas || "").length / 60);
+	}));
+	const altoFila = Math.max(400, Math.min(Math.round(dimensiones.alto * .82), 280 + renglonesMaximos * 30));
+	const pedidosPorPagina = columnas * Math.max(1, Math.min(2, Math.floor((dimensiones.alto - 220) / (altoFila + 16))));
 	const paginas = Math.max(1, Math.ceil(pedidosOrdenados.length / pedidosPorPagina));
 	const pedidosVisibles = pedidosOrdenados.slice(pagina * pedidosPorPagina, (pagina + 1) * pedidosPorPagina);
 	(0, import_react.useEffect)(() => {
@@ -32153,7 +32575,7 @@ function PaginaProyeccionProduccion() {
 					className: "grid min-h-0 flex-1 content-start justify-center gap-3 sm:gap-4",
 					style: {
 						gridTemplateColumns: `repeat(${columnas}, minmax(0, 520px))`,
-						gridAutoRows: "minmax(250px, 31vh)"
+						gridAutoRows: `${altoFila}px`
 					},
 					children: pedidosVisibles.map((pedido) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TarjetaProduccion, {
 						pedido,
@@ -32447,88 +32869,199 @@ function DialogoCierreSistema() {
 		})
 	});
 }
+// src/modulos/cocina/componentes/MotorCocinaGlobal.jsx
+function leerTemporizadores() {
+	try {
+		return JSON.parse(localStorage.getItem("cocina-temporizadores") || "{}");
+	} catch {
+		return {};
+	}
+}
+function guardarTemporizadores(temporizadores) {
+	localStorage.setItem("cocina-temporizadores", JSON.stringify(temporizadores));
+	window.dispatchEvent(new CustomEvent("cocina:temporizadores-actualizados"));
+}
+function MotorCocinaGlobal() {
+	const { pathname } = useLocation();
+	const estaEnPantallaSecundaria = [
+		"/",
+		"/pantalla-tv",
+		"/pantalla-produccion"
+	].includes(pathname);
+	const procesando = (0, import_react.useRef)(/* @__PURE__ */ new Set());
+	const estadosConocidos = (0, import_react.useRef)(null);
+	(0, import_react.useEffect)(() => {
+		if (estaEnPantallaSecundaria) return void 0;
+		let vigente = true;
+		const canal = typeof BroadcastChannel !== "undefined" ? new BroadcastChannel("pizzeria-cocina") : null;
+		const sincronizar = async () => {
+			if (!vigente) return;
+			const apiPedidos = window.sistema?.pedidos;
+			if (!apiPedidos?.listar || !apiPedidos?.cambiarEstado) return;
+			try {
+				const pedidos = await apiPedidos.listar({ limite: 200 });
+				const estadosActuales = new Map((pedidos || []).map((pedido) => [pedido.id, pedido.estado]));
+				let huboCambios = false;
+				if (estadosConocidos.current) {
+					for (const pedido of pedidos || []) if (estadosConocidos.current.get(pedido.id) !== pedido.estado) {
+						canal?.postMessage({
+							tipo: "pedido-actualizado",
+							pedidoId: pedido.id,
+							estado: pedido.estado
+						});
+						huboCambios = true;
+					}
+				}
+				estadosConocidos.current = estadosActuales;
+				if (localStorage.getItem("cocina-modo-operacion") !== "automatico") {
+					if (huboCambios) await useEstadoCocina.getState().cargarPedidos(true);
+					return;
+				}
+				const temporizadores = leerTemporizadores();
+				for (const pedido of pedidos || []) {
+					if (!["Preparando", "En horno"].includes(pedido.estado) || procesando.current.has(pedido.id)) continue;
+					const temporizador = temporizadores[pedido.id] || {};
+					const fase = pedido.estado === "Preparando" ? temporizador.preparacion : temporizador;
+					if (!fase?.automatico || !fase.iniciadoEn || !fase.minutos) continue;
+					const { faseRestante } = calcularTiemposPedido(pedido, temporizador, Date.now());
+					if (faseRestante === null || faseRestante > 0) continue;
+					procesando.current.add(pedido.id);
+					try {
+						if (pedido.estado === "Preparando") {
+							const minutosHorno = Number(fase.minutosHorno || temporizador.minutosHorno || 12);
+							await apiPedidos.cambiarEstado(pedido.id, "En horno", null, null);
+							const nuevoTemporizador = {
+								...temporizador,
+								minutos: minutosHorno,
+								iniciadoEn: (/* @__PURE__ */ new Date()).toISOString(),
+								automatico: true,
+								minutosHorno
+							};
+							temporizadores[pedido.id] = nuevoTemporizador;
+							guardarTemporizadores(temporizadores);
+							canal?.postMessage({
+								tipo: "pedido-actualizado",
+								pedidoId: pedido.id,
+								estado: "En horno"
+							});
+							estadosConocidos.current.set(pedido.id, "En horno");
+						} else {
+							await apiPedidos.cambiarEstado(pedido.id, "Listo", null, null);
+							canal?.postMessage({
+								tipo: "pedido-actualizado",
+								pedidoId: pedido.id,
+								estado: "Listo"
+							});
+							estadosConocidos.current.set(pedido.id, "Listo");
+						}
+						huboCambios = true;
+					} catch (error) {
+						console.warn(`No se pudo avanzar automáticamente el pedido ${pedido.folio || pedido.id}:`, error);
+					} finally {
+						procesando.current.delete(pedido.id);
+					}
+				}
+				if (huboCambios) await useEstadoCocina.getState().cargarPedidos(true);
+			} catch (error) {
+				if (vigente) console.warn("No se pudo sincronizar el motor global de cocina:", error);
+			}
+		};
+		sincronizar();
+		const intervalo = setInterval(() => void sincronizar(), 1e3);
+		return () => {
+			vigente = false;
+			clearInterval(intervalo);
+			canal?.close();
+		};
+	}, [estaEnPantallaSecundaria]);
+	return null;
+}
 // src/rutas/RutasAplicacion.jsx
 function RutasAplicacion() {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(HashRouter, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(DialogoCierreSistema, {}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Routes, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-		path: "/",
-		element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InicioSesion, {})
-	}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
-		element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RutaLicencia, {}),
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-				path: "/pantalla-tv",
-				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaTV, {})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-				path: "/pantalla-produccion",
-				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaProyeccionProduccion, {})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RutaProtegida, {}),
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
-					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DisenoPrincipal, {}),
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-							path: "/tablero",
-							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina, {})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-							path: "/punto-venta",
-							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaPuntoVenta, {})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-							path: "/pedidos",
-							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaPedidos, {})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-							path: "/cocina",
-							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaCocina, {})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-							path: "/produccion",
-							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaProduccion, {})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-							path: "/clientes",
-							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaClientes, {})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-							path: "/productos",
-							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaProductos, {})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-							path: "/publicidad",
-							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaPublicidad, {})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-							path: "/caja",
-							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaCaja, {})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-							path: "/reportes",
-							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaReportes, {})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-							path: "/usuarios",
-							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaUsuarios, {})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-							path: "/configuracion",
-							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaConfiguracion, {})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-							path: "/licencias",
-							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaLicencias, {})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-							path: "/respaldos",
-							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaRespaldos, {})
-						})
-					]
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(HashRouter, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MotorCocinaGlobal, {}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(DialogoCierreSistema, {}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Routes, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+			path: "/",
+			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InicioSesion, {})
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
+			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RutaLicencia, {}),
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/pantalla-tv",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaTV, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/pantalla-produccion",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaProyeccionProduccion, {})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RutaProtegida, {}),
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
+						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DisenoPrincipal, {}),
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+								path: "/tablero",
+								element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina, {})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+								path: "/punto-venta",
+								element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaPuntoVenta, {})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+								path: "/pedidos",
+								element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaPedidos, {})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+								path: "/cocina",
+								element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaCocina, {})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+								path: "/produccion",
+								element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaProduccion, {})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+								path: "/clientes",
+								element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaClientes, {})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+								path: "/productos",
+								element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaProductos, {})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+								path: "/publicidad",
+								element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaPublicidad, {})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+								path: "/caja",
+								element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaCaja, {})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+								path: "/reportes",
+								element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaReportes, {})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+								path: "/usuarios",
+								element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaUsuarios, {})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+								path: "/configuracion",
+								element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaConfiguracion, {})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+								path: "/licencias",
+								element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaLicencias, {})
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+								path: "/respaldos",
+								element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaRespaldos, {})
+							})
+						]
+					})
 				})
-			})
-		]
-	})] })] });
+			]
+		})] })
+	] });
 }
 // src/Aplicacion.jsx
 function Aplicacion() {

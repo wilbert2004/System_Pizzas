@@ -16,7 +16,19 @@ export function usePedidosTV() {
       cargarPedidos();
     }, 5000);
 
-    return () => clearInterval(intervalo);
+    const canal = typeof BroadcastChannel !== "undefined"
+      ? new BroadcastChannel("pizzeria-cocina")
+      : null;
+    const actualizarPedidos = (evento) => {
+      if (evento.data?.tipo === "pedido-actualizado") void cargarPedidos();
+    };
+    canal?.addEventListener("message", actualizarPedidos);
+
+    return () => {
+      clearInterval(intervalo);
+      canal?.removeEventListener("message", actualizarPedidos);
+      canal?.close();
+    };
   }, [cargarPedidos]);
 
   useEffect(() => {

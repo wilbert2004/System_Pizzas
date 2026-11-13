@@ -23,10 +23,12 @@ import PaginaRespaldos from "../modulos/respaldos/paginas/Pagina.jsx";
 import PaginaProduccion from "../modulos/produccion/paginas/Pagina.jsx";
 import PaginaProyeccionProduccion from "../modulos/produccion/paginas/PaginaProyeccion.jsx";
 import DialogoCierreSistema from "../compartidos/componentes/DialogoCierreSistema.jsx";
+import MotorCocinaGlobal from "../modulos/cocina/componentes/MotorCocinaGlobal.jsx";
 
 function RutasAplicacion() {
   return (
     <HashRouter>
+      <MotorCocinaGlobal />
       <DialogoCierreSistema />
       <Routes>
         <Route path="/" element={<InicioSesion />} />
