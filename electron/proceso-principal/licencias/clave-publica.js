@@ -1,0 +1,3 @@
+export const CLAVE_PUBLICA_LICENCIAS = `-----BEGIN PUBLIC KEY-----
+MCowBQYDK2VwAyEAWwAAC0sWABnnlzID01ivRzKocQ6XxKy4wDtAvtmlq5g=
+-----END PUBLIC KEY-----`;

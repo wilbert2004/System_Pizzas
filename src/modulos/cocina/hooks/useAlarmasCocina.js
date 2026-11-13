@@ -2,8 +2,19 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 export function useAlarmasCocina(pedidos, temporizadores = {}) {
   const audioRef = useRef(null);
+  const volumenNotificacionesRef = useRef(0.7);
   const [ahora, setAhora] = useState(() => Date.now());
   const [sonidoActivo, setSonidoActivo] = useState(false);
+
+  useEffect(() => {
+    let vigente = true;
+    window.sistema?.configuracion?.operativa?.()
+      .then((configuracion) => {
+        if (vigente) volumenNotificacionesRef.current = configuracion.volumenNotificaciones / 100;
+      })
+      .catch(() => {});
+    return () => { vigente = false; };
+  }, []);
 
   const reproducirTono = (audio) => {
     const inicio = audio.currentTime;
@@ -16,7 +27,10 @@ export function useAlarmasCocina(pedidos, temporizadores = {}) {
       oscilador.type = "sine";
       oscilador.frequency.value = frecuencia;
       volumen.gain.setValueAtTime(0.0001, momento);
-      volumen.gain.exponentialRampToValueAtTime(0.15, momento + 0.03);
+      volumen.gain.exponentialRampToValueAtTime(
+        Math.max(0.0001, 0.15 * volumenNotificacionesRef.current),
+        momento + 0.03,
+      );
       volumen.gain.exponentialRampToValueAtTime(0.0001, momento + 0.22);
       oscilador.connect(volumen);
       volumen.connect(audio.destination);

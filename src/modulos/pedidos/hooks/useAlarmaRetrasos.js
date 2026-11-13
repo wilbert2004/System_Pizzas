@@ -3,6 +3,17 @@ import { useEffect, useRef } from "react";
 export function useAlarmaRetrasos(activa, cantidadPendiente) {
   const audioRef = useRef(null);
   const ultimaAlarmaRef = useRef(0);
+  const volumenNotificacionesRef = useRef(0.7);
+
+  useEffect(() => {
+    let vigente = true;
+    window.sistema?.configuracion?.operativa?.()
+      .then((configuracion) => {
+        if (vigente) volumenNotificacionesRef.current = configuracion.volumenNotificaciones / 100;
+      })
+      .catch(() => {});
+    return () => { vigente = false; };
+  }, []);
 
   useEffect(() => {
     if (!activa || cantidadPendiente === 0) {
@@ -43,7 +54,10 @@ export function useAlarmaRetrasos(activa, cantidadPendiente) {
           const momento = inicio + i * 0.35;
 
           volumen.gain.setValueAtTime(0.0001, momento);
-          volumen.gain.exponentialRampToValueAtTime(0.12, momento + 0.02);
+          volumen.gain.exponentialRampToValueAtTime(
+            Math.max(0.0001, 0.12 * volumenNotificacionesRef.current),
+            momento + 0.02,
+          );
           volumen.gain.exponentialRampToValueAtTime(0.0001, momento + 0.22);
 
           oscilador.connect(volumen);

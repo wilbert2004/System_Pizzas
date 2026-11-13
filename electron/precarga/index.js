@@ -2,6 +2,19 @@ import { contextBridge, ipcRenderer } from "electron";
 
 contextBridge.exposeInMainWorld("sistema", {
   obtenerVersion: () => ipcRenderer.invoke("aplicacion:obtener-version"),
+  aplicacion: {
+    onSolicitarCierre: (callback) => {
+      const listener = () => callback();
+      ipcRenderer.on("aplicacion:solicitar-cierre", listener);
+      return () => ipcRenderer.removeListener("aplicacion:solicitar-cierre", listener);
+    },
+    finalizarCierre: () => ipcRenderer.send("aplicacion:finalizar-cierre"),
+    cancelarCierre: () => ipcRenderer.send("aplicacion:cancelar-cierre"),
+  },
+  licencias: {
+    estado: () => ipcRenderer.invoke("licencias:estado"),
+    activar: (datos) => ipcRenderer.invoke("licencias:activar", datos),
+  },
 
   verificarBaseDatos: () => ipcRenderer.invoke("base-datos:verificar"),
   autenticacion: {
@@ -16,6 +29,14 @@ contextBridge.exposeInMainWorld("sistema", {
     cerrarSesion: () => ipcRenderer.invoke("autenticacion:cerrar-sesion"),
 
     obtenerSesion: () => ipcRenderer.invoke("autenticacion:obtener-sesion"),
+
+    actualizarPerfil: (datos) =>
+      ipcRenderer.invoke("autenticacion:actualizar-perfil", datos),
+
+    cambiarContrasenaPropia: (datos) =>
+      ipcRenderer.invoke("autenticacion:cambiar-contrasena-propia", datos),
+    solicitarTokenRecuperacion: (datos) => ipcRenderer.invoke("autenticacion:solicitar-token-recuperacion", datos),
+    restablecerConToken: (datos) => ipcRenderer.invoke("autenticacion:restablecer-con-token", datos),
   },
 
   usuarios: {
@@ -126,6 +147,30 @@ contextBridge.exposeInMainWorld("sistema", {
 
     resumen: () => ipcRenderer.invoke("pedidos:resumen"),
   },
+  caja: {
+    estado: () => ipcRenderer.invoke("caja:estado"),
+    validarCierre: () => ipcRenderer.invoke("caja:validar-cierre"),
+    abrir: (datos) => ipcRenderer.invoke("caja:abrir", datos),
+    registrarPago: (datos) => ipcRenderer.invoke("caja:registrar-pago", datos),
+    registrarMovimiento: (datos) => ipcRenderer.invoke("caja:registrar-movimiento", datos),
+    cerrar: (datos) => ipcRenderer.invoke("caja:cerrar", datos),
+  },
+  reportes: {
+    resumen: (filtros) => ipcRenderer.invoke("reportes:resumen", filtros),
+  },
+  configuracion: {
+    listar: () => ipcRenderer.invoke("configuracion:listar"),
+    publica: () => ipcRenderer.invoke("configuracion:publica"),
+    seleccionarLogotipo: () => ipcRenderer.invoke("configuracion:seleccionar-logotipo"),
+    operativa: () => ipcRenderer.invoke("configuracion:operativa"),
+    guardar: (datos) => ipcRenderer.invoke("configuracion:guardar", datos),
+  },
+  respaldos: {
+    listar: () => ipcRenderer.invoke("respaldos:listar"),
+    configurar: (datos) => ipcRenderer.invoke("respaldos:configurar", datos),
+    crear: () => ipcRenderer.invoke("respaldos:crear"),
+    seleccionarCarpeta: () => ipcRenderer.invoke("respaldos:seleccionar-carpeta"),
+  },
   television: {
     importarArchivo: (archivo) =>
       ipcRenderer.invoke("television:importar-archivo", archivo),
@@ -138,9 +183,17 @@ contextBridge.exposeInMainWorld("sistema", {
       ipcRenderer.invoke("television:cambiar-estado", id, activo),
     eliminarMultimedia: (id) =>
       ipcRenderer.invoke("television:eliminar-multimedia", id),
+    obtenerMusica: () => ipcRenderer.invoke("television:obtener-musica"),
+    guardarVolumenMusica: (volumen) => ipcRenderer.invoke("television:guardar-volumen-musica", volumen),
+    guardarMusica: (archivo) =>
+      ipcRenderer.invoke("television:guardar-musica", archivo),
+    quitarMusica: () => ipcRenderer.invoke("television:quitar-musica"),
     listarPantallas: () => ipcRenderer.invoke("television:listar-pantallas"),
     abrirVentana: (displayId) =>
       ipcRenderer.invoke("television:abrir-ventana", displayId),
     cerrarVentana: () => ipcRenderer.invoke("television:cerrar-ventana"),
+    abrirProduccion: (displayId) =>
+      ipcRenderer.invoke("produccion:abrir-ventana", displayId),
+    cerrarProduccion: () => ipcRenderer.invoke("produccion:cerrar-ventana"),
   },
 });

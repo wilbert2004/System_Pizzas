@@ -85,7 +85,11 @@ export function crearServicioPuntoVenta(db, obtenerSesion) {
         ),
         adicionales: adicionales
           .filter((adicional) => adicional.producto_id === producto.id)
-          .map(({ producto_id, ...adicional }) => adicional),
+          .map((adicional) => {
+            const resultado = { ...adicional };
+            delete resultado.producto_id;
+            return resultado;
+          }),
       })),
     };
   }
@@ -219,7 +223,10 @@ export function crearServicioPuntoVenta(db, obtenerSesion) {
       throw new Error("Escribe la dirección de entrega.");
     }
 
-    const tiempoEstimado = datos.tiempoEstimadoMinutos ?? null;
+    const configuracionTiempo = db.prepare(`SELECT valor FROM configuracion
+      WHERE clave = 'tiempo_preparacion_minutos'`).get()?.valor;
+    const tiempoEstimado = datos.tiempoEstimadoMinutos ??
+      Number(configuracionTiempo || 20);
 
     if (
       tiempoEstimado !== null &&

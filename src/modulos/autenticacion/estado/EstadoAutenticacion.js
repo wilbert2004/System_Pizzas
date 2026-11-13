@@ -31,4 +31,13 @@ export const useEstadoAutenticacion = create((set) => ({
     await servicioAutenticacion.cerrarSesion();
     set({ usuario: null, cargando: false });
   },
+
+  actualizarPerfil: async (datos) => {
+    const usuario = await servicioAutenticacion.actualizarPerfil(datos);
+    set({ usuario });
+    return usuario;
+  },
+
+  cambiarContrasenaPropia: (datos) =>
+    servicioAutenticacion.cambiarContrasenaPropia(datos),
 }));

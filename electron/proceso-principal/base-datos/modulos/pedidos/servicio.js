@@ -322,6 +322,13 @@ export function crearServicioPedidos(db, obtenerSesion) {
         throw new Error("El pedido debe estar listo antes de entregarse.");
       }
 
+      if (
+        nuevoEstado === "Entregado" &&
+        !db.prepare("SELECT id FROM pagos WHERE pedido_id = ?").get(pedidoId)
+      ) {
+        throw new Error("Registra el pago en Caja para confirmar la entrega.");
+      }
+
       const camposFecha = {
         Preparando: "inicio_preparacion",
         "En horno": "entrada_horno",
