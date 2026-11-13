@@ -1,5 +1,8 @@
-import { app, BrowserWindow } from "electron";
+/* global __dirname */
+import { app, BrowserWindow, net, protocol } from "electron";
 import { join } from "node:path";
+import process from "node:process";
+import { pathToFileURL } from "node:url";
 
 import { inicializarBaseDatos } from "./base-datos/inicializacion.js";
 
@@ -7,7 +10,20 @@ import { cerrarConexion } from "./base-datos/conexion.js";
 
 import { registrarCanalesIPC } from "./ipc/index.js";
 
-import { crearVentanaTV, cerrarVentanaTV } from "./ventanas/ventana-tv.js";
+import { cerrarVentanaTV } from "./ventanas/ventana-tv.js";
+
+protocol.registerSchemesAsPrivileged([
+  {
+    scheme: "pizzeria-media",
+    privileges: {
+      standard: true,
+      secure: true,
+      supportFetchAPI: true,
+      corsEnabled: true,
+      stream: true,
+    },
+  },
+]);
 
 let ventanaPrincipal = null;
 
@@ -46,6 +62,18 @@ function crearVentanaPrincipal() {
 }
 
 app.whenReady().then(() => {
+  protocol.handle("pizzeria-media", (solicitud) => {
+    const ruta = new URL(solicitud.url).searchParams.get("ruta");
+
+    if (!ruta) {
+      return new Response("Archivo multimedia no especificado.", {
+        status: 400,
+      });
+    }
+
+    return net.fetch(pathToFileURL(ruta).href);
+  });
+
   inicializarBaseDatos();
 
   registrarCanalesIPC();

@@ -13674,7 +13674,7 @@ function createLucideIcon(iconDataOrName, iconNode = [], aliases = []) {
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$48 = {
+var __iconData$55 = {
 	name: "alarm-clock",
 	size: 24,
 	node: [
@@ -13706,8 +13706,8 @@ var __iconData$48 = {
 		}]
 	]
 };
-__iconData$48.node;
-var AlarmClock = createLucideIcon(__iconData$48);
+__iconData$55.node;
+var AlarmClock = createLucideIcon(__iconData$55);
 // node_modules/lucide-react/dist/esm/icons/arrow-left-right.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13715,7 +13715,7 @@ var AlarmClock = createLucideIcon(__iconData$48);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$47 = {
+var __iconData$54 = {
 	name: "arrow-left-right",
 	size: 24,
 	node: [
@@ -13737,8 +13737,8 @@ var __iconData$47 = {
 		}]
 	]
 };
-__iconData$47.node;
-var ArrowLeftRight = createLucideIcon(__iconData$47);
+__iconData$54.node;
+var ArrowLeftRight = createLucideIcon(__iconData$54);
 // node_modules/lucide-react/dist/esm/icons/arrow-left.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13746,7 +13746,7 @@ var ArrowLeftRight = createLucideIcon(__iconData$47);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$46 = {
+var __iconData$53 = {
 	name: "arrow-left",
 	size: 24,
 	node: [["path", {
@@ -13757,8 +13757,8 @@ var __iconData$46 = {
 		key: "x3x0zl"
 	}]]
 };
-__iconData$46.node;
-var ArrowLeft = createLucideIcon(__iconData$46);
+__iconData$53.node;
+var ArrowLeft = createLucideIcon(__iconData$53);
 // node_modules/lucide-react/dist/esm/icons/ban.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13766,7 +13766,7 @@ var ArrowLeft = createLucideIcon(__iconData$46);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$45 = {
+var __iconData$52 = {
 	name: "ban",
 	size: 24,
 	node: [["circle", {
@@ -13779,8 +13779,8 @@ var __iconData$45 = {
 		key: "196cmz"
 	}]]
 };
-__iconData$45.node;
-var Ban = createLucideIcon(__iconData$45);
+__iconData$52.node;
+var Ban = createLucideIcon(__iconData$52);
 // node_modules/lucide-react/dist/esm/icons/banknote.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13788,7 +13788,7 @@ var Ban = createLucideIcon(__iconData$45);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$44 = {
+var __iconData$51 = {
 	name: "banknote",
 	size: 24,
 	node: [
@@ -13812,8 +13812,8 @@ var __iconData$44 = {
 		}]
 	]
 };
-__iconData$44.node;
-var Banknote = createLucideIcon(__iconData$44);
+__iconData$51.node;
+var Banknote = createLucideIcon(__iconData$51);
 // node_modules/lucide-react/dist/esm/icons/bell.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13821,7 +13821,7 @@ var Banknote = createLucideIcon(__iconData$44);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$43 = {
+var __iconData$50 = {
 	name: "bell",
 	size: 24,
 	node: [["path", {
@@ -13832,8 +13832,51 @@ var __iconData$43 = {
 		key: "11g9vi"
 	}]]
 };
-__iconData$43.node;
-var Bell = createLucideIcon(__iconData$43);
+__iconData$50.node;
+var Bell = createLucideIcon(__iconData$50);
+// node_modules/lucide-react/dist/esm/icons/cable.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$49 = {
+	name: "cable",
+	size: 24,
+	node: [
+		["path", {
+			d: "M17 19a1 1 0 0 1-1-1v-2a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a1 1 0 0 1-1 1z",
+			key: "trhst0"
+		}],
+		["path", {
+			d: "M17 21v-2",
+			key: "ds4u3f"
+		}],
+		["path", {
+			d: "M19 14V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V10",
+			key: "1mo9zo"
+		}],
+		["path", {
+			d: "M21 21v-2",
+			key: "eo0ou"
+		}],
+		["path", {
+			d: "M3 5V3",
+			key: "1k5hjh"
+		}],
+		["path", {
+			d: "M4 10a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a2 2 0 0 1-2 2z",
+			key: "1dd30t"
+		}],
+		["path", {
+			d: "M7 5V3",
+			key: "1t1388"
+		}]
+	]
+};
+__iconData$49.node;
+var Cable = createLucideIcon(__iconData$49);
 // node_modules/lucide-react/dist/esm/icons/chart-no-axes-combined.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13841,7 +13884,7 @@ var Bell = createLucideIcon(__iconData$43);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$42 = {
+var __iconData$48 = {
 	name: "chart-no-axes-combined",
 	size: 24,
 	node: [
@@ -13871,8 +13914,8 @@ var __iconData$42 = {
 		}]
 	]
 };
-__iconData$42.node;
-var ChartNoAxesCombined = createLucideIcon(__iconData$42);
+__iconData$48.node;
+var ChartNoAxesCombined = createLucideIcon(__iconData$48);
 // node_modules/lucide-react/dist/esm/icons/chef-hat.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13880,7 +13923,7 @@ var ChartNoAxesCombined = createLucideIcon(__iconData$42);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$41 = {
+var __iconData$47 = {
 	name: "chef-hat",
 	size: 24,
 	node: [
@@ -13902,8 +13945,8 @@ var __iconData$41 = {
 		}]
 	]
 };
-__iconData$41.node;
-var ChefHat = createLucideIcon(__iconData$41);
+__iconData$47.node;
+var ChefHat = createLucideIcon(__iconData$47);
 // node_modules/lucide-react/dist/esm/icons/circle-check.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13911,7 +13954,7 @@ var ChefHat = createLucideIcon(__iconData$41);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$40 = {
+var __iconData$46 = {
 	name: "circle-check",
 	size: 24,
 	node: [["circle", {
@@ -13925,8 +13968,8 @@ var __iconData$40 = {
 	}]],
 	aliases: ["check-circle-2"]
 };
-__iconData$40.node;
-var CircleCheck = createLucideIcon(__iconData$40);
+__iconData$46.node;
+var CircleCheck = createLucideIcon(__iconData$46);
 // node_modules/lucide-react/dist/esm/icons/circle-user-round.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13934,7 +13977,7 @@ var CircleCheck = createLucideIcon(__iconData$40);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$39 = {
+var __iconData$45 = {
 	name: "circle-user-round",
 	size: 24,
 	node: [
@@ -13957,8 +14000,8 @@ var __iconData$39 = {
 	],
 	aliases: ["user-circle-2"]
 };
-__iconData$39.node;
-var CircleUserRound = createLucideIcon(__iconData$39);
+__iconData$45.node;
+var CircleUserRound = createLucideIcon(__iconData$45);
 // node_modules/lucide-react/dist/esm/icons/clipboard-list.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13966,7 +14009,7 @@ var CircleUserRound = createLucideIcon(__iconData$39);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$38 = {
+var __iconData$44 = {
 	name: "clipboard-list",
 	size: 24,
 	node: [
@@ -14001,8 +14044,8 @@ var __iconData$38 = {
 		}]
 	]
 };
-__iconData$38.node;
-var ClipboardList = createLucideIcon(__iconData$38);
+__iconData$44.node;
+var ClipboardList = createLucideIcon(__iconData$44);
 // node_modules/lucide-react/dist/esm/icons/clock-3.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14010,7 +14053,7 @@ var ClipboardList = createLucideIcon(__iconData$38);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$37 = {
+var __iconData$43 = {
 	name: "clock-3",
 	size: 24,
 	node: [["circle", {
@@ -14023,8 +14066,36 @@ var __iconData$37 = {
 		key: "135r8i"
 	}]]
 };
-__iconData$37.node;
-var Clock3 = createLucideIcon(__iconData$37);
+__iconData$43.node;
+var Clock3 = createLucideIcon(__iconData$43);
+// node_modules/lucide-react/dist/esm/icons/cloud-upload.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$42 = {
+	name: "cloud-upload",
+	size: 24,
+	node: [
+		["path", {
+			d: "M12 13v8",
+			key: "1l5pq0"
+		}],
+		["path", {
+			d: "M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242",
+			key: "1pljnt"
+		}],
+		["path", {
+			d: "m8 17 4-4 4 4",
+			key: "1quai1"
+		}]
+	],
+	aliases: ["upload-cloud"]
+};
+__iconData$42.node;
+var CloudUpload = createLucideIcon(__iconData$42);
 // node_modules/lucide-react/dist/esm/icons/credit-card.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14032,7 +14103,7 @@ var Clock3 = createLucideIcon(__iconData$37);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$36 = {
+var __iconData$41 = {
 	name: "credit-card",
 	size: 24,
 	node: [
@@ -14057,8 +14128,8 @@ var __iconData$36 = {
 		}]
 	]
 };
-__iconData$36.node;
-var CreditCard = createLucideIcon(__iconData$36);
+__iconData$41.node;
+var CreditCard = createLucideIcon(__iconData$41);
 // node_modules/lucide-react/dist/esm/icons/eye.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14066,7 +14137,7 @@ var CreditCard = createLucideIcon(__iconData$36);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$35 = {
+var __iconData$40 = {
 	name: "eye",
 	size: 24,
 	node: [["path", {
@@ -14079,8 +14150,8 @@ var __iconData$35 = {
 		key: "1v7zrd"
 	}]]
 };
-__iconData$35.node;
-var Eye = createLucideIcon(__iconData$35);
+__iconData$40.node;
+var Eye = createLucideIcon(__iconData$40);
 // node_modules/lucide-react/dist/esm/icons/eye-off.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14088,7 +14159,7 @@ var Eye = createLucideIcon(__iconData$35);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$34 = {
+var __iconData$39 = {
 	name: "eye-off",
 	size: 24,
 	node: [
@@ -14110,8 +14181,8 @@ var __iconData$34 = {
 		}]
 	]
 };
-__iconData$34.node;
-var EyeOff = createLucideIcon(__iconData$34);
+__iconData$39.node;
+var EyeOff = createLucideIcon(__iconData$39);
 // node_modules/lucide-react/dist/esm/icons/flame.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14119,7 +14190,7 @@ var EyeOff = createLucideIcon(__iconData$34);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$33 = {
+var __iconData$38 = {
 	name: "flame",
 	size: 24,
 	node: [["path", {
@@ -14127,8 +14198,8 @@ var __iconData$33 = {
 		key: "1slcih"
 	}]]
 };
-__iconData$33.node;
-var Flame = createLucideIcon(__iconData$33);
+__iconData$38.node;
+var Flame = createLucideIcon(__iconData$38);
 // node_modules/lucide-react/dist/esm/icons/image-plus.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14136,7 +14207,7 @@ var Flame = createLucideIcon(__iconData$33);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$32 = {
+var __iconData$37 = {
 	name: "image-plus",
 	size: 24,
 	node: [
@@ -14164,8 +14235,42 @@ var __iconData$32 = {
 		}]
 	]
 };
-__iconData$32.node;
-var ImagePlus = createLucideIcon(__iconData$32);
+__iconData$37.node;
+var ImagePlus = createLucideIcon(__iconData$37);
+// node_modules/lucide-react/dist/esm/icons/image.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$36 = {
+	name: "image",
+	size: 24,
+	node: [
+		["rect", {
+			width: "18",
+			height: "18",
+			x: "3",
+			y: "3",
+			rx: "2",
+			ry: "2",
+			key: "1m3agn"
+		}],
+		["circle", {
+			cx: "9",
+			cy: "9",
+			r: "2",
+			key: "af1f0g"
+		}],
+		["path", {
+			d: "m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21",
+			key: "1xmnt7"
+		}]
+	]
+};
+__iconData$36.node;
+var Image = createLucideIcon(__iconData$36);
 // node_modules/lucide-react/dist/esm/icons/layout-dashboard.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14173,7 +14278,7 @@ var ImagePlus = createLucideIcon(__iconData$32);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$31 = {
+var __iconData$35 = {
 	name: "layout-dashboard",
 	size: 24,
 	node: [
@@ -14211,8 +14316,8 @@ var __iconData$31 = {
 		}]
 	]
 };
-__iconData$31.node;
-var LayoutDashboard = createLucideIcon(__iconData$31);
+__iconData$35.node;
+var LayoutDashboard = createLucideIcon(__iconData$35);
 // node_modules/lucide-react/dist/esm/icons/log-out.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14220,7 +14325,7 @@ var LayoutDashboard = createLucideIcon(__iconData$31);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$30 = {
+var __iconData$34 = {
 	name: "log-out",
 	size: 24,
 	node: [
@@ -14238,8 +14343,8 @@ var __iconData$30 = {
 		}]
 	]
 };
-__iconData$30.node;
-var LogOut = createLucideIcon(__iconData$30);
+__iconData$34.node;
+var LogOut = createLucideIcon(__iconData$34);
 // node_modules/lucide-react/dist/esm/icons/map-pin.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14247,7 +14352,7 @@ var LogOut = createLucideIcon(__iconData$30);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$29 = {
+var __iconData$33 = {
 	name: "map-pin",
 	size: 24,
 	node: [["path", {
@@ -14260,8 +14365,8 @@ var __iconData$29 = {
 		key: "ilqhr7"
 	}]]
 };
-__iconData$29.node;
-var MapPin = createLucideIcon(__iconData$29);
+__iconData$33.node;
+var MapPin = createLucideIcon(__iconData$33);
 // node_modules/lucide-react/dist/esm/icons/minus.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14269,7 +14374,7 @@ var MapPin = createLucideIcon(__iconData$29);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$28 = {
+var __iconData$32 = {
 	name: "minus",
 	size: 24,
 	node: [["path", {
@@ -14277,8 +14382,8 @@ var __iconData$28 = {
 		key: "1ays0h"
 	}]]
 };
-__iconData$28.node;
-var Minus = createLucideIcon(__iconData$28);
+__iconData$32.node;
+var Minus = createLucideIcon(__iconData$32);
 // node_modules/lucide-react/dist/esm/icons/monitor-play.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14286,7 +14391,7 @@ var Minus = createLucideIcon(__iconData$28);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$27 = {
+var __iconData$31 = {
 	name: "monitor-play",
 	size: 24,
 	node: [
@@ -14312,8 +14417,8 @@ var __iconData$27 = {
 		}]
 	]
 };
-__iconData$27.node;
-var MonitorPlay = createLucideIcon(__iconData$27);
+__iconData$31.node;
+var MonitorPlay = createLucideIcon(__iconData$31);
 // node_modules/lucide-react/dist/esm/icons/package-check.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14321,7 +14426,7 @@ var MonitorPlay = createLucideIcon(__iconData$27);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$26 = {
+var __iconData$30 = {
 	name: "package-check",
 	size: 24,
 	node: [
@@ -14347,8 +14452,8 @@ var __iconData$26 = {
 		}]
 	]
 };
-__iconData$26.node;
-var PackageCheck = createLucideIcon(__iconData$26);
+__iconData$30.node;
+var PackageCheck = createLucideIcon(__iconData$30);
 // node_modules/lucide-react/dist/esm/icons/package.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14356,7 +14461,7 @@ var PackageCheck = createLucideIcon(__iconData$26);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$25 = {
+var __iconData$29 = {
 	name: "package",
 	size: 24,
 	node: [
@@ -14378,8 +14483,8 @@ var __iconData$25 = {
 		}]
 	]
 };
-__iconData$25.node;
-var Package = createLucideIcon(__iconData$25);
+__iconData$29.node;
+var Package = createLucideIcon(__iconData$29);
 // node_modules/lucide-react/dist/esm/icons/pencil.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14387,7 +14492,7 @@ var Package = createLucideIcon(__iconData$25);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$24 = {
+var __iconData$28 = {
 	name: "pencil",
 	size: 24,
 	node: [["path", {
@@ -14398,8 +14503,8 @@ var __iconData$24 = {
 		key: "1mk7zo"
 	}]]
 };
-__iconData$24.node;
-var Pencil = createLucideIcon(__iconData$24);
+__iconData$28.node;
+var Pencil = createLucideIcon(__iconData$28);
 // node_modules/lucide-react/dist/esm/icons/phone.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14407,7 +14512,7 @@ var Pencil = createLucideIcon(__iconData$24);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$23 = {
+var __iconData$27 = {
 	name: "phone",
 	size: 24,
 	node: [["path", {
@@ -14415,8 +14520,8 @@ var __iconData$23 = {
 		key: "9njp5v"
 	}]]
 };
-__iconData$23.node;
-var Phone = createLucideIcon(__iconData$23);
+__iconData$27.node;
+var Phone = createLucideIcon(__iconData$27);
 // node_modules/lucide-react/dist/esm/icons/pizza.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14424,7 +14529,7 @@ var Phone = createLucideIcon(__iconData$23);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$22 = {
+var __iconData$26 = {
 	name: "pizza",
 	size: 24,
 	node: [
@@ -14450,8 +14555,8 @@ var __iconData$22 = {
 		}]
 	]
 };
-__iconData$22.node;
-var Pizza = createLucideIcon(__iconData$22);
+__iconData$26.node;
+var Pizza = createLucideIcon(__iconData$26);
 // node_modules/lucide-react/dist/esm/icons/plus.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14459,7 +14564,7 @@ var Pizza = createLucideIcon(__iconData$22);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$21 = {
+var __iconData$25 = {
 	name: "plus",
 	size: 24,
 	node: [["path", {
@@ -14470,8 +14575,59 @@ var __iconData$21 = {
 		key: "s699le"
 	}]]
 };
-__iconData$21.node;
-var Plus = createLucideIcon(__iconData$21);
+__iconData$25.node;
+var Plus = createLucideIcon(__iconData$25);
+// node_modules/lucide-react/dist/esm/icons/power-off.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$24 = {
+	name: "power-off",
+	size: 24,
+	node: [
+		["path", {
+			d: "M18.36 6.64A9 9 0 0 1 20.77 15",
+			key: "dxknvb"
+		}],
+		["path", {
+			d: "M6.16 6.16a9 9 0 1 0 12.68 12.68",
+			key: "1x7qb5"
+		}],
+		["path", {
+			d: "M12 2v4",
+			key: "3427ic"
+		}],
+		["path", {
+			d: "m2 2 20 20",
+			key: "1ooewy"
+		}]
+	]
+};
+__iconData$24.node;
+var PowerOff = createLucideIcon(__iconData$24);
+// node_modules/lucide-react/dist/esm/icons/power.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$23 = {
+	name: "power",
+	size: 24,
+	node: [["path", {
+		d: "M12 2v10",
+		key: "mnfbl"
+	}], ["path", {
+		d: "M18.4 6.6a9 9 0 1 1-12.77.04",
+		key: "obofu9"
+	}]]
+};
+__iconData$23.node;
+var Power = createLucideIcon(__iconData$23);
 // node_modules/lucide-react/dist/esm/icons/refresh-cw.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14479,7 +14635,7 @@ var Plus = createLucideIcon(__iconData$21);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$20 = {
+var __iconData$22 = {
 	name: "refresh-cw",
 	size: 24,
 	node: [
@@ -14501,8 +14657,8 @@ var __iconData$20 = {
 		}]
 	]
 };
-__iconData$20.node;
-var RefreshCw = createLucideIcon(__iconData$20);
+__iconData$22.node;
+var RefreshCw = createLucideIcon(__iconData$22);
 // node_modules/lucide-react/dist/esm/icons/rotate-ccw-clock.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14510,7 +14666,7 @@ var RefreshCw = createLucideIcon(__iconData$20);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$19 = {
+var __iconData$21 = {
 	name: "rotate-ccw-clock",
 	size: 24,
 	node: [
@@ -14529,8 +14685,8 @@ var __iconData$19 = {
 	],
 	aliases: ["history"]
 };
-__iconData$19.node;
-var RotateCcwClock = createLucideIcon(__iconData$19);
+__iconData$21.node;
+var RotateCcwClock = createLucideIcon(__iconData$21);
 // node_modules/lucide-react/dist/esm/icons/save.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14538,7 +14694,7 @@ var RotateCcwClock = createLucideIcon(__iconData$19);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$18 = {
+var __iconData$20 = {
 	name: "save",
 	size: 24,
 	node: [
@@ -14556,8 +14712,8 @@ var __iconData$18 = {
 		}]
 	]
 };
-__iconData$18.node;
-var Save = createLucideIcon(__iconData$18);
+__iconData$20.node;
+var Save = createLucideIcon(__iconData$20);
 // node_modules/lucide-react/dist/esm/icons/search.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14565,7 +14721,7 @@ var Save = createLucideIcon(__iconData$18);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$17 = {
+var __iconData$19 = {
 	name: "search",
 	size: 24,
 	node: [["path", {
@@ -14578,8 +14734,8 @@ var __iconData$17 = {
 		key: "4ej97u"
 	}]]
 };
-__iconData$17.node;
-var Search = createLucideIcon(__iconData$17);
+__iconData$19.node;
+var Search = createLucideIcon(__iconData$19);
 // node_modules/lucide-react/dist/esm/icons/settings.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14587,7 +14743,7 @@ var Search = createLucideIcon(__iconData$17);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$16 = {
+var __iconData$18 = {
 	name: "settings",
 	size: 24,
 	node: [["path", {
@@ -14600,8 +14756,8 @@ var __iconData$16 = {
 		key: "1v7zrd"
 	}]]
 };
-__iconData$16.node;
-var Settings = createLucideIcon(__iconData$16);
+__iconData$18.node;
+var Settings = createLucideIcon(__iconData$18);
 // node_modules/lucide-react/dist/esm/icons/shopping-bag.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14609,7 +14765,7 @@ var Settings = createLucideIcon(__iconData$16);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$15 = {
+var __iconData$17 = {
 	name: "shopping-bag",
 	size: 24,
 	node: [
@@ -14627,8 +14783,8 @@ var __iconData$15 = {
 		}]
 	]
 };
-__iconData$15.node;
-var ShoppingBag = createLucideIcon(__iconData$15);
+__iconData$17.node;
+var ShoppingBag = createLucideIcon(__iconData$17);
 // node_modules/lucide-react/dist/esm/icons/shopping-cart.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14636,7 +14792,7 @@ var ShoppingBag = createLucideIcon(__iconData$15);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$14 = {
+var __iconData$16 = {
 	name: "shopping-cart",
 	size: 24,
 	node: [
@@ -14662,8 +14818,8 @@ var __iconData$14 = {
 		}]
 	]
 };
-__iconData$14.node;
-var ShoppingCart = createLucideIcon(__iconData$14);
+__iconData$16.node;
+var ShoppingCart = createLucideIcon(__iconData$16);
 // node_modules/lucide-react/dist/esm/icons/store.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14671,7 +14827,7 @@ var ShoppingCart = createLucideIcon(__iconData$14);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$13 = {
+var __iconData$15 = {
 	name: "store",
 	size: 24,
 	node: [
@@ -14689,8 +14845,8 @@ var __iconData$13 = {
 		}]
 	]
 };
-__iconData$13.node;
-var Store = createLucideIcon(__iconData$13);
+__iconData$15.node;
+var Store = createLucideIcon(__iconData$15);
 // node_modules/lucide-react/dist/esm/icons/tag.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14698,7 +14854,7 @@ var Store = createLucideIcon(__iconData$13);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$12 = {
+var __iconData$14 = {
 	name: "tag",
 	size: 24,
 	node: [["path", {
@@ -14712,8 +14868,8 @@ var __iconData$12 = {
 		key: "kqv944"
 	}]]
 };
-__iconData$12.node;
-var Tag = createLucideIcon(__iconData$12);
+__iconData$14.node;
+var Tag = createLucideIcon(__iconData$14);
 // node_modules/lucide-react/dist/esm/icons/trash.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14721,7 +14877,7 @@ var Tag = createLucideIcon(__iconData$12);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$11 = {
+var __iconData$13 = {
 	name: "trash",
 	size: 24,
 	node: [
@@ -14748,8 +14904,8 @@ var __iconData$11 = {
 	],
 	aliases: ["trash-2"]
 };
-__iconData$11.node;
-var Trash = createLucideIcon(__iconData$11);
+__iconData$13.node;
+var Trash = createLucideIcon(__iconData$13);
 // node_modules/lucide-react/dist/esm/icons/triangle-exclamation-point.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14757,7 +14913,7 @@ var Trash = createLucideIcon(__iconData$11);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$10 = {
+var __iconData$12 = {
 	name: "triangle-exclamation-point",
 	size: 24,
 	node: [
@@ -14776,8 +14932,8 @@ var __iconData$10 = {
 	],
 	aliases: ["alert-triangle", "triangle-alert"]
 };
-__iconData$10.node;
-var TriangleExclamationPoint = createLucideIcon(__iconData$10);
+__iconData$12.node;
+var TriangleExclamationPoint = createLucideIcon(__iconData$12);
 // node_modules/lucide-react/dist/esm/icons/truck.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14785,7 +14941,7 @@ var TriangleExclamationPoint = createLucideIcon(__iconData$10);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$9 = {
+var __iconData$11 = {
 	name: "truck",
 	size: 24,
 	node: [
@@ -14815,8 +14971,8 @@ var __iconData$9 = {
 		}]
 	]
 };
-__iconData$9.node;
-var Truck = createLucideIcon(__iconData$9);
+__iconData$11.node;
+var Truck = createLucideIcon(__iconData$11);
 // node_modules/lucide-react/dist/esm/icons/user-check.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14824,7 +14980,7 @@ var Truck = createLucideIcon(__iconData$9);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$8 = {
+var __iconData$10 = {
 	name: "user-check",
 	size: 24,
 	node: [
@@ -14844,8 +15000,8 @@ var __iconData$8 = {
 		}]
 	]
 };
-__iconData$8.node;
-var UserCheck = createLucideIcon(__iconData$8);
+__iconData$10.node;
+var UserCheck = createLucideIcon(__iconData$10);
 // node_modules/lucide-react/dist/esm/icons/user-cog.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14853,7 +15009,7 @@ var UserCheck = createLucideIcon(__iconData$8);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$7 = {
+var __iconData$9 = {
 	name: "user-cog",
 	size: 24,
 	node: [
@@ -14907,8 +15063,8 @@ var __iconData$7 = {
 		}]
 	]
 };
-__iconData$7.node;
-var UserCog = createLucideIcon(__iconData$7);
+__iconData$9.node;
+var UserCog = createLucideIcon(__iconData$9);
 // node_modules/lucide-react/dist/esm/icons/user-round.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14916,7 +15072,7 @@ var UserCog = createLucideIcon(__iconData$7);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$6 = {
+var __iconData$8 = {
 	name: "user-round",
 	size: 24,
 	node: [["circle", {
@@ -14930,8 +15086,8 @@ var __iconData$6 = {
 	}]],
 	aliases: ["user-2"]
 };
-__iconData$6.node;
-var UserRound = createLucideIcon(__iconData$6);
+__iconData$8.node;
+var UserRound = createLucideIcon(__iconData$8);
 // node_modules/lucide-react/dist/esm/icons/user-x.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14939,7 +15095,7 @@ var UserRound = createLucideIcon(__iconData$6);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$5 = {
+var __iconData$7 = {
 	name: "user-x",
 	size: 24,
 	node: [
@@ -14969,8 +15125,8 @@ var __iconData$5 = {
 		}]
 	]
 };
-__iconData$5.node;
-var UserX = createLucideIcon(__iconData$5);
+__iconData$7.node;
+var UserX = createLucideIcon(__iconData$7);
 // node_modules/lucide-react/dist/esm/icons/users.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14978,7 +15134,7 @@ var UserX = createLucideIcon(__iconData$5);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$4 = {
+var __iconData$6 = {
 	name: "users",
 	size: 24,
 	node: [
@@ -15002,8 +15158,32 @@ var __iconData$4 = {
 		}]
 	]
 };
-__iconData$4.node;
-var Users = createLucideIcon(__iconData$4);
+__iconData$6.node;
+var Users = createLucideIcon(__iconData$6);
+// node_modules/lucide-react/dist/esm/icons/video.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$5 = {
+	name: "video",
+	size: 24,
+	node: [["path", {
+		d: "m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5",
+		key: "ftymec"
+	}], ["rect", {
+		x: "2",
+		y: "6",
+		width: "14",
+		height: "12",
+		rx: "2",
+		key: "158x01"
+	}]]
+};
+__iconData$5.node;
+var Video = createLucideIcon(__iconData$5);
 // node_modules/lucide-react/dist/esm/icons/volume-2.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -15011,7 +15191,7 @@ var Users = createLucideIcon(__iconData$4);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$3 = {
+var __iconData$4 = {
 	name: "volume-2",
 	size: 24,
 	node: [
@@ -15029,8 +15209,8 @@ var __iconData$3 = {
 		}]
 	]
 };
-__iconData$3.node;
-var Volume2 = createLucideIcon(__iconData$3);
+__iconData$4.node;
+var Volume2 = createLucideIcon(__iconData$4);
 // node_modules/lucide-react/dist/esm/icons/volume-x.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -15038,7 +15218,7 @@ var Volume2 = createLucideIcon(__iconData$3);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$2 = {
+var __iconData$3 = {
 	name: "volume-x",
 	size: 24,
 	node: [
@@ -15056,8 +15236,8 @@ var __iconData$2 = {
 		}]
 	]
 };
-__iconData$2.node;
-var VolumeX = createLucideIcon(__iconData$2);
+__iconData$3.node;
+var VolumeX = createLucideIcon(__iconData$3);
 // node_modules/lucide-react/dist/esm/icons/wallet.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -15065,7 +15245,7 @@ var VolumeX = createLucideIcon(__iconData$2);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$1 = {
+var __iconData$2 = {
 	name: "wallet",
 	size: 24,
 	node: [["path", {
@@ -15076,8 +15256,39 @@ var __iconData$1 = {
 		key: "xoc0q4"
 	}]]
 };
+__iconData$2.node;
+var Wallet = createLucideIcon(__iconData$2);
+// node_modules/lucide-react/dist/esm/icons/wifi.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$1 = {
+	name: "wifi",
+	size: 24,
+	node: [
+		["path", {
+			d: "M12 20h.01",
+			key: "zekei9"
+		}],
+		["path", {
+			d: "M2 8.82a15 15 0 0 1 20 0",
+			key: "dnpr2z"
+		}],
+		["path", {
+			d: "M5 12.859a10 10 0 0 1 14 0",
+			key: "1x1e6c"
+		}],
+		["path", {
+			d: "M8.5 16.429a5 5 0 0 1 7 0",
+			key: "1bycff"
+		}]
+	]
+};
 __iconData$1.node;
-var Wallet = createLucideIcon(__iconData$1);
+var Wifi = createLucideIcon(__iconData$1);
 // node_modules/lucide-react/dist/esm/icons/x.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -15844,7 +16055,7 @@ function ActividadReciente() {
 	});
 }
 // src/modulos/tablero/paginas/Pagina.jsx
-function Pagina$5() {
+function Pagina$4() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "space-y-7",
 		children: [
@@ -16008,15 +16219,15 @@ function useAlarmaRetrasos(activa, cantidadPendiente) {
 	}, []);
 }
 // src/modulos/pedidos/servicios/pedidos.js
-function obtenerAPI$1() {
+function obtenerAPI$2() {
 	if (!window.sistema?.pedidos) throw new Error("El servicio de pedidos no está disponible.");
 	return window.sistema.pedidos;
 }
 var servicioPedidos = {
-	listar: (filtros = {}) => obtenerAPI$1().listar(filtros),
-	obtener: (id) => obtenerAPI$1().obtener(id),
-	cambiarEstado: (id, estado, motivo = "") => obtenerAPI$1().cambiarEstado(id, estado, motivo),
-	resumen: () => obtenerAPI$1().resumen()
+	listar: (filtros = {}) => obtenerAPI$2().listar(filtros),
+	obtener: (id) => obtenerAPI$2().obtener(id),
+	cambiarEstado: (id, estado, motivo = "") => obtenerAPI$2().cambiarEstado(id, estado, motivo),
+	resumen: () => obtenerAPI$2().resumen()
 };
 // src/modulos/pedidos/estado/EstadoPedidos.js
 var resumenInicial = {
@@ -22189,19 +22400,6 @@ function PaginaPedidos() {
 		]
 	});
 }
-// src/modulos/publicidad/paginas/Pagina.jsx
-function Pagina$4() {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-		className: "bg-white rounded-xl border border-slate-200 p-8",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-			className: "text-2xl font-bold text-slate-800",
-			children: "Publicidad"
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-			className: "mt-2 text-slate-500",
-			children: "Módulo preparado. Su funcionalidad se desarrollará en su fase correspondiente."
-		})]
-	});
-}
 // src/modulos/caja/paginas/Pagina.jsx
 function Pagina$3() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
@@ -22251,34 +22449,6 @@ function Pagina() {
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 			className: "mt-2 text-slate-500",
 			children: "Módulo preparado. Su funcionalidad se desarrollará en su fase correspondiente."
-		})]
-	});
-}
-// src/disenos/pantalla-tv/PantallaTV.jsx
-function PantallaTV() {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
-		className: "min-h-screen bg-slate-950 text-white grid grid-cols-2",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-			className: "p-8 border-r border-slate-800",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-				className: "text-3xl font-bold",
-				children: "PEDIDOS"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "mt-8 text-center text-slate-400",
-				children: "Aquí aparecerán los pedidos para recoger."
-			})]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
-			className: "flex items-center justify-center p-8",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "text-center",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-					className: "text-3xl font-bold",
-					children: "PUBLICIDAD"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "mt-4 text-slate-400",
-					children: "Espacio para imágenes y videos promocionales."
-				})]
-			})
 		})]
 	});
 }
@@ -24298,14 +24468,14 @@ function PaginaClientes() {
 	});
 }
 // src/modulos/punto-venta/servicios/puntoVenta.js
-var obtenerAPI = () => {
+var obtenerAPI$1 = () => {
 	if (!window.sistema?.puntoVenta) throw new Error("El servicio de punto de venta no está disponible.");
 	return window.sistema.puntoVenta;
 };
 var servicioPuntoVenta = {
-	obtenerCatalogo: () => obtenerAPI().obtenerCatalogo(),
-	buscarClientes: (busqueda) => obtenerAPI().buscarClientes(busqueda),
-	crearPedido: (datos) => obtenerAPI().crearPedido(datos)
+	obtenerCatalogo: () => obtenerAPI$1().obtenerCatalogo(),
+	buscarClientes: (busqueda) => obtenerAPI$1().buscarClientes(busqueda),
+	crearPedido: (datos) => obtenerAPI$1().crearPedido(datos)
 };
 // src/modulos/punto-venta/estado/EstadoPuntoVenta.js
 var useEstadoPuntoVenta = create((set, get) => ({
@@ -26232,66 +26402,847 @@ function PaginaCocina() {
 		]
 	});
 }
-// src/rutas/RutasAplicacion.jsx
-function RutasAplicacion() {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HashRouter, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Routes, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-		path: "/",
-		element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InicioSesion, {})
-	}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
-		element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RutaProtegida, {}),
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/pantalla-tv",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PantallaTV, {})
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DisenoPrincipal, {}),
+// src/modulos/television/servicios/television.js
+var obtenerAPI = () => {
+	if (!window.sistema) throw new Error("La API del sistema no está disponible.");
+	return window.sistema;
+};
+var servicioTelevision = {
+	async listarPedidos() {
+		const pedidos = await obtenerAPI().pedidos.listar({ limite: 200 });
+		if (!Array.isArray(pedidos)) return [];
+		return pedidos.filter((pedido) => [
+			"Preparando",
+			"En horno",
+			"Listo"
+		].includes(pedido.estado));
+	},
+	async listarPublicidad() {
+		return obtenerAPI().television?.listarMultimedia?.() || [];
+	},
+	async crearPublicidad(datos) {
+		return obtenerAPI().television.crearMultimedia(datos);
+	},
+	async actualizarPublicidad(id, datos) {
+		return obtenerAPI().television.actualizarMultimedia(id, datos);
+	},
+	async cambiarEstadoPublicidad(id, activo) {
+		return obtenerAPI().television.cambiarEstadoMultimedia(id, activo);
+	},
+	async eliminarPublicidad(id) {
+		return obtenerAPI().television.eliminarMultimedia(id);
+	},
+	async listarPantallas() {
+		return obtenerAPI().television.listarPantallas();
+	},
+	async abrirVentanaTV(displayId) {
+		return obtenerAPI().television.abrirVentana(displayId);
+	},
+	async cerrarVentanaTV() {
+		return obtenerAPI().television.cerrarVentana();
+	}
+};
+// src/modulos/television/estado/EstadoTV.js
+var useEstadoTV = create((set, get) => ({
+	pedidos: [],
+	publicidad: [],
+	cargando: false,
+	error: null,
+	ultimaActualizacion: null,
+	cargarPedidos: async () => {
+		try {
+			set({
+				pedidos: await servicioTelevision.listarPedidos(),
+				ultimaActualizacion: /* @__PURE__ */ new Date()
+			});
+		} catch (error) {
+			console.error("Error cargando pedidos TV:", error);
+			set({ error: error.message });
+		}
+	},
+	cargarPublicidad: async () => {
+		try {
+			const publicidad = await servicioTelevision.listarPublicidad();
+			set({ publicidad: Array.isArray(publicidad) ? publicidad.filter((elemento) => Number(elemento.activo) === 1) : [] });
+		} catch (error) {
+			console.error("Error cargando publicidad:", error);
+			set({ error: error.message });
+		}
+	},
+	cargarTodo: async () => {
+		set({
+			cargando: true,
+			error: null
+		});
+		try {
+			await Promise.all([get().cargarPedidos(), get().cargarPublicidad()]);
+		} finally {
+			set({ cargando: false });
+		}
+	},
+	agregarPublicidad: async (datos) => {
+		await servicioTelevision.crearPublicidad(datos);
+		await get().cargarPublicidad();
+	},
+	actualizarPublicidad: async (id, datos) => {
+		await servicioTelevision.actualizarPublicidad(id, datos);
+		await get().cargarPublicidad();
+	},
+	cambiarEstadoPublicidad: async (id, activo) => {
+		await servicioTelevision.cambiarEstadoPublicidad(id, activo);
+		await get().cargarPublicidad();
+	},
+	eliminarPublicidad: async (id) => {
+		await servicioTelevision.eliminarPublicidad(id);
+		await get().cargarPublicidad();
+	},
+	limpiarError: () => set({ error: null })
+}));
+// src/modulos/television/hooks/usePedidosTV.js
+function usePedidosTV() {
+	const pedidos = useEstadoTV((estado) => estado.pedidos);
+	const cargarPedidos = useEstadoTV((estado) => estado.cargarPedidos);
+	(0, import_react.useEffect)(() => {
+		cargarPedidos();
+		const intervalo = setInterval(() => {
+			cargarPedidos();
+		}, 5e3);
+		return () => clearInterval(intervalo);
+	}, [cargarPedidos]);
+	return {
+		pedidosPreparando: pedidos.filter((pedido) => pedido.estado === "Preparando" || pedido.estado === "En horno"),
+		pedidosListos: pedidos.filter((pedido) => pedido.estado === "Listo")
+	};
+}
+// src/modulos/television/hooks/usePublicidadTV.js
+function usePublicidadTV() {
+	const publicidad = useEstadoTV((estado) => estado.publicidad);
+	const cargarPublicidad = useEstadoTV((estado) => estado.cargarPublicidad);
+	(0, import_react.useEffect)(() => {
+		cargarPublicidad();
+		const intervalo = setInterval(cargarPublicidad, 3e4);
+		return () => clearInterval(intervalo);
+	}, [cargarPublicidad]);
+	return publicidad.filter((elemento) => Boolean(elemento.activo)).sort((a, b) => Number(a.orden || 0) - Number(b.orden || 0));
+}
+// src/modulos/television/componentes/RelojTV.jsx
+function RelojTV() {
+	const [ahora, setAhora] = (0, import_react.useState)(/* @__PURE__ */ new Date());
+	(0, import_react.useEffect)(() => {
+		const intervalo = setInterval(() => {
+			setAhora(/* @__PURE__ */ new Date());
+		}, 1e3);
+		return () => clearInterval(intervalo);
+	}, []);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "min-w-0 shrink-0 text-right",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+			className: "text-2xl font-extrabold tabular-nums sm:text-3xl",
+			children: ahora.toLocaleTimeString("es-MX", {
+				hour: "2-digit",
+				minute: "2-digit"
+			})
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+			className: "max-w-[9rem] truncate text-[10px] text-white/70 sm:max-w-none sm:text-sm",
+			children: ahora.toLocaleDateString("es-MX", {
+				weekday: "long",
+				day: "numeric",
+				month: "long"
+			})
+		})]
+	});
+}
+// src/modulos/television/componentes/EncabezadoTV.jsx
+function EncabezadoTV() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
+		className: "flex min-w-0 items-center justify-between gap-4 border-b border-white/10 bg-[#11111d] px-5 py-3 sm:px-8 sm:py-4",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "flex min-w-0 items-center gap-3 sm:gap-4",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-600 text-xl shadow-lg shadow-violet-900/30 sm:h-12 sm:w-12 sm:text-2xl",
+				children: "🍕"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+				className: "truncate text-xl font-black tracking-tight sm:text-3xl",
+				children: "¡Gracias por tu preferencia!"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "truncate text-[11px] text-white/50 sm:text-sm",
+				children: "Estamos preparando algo delicioso para ti"
+			})] })]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RelojTV, {})]
+	});
+}
+// src/modulos/television/componentes/PedidoListoTV.jsx
+function PedidoListoTV({ pedido }) {
+	const nombreCliente = pedido.cliente_nombre?.trim() || "Cliente de mostrador";
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+		className: "rounded-2xl border border-emerald-400/30 bg-gradient-to-br from-emerald-500/20 to-emerald-950/30 p-4 shadow-lg shadow-emerald-950/20",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "flex items-center justify-between gap-3",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-xs font-bold uppercase tracking-wider text-emerald-300",
+					children: "¡Pedido listo!"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+					className: "mt-1 break-all text-2xl font-black leading-tight text-white",
+					children: pedido.folio || `#${pedido.id}`
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-2 max-w-[16rem] truncate text-sm font-semibold text-white/75",
+					children: nombreCliente
+				})
+			] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+				className: "rounded-xl bg-emerald-300/15 p-2 text-3xl",
+				children: "🔔"
+			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+			className: "mt-2 text-xs font-semibold text-emerald-100 sm:text-sm",
+			children: pedido.tipo === "domicilio" ? "Listo para salir a reparto" : "Puedes pasar a recogerlo"
+		})]
+	});
+}
+// src/modulos/television/componentes/ListaPedidosTV.jsx
+function ListaPedidosTV({ pedidosPreparando, pedidosListos }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+		className: "flex h-full min-h-0 flex-col gap-5 overflow-hidden p-4 sm:p-5 lg:p-6",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "min-h-0 shrink-0",
 			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-					path: "/tablero",
-					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$5, {})
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "mb-4 flex items-center justify-between",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						className: "text-xl font-extrabold tracking-tight",
+						children: "En preparación"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "rounded-full bg-violet-500/20 px-4 py-1 text-sm font-bold text-violet-200 ring-1 ring-violet-400/30",
+						children: pedidosPreparando.length
+					})]
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-					path: "/punto-venta",
-					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaPuntoVenta, {})
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-2",
+					children: pedidosPreparando.map((pedido) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+						className: "rounded-2xl border border-white/10 bg-[#151522] p-4 shadow-lg shadow-black/10",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mb-2 truncate text-xs font-semibold text-white/55",
+								children: pedido.cliente_nombre?.trim() || "Cliente de mostrador"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex items-center justify-between gap-2",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+									className: "break-all text-xl font-black",
+									children: pedido.folio || `#${pedido.id}`
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "rounded-full bg-violet-500/15 px-3 py-1 text-[10px] font-bold text-violet-200",
+									children: pedido.estado
+								})]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-2 text-sm text-white/60",
+								children: pedido.estado === "En horno" ? "Tu pedido está en el horno" : "Estamos preparando tu pedido"
+							})
+						]
+					}, pedido.id))
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-					path: "/pedidos",
-					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaPedidos, {})
+				pedidosPreparando.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "rounded-2xl border border-dashed border-white/10 bg-white/[0.03] p-5 text-center text-sm text-white/40",
+					children: "No hay pedidos en preparación"
+				})
+			]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "min-h-0 shrink-0",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "mb-4 flex items-center justify-between",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						className: "text-xl font-extrabold tracking-tight",
+						children: "Pedidos listos"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "rounded-full bg-emerald-500/20 px-4 py-1 text-sm font-bold text-emerald-300 ring-1 ring-emerald-400/30",
+						children: pedidosListos.length
+					})]
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-					path: "/cocina",
-					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaCocina, {})
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-2",
+					children: pedidosListos.map((pedido) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PedidoListoTV, { pedido }, pedido.id))
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-					path: "/clientes",
-					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaClientes, {})
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-					path: "/productos",
-					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaProductos, {})
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-					path: "/publicidad",
-					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$4, {})
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-					path: "/caja",
-					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$3, {})
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-					path: "/reportes",
-					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$2, {})
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-					path: "/usuarios",
-					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$1, {})
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-					path: "/configuracion",
-					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina, {})
+				pedidosListos.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "rounded-2xl border border-dashed border-white/10 bg-white/[0.03] p-5 text-center text-sm text-white/40",
+					children: "Aún no hay pedidos listos"
 				})
 			]
 		})]
-	})] }) });
+	});
+}
+// src/modulos/television/componentes/ReproductorMultimedia.jsx
+function ReproductorMultimedia({ elementos = [] }) {
+	const [indice, setIndice] = (0, import_react.useState)(0);
+	const indiceSeguro = elementos.length ? indice % elementos.length : 0;
+	const elemento = elementos[indiceSeguro];
+	(0, import_react.useEffect)(() => {
+		if (!elemento) return;
+		if (elemento.tipo === "video") return;
+		const duracion = Math.max(3, Number(elemento.duracion_segundos || 10));
+		const intervalo = setTimeout(() => {
+			setIndice((actual) => elementos.length ? (actual + 1) % elementos.length : 0);
+		}, duracion * 1e3);
+		return () => clearTimeout(intervalo);
+	}, [elemento, elementos]);
+	const siguiente = () => {
+		setIndice((actual) => elementos.length ? (actual + 1) % elementos.length : 0);
+	};
+	if (!elemento) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "flex h-full min-h-[260px] items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500/10 to-fuchsia-500/5 text-center",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "mb-4 text-6xl",
+				children: "🍕"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "text-xl font-bold",
+				children: "STARMY PIZZERÍA"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "mt-2 text-sm text-white/50",
+				children: "Próximamente promociones especiales"
+			})
+		] })
+	});
+	const ruta = elemento.url || elemento.ruta;
+	if (!ruta) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "flex h-full items-center justify-center text-white/60",
+		children: "Archivo multimedia sin ruta"
+	});
+	if (elemento.tipo === "video") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("video", {
+		src: ruta,
+		autoPlay: true,
+		loop: elementos.length === 1,
+		muted: true,
+		playsInline: true,
+		onEnded: siguiente,
+		onError: siguiente,
+		onLoadedData: (evento) => evento.currentTarget.play().catch(() => {}),
+		className: "h-full w-full rounded-2xl bg-black object-contain"
+	}, `${elemento.id || ruta}-${indiceSeguro}`);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+		src: ruta,
+		alt: "Promoción",
+		onError: siguiente,
+		className: "h-full w-full rounded-2xl object-cover"
+	}, elemento.id || ruta);
+}
+// src/modulos/television/componentes/PanelPublicidad.jsx
+function PanelPublicidad({ elementos }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+		className: "flex h-full min-h-0 min-w-0 flex-col p-4 sm:p-5 lg:p-6",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "mb-4 flex items-center justify-between",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+				className: "truncate text-xl font-extrabold tracking-tight",
+				children: "Nuestras promociones"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "text-sm text-white/50",
+				children: "Descubre algo delicioso"
+			})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+				className: "rounded-xl bg-fuchsia-500/15 p-2 text-xl",
+				children: "📢"
+			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "min-h-0 min-w-0 flex-1 overflow-hidden rounded-3xl border border-white/10 bg-[#151522] p-2 shadow-2xl shadow-black/20",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ReproductorMultimedia, { elementos })
+		})]
+	});
+}
+// src/modulos/television/paginas/PaginaTV.jsx
+function PaginaTV() {
+	const { pedidosPreparando, pedidosListos } = usePedidosTV();
+	const publicidad = usePublicidadTV();
+	const cargarPublicidad = useEstadoTV((estado) => estado.cargarPublicidad);
+	(0, import_react.useEffect)(() => {
+		cargarPublicidad();
+	}, [cargarPublicidad]);
+	(0, import_react.useEffect)(() => {
+		document.documentElement.classList.add("tv-mode");
+		document.body.classList.add("tv-mode");
+		return () => {
+			document.documentElement.classList.remove("tv-mode");
+			document.body.classList.remove("tv-mode");
+		};
+	}, []);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
+		className: "flex h-[100dvh] min-w-0 flex-col overflow-hidden bg-[#0b0b14] text-white",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(EncabezadoTV, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "grid min-h-0 min-w-0 flex-1 grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] divide-x divide-white/10",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "min-h-0 overflow-hidden",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ListaPedidosTV, {
+						pedidosPreparando,
+						pedidosListos
+					})
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "min-h-0",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PanelPublicidad, { elementos: publicidad })
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("footer", {
+				className: "flex items-center justify-center border-t border-white/10 px-5 py-2 text-[11px] text-white/35",
+				children: "Gracias por elegirnos · Tu pizza estará lista muy pronto"
+			})
+		]
+	});
+}
+// src/modulos/television/paginas/PaginaPublicidad.jsx
+function PaginaPublicidad() {
+	const publicidad = useEstadoTV((estado) => estado.publicidad);
+	const cargarPublicidad = useEstadoTV((estado) => estado.cargarPublicidad);
+	const agregarPublicidad = useEstadoTV((estado) => estado.agregarPublicidad);
+	const cambiarEstadoPublicidad = useEstadoTV((estado) => estado.cambiarEstadoPublicidad);
+	const eliminarPublicidad = useEstadoTV((estado) => estado.eliminarPublicidad);
+	const [nombre, setNombre] = (0, import_react.useState)("");
+	const [duracion, setDuracion] = (0, import_react.useState)(10);
+	const [archivo, setArchivo] = (0, import_react.useState)(null);
+	const [guardando, setGuardando] = (0, import_react.useState)(false);
+	const [error, setError] = (0, import_react.useState)("");
+	const [pantallas, setPantallas] = (0, import_react.useState)([]);
+	const [pantallaSeleccionada, setPantallaSeleccionada] = (0, import_react.useState)("");
+	const [buscandoPantallas, setBuscandoPantallas] = (0, import_react.useState)(false);
+	const [proyectando, setProyectando] = (0, import_react.useState)(false);
+	const buscarPantallas = async () => {
+		setBuscandoPantallas(true);
+		try {
+			const resultado = await servicioTelevision.listarPantallas();
+			const detectadas = Array.isArray(resultado) ? resultado : [];
+			setPantallas(detectadas);
+			const externa = detectadas.find((pantalla) => !pantalla.principal);
+			setPantallaSeleccionada(externa?.id || detectadas[0]?.id || "");
+		} catch (error) {
+			setError(error.message || "No se pudieron detectar las pantallas.");
+		} finally {
+			setBuscandoPantallas(false);
+		}
+	};
+	const proyectarPantalla = async () => {
+		if (!pantallaSeleccionada) {
+			setError("Primero conecta o selecciona una pantalla.");
+			return;
+		}
+		setProyectando(true);
+		setError("");
+		try {
+			await servicioTelevision.abrirVentanaTV(pantallaSeleccionada);
+		} catch (error) {
+			setError(error.message || "No se pudo abrir la pantalla TV.");
+		} finally {
+			setProyectando(false);
+		}
+	};
+	(0, import_react.useEffect)(() => {
+		cargarPublicidad();
+	}, [cargarPublicidad]);
+	(0, import_react.useEffect)(() => {
+		let montado = true;
+		servicioTelevision.listarPantallas().then((resultado) => {
+			if (!montado) return;
+			const detectadas = Array.isArray(resultado) ? resultado : [];
+			setPantallas(detectadas);
+			const externa = detectadas.find((pantalla) => !pantalla.principal);
+			setPantallaSeleccionada(externa?.id || detectadas[0]?.id || "");
+		}).catch(() => {
+			if (montado) setError("No se pudieron detectar las pantallas.");
+		});
+		return () => {
+			montado = false;
+		};
+	}, []);
+	const seleccionarArchivo = (evento) => {
+		const seleccionado = evento.target.files?.[0];
+		if (!seleccionado) return;
+		const extension = seleccionado.name.split(".").pop().toLowerCase();
+		const tipo = [
+			"mp4",
+			"webm",
+			"mov"
+		].includes(extension) ? "video" : [
+			"jpg",
+			"jpeg",
+			"png",
+			"webp"
+		].includes(extension) ? "imagen" : null;
+		if (!tipo) {
+			setError("Selecciona una imagen o video compatible.");
+			setArchivo(null);
+			return;
+		}
+		setError("");
+		setArchivo({
+			nombre: seleccionado.name,
+			tipo,
+			archivo: seleccionado
+		});
+	};
+	const guardar = async (evento) => {
+		evento.preventDefault();
+		if (!nombre.trim() || !archivo) {
+			setError("Escribe un nombre y selecciona un archivo.");
+			return;
+		}
+		setGuardando(true);
+		setError("");
+		try {
+			const datos = await archivo.archivo.arrayBuffer();
+			const importado = await window.sistema.television.importarArchivo({
+				nombre: archivo.nombre,
+				datos
+			});
+			await agregarPublicidad({
+				nombre: nombre.trim(),
+				ruta: importado.ruta,
+				tipo: archivo.tipo,
+				duracion_segundos: Number(duracion),
+				orden: publicidad.length + 1,
+				activo: 1
+			});
+			setNombre("");
+			setDuracion(10);
+			setArchivo(null);
+			evento.target.reset();
+		} catch (error) {
+			setError(error.message || "No se pudo guardar la publicidad.");
+		} finally {
+			setGuardando(false);
+		}
+	};
+	const eliminar = async (elemento) => {
+		if (!window.confirm(`¿Eliminar "${elemento.nombre}"?`)) return;
+		try {
+			await eliminarPublicidad(elemento.id);
+		} catch (error) {
+			setError(error.message || "No se pudo eliminar el anuncio.");
+		}
+	};
+	const cambiarActivo = async (elemento) => {
+		try {
+			await cambiarEstadoPublicidad(elemento.id, !elemento.activo);
+		} catch (error) {
+			setError(error.message || "No se pudo actualizar el anuncio.");
+		}
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
+		className: "space-y-6 p-6",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
+				className: "flex items-center justify-between gap-4",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex items-center gap-3",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "flex h-11 w-11 items-center justify-center rounded-2xl bg-violet-600 text-white",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MonitorPlay, { size: 23 })
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+						className: "text-2xl font-extrabold text-slate-900",
+						children: "Publicidad de televisión"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "text-sm text-slate-500",
+						children: "Diseña lo que tus clientes verán mientras esperan su pedido."
+					})] })]
+				}) }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+					className: "hidden rounded-full bg-violet-50 px-3 py-1.5 text-xs font-semibold text-violet-700 sm:inline-flex",
+					children: [publicidad.filter((elemento) => elemento.activo).length, " activos"]
+				})]
+			}),
+			error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700",
+				children: error
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				className: "rounded-2xl border border-sky-100 bg-white p-5 shadow-sm",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex flex-wrap items-start justify-between gap-4",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", {
+								className: "flex items-center gap-2 text-lg font-bold text-slate-900",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MonitorPlay, {
+									size: 20,
+									className: "text-sky-600"
+								}), "Mostrar la TV en otra pantalla"]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-1 text-sm text-slate-500",
+								children: "La aplicación abrirá la pantalla TV completa en el monitor que elijas."
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-2 text-xs font-medium text-amber-700",
+								children: "Si la TV permanece azul, cambia su entrada a HDMI y verifica que Windows esté usando “Extender estas pantallas”."
+							})
+						] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+							type: "button",
+							onClick: buscarPantallas,
+							disabled: buscandoPantallas,
+							className: "inline-flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50 disabled:opacity-50",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, {
+								size: 15,
+								className: buscandoPantallas ? "animate-spin" : ""
+							}), "Buscar pantallas"]
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "mt-4 grid gap-3 md:grid-cols-2",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "rounded-xl border border-slate-100 bg-slate-50 p-4",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+								className: "flex items-center gap-2 font-semibold text-slate-800",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Cable, {
+									size: 17,
+									className: "text-sky-600"
+								}), "Opción 1: HDMI"]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-1 text-xs leading-5 text-slate-500",
+								children: "Conecta el cable HDMI. Windows la detectará automáticamente."
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "rounded-xl border border-slate-100 bg-slate-50 p-4",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+								className: "flex items-center gap-2 font-semibold text-slate-800",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Wifi, {
+									size: 17,
+									className: "text-emerald-600"
+								}), "Opción 2: inalámbrica"]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+								className: "mt-1 text-xs leading-5 text-slate-500",
+								children: [
+									"Presiona ",
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Win + K" }),
+									", conecta la TV y luego pulsa “Buscar pantallas”."
+								]
+							})]
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "mt-4 flex flex-col gap-3 sm:flex-row",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
+							value: pantallaSeleccionada,
+							onChange: (evento) => setPantallaSeleccionada(evento.target.value),
+							className: "min-w-0 flex-1 rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-sky-500",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+								value: "",
+								children: "3. Selecciona dónde mostrar la TV"
+							}), pantallas.map((pantalla) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("option", {
+								value: pantalla.id,
+								children: [
+									pantalla.nombre,
+									" (",
+									pantalla.ancho,
+									" x ",
+									pantalla.alto,
+									")"
+								]
+							}, pantalla.id))]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							type: "button",
+							onClick: proyectarPantalla,
+							disabled: proyectando || !pantallaSeleccionada,
+							className: "rounded-xl bg-sky-600 px-5 py-3 text-sm font-bold text-white hover:bg-sky-700 disabled:opacity-50",
+							children: proyectando ? "Abriendo TV..." : "4. Mostrar pantalla TV"
+						})]
+					}),
+					pantallas.length <= 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-3 text-xs text-amber-700",
+						children: "No se detecta una pantalla externa. Conecta HDMI o completa la conexión inalámbrica de Windows y vuelve a buscar."
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+				onSubmit: guardar,
+				className: "grid gap-4 rounded-2xl border border-violet-100 bg-gradient-to-br from-white to-violet-50/60 p-5 shadow-sm md:grid-cols-2",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+						className: "mb-2 block text-sm font-semibold text-slate-700",
+						children: "Nombre de la publicidad"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+						value: nombre,
+						onChange: (evento) => setNombre(evento.target.value),
+						placeholder: "Ej. Promoción familiar",
+						className: "w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-violet-500"
+					})] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+						className: "mb-2 block text-sm font-semibold text-slate-700",
+						children: "Duración de imagen (segundos)"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+						type: "number",
+						min: "3",
+						max: "300",
+						value: duracion,
+						onChange: (evento) => setDuracion(evento.target.value),
+						className: "w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-violet-500"
+					})] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "md:col-span-2",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+							className: "mb-2 block text-sm font-semibold text-slate-700",
+							children: "Archivo multimedia"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+							className: "flex cursor-pointer items-center gap-3 rounded-xl border border-dashed border-violet-300 bg-white px-4 py-4 text-sm text-violet-700 transition hover:bg-violet-50",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CloudUpload, { size: 20 }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "min-w-0 flex-1 truncate",
+									children: archivo ? archivo.nombre : "Selecciona una imagen o video"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+									type: "file",
+									accept: "image/jpeg,image/png,image/webp,video/mp4,video/webm,video/quicktime",
+									onChange: seleccionarArchivo,
+									className: "sr-only"
+								})
+							]
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						type: "submit",
+						disabled: guardando,
+						className: "rounded-xl bg-violet-600 px-5 py-3 font-bold text-white hover:bg-violet-700 disabled:opacity-50 md:col-span-2",
+						children: guardando ? "Guardando..." : "Agregar publicidad"
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				className: "space-y-3",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", {
+						className: "text-lg font-bold text-slate-900",
+						children: [
+							"Contenido registrado (",
+							publicidad.length,
+							")"
+						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "grid gap-4 md:grid-cols-2 xl:grid-cols-3",
+						children: publicidad.map((elemento) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+							className: "overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "flex h-36 items-center justify-center bg-slate-900",
+								children: elemento.tipo === "video" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("video", {
+									src: elemento.ruta,
+									muted: true,
+									className: "h-full w-full object-cover"
+								}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+									src: elemento.ruta,
+									alt: "",
+									className: "h-full w-full object-cover"
+								})
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "space-y-3 p-4",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex items-start justify-between gap-3",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										className: "font-bold text-slate-900",
+										children: elemento.nombre
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+										className: "mt-1 flex items-center gap-1 text-xs text-slate-500",
+										children: [
+											elemento.tipo === "video" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Video, { size: 13 }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Image, { size: 13 }),
+											elemento.tipo,
+											" · ",
+											elemento.duracion_segundos || 10,
+											"s"
+										]
+									})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: `rounded-full px-2 py-1 text-[11px] font-semibold ${elemento.activo ? "bg-emerald-100 text-emerald-700" : "bg-slate-100 text-slate-500"}`,
+										children: elemento.activo ? "Activo" : "Pausado"
+									})]
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex gap-2",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+										type: "button",
+										onClick: () => cambiarActivo(elemento),
+										className: "inline-flex flex-1 items-center justify-center gap-1 rounded-lg border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50",
+										children: [elemento.activo ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PowerOff, { size: 14 }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Power, { size: 14 }), elemento.activo ? "Pausar" : "Activar"]
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+										type: "button",
+										onClick: () => eliminar(elemento),
+										className: "inline-flex items-center gap-1 rounded-lg bg-red-50 px-3 py-2 text-xs font-semibold text-red-700 hover:bg-red-100",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Trash, { size: 14 }), "Eliminar"]
+									})]
+								})]
+							})]
+						}, elemento.id))
+					}),
+					publicidad.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "rounded-xl border border-dashed border-slate-300 p-8 text-center text-sm text-slate-500",
+						children: "Todavía no has agregado publicidad."
+					})
+				]
+			})
+		]
+	});
+}
+// src/rutas/RutasAplicacion.jsx
+function RutasAplicacion() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HashRouter, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Routes, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+			path: "/",
+			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InicioSesion, {})
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+			path: "/pantalla-tv",
+			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaTV, {})
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RutaProtegida, {}),
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
+				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DisenoPrincipal, {}),
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+						path: "/tablero",
+						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$4, {})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+						path: "/punto-venta",
+						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaPuntoVenta, {})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+						path: "/pedidos",
+						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaPedidos, {})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+						path: "/cocina",
+						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaCocina, {})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+						path: "/clientes",
+						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaClientes, {})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+						path: "/productos",
+						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaProductos, {})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+						path: "/publicidad",
+						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaPublicidad, {})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+						path: "/caja",
+						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$3, {})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+						path: "/reportes",
+						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$2, {})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+						path: "/usuarios",
+						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$1, {})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+						path: "/configuracion",
+						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina, {})
+					})
+				]
+			})
+		})
+	] }) });
 }
 // src/Aplicacion.jsx
 function Aplicacion() {

@@ -1,8 +1,12 @@
-import { BrowserWindow, app, ipcMain } from "electron";
-import { join } from "node:path";
+import { BrowserWindow, app, ipcMain, net, protocol, screen } from "electron";
+import { basename, extname, join } from "node:path";
+import process from "node:process";
+import { pathToFileURL } from "node:url";
 import Database from "better-sqlite3";
 import { mkdirSync } from "node:fs";
 import bcrypt from "bcryptjs";
+import { Buffer as Buffer$1 } from "node:buffer";
+import { mkdir, writeFile } from "node:fs/promises";
 // -- CommonJS Shims --
 import __shims_module__ from "node:module";
 import.meta.filename;
@@ -2113,6 +2117,189 @@ function registrarControladoresPedidos(ipcMain, db, obtenerSesion) {
 	});
 	return servicio;
 }
+// electron/proceso-principal/base-datos/modulos/television/servicio.js
+function crearServicioTelevision(db) {
+	function normalizarRuta(ruta) {
+		const valor = String(ruta || "");
+		if (valor.startsWith("pizzeria-media://")) return valor;
+		if (valor.startsWith("file://")) {
+			const rutaLocal = decodeURIComponent(valor.replace(/^file:\/\//, "").replace(/^\/([A-Za-z]:)/, "$1"));
+			return `pizzeria-media://archivo?ruta=${encodeURIComponent(rutaLocal)}`;
+		}
+		return valor.replace(/^file:\/\/(?!\/)([A-Za-z]:\/)/, "file:///$1");
+	}
+	function listarMultimedia() {
+		return db.prepare(`
+        SELECT
+          id,
+          nombre,
+          ruta_archivo AS ruta,
+          tipo,
+          duracion_segundos,
+          orden,
+          activo,
+          fecha_creacion,
+          fecha_actualizacion
+        FROM multimedia
+        ORDER BY orden ASC, id ASC
+      `).all().map((elemento) => ({
+			...elemento,
+			ruta: normalizarRuta(elemento.ruta)
+		}));
+	}
+	function crearMultimedia(datos) {
+		const nombre = String(datos?.nombre || "").trim();
+		const ruta = String(datos?.ruta || datos?.ruta_archivo || "").trim();
+		const tipo = String(datos?.tipo || "");
+		const duracion = Number(datos?.duracion_segundos || 10);
+		const orden = Number(datos?.orden || 0);
+		if (!nombre || !ruta || !["imagen", "video"].includes(tipo)) throw new Error("Los datos de la publicidad no son válidos.");
+		if (!Number.isInteger(duracion) || duracion < 3 || duracion > 300) throw new Error("La duración debe estar entre 3 y 300 segundos.");
+		return db.prepare(`
+        INSERT INTO multimedia (nombre, ruta_archivo, tipo, duracion_segundos, orden)
+        VALUES (?, ?, ?, ?, ?)
+      `).run(nombre, ruta, tipo, duracion, Number.isInteger(orden) ? orden : 0);
+	}
+	function actualizarMultimedia(id, datos) {
+		const multimediaId = Number(id);
+		const nombre = String(datos?.nombre || "").trim();
+		const duracion = Number(datos?.duracion_segundos || 10);
+		if (!Number.isSafeInteger(multimediaId) || multimediaId <= 0 || !nombre) throw new Error("La publicidad no es válida.");
+		db.prepare(`
+      UPDATE multimedia
+      SET nombre = ?, duracion_segundos = ?, fecha_actualizacion = CURRENT_TIMESTAMP
+      WHERE id = ?
+    `).run(nombre, duracion, multimediaId);
+	}
+	function cambiarEstadoMultimedia(id, activo) {
+		db.prepare(`
+      UPDATE multimedia
+      SET activo = ?, fecha_actualizacion = CURRENT_TIMESTAMP
+      WHERE id = ?
+    `).run(activo ? 1 : 0, Number(id));
+	}
+	function eliminarMultimedia(id) {
+		db.prepare("DELETE FROM multimedia WHERE id = ?").run(Number(id));
+	}
+	return {
+		listarMultimedia,
+		crearMultimedia,
+		actualizarMultimedia,
+		cambiarEstadoMultimedia,
+		eliminarMultimedia
+	};
+}
+// electron/proceso-principal/ventanas/ventana-tv.js
+var ventanaTV = null;
+function obtenerPantallaSecundaria(displayId) {
+	const principal = screen.getPrimaryDisplay();
+	if (displayId) return screen.getAllDisplays().find((pantalla) => String(pantalla.id) === String(displayId));
+	return screen.getAllDisplays().find((pantalla) => pantalla.id !== principal.id);
+}
+function cargarPantallaTV(ventana) {
+	if (process.env.ELECTRON_RENDERER_URL) return ventana.loadURL(`${process.env.ELECTRON_RENDERER_URL}/#/pantalla-tv`);
+	else return ventana.loadFile(join(__dirname, "../../renderer/index.html"), { hash: "/pantalla-tv" });
+}
+function listarPantallas() {
+	const principal = screen.getPrimaryDisplay();
+	return screen.getAllDisplays().map((pantalla, indice) => ({
+		id: String(pantalla.id),
+		nombre: pantalla.id === principal.id ? "Pantalla principal" : `Pantalla externa ${indice}`,
+		principal: pantalla.id === principal.id,
+		ancho: pantalla.bounds.width,
+		alto: pantalla.bounds.height
+	}));
+}
+async function crearVentanaTV(displayId) {
+	if (ventanaTV && !ventanaTV.isDestroyed()) {
+		const pantalla = obtenerPantallaSecundaria(displayId);
+		if (pantalla) {
+			ventanaTV.setBounds(pantalla.bounds);
+			ventanaTV.setFullScreen(true);
+		}
+		ventanaTV.show();
+		ventanaTV.focus();
+		return ventanaTV;
+	}
+	const pantalla = obtenerPantallaSecundaria(displayId);
+	if (!pantalla) throw new Error("No se detectó una pantalla externa. Conecta HDMI o usa Win + K para conectar la TV.");
+	const { x, y, width, height } = pantalla.bounds;
+	ventanaTV = new BrowserWindow({
+		x,
+		y,
+		width,
+		height,
+		show: false,
+		frame: false,
+		fullscreen: true,
+		autoHideMenuBar: true,
+		backgroundColor: "#020617",
+		webPreferences: {
+			preload: join(__dirname, "../preload/index.cjs"),
+			contextIsolation: true,
+			nodeIntegration: false,
+			sandbox: true
+		}
+	});
+	ventanaTV.webContents.on("did-fail-load", (_evento, codigo, descripcion) => {
+		console.error(`No se pudo cargar la pantalla TV (${codigo}): ${descripcion}`);
+	});
+	ventanaTV.webContents.on("console-message", (_evento, nivel, mensaje) => {
+		console.log(`[TV] ${mensaje}`);
+	});
+	ventanaTV.once("ready-to-show", () => {
+		ventanaTV.show();
+	});
+	await cargarPantallaTV(ventanaTV);
+	ventanaTV.setBounds(pantalla.bounds);
+	ventanaTV.setFullScreen(true);
+	ventanaTV.show();
+	ventanaTV.on("closed", () => {
+		ventanaTV = null;
+	});
+	console.log("Ventana de TV creada correctamente.");
+	return ventanaTV;
+}
+function cerrarVentanaTV() {
+	if (ventanaTV && !ventanaTV.isDestroyed()) ventanaTV.close();
+}
+// electron/proceso-principal/ipc/modulos/television/controlador.js
+function registrarControladoresTelevision(ipcMain, db) {
+	const servicio = crearServicioTelevision(db);
+	ipcMain.handle("television:importar-archivo", async (_evento, archivo) => {
+		const nombre = basename(String(archivo?.nombre || "archivo"));
+		const extension = extname(nombre).toLowerCase();
+		if (!archivo?.datos || ![
+			".jpg",
+			".jpeg",
+			".png",
+			".webp",
+			".mp4",
+			".webm",
+			".mov"
+		].includes(extension)) throw new Error("Selecciona una imagen o video compatible.");
+		const carpeta = join(app.getPath("userData"), "publicidad");
+		await mkdir(carpeta, { recursive: true });
+		const nombreSeguro = `${Date.now()}-${nombre.replace(/[^\w.-]/g, "_")}`;
+		const destino = join(carpeta, nombreSeguro);
+		await writeFile(destino, Buffer$1.from(archivo.datos));
+		return { ruta: `pizzeria-media://archivo?ruta=${encodeURIComponent(destino)}` };
+	});
+	ipcMain.handle("television:listar-multimedia", () => servicio.listarMultimedia());
+	ipcMain.handle("television:crear-multimedia", (_evento, datos) => servicio.crearMultimedia(datos));
+	ipcMain.handle("television:actualizar-multimedia", (_evento, id, datos) => servicio.actualizarMultimedia(id, datos));
+	ipcMain.handle("television:cambiar-estado", (_evento, id, activo) => servicio.cambiarEstadoMultimedia(id, activo));
+	ipcMain.handle("television:eliminar-multimedia", (_evento, id) => servicio.eliminarMultimedia(id));
+	ipcMain.handle("television:listar-pantallas", () => listarPantallas());
+	ipcMain.handle("television:abrir-ventana", async (_evento, displayId) => {
+		await crearVentanaTV(displayId);
+		return true;
+	});
+	ipcMain.handle("television:cerrar-ventana", () => {
+		cerrarVentanaTV();
+		return true;
+	});
+}
 // electron/proceso-principal/ipc/index.js
 function registrarCanalesIPC() {
 	const db = obtenerConexion();
@@ -2123,14 +2310,20 @@ function registrarCanalesIPC() {
 	registrarControladoresClientes(ipcMain, db, () => servicioAutenticacion.obtenerSesion());
 	registrarControladoresPuntoVenta(ipcMain, db, () => servicioAutenticacion.obtenerSesion());
 	registrarControladoresPedidos(ipcMain, db, () => servicioAutenticacion.obtenerSesion());
+	registrarControladoresTelevision(ipcMain, db);
 	console.log("Canales IPC registrados correctamente");
 }
-// electron/proceso-principal/ventanas/ventana-tv.js
-var ventanaTV = null;
-function cerrarVentanaTV() {
-	if (ventanaTV && !ventanaTV.isDestroyed()) ventanaTV.close();
-}
 // electron/proceso-principal/index.js
+protocol.registerSchemesAsPrivileged([{
+	scheme: "pizzeria-media",
+	privileges: {
+		standard: true,
+		secure: true,
+		supportFetchAPI: true,
+		corsEnabled: true,
+		stream: true
+	}
+}]);
 var ventanaPrincipal = null;
 function crearVentanaPrincipal() {
 	ventanaPrincipal = new BrowserWindow({
@@ -2157,6 +2350,11 @@ function crearVentanaPrincipal() {
 	});
 }
 app.whenReady().then(() => {
+	protocol.handle("pizzeria-media", (solicitud) => {
+		const ruta = new URL(solicitud.url).searchParams.get("ruta");
+		if (!ruta) return new Response("Archivo multimedia no especificado.", { status: 400 });
+		return net.fetch(pathToFileURL(ruta).href);
+	});
 	inicializarBaseDatos();
 	registrarCanalesIPC();
 	crearVentanaPrincipal();

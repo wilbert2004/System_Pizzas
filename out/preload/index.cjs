@@ -64,5 +64,16 @@ electron.contextBridge.exposeInMainWorld("sistema", {
 		obtener: (id) => electron.ipcRenderer.invoke("pedidos:obtener", id),
 		cambiarEstado: (id, estado, motivo) => electron.ipcRenderer.invoke("pedidos:cambiar-estado", id, estado, motivo),
 		resumen: () => electron.ipcRenderer.invoke("pedidos:resumen")
+	},
+	television: {
+		importarArchivo: (archivo) => electron.ipcRenderer.invoke("television:importar-archivo", archivo),
+		listarMultimedia: () => electron.ipcRenderer.invoke("television:listar-multimedia"),
+		crearMultimedia: (datos) => electron.ipcRenderer.invoke("television:crear-multimedia", datos),
+		actualizarMultimedia: (id, datos) => electron.ipcRenderer.invoke("television:actualizar-multimedia", id, datos),
+		cambiarEstadoMultimedia: (id, activo) => electron.ipcRenderer.invoke("television:cambiar-estado", id, activo),
+		eliminarMultimedia: (id) => electron.ipcRenderer.invoke("television:eliminar-multimedia", id),
+		listarPantallas: () => electron.ipcRenderer.invoke("television:listar-pantallas"),
+		abrirVentana: (displayId) => electron.ipcRenderer.invoke("television:abrir-ventana", displayId),
+		cerrarVentana: () => electron.ipcRenderer.invoke("television:cerrar-ventana")
 	}
 });

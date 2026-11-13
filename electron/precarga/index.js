@@ -126,4 +126,21 @@ contextBridge.exposeInMainWorld("sistema", {
 
     resumen: () => ipcRenderer.invoke("pedidos:resumen"),
   },
+  television: {
+    importarArchivo: (archivo) =>
+      ipcRenderer.invoke("television:importar-archivo", archivo),
+    listarMultimedia: () => ipcRenderer.invoke("television:listar-multimedia"),
+    crearMultimedia: (datos) =>
+      ipcRenderer.invoke("television:crear-multimedia", datos),
+    actualizarMultimedia: (id, datos) =>
+      ipcRenderer.invoke("television:actualizar-multimedia", id, datos),
+    cambiarEstadoMultimedia: (id, activo) =>
+      ipcRenderer.invoke("television:cambiar-estado", id, activo),
+    eliminarMultimedia: (id) =>
+      ipcRenderer.invoke("television:eliminar-multimedia", id),
+    listarPantallas: () => ipcRenderer.invoke("television:listar-pantallas"),
+    abrirVentana: (displayId) =>
+      ipcRenderer.invoke("television:abrir-ventana", displayId),
+    cerrarVentana: () => ipcRenderer.invoke("television:cerrar-ventana"),
+  },
 });

@@ -9,6 +9,7 @@ import { registrarControladoresProductos } from "./modulos/productos/controlador
 import { registrarControladoresClientes } from "./modulos/clientes/controlador.js";
 import { registrarControladoresPuntoVenta } from "./modulos/punto-venta/controlador.js";
 import { registrarControladoresPedidos } from "./modulos/pedidos/controlador.js";
+import { registrarControladoresTelevision } from "./modulos/television/controlador.js";
 
 export function registrarCanalesIPC() {
   const db = obtenerConexion();
@@ -31,6 +32,7 @@ export function registrarCanalesIPC() {
   registrarControladoresPedidos(ipcMain, db, () =>
     servicioAutenticacion.obtenerSesion(),
   );
+  registrarControladoresTelevision(ipcMain, db);
 
   console.log("Canales IPC registrados correctamente");
 }
