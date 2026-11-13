@@ -11,8 +11,8 @@ export function registrarControladoresPedidos(ipcMain, db, obtenerSesion) {
     return servicio.obtenerPedido(id);
   });
 
-  ipcMain.handle("pedidos:cambiar-estado", (_evento, id, estado, motivo) => {
-    return servicio.cambiarEstado(id, estado, motivo);
+  ipcMain.handle("pedidos:cambiar-estado", (_evento, id, estado, motivo, tiempoEstimadoMinutos) => {
+    return servicio.cambiarEstado(id, estado, motivo, tiempoEstimadoMinutos);
   });
 
   ipcMain.handle("pedidos:resumen", () => {

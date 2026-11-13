@@ -76,12 +76,13 @@ El sistema deberá funcionar de manera **100 % local**, sin depender de una cone
 
 - **Estados del pedido:** `Nuevo` → `Preparando` → `En horno` → `Listo` → `En reparto` → `Entregado` (y `Cancelado`).
 - **Control de tiempos:**
-  - El cronómetro comienza cuando el empleado presiona _Iniciar preparación_.
-  - El tiempo estimado es establecido manualmente por el empleado.
-- **Alertas de retraso:**
-  - Al superar el tiempo estimado, el pedido se marca como retrasado y se reproduce una alarma sonora, conservando su estado original.
-  - El empleado puede reconocer/silenciar la alarma, pero el pedido seguirá marcado como retrasado hasta completarse.
-- La confirmación de pedido listo siempre será manual.
+  - El cocinero define el tiempo de preparación al iniciar esa etapa y el tiempo de horno al enviar el pedido al horno.
+  - Puede ajustar el tiempo de la etapa actual sin cambiar el estado del pedido.
+- **Modo Manual:** cada etapa avanza únicamente con el botón de la tarjeta.
+- **Modo Automático por tiempos:** antes de iniciar se definen los minutos de preparación y horno; al terminar cada fase, el pedido avanza a la siguiente. Se puede avanzar antes con el botón `Avanzar ahora`.
+- **Avisos de tiempo:** cocina y producción indican el tiempo restante o excedido; en modo Manual el fin del cronómetro no cambia el estado.
+- En modo Manual, el paso a `Listo` se confirma manualmente y respeta la secuencia de estados.
+- Los avisos de voz de producción describen el cliente, productos y estado; al pasar a `Listo`, anuncian el pedido dos veces.
 - Los pedidos compuestos solo por productos sin preparación se registran directamente como listos; en pedidos mixtos, Cocina muestra únicamente los productos que requieren preparación.
 - Las cancelaciones exigirán un motivo obligatorio y quedarán registradas.
 

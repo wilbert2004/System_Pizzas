@@ -13,7 +13,7 @@ export default function DetalleProductos({ pedido, onCerrar }) {
               {pedido.folio || `Pedido #${pedido.id}`}
             </h2>
             <p className="text-sm text-slate-500">
-              Detalle completo del pedido
+              Comanda de cocina · {detalles.length} {detalles.length === 1 ? "producto" : "productos"} por preparar
             </p>
           </div>
 
@@ -63,12 +63,12 @@ export default function DetalleProductos({ pedido, onCerrar }) {
                   >
                     <div className="flex justify-between gap-3">
                       <div>
-                        <p className="font-bold text-slate-900">
+                        <p className="text-lg font-extrabold text-slate-900">
                           {detalle.cantidad} ×{" "}
                           {detalle.nombre_producto || detalle.producto}
                         </p>
 
-                        <p className="text-sm text-slate-500">
+                        <p className="mt-1 text-sm font-semibold text-slate-700">
                           {detalle.nombre_presentacion ||
                             detalle.presentacion ||
                             ""}

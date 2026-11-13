@@ -7,6 +7,7 @@ import { useEstadoTV } from "../estado/EstadoTV";
 import EncabezadoTV from "../componentes/EncabezadoTV";
 import ListaPedidosTV from "../componentes/ListaPedidosTV";
 import PanelPublicidad from "../componentes/PanelPublicidad";
+import ResumenProductosTV from "../componentes/ResumenProductosTV";
 
 export default function PaginaTV() {
   const { pedidosPreparando, pedidosListos, avisosListos } = usePedidosTV();
@@ -91,14 +92,18 @@ export default function PaginaTV() {
           <div className="w-full max-w-2xl animate-[fade-in_250ms_ease-out] rounded-2xl border border-emerald-200/30 bg-emerald-950/95 px-5 py-4 text-center shadow-2xl shadow-emerald-950/50 ring-1 ring-emerald-100/10 backdrop-blur-xl sm:px-8 sm:py-5">
             <p className="text-[10px] font-black uppercase tracking-[0.24em] text-emerald-200">¡Recién salido de cocina!</p>
             {avisosListos.map((pedido) => (
-              <p key={pedido.id} className="mt-1 text-lg font-black text-white sm:text-2xl">
-                {pedido.cliente_nombre || "Pedido rápido"} · orden {pedido.folio || `#${pedido.id}`}
-              </p>
-            ))}
-            {avisosListos.map((pedido) => (
-              <p key={`mensaje-${pedido.id}`} className="mt-1 text-xs font-semibold text-emerald-100/80 sm:text-sm">
-                {pedido.tipo === "domicilio" ? "Tu pedido está listo para salir a reparto." : "Tu pedido está listo; puedes pasar a recogerlo."}
-              </p>
+              <div key={pedido.id} className="mt-2">
+                <p className="text-lg font-black text-white sm:text-2xl">
+                  {pedido.cliente_nombre || "Pedido de mostrador"}
+                </p>
+                <p className="mt-0.5 text-[10px] text-white/50">{pedido.folio || `#${pedido.id}`}</p>
+                <p className="mt-1 text-xs font-semibold text-emerald-100/80 sm:text-sm">
+                  {pedido.tipo === "domicilio" ? "Listo para salir a reparto." : "Listo para recoger."}
+                </p>
+                <div className="mt-1 flex justify-center">
+                  <ResumenProductosTV productos={pedido.productosTV} />
+                </div>
+              </div>
             ))}
           </div>
         </div>

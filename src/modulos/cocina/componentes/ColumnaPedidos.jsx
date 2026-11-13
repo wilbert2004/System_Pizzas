@@ -6,12 +6,14 @@ export default function ColumnaPedidos({
   retrasados,
   onSeleccionar,
   onAvanzar,
+  onAjustarTiempo,
   procesandoId,
   color,
   temporizadores,
+  modoAutomatico,
 }) {
   return (
-    <section className="flex min-w-[290px] flex-1 flex-col">
+    <section className="flex min-w-0 flex-1 flex-col">
       <header
         className={`mb-3 flex items-center justify-between rounded-xl px-4 py-3 ${color}`}
       >
@@ -34,8 +36,10 @@ export default function ColumnaPedidos({
               retrasado={retrasados.some((item) => item.id === pedido.id)}
               onSeleccionar={onSeleccionar}
               onAvanzar={onAvanzar}
+              onAjustarTiempo={onAjustarTiempo}
               procesando={procesandoId === pedido.id}
               temporizador={temporizadores[pedido.id]}
+              modoAutomatico={modoAutomatico}
             />
           ))
         )}
