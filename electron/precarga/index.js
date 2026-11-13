@@ -107,4 +107,13 @@ contextBridge.exposeInMainWorld("sistema", {
 
     obtenerHistorial: (id) => ipcRenderer.invoke("clientes:historial", id),
   },
+  puntoVenta: {
+    obtenerCatalogo: () => ipcRenderer.invoke("punto-venta:catalogo"),
+
+    buscarClientes: (busqueda) =>
+      ipcRenderer.invoke("punto-venta:buscar-clientes", busqueda),
+
+    crearPedido: (datos) =>
+      ipcRenderer.invoke("punto-venta:crear-pedido", datos),
+  },
 });

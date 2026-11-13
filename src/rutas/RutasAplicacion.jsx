@@ -17,6 +17,7 @@ import PantallaTV from "../disenos/pantalla-tv/PantallaTV";
 import RutaProtegida from "../compartidos/componentes/RutaProtegida.jsx";
 import PaginaProductos from "../modulos/productos/paginas/Pagina.jsx";
 import PaginaClientes from "../modulos/clientes/paginas/Pagina.jsx";
+import PaginaPuntoVenta from "../modulos/punto-venta/paginas/Pagina.jsx";
 
 function RutasAplicacion() {
   return (
@@ -28,7 +29,7 @@ function RutasAplicacion() {
 
           <Route element={<DisenoPrincipal />}>
             <Route path="/tablero" element={<Tablero />} />
-            <Route path="/punto-venta" element={<PuntoVenta />} />
+            <Route path="/punto-venta" element={<PaginaPuntoVenta />} />
             <Route path="/pedidos" element={<Pedidos />} />
             <Route path="/cocina" element={<Cocina />} />
             <Route path="/clientes" element={<PaginaClientes />} />
