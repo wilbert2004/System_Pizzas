@@ -402,6 +402,10 @@ export default function PaginaPuntoVenta() {
   const [pedidoRegistrado, setPedidoRegistrado] = useState(null);
   const [errorLocal, setErrorLocal] = useState("");
   const [mostrarOpciones, setMostrarOpciones] = useState(false);
+  const [editandoEnvio, setEditandoEnvio] = useState(false);
+  const [costoEnvioInput, setCostoEnvioInput] = useState(
+    (costoEnvioCentavos / 100).toFixed(2),
+  );
 
   useEffect(() => {
     estado
@@ -517,12 +521,20 @@ export default function PaginaPuntoVenta() {
   };
 
   const cambiarEnvio = (valor) => {
-    const numero = Math.round(Number(valor || 0) * 100);
-
-    if (!Number.isSafeInteger(numero) || numero < 0) return;
-
-    estado.getState().establecerCostoEnvio(numero);
+    setCostoEnvioInput(valor);
+    if (valor === "") return;
+    const pesos = Number(valor);
+    if (!Number.isFinite(pesos) || pesos < 0) return;
+    const centavos = Math.round(pesos * 100);
+    if (!Number.isSafeInteger(centavos)) return;
+    estado.getState().establecerCostoEnvio(centavos);
   };
+
+  useEffect(() => {
+    if (!editandoEnvio) {
+      setCostoEnvioInput((costoEnvioCentavos / 100).toFixed(2));
+    }
+  }, [costoEnvioCentavos, editandoEnvio]);
 
   const cambiarDescuento = (valor) => {
     const numero = Math.round(Number(valor || 0) * 100);
@@ -755,8 +767,18 @@ export default function PaginaPuntoVenta() {
                       min="0"
                       step="0.01"
                       className={claseEntrada}
-                      value={(costoEnvioCentavos / 100).toFixed(2)}
+                      value={costoEnvioInput}
+                      onFocus={() => setEditandoEnvio(true)}
                       onChange={(e) => cambiarEnvio(e.target.value)}
+                      onBlur={() => {
+                        setEditandoEnvio(false);
+                        if (costoEnvioInput === "") {
+                          estado.getState().establecerCostoEnvio(0);
+                          setCostoEnvioInput("0.00");
+                        } else {
+                          setCostoEnvioInput((costoEnvioCentavos / 100).toFixed(2));
+                        }
+                      }}
                     />
                   </Campo>
                 </>

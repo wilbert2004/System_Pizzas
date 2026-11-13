@@ -11,7 +11,8 @@
     "lint": "eslint .",
     "preview": "electron-vite preview",
     "rebuild:nativos": "electron-rebuild -f -w better-sqlite3",
-    "dist:win": "npm run rebuild:nativos && npm run build && electron-builder --win nsis --x64"
+    "icono:win": "powershell -NoProfile -ExecutionPolicy Bypass -File build/installer/generar-icono.ps1",
+    "dist:win": "npm run icono:win && npm run build && electron-builder --win nsis --x64"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
@@ -42,7 +43,10 @@
   },
   "build": {
     "appId": "local.pizzeria.gestion",
-    "productName": "Sistema de Gestion para Pizzeria",
+  "productName": "Pizzeria Wili",
+  "executableName": "PizzeriaWili",
+  "artifactName": "Pizzeria-Wili-Setup-${version}.${ext}",
+  "icon": "build/installer/icon.ico",
     "directories": {
       "output": "distribucion"
     },
@@ -54,8 +58,9 @@
     "asarUnpack": [
       "**/*.node"
     ],
-    "npmRebuild": true,
+    "npmRebuild": false,
     "win": {
+      "icon": "build/installer/icon.ico",
       "target": [
         {
           "target": "nsis",
@@ -69,9 +74,16 @@
       "oneClick": false,
       "perMachine": false,
       "allowToChangeInstallationDirectory": true,
+      "installerIcon": "build/installer/icon.ico",
+      "uninstallerIcon": "build/installer/icon.ico",
+      "installerHeaderIcon": "build/installer/icon.ico",
+      "installerLanguages": ["es_ES"],
+      "displayLanguageSelector": false,
+      "runAfterFinish": true,
+      "deleteAppDataOnUninstall": false,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "Sistema de Gestion para Pizzeria"
+      "shortcutName": "Pizzeria Wili"
     }
   },
   "main": "out/main/index.js"

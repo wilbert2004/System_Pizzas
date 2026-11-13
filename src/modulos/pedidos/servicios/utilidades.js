@@ -99,10 +99,10 @@ export function obtenerAccionesPedido(pedido) {
     case "Listo":
       return pedido.tipo === "domicilio"
         ? [{ estado: "En reparto", etiqueta: "Salir a reparto" }]
-        : [{ estado: "Entregado", etiqueta: "Marcar entregado" }];
+        : [];
 
     case "En reparto":
-      return [{ estado: "Entregado", etiqueta: "Marcar entregado" }];
+      return [];
 
     default:
       return [];

@@ -13674,7 +13674,7 @@ function createLucideIcon(iconDataOrName, iconNode = [], aliases = []) {
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$55 = {
+var __iconData$77 = {
 	name: "alarm-clock",
 	size: 24,
 	node: [
@@ -13706,8 +13706,99 @@ var __iconData$55 = {
 		}]
 	]
 };
-__iconData$55.node;
-var AlarmClock = createLucideIcon(__iconData$55);
+__iconData$77.node;
+var AlarmClock = createLucideIcon(__iconData$77);
+// node_modules/lucide-react/dist/esm/icons/archive-arrow-up.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$76 = {
+	name: "archive-arrow-up",
+	size: 24,
+	node: [
+		["rect", {
+			width: "20",
+			height: "5",
+			x: "2",
+			y: "3",
+			rx: "1",
+			key: "1wp1u1"
+		}],
+		["path", {
+			d: "M4 8v11a2 2 0 0 0 2 2h2",
+			key: "tvwodi"
+		}],
+		["path", {
+			d: "M20 8v11a2 2 0 0 1-2 2h-2",
+			key: "1gkqxj"
+		}],
+		["path", {
+			d: "m9 15 3-3 3 3",
+			key: "1pd0qc"
+		}],
+		["path", {
+			d: "M12 12v9",
+			key: "192myk"
+		}]
+	],
+	aliases: ["archive-restore"]
+};
+__iconData$76.node;
+var ArchiveArrowUp = createLucideIcon(__iconData$76);
+// node_modules/lucide-react/dist/esm/icons/archive.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$75 = {
+	name: "archive",
+	size: 24,
+	node: [
+		["rect", {
+			width: "20",
+			height: "5",
+			x: "2",
+			y: "3",
+			rx: "1",
+			key: "1wp1u1"
+		}],
+		["path", {
+			d: "M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8",
+			key: "1s80jp"
+		}],
+		["path", {
+			d: "M10 12h4",
+			key: "a56b0p"
+		}]
+	]
+};
+__iconData$75.node;
+var Archive = createLucideIcon(__iconData$75);
+// node_modules/lucide-react/dist/esm/icons/arrow-down-right.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$74 = {
+	name: "arrow-down-right",
+	size: 24,
+	node: [["path", {
+		d: "m7 7 10 10",
+		key: "1fmybs"
+	}], ["path", {
+		d: "M17 7v10H7",
+		key: "6fjiku"
+	}]]
+};
+__iconData$74.node;
+var ArrowDownRight = createLucideIcon(__iconData$74);
 // node_modules/lucide-react/dist/esm/icons/arrow-left-right.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13715,7 +13806,7 @@ var AlarmClock = createLucideIcon(__iconData$55);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$54 = {
+var __iconData$73 = {
 	name: "arrow-left-right",
 	size: 24,
 	node: [
@@ -13737,8 +13828,8 @@ var __iconData$54 = {
 		}]
 	]
 };
-__iconData$54.node;
-var ArrowLeftRight = createLucideIcon(__iconData$54);
+__iconData$73.node;
+var ArrowLeftRight = createLucideIcon(__iconData$73);
 // node_modules/lucide-react/dist/esm/icons/arrow-left.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13746,7 +13837,7 @@ var ArrowLeftRight = createLucideIcon(__iconData$54);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$53 = {
+var __iconData$72 = {
 	name: "arrow-left",
 	size: 24,
 	node: [["path", {
@@ -13757,8 +13848,28 @@ var __iconData$53 = {
 		key: "x3x0zl"
 	}]]
 };
-__iconData$53.node;
-var ArrowLeft = createLucideIcon(__iconData$53);
+__iconData$72.node;
+var ArrowLeft = createLucideIcon(__iconData$72);
+// node_modules/lucide-react/dist/esm/icons/arrow-up-right.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$71 = {
+	name: "arrow-up-right",
+	size: 24,
+	node: [["path", {
+		d: "M7 7h10v10",
+		key: "1tivn9"
+	}], ["path", {
+		d: "M7 17 17 7",
+		key: "1vkiza"
+	}]]
+};
+__iconData$71.node;
+var ArrowUpRight = createLucideIcon(__iconData$71);
 // node_modules/lucide-react/dist/esm/icons/ban.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13766,7 +13877,7 @@ var ArrowLeft = createLucideIcon(__iconData$53);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$52 = {
+var __iconData$70 = {
 	name: "ban",
 	size: 24,
 	node: [["circle", {
@@ -13779,8 +13890,8 @@ var __iconData$52 = {
 		key: "196cmz"
 	}]]
 };
-__iconData$52.node;
-var Ban = createLucideIcon(__iconData$52);
+__iconData$70.node;
+var Ban = createLucideIcon(__iconData$70);
 // node_modules/lucide-react/dist/esm/icons/banknote.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13788,7 +13899,7 @@ var Ban = createLucideIcon(__iconData$52);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$51 = {
+var __iconData$69 = {
 	name: "banknote",
 	size: 24,
 	node: [
@@ -13812,28 +13923,8 @@ var __iconData$51 = {
 		}]
 	]
 };
-__iconData$51.node;
-var Banknote = createLucideIcon(__iconData$51);
-// node_modules/lucide-react/dist/esm/icons/bell.mjs
-/**
-* @license lucide-react v1.72.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
-var __iconData$50 = {
-	name: "bell",
-	size: 24,
-	node: [["path", {
-		d: "M10.268 21a2 2 0 0 0 3.464 0",
-		key: "vwvbt9"
-	}], ["path", {
-		d: "M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326",
-		key: "11g9vi"
-	}]]
-};
-__iconData$50.node;
-var Bell = createLucideIcon(__iconData$50);
+__iconData$69.node;
+var Banknote = createLucideIcon(__iconData$69);
 // node_modules/lucide-react/dist/esm/icons/cable.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13841,7 +13932,7 @@ var Bell = createLucideIcon(__iconData$50);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$49 = {
+var __iconData$68 = {
 	name: "cable",
 	size: 24,
 	node: [
@@ -13875,8 +13966,67 @@ var __iconData$49 = {
 		}]
 	]
 };
-__iconData$49.node;
-var Cable = createLucideIcon(__iconData$49);
+__iconData$68.node;
+var Cable = createLucideIcon(__iconData$68);
+// node_modules/lucide-react/dist/esm/icons/calendar-days.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$67 = {
+	name: "calendar-days",
+	size: 24,
+	node: [
+		["path", {
+			d: "M8 2v3",
+			key: "1ioesn"
+		}],
+		["path", {
+			d: "M16 2v3",
+			key: "otl347"
+		}],
+		["rect", {
+			x: "3",
+			y: "3",
+			width: "18",
+			height: "18",
+			rx: "2",
+			key: "h1oib"
+		}],
+		["path", {
+			d: "M3 9h18",
+			key: "1pudct"
+		}],
+		["path", {
+			d: "M8 13h.01",
+			key: "1sbv64"
+		}],
+		["path", {
+			d: "M12 13h.01",
+			key: "y0uutt"
+		}],
+		["path", {
+			d: "M16 13h.01",
+			key: "wip0gl"
+		}],
+		["path", {
+			d: "M8 17h.01",
+			key: "p3bg7i"
+		}],
+		["path", {
+			d: "M12 17h.01",
+			key: "p32p05"
+		}],
+		["path", {
+			d: "M16 17h.01",
+			key: "ql8jdd"
+		}]
+	]
+};
+__iconData$67.node;
+var CalendarDays = createLucideIcon(__iconData$67);
 // node_modules/lucide-react/dist/esm/icons/chart-no-axes-combined.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13884,7 +14034,7 @@ var Cable = createLucideIcon(__iconData$49);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$48 = {
+var __iconData$66 = {
 	name: "chart-no-axes-combined",
 	size: 24,
 	node: [
@@ -13914,8 +14064,8 @@ var __iconData$48 = {
 		}]
 	]
 };
-__iconData$48.node;
-var ChartNoAxesCombined = createLucideIcon(__iconData$48);
+__iconData$66.node;
+var ChartNoAxesCombined = createLucideIcon(__iconData$66);
 // node_modules/lucide-react/dist/esm/icons/chef-hat.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13923,7 +14073,7 @@ var ChartNoAxesCombined = createLucideIcon(__iconData$48);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$47 = {
+var __iconData$65 = {
 	name: "chef-hat",
 	size: 24,
 	node: [
@@ -13945,8 +14095,8 @@ var __iconData$47 = {
 		}]
 	]
 };
-__iconData$47.node;
-var ChefHat = createLucideIcon(__iconData$47);
+__iconData$65.node;
+var ChefHat = createLucideIcon(__iconData$65);
 // node_modules/lucide-react/dist/esm/icons/circle-check.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13954,7 +14104,7 @@ var ChefHat = createLucideIcon(__iconData$47);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$46 = {
+var __iconData$64 = {
 	name: "circle-check",
 	size: 24,
 	node: [["circle", {
@@ -13968,8 +14118,8 @@ var __iconData$46 = {
 	}]],
 	aliases: ["check-circle-2"]
 };
-__iconData$46.node;
-var CircleCheck = createLucideIcon(__iconData$46);
+__iconData$64.node;
+var CircleCheck = createLucideIcon(__iconData$64);
 // node_modules/lucide-react/dist/esm/icons/circle-user-round.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13977,7 +14127,7 @@ var CircleCheck = createLucideIcon(__iconData$46);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$45 = {
+var __iconData$63 = {
 	name: "circle-user-round",
 	size: 24,
 	node: [
@@ -14000,8 +14150,8 @@ var __iconData$45 = {
 	],
 	aliases: ["user-circle-2"]
 };
-__iconData$45.node;
-var CircleUserRound = createLucideIcon(__iconData$45);
+__iconData$63.node;
+var CircleUserRound = createLucideIcon(__iconData$63);
 // node_modules/lucide-react/dist/esm/icons/clipboard-list.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14009,7 +14159,7 @@ var CircleUserRound = createLucideIcon(__iconData$45);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$44 = {
+var __iconData$62 = {
 	name: "clipboard-list",
 	size: 24,
 	node: [
@@ -14044,8 +14194,8 @@ var __iconData$44 = {
 		}]
 	]
 };
-__iconData$44.node;
-var ClipboardList = createLucideIcon(__iconData$44);
+__iconData$62.node;
+var ClipboardList = createLucideIcon(__iconData$62);
 // node_modules/lucide-react/dist/esm/icons/clock-3.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14053,7 +14203,7 @@ var ClipboardList = createLucideIcon(__iconData$44);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$43 = {
+var __iconData$61 = {
 	name: "clock-3",
 	size: 24,
 	node: [["circle", {
@@ -14066,8 +14216,8 @@ var __iconData$43 = {
 		key: "135r8i"
 	}]]
 };
-__iconData$43.node;
-var Clock3 = createLucideIcon(__iconData$43);
+__iconData$61.node;
+var Clock3 = createLucideIcon(__iconData$61);
 // node_modules/lucide-react/dist/esm/icons/cloud-upload.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14075,7 +14225,7 @@ var Clock3 = createLucideIcon(__iconData$43);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$42 = {
+var __iconData$60 = {
 	name: "cloud-upload",
 	size: 24,
 	node: [
@@ -14094,8 +14244,33 @@ var __iconData$42 = {
 	],
 	aliases: ["upload-cloud"]
 };
-__iconData$42.node;
-var CloudUpload = createLucideIcon(__iconData$42);
+__iconData$60.node;
+var CloudUpload = createLucideIcon(__iconData$60);
+// node_modules/lucide-react/dist/esm/icons/copy.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$59 = {
+	name: "copy",
+	size: 24,
+	node: [["rect", {
+		width: "14",
+		height: "14",
+		x: "8",
+		y: "8",
+		rx: "2",
+		ry: "2",
+		key: "17jyea"
+	}], ["path", {
+		d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2",
+		key: "zix9uf"
+	}]]
+};
+__iconData$59.node;
+var Copy = createLucideIcon(__iconData$59);
 // node_modules/lucide-react/dist/esm/icons/credit-card.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14103,7 +14278,7 @@ var CloudUpload = createLucideIcon(__iconData$42);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$41 = {
+var __iconData$58 = {
 	name: "credit-card",
 	size: 24,
 	node: [
@@ -14128,8 +14303,120 @@ var __iconData$41 = {
 		}]
 	]
 };
-__iconData$41.node;
-var CreditCard = createLucideIcon(__iconData$41);
+__iconData$58.node;
+var CreditCard = createLucideIcon(__iconData$58);
+// node_modules/lucide-react/dist/esm/icons/door-closed.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$57 = {
+	name: "door-closed",
+	size: 24,
+	node: [
+		["path", {
+			d: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16",
+			key: "4uynto"
+		}],
+		["path", {
+			d: "M2 21h20",
+			key: "1nyx9w"
+		}],
+		["path", {
+			d: "M9 12h.01",
+			key: "157uk2"
+		}]
+	]
+};
+__iconData$57.node;
+var DoorClosed = createLucideIcon(__iconData$57);
+// node_modules/lucide-react/dist/esm/icons/door-open.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$56 = {
+	name: "door-open",
+	size: 24,
+	node: [
+		["path", {
+			d: "M10 21H2",
+			key: "1sthdo"
+		}],
+		["path", {
+			d: "M10 3H7a2 2 0 00-2 2v16",
+			key: "15gt7x"
+		}],
+		["path", {
+			d: "M14 12h.01",
+			key: "1jfl7z"
+		}],
+		["path", {
+			d: "M19 21V5a2 2 0 00-1.675-1.974l-6.163-1.013A1 1 0 0010 3v18a1 1 0 001.124.992z",
+			key: "tyvg9a"
+		}],
+		["path", {
+			d: "M22 21h-3",
+			key: "1ec3tr"
+		}]
+	]
+};
+__iconData$56.node;
+var DoorOpen = createLucideIcon(__iconData$56);
+// node_modules/lucide-react/dist/esm/icons/download.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$55 = {
+	name: "download",
+	size: 24,
+	node: [
+		["path", {
+			d: "M12 15V3",
+			key: "m9g1x1"
+		}],
+		["path", {
+			d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4",
+			key: "ih7n3h"
+		}],
+		["path", {
+			d: "m7 10 5 5 5-5",
+			key: "brsn70"
+		}]
+	]
+};
+__iconData$55.node;
+var Download = createLucideIcon(__iconData$55);
+// node_modules/lucide-react/dist/esm/icons/eighth-note.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$54 = {
+	name: "eighth-note",
+	size: 24,
+	node: [["path", {
+		d: "m19 6-5.2-3.9a.5.5 0 0 0-.8.4V18",
+		key: "nsdg4r"
+	}], ["circle", {
+		cx: "9",
+		cy: "18",
+		r: "4",
+		key: "1972g7"
+	}]],
+	aliases: ["music-2"]
+};
+__iconData$54.node;
+var EighthNote = createLucideIcon(__iconData$54);
 // node_modules/lucide-react/dist/esm/icons/eye.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14137,7 +14424,7 @@ var CreditCard = createLucideIcon(__iconData$41);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$40 = {
+var __iconData$53 = {
 	name: "eye",
 	size: 24,
 	node: [["path", {
@@ -14150,8 +14437,8 @@ var __iconData$40 = {
 		key: "1v7zrd"
 	}]]
 };
-__iconData$40.node;
-var Eye = createLucideIcon(__iconData$40);
+__iconData$53.node;
+var Eye = createLucideIcon(__iconData$53);
 // node_modules/lucide-react/dist/esm/icons/eye-off.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14159,7 +14446,7 @@ var Eye = createLucideIcon(__iconData$40);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$39 = {
+var __iconData$52 = {
 	name: "eye-off",
 	size: 24,
 	node: [
@@ -14181,8 +14468,39 @@ var __iconData$39 = {
 		}]
 	]
 };
-__iconData$39.node;
-var EyeOff = createLucideIcon(__iconData$39);
+__iconData$52.node;
+var EyeOff = createLucideIcon(__iconData$52);
+// node_modules/lucide-react/dist/esm/icons/file-down.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$51 = {
+	name: "file-down",
+	size: 24,
+	node: [
+		["path", {
+			d: "M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z",
+			key: "1oefj6"
+		}],
+		["path", {
+			d: "M14 2v5a1 1 0 0 0 1 1h5",
+			key: "wfsgrz"
+		}],
+		["path", {
+			d: "M12 18v-6",
+			key: "17g6i2"
+		}],
+		["path", {
+			d: "m9 15 3 3 3-3",
+			key: "1npd3o"
+		}]
+	]
+};
+__iconData$51.node;
+var FileDown = createLucideIcon(__iconData$51);
 // node_modules/lucide-react/dist/esm/icons/flame.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14190,7 +14508,7 @@ var EyeOff = createLucideIcon(__iconData$39);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$38 = {
+var __iconData$50 = {
 	name: "flame",
 	size: 24,
 	node: [["path", {
@@ -14198,8 +14516,64 @@ var __iconData$38 = {
 		key: "1slcih"
 	}]]
 };
-__iconData$38.node;
-var Flame = createLucideIcon(__iconData$38);
+__iconData$50.node;
+var Flame = createLucideIcon(__iconData$50);
+// node_modules/lucide-react/dist/esm/icons/folder-open.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$49 = {
+	name: "folder-open",
+	size: 24,
+	node: [["path", {
+		d: "m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2",
+		key: "usdka0"
+	}]]
+};
+__iconData$49.node;
+var FolderOpen = createLucideIcon(__iconData$49);
+// node_modules/lucide-react/dist/esm/icons/hard-drive-download.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$48 = {
+	name: "hard-drive-download",
+	size: 24,
+	node: [
+		["path", {
+			d: "M12 2v8",
+			key: "1q4o3n"
+		}],
+		["path", {
+			d: "m16 6-4 4-4-4",
+			key: "6wukr"
+		}],
+		["rect", {
+			width: "20",
+			height: "8",
+			x: "2",
+			y: "14",
+			rx: "2",
+			key: "w68u3i"
+		}],
+		["path", {
+			d: "M6 18h.01",
+			key: "uhywen"
+		}],
+		["path", {
+			d: "M10 18h.01",
+			key: "h775k"
+		}]
+	]
+};
+__iconData$48.node;
+var HardDriveDownload = createLucideIcon(__iconData$48);
 // node_modules/lucide-react/dist/esm/icons/image-plus.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14207,7 +14581,7 @@ var Flame = createLucideIcon(__iconData$38);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$37 = {
+var __iconData$47 = {
 	name: "image-plus",
 	size: 24,
 	node: [
@@ -14235,8 +14609,8 @@ var __iconData$37 = {
 		}]
 	]
 };
-__iconData$37.node;
-var ImagePlus = createLucideIcon(__iconData$37);
+__iconData$47.node;
+var ImagePlus = createLucideIcon(__iconData$47);
 // node_modules/lucide-react/dist/esm/icons/image.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14244,7 +14618,7 @@ var ImagePlus = createLucideIcon(__iconData$37);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$36 = {
+var __iconData$46 = {
 	name: "image",
 	size: 24,
 	node: [
@@ -14269,8 +14643,31 @@ var __iconData$36 = {
 		}]
 	]
 };
-__iconData$36.node;
-var Image = createLucideIcon(__iconData$36);
+__iconData$46.node;
+var Image = createLucideIcon(__iconData$46);
+// node_modules/lucide-react/dist/esm/icons/key-round.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$45 = {
+	name: "key-round",
+	size: 24,
+	node: [["path", {
+		d: "M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z",
+		key: "1s6t7t"
+	}], ["circle", {
+		cx: "16.5",
+		cy: "7.5",
+		r: ".5",
+		fill: "currentColor",
+		key: "w0ekpg"
+	}]]
+};
+__iconData$45.node;
+var KeyRound = createLucideIcon(__iconData$45);
 // node_modules/lucide-react/dist/esm/icons/layout-dashboard.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14278,7 +14675,7 @@ var Image = createLucideIcon(__iconData$36);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$35 = {
+var __iconData$44 = {
 	name: "layout-dashboard",
 	size: 24,
 	node: [
@@ -14316,8 +14713,26 @@ var __iconData$35 = {
 		}]
 	]
 };
-__iconData$35.node;
-var LayoutDashboard = createLucideIcon(__iconData$35);
+__iconData$44.node;
+var LayoutDashboard = createLucideIcon(__iconData$44);
+// node_modules/lucide-react/dist/esm/icons/loader-circle.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$43 = {
+	name: "loader-circle",
+	size: 24,
+	node: [["path", {
+		d: "M21 12a9 9 0 1 1-6.219-8.56",
+		key: "13zald"
+	}]],
+	aliases: ["loader-2"]
+};
+__iconData$43.node;
+var LoaderCircle = createLucideIcon(__iconData$43);
 // node_modules/lucide-react/dist/esm/icons/log-out.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14325,7 +14740,7 @@ var LayoutDashboard = createLucideIcon(__iconData$35);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$34 = {
+var __iconData$42 = {
 	name: "log-out",
 	size: 24,
 	node: [
@@ -14343,8 +14758,8 @@ var __iconData$34 = {
 		}]
 	]
 };
-__iconData$34.node;
-var LogOut = createLucideIcon(__iconData$34);
+__iconData$42.node;
+var LogOut = createLucideIcon(__iconData$42);
 // node_modules/lucide-react/dist/esm/icons/map-pin.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14352,7 +14767,7 @@ var LogOut = createLucideIcon(__iconData$34);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$33 = {
+var __iconData$41 = {
 	name: "map-pin",
 	size: 24,
 	node: [["path", {
@@ -14365,8 +14780,35 @@ var __iconData$33 = {
 		key: "ilqhr7"
 	}]]
 };
-__iconData$33.node;
-var MapPin = createLucideIcon(__iconData$33);
+__iconData$41.node;
+var MapPin = createLucideIcon(__iconData$41);
+// node_modules/lucide-react/dist/esm/icons/menu.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$40 = {
+	name: "menu",
+	size: 24,
+	node: [
+		["path", {
+			d: "M4 5h16",
+			key: "1tepv9"
+		}],
+		["path", {
+			d: "M4 12h16",
+			key: "1lakjw"
+		}],
+		["path", {
+			d: "M4 19h16",
+			key: "1djgab"
+		}]
+	]
+};
+__iconData$40.node;
+var Menu = createLucideIcon(__iconData$40);
 // node_modules/lucide-react/dist/esm/icons/minus.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14374,7 +14816,7 @@ var MapPin = createLucideIcon(__iconData$33);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$32 = {
+var __iconData$39 = {
 	name: "minus",
 	size: 24,
 	node: [["path", {
@@ -14382,8 +14824,8 @@ var __iconData$32 = {
 		key: "1ays0h"
 	}]]
 };
-__iconData$32.node;
-var Minus = createLucideIcon(__iconData$32);
+__iconData$39.node;
+var Minus = createLucideIcon(__iconData$39);
 // node_modules/lucide-react/dist/esm/icons/monitor-play.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14391,7 +14833,7 @@ var Minus = createLucideIcon(__iconData$32);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$31 = {
+var __iconData$38 = {
 	name: "monitor-play",
 	size: 24,
 	node: [
@@ -14417,8 +14859,47 @@ var __iconData$31 = {
 		}]
 	]
 };
-__iconData$31.node;
-var MonitorPlay = createLucideIcon(__iconData$31);
+__iconData$38.node;
+var MonitorPlay = createLucideIcon(__iconData$38);
+// node_modules/lucide-react/dist/esm/icons/monitor-x.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$37 = {
+	name: "monitor-x",
+	size: 24,
+	node: [
+		["path", {
+			d: "m14.5 12.5-5-5",
+			key: "1jahn5"
+		}],
+		["path", {
+			d: "m9.5 12.5 5-5",
+			key: "1k2t7b"
+		}],
+		["rect", {
+			width: "20",
+			height: "14",
+			x: "2",
+			y: "3",
+			rx: "2",
+			key: "48i651"
+		}],
+		["path", {
+			d: "M12 17v4",
+			key: "1riwvh"
+		}],
+		["path", {
+			d: "M8 21h8",
+			key: "1ev6f3"
+		}]
+	]
+};
+__iconData$37.node;
+var MonitorX = createLucideIcon(__iconData$37);
 // node_modules/lucide-react/dist/esm/icons/package-check.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14426,7 +14907,7 @@ var MonitorPlay = createLucideIcon(__iconData$31);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$30 = {
+var __iconData$36 = {
 	name: "package-check",
 	size: 24,
 	node: [
@@ -14452,8 +14933,8 @@ var __iconData$30 = {
 		}]
 	]
 };
-__iconData$30.node;
-var PackageCheck = createLucideIcon(__iconData$30);
+__iconData$36.node;
+var PackageCheck = createLucideIcon(__iconData$36);
 // node_modules/lucide-react/dist/esm/icons/package.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14461,7 +14942,7 @@ var PackageCheck = createLucideIcon(__iconData$30);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$29 = {
+var __iconData$35 = {
 	name: "package",
 	size: 24,
 	node: [
@@ -14483,8 +14964,8 @@ var __iconData$29 = {
 		}]
 	]
 };
-__iconData$29.node;
-var Package = createLucideIcon(__iconData$29);
+__iconData$35.node;
+var Package = createLucideIcon(__iconData$35);
 // node_modules/lucide-react/dist/esm/icons/pencil.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14492,7 +14973,7 @@ var Package = createLucideIcon(__iconData$29);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$28 = {
+var __iconData$34 = {
 	name: "pencil",
 	size: 24,
 	node: [["path", {
@@ -14503,8 +14984,8 @@ var __iconData$28 = {
 		key: "1mk7zo"
 	}]]
 };
-__iconData$28.node;
-var Pencil = createLucideIcon(__iconData$28);
+__iconData$34.node;
+var Pencil = createLucideIcon(__iconData$34);
 // node_modules/lucide-react/dist/esm/icons/phone.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14512,7 +14993,7 @@ var Pencil = createLucideIcon(__iconData$28);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$27 = {
+var __iconData$33 = {
 	name: "phone",
 	size: 24,
 	node: [["path", {
@@ -14520,8 +15001,8 @@ var __iconData$27 = {
 		key: "9njp5v"
 	}]]
 };
-__iconData$27.node;
-var Phone = createLucideIcon(__iconData$27);
+__iconData$33.node;
+var Phone = createLucideIcon(__iconData$33);
 // node_modules/lucide-react/dist/esm/icons/pizza.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14529,7 +15010,7 @@ var Phone = createLucideIcon(__iconData$27);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$26 = {
+var __iconData$32 = {
 	name: "pizza",
 	size: 24,
 	node: [
@@ -14555,8 +15036,8 @@ var __iconData$26 = {
 		}]
 	]
 };
-__iconData$26.node;
-var Pizza = createLucideIcon(__iconData$26);
+__iconData$32.node;
+var Pizza = createLucideIcon(__iconData$32);
 // node_modules/lucide-react/dist/esm/icons/plus.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14564,7 +15045,7 @@ var Pizza = createLucideIcon(__iconData$26);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$25 = {
+var __iconData$31 = {
 	name: "plus",
 	size: 24,
 	node: [["path", {
@@ -14575,8 +15056,8 @@ var __iconData$25 = {
 		key: "s699le"
 	}]]
 };
-__iconData$25.node;
-var Plus = createLucideIcon(__iconData$25);
+__iconData$31.node;
+var Plus = createLucideIcon(__iconData$31);
 // node_modules/lucide-react/dist/esm/icons/power-off.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14584,7 +15065,7 @@ var Plus = createLucideIcon(__iconData$25);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$24 = {
+var __iconData$30 = {
 	name: "power-off",
 	size: 24,
 	node: [
@@ -14606,8 +15087,8 @@ var __iconData$24 = {
 		}]
 	]
 };
-__iconData$24.node;
-var PowerOff = createLucideIcon(__iconData$24);
+__iconData$30.node;
+var PowerOff = createLucideIcon(__iconData$30);
 // node_modules/lucide-react/dist/esm/icons/power.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14615,7 +15096,7 @@ var PowerOff = createLucideIcon(__iconData$24);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$23 = {
+var __iconData$29 = {
 	name: "power",
 	size: 24,
 	node: [["path", {
@@ -14626,8 +15107,39 @@ var __iconData$23 = {
 		key: "obofu9"
 	}]]
 };
-__iconData$23.node;
-var Power = createLucideIcon(__iconData$23);
+__iconData$29.node;
+var Power = createLucideIcon(__iconData$29);
+// node_modules/lucide-react/dist/esm/icons/printer.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$28 = {
+	name: "printer",
+	size: 24,
+	node: [
+		["path", {
+			d: "M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2",
+			key: "143wyd"
+		}],
+		["path", {
+			d: "M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6",
+			key: "1itne7"
+		}],
+		["rect", {
+			x: "6",
+			y: "14",
+			width: "12",
+			height: "8",
+			rx: "1",
+			key: "1ue0tg"
+		}]
+	]
+};
+__iconData$28.node;
+var Printer = createLucideIcon(__iconData$28);
 // node_modules/lucide-react/dist/esm/icons/refresh-cw.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14635,7 +15147,7 @@ var Power = createLucideIcon(__iconData$23);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$22 = {
+var __iconData$27 = {
 	name: "refresh-cw",
 	size: 24,
 	node: [
@@ -14657,8 +15169,8 @@ var __iconData$22 = {
 		}]
 	]
 };
-__iconData$22.node;
-var RefreshCw = createLucideIcon(__iconData$22);
+__iconData$27.node;
+var RefreshCw = createLucideIcon(__iconData$27);
 // node_modules/lucide-react/dist/esm/icons/rotate-ccw-clock.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14666,7 +15178,7 @@ var RefreshCw = createLucideIcon(__iconData$22);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$21 = {
+var __iconData$26 = {
 	name: "rotate-ccw-clock",
 	size: 24,
 	node: [
@@ -14685,8 +15197,8 @@ var __iconData$21 = {
 	],
 	aliases: ["history"]
 };
-__iconData$21.node;
-var RotateCcwClock = createLucideIcon(__iconData$21);
+__iconData$26.node;
+var RotateCcwClock = createLucideIcon(__iconData$26);
 // node_modules/lucide-react/dist/esm/icons/save.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14694,7 +15206,7 @@ var RotateCcwClock = createLucideIcon(__iconData$21);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$20 = {
+var __iconData$25 = {
 	name: "save",
 	size: 24,
 	node: [
@@ -14712,8 +15224,8 @@ var __iconData$20 = {
 		}]
 	]
 };
-__iconData$20.node;
-var Save = createLucideIcon(__iconData$20);
+__iconData$25.node;
+var Save = createLucideIcon(__iconData$25);
 // node_modules/lucide-react/dist/esm/icons/search.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14721,7 +15233,7 @@ var Save = createLucideIcon(__iconData$20);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$19 = {
+var __iconData$24 = {
 	name: "search",
 	size: 24,
 	node: [["path", {
@@ -14734,8 +15246,43 @@ var __iconData$19 = {
 		key: "4ej97u"
 	}]]
 };
-__iconData$19.node;
-var Search = createLucideIcon(__iconData$19);
+__iconData$24.node;
+var Search = createLucideIcon(__iconData$24);
+// node_modules/lucide-react/dist/esm/icons/settings-2.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$23 = {
+	name: "settings-2",
+	size: 24,
+	node: [
+		["path", {
+			d: "M14 17H5",
+			key: "gfn3mx"
+		}],
+		["path", {
+			d: "M19 7h-9",
+			key: "6i9tg"
+		}],
+		["circle", {
+			cx: "17",
+			cy: "17",
+			r: "3",
+			key: "18b49y"
+		}],
+		["circle", {
+			cx: "7",
+			cy: "7",
+			r: "3",
+			key: "dfmy0x"
+		}]
+	]
+};
+__iconData$23.node;
+var Settings2 = createLucideIcon(__iconData$23);
 // node_modules/lucide-react/dist/esm/icons/settings.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14743,7 +15290,7 @@ var Search = createLucideIcon(__iconData$19);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$18 = {
+var __iconData$22 = {
 	name: "settings",
 	size: 24,
 	node: [["path", {
@@ -14756,8 +15303,28 @@ var __iconData$18 = {
 		key: "1v7zrd"
 	}]]
 };
-__iconData$18.node;
-var Settings = createLucideIcon(__iconData$18);
+__iconData$22.node;
+var Settings = createLucideIcon(__iconData$22);
+// node_modules/lucide-react/dist/esm/icons/shield-check.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$21 = {
+	name: "shield-check",
+	size: 24,
+	node: [["path", {
+		d: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
+		key: "oel41y"
+	}], ["path", {
+		d: "m9 12 2 2 4-4",
+		key: "dzmm74"
+	}]]
+};
+__iconData$21.node;
+var ShieldCheck = createLucideIcon(__iconData$21);
 // node_modules/lucide-react/dist/esm/icons/shopping-bag.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14765,7 +15332,7 @@ var Settings = createLucideIcon(__iconData$18);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$17 = {
+var __iconData$20 = {
 	name: "shopping-bag",
 	size: 24,
 	node: [
@@ -14783,8 +15350,8 @@ var __iconData$17 = {
 		}]
 	]
 };
-__iconData$17.node;
-var ShoppingBag = createLucideIcon(__iconData$17);
+__iconData$20.node;
+var ShoppingBag = createLucideIcon(__iconData$20);
 // node_modules/lucide-react/dist/esm/icons/shopping-cart.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14792,7 +15359,7 @@ var ShoppingBag = createLucideIcon(__iconData$17);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$16 = {
+var __iconData$19 = {
 	name: "shopping-cart",
 	size: 24,
 	node: [
@@ -14818,8 +15385,42 @@ var __iconData$16 = {
 		}]
 	]
 };
-__iconData$16.node;
-var ShoppingCart = createLucideIcon(__iconData$16);
+__iconData$19.node;
+var ShoppingCart = createLucideIcon(__iconData$19);
+// node_modules/lucide-react/dist/esm/icons/sparkles.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$18 = {
+	name: "sparkles",
+	size: 24,
+	node: [
+		["path", {
+			d: "M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z",
+			key: "1s2grr"
+		}],
+		["path", {
+			d: "M20 2v4",
+			key: "1rf3ol"
+		}],
+		["path", {
+			d: "M22 4h-4",
+			key: "gwowj6"
+		}],
+		["circle", {
+			cx: "4",
+			cy: "20",
+			r: "2",
+			key: "6kqj1y"
+		}]
+	],
+	aliases: ["stars"]
+};
+__iconData$18.node;
+var Sparkles = createLucideIcon(__iconData$18);
 // node_modules/lucide-react/dist/esm/icons/store.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14827,7 +15428,7 @@ var ShoppingCart = createLucideIcon(__iconData$16);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$15 = {
+var __iconData$17 = {
 	name: "store",
 	size: 24,
 	node: [
@@ -14845,8 +15446,8 @@ var __iconData$15 = {
 		}]
 	]
 };
-__iconData$15.node;
-var Store = createLucideIcon(__iconData$15);
+__iconData$17.node;
+var Store = createLucideIcon(__iconData$17);
 // node_modules/lucide-react/dist/esm/icons/tag.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14854,7 +15455,7 @@ var Store = createLucideIcon(__iconData$15);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$14 = {
+var __iconData$16 = {
 	name: "tag",
 	size: 24,
 	node: [["path", {
@@ -14868,8 +15469,43 @@ var __iconData$14 = {
 		key: "kqv944"
 	}]]
 };
-__iconData$14.node;
-var Tag = createLucideIcon(__iconData$14);
+__iconData$16.node;
+var Tag = createLucideIcon(__iconData$16);
+// node_modules/lucide-react/dist/esm/icons/timer.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$15 = {
+	name: "timer",
+	size: 24,
+	node: [
+		["line", {
+			x1: "10",
+			x2: "14",
+			y1: "2",
+			y2: "2",
+			key: "14vaq8"
+		}],
+		["line", {
+			x1: "12",
+			x2: "15",
+			y1: "14",
+			y2: "11",
+			key: "17fdiu"
+		}],
+		["circle", {
+			cx: "12",
+			cy: "14",
+			r: "8",
+			key: "1e1u0o"
+		}]
+	]
+};
+__iconData$15.node;
+var Timer = createLucideIcon(__iconData$15);
 // node_modules/lucide-react/dist/esm/icons/trash.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14877,7 +15513,7 @@ var Tag = createLucideIcon(__iconData$14);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$13 = {
+var __iconData$14 = {
 	name: "trash",
 	size: 24,
 	node: [
@@ -14904,8 +15540,8 @@ var __iconData$13 = {
 	],
 	aliases: ["trash-2"]
 };
-__iconData$13.node;
-var Trash = createLucideIcon(__iconData$13);
+__iconData$14.node;
+var Trash = createLucideIcon(__iconData$14);
 // node_modules/lucide-react/dist/esm/icons/triangle-exclamation-point.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14913,7 +15549,7 @@ var Trash = createLucideIcon(__iconData$13);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$12 = {
+var __iconData$13 = {
 	name: "triangle-exclamation-point",
 	size: 24,
 	node: [
@@ -14932,8 +15568,8 @@ var __iconData$12 = {
 	],
 	aliases: ["alert-triangle", "triangle-alert"]
 };
-__iconData$12.node;
-var TriangleExclamationPoint = createLucideIcon(__iconData$12);
+__iconData$13.node;
+var TriangleExclamationPoint = createLucideIcon(__iconData$13);
 // node_modules/lucide-react/dist/esm/icons/truck.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14941,7 +15577,7 @@ var TriangleExclamationPoint = createLucideIcon(__iconData$12);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$11 = {
+var __iconData$12 = {
 	name: "truck",
 	size: 24,
 	node: [
@@ -14971,8 +15607,8 @@ var __iconData$11 = {
 		}]
 	]
 };
-__iconData$11.node;
-var Truck = createLucideIcon(__iconData$11);
+__iconData$12.node;
+var Truck = createLucideIcon(__iconData$12);
 // node_modules/lucide-react/dist/esm/icons/user-check.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14980,7 +15616,7 @@ var Truck = createLucideIcon(__iconData$11);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$10 = {
+var __iconData$11 = {
 	name: "user-check",
 	size: 24,
 	node: [
@@ -15000,8 +15636,8 @@ var __iconData$10 = {
 		}]
 	]
 };
-__iconData$10.node;
-var UserCheck = createLucideIcon(__iconData$10);
+__iconData$11.node;
+var UserCheck = createLucideIcon(__iconData$11);
 // node_modules/lucide-react/dist/esm/icons/user-cog.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -15009,7 +15645,7 @@ var UserCheck = createLucideIcon(__iconData$10);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$9 = {
+var __iconData$10 = {
 	name: "user-cog",
 	size: 24,
 	node: [
@@ -15063,8 +15699,42 @@ var __iconData$9 = {
 		}]
 	]
 };
+__iconData$10.node;
+var UserCog = createLucideIcon(__iconData$10);
+// node_modules/lucide-react/dist/esm/icons/user-round-x.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$9 = {
+	name: "user-round-x",
+	size: 24,
+	node: [
+		["path", {
+			d: "m16.5 16.5 5 5",
+			key: "zc9lw7"
+		}],
+		["path", {
+			d: "M2 21a8 8 0 0 1 11.531-7.18",
+			key: "x5izle"
+		}],
+		["path", {
+			d: "m21.5 16.5-5 5",
+			key: "1empo3"
+		}],
+		["circle", {
+			cx: "10",
+			cy: "8",
+			r: "5",
+			key: "o932ke"
+		}]
+	],
+	aliases: ["user-x-2"]
+};
 __iconData$9.node;
-var UserCog = createLucideIcon(__iconData$9);
+var UserRoundX = createLucideIcon(__iconData$9);
 // node_modules/lucide-react/dist/esm/icons/user-round.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -15360,11 +16030,11 @@ function CampoContrasena({ value, onChange, placeholder = "Contraseña", autoCom
 			onChange: (e) => onChange(e.target.value),
 			placeholder,
 			autoComplete,
-			className: "w-full rounded-xl border border-slate-200 bg-white px-4 py-3 pr-12 outline-none transition focus:border-violet-500 focus:ring-2 focus:ring-violet-100"
+			className: "w-full rounded-xl border border-slate-200 bg-slate-50/60 py-3.5 pl-4 pr-12 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-violet-500 focus:bg-white focus:ring-4 focus:ring-violet-100/70"
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 			type: "button",
 			onClick: () => setVisible(!visible),
-			className: "absolute right-4 top-1/2 -translate-y-1/2 text-slate-500",
+			className: "absolute right-4 top-1/2 -translate-y-1/2 rounded-md p-1 text-slate-500 transition hover:bg-slate-100 hover:text-slate-800",
 			"aria-label": visible ? "Ocultar contraseña" : "Mostrar contraseña",
 			children: visible ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EyeOff, { size: 19 }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Eye, { size: 19 })
 		})]
@@ -15385,6 +16055,54 @@ function validarAdministrador(datos) {
 	if (datos.contrasena !== datos.confirmarContrasena) errores.confirmarContrasena = "Las contraseñas no coinciden.";
 	return errores;
 }
+// src/modulos/autenticacion/servicios/autenticacion.js
+var api$2 = window.sistema;
+var servicioAutenticacion = {
+	obtenerEstadoInicial() {
+		return api$2.autenticacion.estadoInicial();
+	},
+	crearAdministrador(datos) {
+		return api$2.autenticacion.crearAdministrador(datos);
+	},
+	iniciarSesion(datos) {
+		return api$2.autenticacion.iniciarSesion(datos);
+	},
+	cerrarSesion() {
+		return api$2.autenticacion.cerrarSesion();
+	},
+	obtenerSesion() {
+		return api$2.autenticacion.obtenerSesion();
+	},
+	actualizarPerfil(datos) {
+		return api$2.autenticacion.actualizarPerfil(datos);
+	},
+	cambiarContrasenaPropia(datos) {
+		return api$2.autenticacion.cambiarContrasenaPropia(datos);
+	},
+	solicitarTokenRecuperacion(datos) {
+		return api$2.autenticacion.solicitarTokenRecuperacion(datos);
+	},
+	restablecerConToken(datos) {
+		return api$2.autenticacion.restablecerConToken(datos);
+	}
+};
+var servicioUsuarios = {
+	listar() {
+		return api$2.usuarios.listar();
+	},
+	crear(datos) {
+		return api$2.usuarios.crear(datos);
+	},
+	actualizar(datos) {
+		return api$2.usuarios.actualizar(datos);
+	},
+	cambiarContrasena(datos) {
+		return api$2.usuarios.cambiarContrasena(datos);
+	},
+	cambiarEstado(datos) {
+		return api$2.usuarios.cambiarEstado(datos);
+	}
+};
 // src/modulos/autenticacion/componentes/FormularioInicioSesion.jsx
 function FormularioInicioSesion({ onIngresar }) {
 	const [datos, setDatos] = (0, import_react.useState)({
@@ -15394,11 +16112,22 @@ function FormularioInicioSesion({ onIngresar }) {
 	const [errores, setErrores] = (0, import_react.useState)({});
 	const [errorGeneral, setErrorGeneral] = (0, import_react.useState)("");
 	const [cargando, setCargando] = (0, import_react.useState)(false);
+	const [mostrarAyuda, setMostrarAyuda] = (0, import_react.useState)(false);
+	const [etapaRecuperacion, setEtapaRecuperacion] = (0, import_react.useState)("solicitar");
+	const [nombreRecuperacion, setNombreRecuperacion] = (0, import_react.useState)("");
+	const [usuarioAdministrador, setUsuarioAdministrador] = (0, import_react.useState)("");
+	const [contrasenaAdministrador, setContrasenaAdministrador] = (0, import_react.useState)("");
+	const [tokenRecuperacion, setTokenRecuperacion] = (0, import_react.useState)(null);
+	const [tokenIngresado, setTokenIngresado] = (0, import_react.useState)("");
+	const [contrasenaNueva, setContrasenaNueva] = (0, import_react.useState)("");
+	const [confirmarContrasenaNueva, setConfirmarContrasenaNueva] = (0, import_react.useState)("");
+	const [avisoGeneral, setAvisoGeneral] = (0, import_react.useState)("");
 	async function enviar(e) {
 		e.preventDefault();
 		const validaciones = validarCredenciales(datos);
 		setErrores(validaciones);
 		setErrorGeneral("");
+		setAvisoGeneral("");
 		if (Object.keys(validaciones).length) return;
 		try {
 			setCargando(true);
@@ -15409,24 +16138,73 @@ function FormularioInicioSesion({ onIngresar }) {
 			setCargando(false);
 		}
 	}
+	async function solicitarToken() {
+		setCargando(true);
+		setErrorGeneral("");
+		setAvisoGeneral("");
+		try {
+			const resultado = await servicioAutenticacion.solicitarTokenRecuperacion({
+				nombre: nombreRecuperacion,
+				usuarioAdministrador,
+				contrasenaAdministrador
+			});
+			setTokenRecuperacion(resultado);
+			setEtapaRecuperacion("cambiar");
+			setContrasenaAdministrador("");
+		} catch (error) {
+			setErrorGeneral(error.message || "No se pudo autorizar la recuperación.");
+		} finally {
+			setCargando(false);
+		}
+	}
+	async function cambiarConToken() {
+		setErrorGeneral("");
+		setAvisoGeneral("");
+		if (contrasenaNueva.length < 8) return setErrorGeneral("La contraseña debe tener al menos 8 caracteres.");
+		if (contrasenaNueva !== confirmarContrasenaNueva) return setErrorGeneral("Las contraseñas no coinciden.");
+		setCargando(true);
+		try {
+			await servicioAutenticacion.restablecerConToken({
+				token: tokenIngresado,
+				contrasenaNueva
+			});
+			setAvisoGeneral("Contraseña actualizada. Ya puedes iniciar sesión.");
+			setMostrarAyuda(false);
+			setEtapaRecuperacion("solicitar");
+			setTokenRecuperacion(null);
+			setTokenIngresado("");
+			setContrasenaNueva("");
+			setConfirmarContrasenaNueva("");
+		} catch (error) {
+			setErrorGeneral(error.message || "No se pudo cambiar la contraseña.");
+		} finally {
+			setCargando(false);
+		}
+	}
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
 		onSubmit: enviar,
 		className: "space-y-5",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-					className: "mb-2 block text-sm font-medium text-slate-700",
+					className: "mb-2 block text-xs font-bold uppercase tracking-wide text-slate-600",
 					children: "Usuario"
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-					value: datos.usuario,
-					onChange: (e) => setDatos({
-						...datos,
-						usuario: e.target.value
-					}),
-					autoComplete: "username",
-					placeholder: "Tu nombre de usuario",
-					className: "w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100"
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "relative",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(UserRound, {
+						size: 18,
+						className: "pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+						value: datos.usuario,
+						onChange: (e) => setDatos({
+							...datos,
+							usuario: e.target.value
+						}),
+						autoComplete: "username",
+						placeholder: "Tu nombre de usuario",
+						className: "w-full rounded-xl border border-slate-200 bg-slate-50/60 py-3.5 pl-11 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-violet-500 focus:bg-white focus:ring-4 focus:ring-violet-100/70"
+					})]
 				}),
 				errores.usuario && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 					className: "mt-1 text-sm text-red-500",
@@ -15434,9 +16212,12 @@ function FormularioInicioSesion({ onIngresar }) {
 				})
 			] }),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-					className: "mb-2 block text-sm font-medium text-slate-700",
-					children: "Contraseña"
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+					className: "mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-slate-600",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(KeyRound, {
+						size: 14,
+						className: "text-slate-400"
+					}), "Contraseña"]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CampoContrasena, {
 					value: datos.contrasena,
@@ -15451,14 +16232,116 @@ function FormularioInicioSesion({ onIngresar }) {
 				})
 			] }),
 			errorGeneral && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "rounded-xl bg-red-50 p-3 text-sm text-red-700",
+				className: "rounded-xl border border-red-100 bg-red-50 p-3 text-sm text-red-700",
 				children: errorGeneral
 			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+			avisoGeneral && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				role: "status",
+				className: "rounded-xl border border-emerald-100 bg-emerald-50 p-3 text-sm text-emerald-800",
+				children: avisoGeneral
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
 				type: "submit",
 				disabled: cargando,
-				className: "w-full rounded-xl bg-violet-600 px-4 py-3 font-semibold text-white transition hover:bg-violet-700 disabled:opacity-50",
-				children: cargando ? "Ingresando..." : "Iniciar sesión"
+				className: "mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-700 to-violet-600 px-4 py-3.5 text-sm font-bold text-white shadow-lg shadow-violet-900/15 transition hover:-translate-y-0.5 hover:from-violet-800 hover:to-violet-700 disabled:translate-y-0 disabled:opacity-60",
+				children: [cargando && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LoaderCircle, {
+					size: 17,
+					className: "animate-spin"
+				}), cargando ? "Ingresando…" : "Entrar al sistema"]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+				type: "button",
+				onClick: () => setMostrarAyuda(!mostrarAyuda),
+				className: "w-full text-sm font-semibold text-slate-500 transition hover:text-violet-700",
+				children: "¿Olvidaste tu contraseña?"
+			}),
+			mostrarAyuda && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+				className: "space-y-3 rounded-xl border border-violet-100 bg-violet-50/80 p-4",
+				children: etapaRecuperacion === "solicitar" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "text-sm leading-5 text-violet-900",
+						children: "Escribe tu nombre o usuario. Un administrador debe autorizar la recuperación con su cuenta."
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+						value: nombreRecuperacion,
+						onChange: (e) => setNombreRecuperacion(e.target.value),
+						placeholder: "Tu nombre completo o usuario",
+						className: "w-full rounded-lg border border-violet-200 bg-white px-3 py-2.5 text-sm"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+						value: usuarioAdministrador,
+						onChange: (e) => setUsuarioAdministrador(e.target.value),
+						placeholder: "Usuario del administrador",
+						autoComplete: "username",
+						className: "w-full rounded-lg border border-violet-200 bg-white px-3 py-2.5 text-sm"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+						value: contrasenaAdministrador,
+						onChange: (e) => setContrasenaAdministrador(e.target.value),
+						placeholder: "Contraseña del administrador",
+						type: "password",
+						autoComplete: "current-password",
+						className: "w-full rounded-lg border border-violet-200 bg-white px-3 py-2.5 text-sm"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						type: "button",
+						disabled: cargando,
+						onClick: solicitarToken,
+						className: "w-full rounded-lg bg-violet-700 px-4 py-2.5 text-sm font-bold text-white disabled:opacity-60",
+						children: cargando ? "Validando…" : "Autorizar y generar token"
+					})
+				] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+						className: "text-sm leading-5 text-violet-900",
+						children: [
+							"El administrador autorizó el cambio de ",
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: tokenRecuperacion?.nombre }),
+							". El token vence en 10 minutos."
+						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "rounded-lg border border-violet-200 bg-white p-3 text-center",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "block text-[10px] font-bold uppercase tracking-wide text-violet-500",
+							children: "Token de un solo uso"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("code", {
+							className: "mt-1 block break-all font-mono text-lg font-black tracking-[0.15em] text-violet-900",
+							children: tokenRecuperacion?.token
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+						className: "block text-xs font-bold uppercase tracking-wide text-violet-900",
+						children: ["Token autorizado", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+							value: tokenIngresado,
+							onChange: (e) => setTokenIngresado(e.target.value),
+							placeholder: "Pega el token mostrado al autorizar",
+							className: "mt-2 w-full rounded-lg border border-violet-200 bg-white px-3 py-2.5 font-mono text-sm"
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+						value: contrasenaNueva,
+						onChange: (e) => setContrasenaNueva(e.target.value),
+						placeholder: "Nueva contraseña (mínimo 8)",
+						type: "password",
+						autoComplete: "new-password",
+						className: "w-full rounded-lg border border-violet-200 bg-white px-3 py-2.5 text-sm"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+						value: confirmarContrasenaNueva,
+						onChange: (e) => setConfirmarContrasenaNueva(e.target.value),
+						placeholder: "Confirmar contraseña",
+						type: "password",
+						autoComplete: "new-password",
+						className: "w-full rounded-lg border border-violet-200 bg-white px-3 py-2.5 text-sm"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						type: "button",
+						disabled: cargando,
+						onClick: cambiarConToken,
+						className: "w-full rounded-lg bg-violet-700 px-4 py-2.5 text-sm font-bold text-white disabled:opacity-60",
+						children: "Cambiar contraseña"
+					})
+				] })
 			})
 		]
 	});
@@ -15582,25 +16465,6 @@ function FormularioAdministrador({ onCrear }) {
 		]
 	});
 }
-// src/modulos/autenticacion/servicios/autenticacion.js
-var api$2 = window.sistema;
-var servicioAutenticacion = {
-	obtenerEstadoInicial() {
-		return api$2.autenticacion.estadoInicial();
-	},
-	crearAdministrador(datos) {
-		return api$2.autenticacion.crearAdministrador(datos);
-	},
-	iniciarSesion(datos) {
-		return api$2.autenticacion.iniciarSesion(datos);
-	},
-	cerrarSesion() {
-		return api$2.autenticacion.cerrarSesion();
-	},
-	obtenerSesion() {
-		return api$2.autenticacion.obtenerSesion();
-	}
-};
 // src/modulos/autenticacion/paginas/ConfiguracionInicial.jsx
 function ConfiguracionInicial({ onTerminar }) {
 	async function crear(datos) {
@@ -15708,25 +16572,209 @@ var useEstadoAutenticacion = create((set) => ({
 			usuario: null,
 			cargando: false
 		});
-	}
+	},
+	actualizarPerfil: async (datos) => {
+		const usuario = await servicioAutenticacion.actualizarPerfil(datos);
+		set({ usuario });
+		return usuario;
+	},
+	cambiarContrasenaPropia: (datos) => servicioAutenticacion.cambiarContrasenaPropia(datos)
 }));
+// src/modulos/licencias/paginas/Pagina.jsx
+function PaginaLicencias({ activacion = false, onActivada }) {
+	const usuario = useEstadoAutenticacion((estado) => estado.usuario);
+	const [estado, setEstado] = (0, import_react.useState)(null);
+	const [codigo, setCodigo] = (0, import_react.useState)("");
+	const [cargando, setCargando] = (0, import_react.useState)(false);
+	const [error, setError] = (0, import_react.useState)("");
+	const [aviso, setAviso] = (0, import_react.useState)("");
+	(0, import_react.useEffect)(() => {
+		let vigente = true;
+		window.sistema.licencias.estado().then((resultado) => {
+			if (vigente) setEstado(resultado);
+		}).catch((e) => setError(e.message || "No se pudo obtener el ID del equipo."));
+		return () => {
+			vigente = false;
+		};
+	}, []);
+	async function activar(e) {
+		e.preventDefault();
+		setCargando(true);
+		setError("");
+		setAviso("");
+		try {
+			await window.sistema.licencias.activar({ licencia: codigo.trim() });
+			setAviso("Equipo activado correctamente.");
+			const resultado = await window.sistema.licencias.estado();
+			setEstado(resultado);
+			setCodigo("");
+			await onActivada?.();
+		} catch (e) {
+			setError(e.message || "El código no corresponde a este equipo.");
+		} finally {
+			setCargando(false);
+		}
+	}
+	if (!activacion && usuario?.rol !== "administrador") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", {
+		className: "m-8 rounded-2xl border border-amber-200 bg-amber-50 p-6 text-sm text-amber-900",
+		children: "Solo un administrador puede consultar las licencias."
+	});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
+		className: "mx-auto flex min-h-full max-w-4xl flex-col justify-center space-y-6 p-5 md:p-8",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-sm font-bold uppercase tracking-wide text-violet-600",
+					children: "Activación del sistema"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+					className: "mt-1 text-3xl font-black text-slate-900",
+					children: "Licencia de este equipo"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-2 text-slate-500",
+					children: "Copia el ID de hardware y envíaselo al dueño del sistema. Después pega aquí el código que te genere."
+				})
+			] }),
+			activacion && estado?.expirado && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "rounded-2xl border border-red-200 bg-gradient-to-r from-red-50 to-orange-50 p-5",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "text-xs font-bold uppercase tracking-widest text-red-600",
+						children: "Demo finalizada"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						className: "mt-1 text-xl font-black text-slate-900",
+						children: "El sistema está bloqueado"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-2 text-sm text-slate-600",
+						children: "El periodo de prueba de 10 días terminó. Actívalo con el código del dueño para continuar."
+					})
+				]
+			}),
+			!activacion && estado?.demo && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-5",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-xs font-bold uppercase tracking-widest text-amber-700",
+					children: "Demo activa"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+					className: "mt-1 text-lg font-black text-slate-900",
+					children: [
+						"Quedan ",
+						estado.diasRestantes,
+						" ",
+						estado.diasRestantes === 1 ? "día" : "días"
+					]
+				})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "max-w-md text-sm text-slate-600",
+					children: "Envía el ID de hardware al dueño para recibir el código de activación."
+				})]
+			}),
+			error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				role: "alert",
+				className: "rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700",
+				children: error
+			}),
+			aviso && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				role: "status",
+				className: "rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800",
+				children: aviso
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				className: "rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-8",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex items-start gap-4",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-violet-100 text-violet-700",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShieldCheck, { size: 24 })
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "min-w-0 flex-1",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+								className: "text-lg font-bold text-slate-900",
+								children: "Tu ID de hardware"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-1 text-sm text-slate-500",
+								children: "Este ID identifica esta computadora para generar su activación."
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("code", {
+								className: "mt-4 block break-all rounded-2xl border border-violet-100 bg-violet-50/60 p-4 font-mono text-sm font-black tracking-wider text-violet-900 sm:text-base",
+								children: estado?.hardwareId || "Leyendo ID…"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+								type: "button",
+								disabled: !estado?.hardwareId,
+								onClick: () => navigator.clipboard?.writeText(estado.hardwareId),
+								className: "mt-3 inline-flex items-center gap-2 rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Copy, { size: 16 }), " Copiar ID"]
+							})
+						]
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+					onSubmit: activar,
+					className: "mt-7 space-y-4 border-t border-slate-100 pt-6",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex items-center gap-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(KeyRound, {
+								size: 18,
+								className: "text-violet-700"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+								className: "font-bold text-slate-900",
+								children: "Pegar código de activación"
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", {
+							required: true,
+							value: codigo,
+							onChange: (e) => setCodigo(e.target.value),
+							placeholder: "Pega aquí el código que generó el dueño",
+							className: "min-h-28 w-full resize-y rounded-xl border border-slate-200 bg-white px-4 py-3 font-mono text-sm outline-none focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+							disabled: cargando || !codigo.trim(),
+							className: "inline-flex w-full items-center justify-center gap-2 rounded-xl bg-violet-700 px-5 py-3.5 text-sm font-bold text-white hover:bg-violet-800 disabled:opacity-60 sm:w-auto",
+							children: [cargando ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LoaderCircle, {
+								size: 17,
+								className: "animate-spin"
+							}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { size: 17 }), "Activar equipo"]
+						})
+					]
+				})]
+			}),
+			estado?.activa && !estado.demo && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+				className: "text-center text-sm font-semibold text-emerald-700",
+				children: [
+					"Este equipo ya está activado",
+					estado.cliente ? ` para ${estado.cliente}` : "",
+					"."
+				]
+			})
+		]
+	});
+}
 // src/modulos/autenticacion/paginas/InicioSesion.jsx
 function InicioSesion() {
 	const navigate = useNavigate();
 	const [inicializado, setInicializado] = (0, import_react.useState)(false);
 	const [necesitaAdministrador, setNecesitaAdministrador] = (0, import_react.useState)(false);
 	const [error, setError] = (0, import_react.useState)("");
+	const [estadoLicencia, setEstadoLicencia] = (0, import_react.useState)(null);
 	const iniciarSesion = useEstadoAutenticacion((estado) => estado.iniciarSesion);
 	async function comprobarEstado() {
 		try {
 			const estado = await window.sistema.autenticacion.estadoInicial();
+			const estadoLicencia = await window.sistema.licencias.estado();
+			setEstadoLicencia(estadoLicencia);
 			setNecesitaAdministrador(estado.necesitaAdministrador);
 			useEstadoAutenticacion.setState({
 				usuario: estado.sesion,
 				necesitaAdministrador: estado.necesitaAdministrador,
 				cargando: false
 			});
-			if (estado.sesion) navigate("/tablero", { replace: true });
+			if (estado.sesion && estadoLicencia.activa) navigate("/tablero", { replace: true });
 		} catch (error) {
 			setError(error.message);
 			useEstadoAutenticacion.setState({ cargando: false });
@@ -15742,51 +16790,136 @@ function InicioSesion() {
 		navigate("/tablero", { replace: true });
 	}
 	if (!inicializado) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "flex min-h-screen items-center justify-center",
-		children: "Comprobando sistema..."
+		className: "flex min-h-screen items-center justify-center bg-[#f6f4fa] text-sm font-medium text-slate-500",
+		children: "Comprobando sistema…"
 	});
-	if (necesitaAdministrador) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ConfiguracionInicial, { onTerminar: async () => {
-		setNecesitaAdministrador(false);
-	} });
+	if (!estadoLicencia?.activa) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaLicencias, {
+		activacion: true,
+		onActivada: comprobarEstado
+	});
+	if (necesitaAdministrador) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ConfiguracionInicial, { onTerminar: async () => setNecesitaAdministrador(false) });
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
-		className: "grid min-h-screen bg-white lg:grid-cols-2",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
-			className: "hidden items-center justify-center bg-gradient-to-br from-violet-800 to-violet-950 p-12 text-white lg:flex",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "max-w-md",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/15 text-2xl font-bold",
-						children: "SG"
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-						className: "text-4xl font-bold",
-						children: "Sistema de Gestión"
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						className: "mt-4 text-lg text-violet-100",
-						children: "Administra tus pedidos, productos, clientes y operaciones desde un solo lugar."
-					})
-				]
-			})
+		className: "min-h-[100dvh] bg-[#f5f3fa] lg:grid lg:grid-cols-[1.05fr_0.95fr]",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+			className: "relative isolate flex min-h-[250px] flex-col justify-between overflow-hidden bg-gradient-to-br from-[#211340] via-[#38206c] to-[#562d98] px-6 py-7 text-white sm:px-10 sm:py-9 lg:min-h-screen lg:px-14 lg:py-12 xl:px-20",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "pointer-events-none absolute -right-28 top-10 -z-10 h-[34rem] w-[34rem] rounded-full border-[70px] border-white/[0.045]" }),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "pointer-events-none absolute -bottom-28 left-1/4 -z-10 h-72 w-72 rounded-full bg-fuchsia-500/15 blur-3xl" }),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex items-center gap-3",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-300 to-orange-500 text-slate-950 shadow-lg shadow-black/20",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pizza, { size: 25 })
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "block text-base font-black tracking-wide",
+						children: "STARMY"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "block text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50",
+						children: "Pizzería · Gestión"
+					})] })]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "relative my-8 max-w-xl lg:my-auto lg:py-16",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							className: "inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.07] px-3 py-1.5 text-xs font-semibold text-violet-100",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { size: 14 }), " Todo listo para el turno"]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+							className: "mt-6 max-w-lg text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl xl:text-6xl",
+							children: "El sabor de un buen día empieza aquí."
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "mt-5 max-w-md text-sm leading-7 text-violet-100/75 sm:text-base",
+							children: "Tu operación, tus pedidos y tu equipo. Entra para poner todo en marcha."
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "mt-9 grid max-w-md grid-cols-3 gap-2 sm:gap-3",
+							children: [
+								[ChefHat, "Cocina"],
+								[CircleCheck, "Pedidos"],
+								[ArrowDownRight, "Ventas"]
+							].map(([Icono, texto]) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.06] px-3 py-3 backdrop-blur",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icono, {
+									size: 16,
+									className: "shrink-0 text-amber-300"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-xs font-semibold text-white/75",
+									children: texto
+								})]
+							}, texto))
+						})
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "hidden text-xs text-white/35 lg:block",
+					children: "Sistema local de gestión para pizzería"
+				})
+			]
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
-			className: "flex items-center justify-center p-6",
+			className: "flex min-h-[calc(100dvh-250px)] items-center justify-center px-5 py-10 sm:px-8 lg:min-h-screen lg:px-12 xl:px-20",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "w-full max-w-md",
 				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-						className: "text-3xl font-bold text-slate-900",
-						children: "Bienvenido"
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "mb-7 lg:hidden",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-xs font-bold uppercase tracking-[0.18em] text-violet-700",
+							children: "Acceso al sistema"
+						})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "rounded-[28px] border border-white bg-white p-6 shadow-[0_24px_70px_-32px_rgba(58,31,105,0.24)] sm:p-9",
+						children: [
+							estadoLicencia?.demo && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "mb-5 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-900",
+								children: [
+									"Demo activa · ",
+									estadoLicencia.diasRestantes,
+									" ",
+									estadoLicencia.diasRestantes === 1 ? "día restante" : "días restantes"
+								]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "mb-7",
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-violet-50 text-violet-700",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChefHat, { size: 22 })
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										className: "text-xs font-bold uppercase tracking-[0.18em] text-violet-700",
+										children: "Acceso seguro"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+										className: "mt-2 text-3xl font-black tracking-tight text-slate-950",
+										children: "Bienvenido"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										className: "mt-2 text-sm leading-6 text-slate-500",
+										children: "Ingresa tus credenciales para continuar con la operación."
+									})
+								]
+							}),
+							error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "mb-5 rounded-xl border border-red-100 bg-red-50 p-3.5 text-sm text-red-700",
+								children: error
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(FormularioInicioSesion, { onIngresar: ingresar }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "mt-6 border-t border-slate-100 pt-5 text-center",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "text-xs text-slate-400",
+									children: "¿Necesitas acceso? Consulta al administrador de tu pizzería."
+								})
+							})
+						]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						className: "mb-8 mt-2 text-slate-500",
-						children: "Ingresa tus credenciales para continuar."
-					}),
-					error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "mb-4 rounded-xl bg-red-50 p-3 text-sm text-red-700",
-						children: error
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(FormularioInicioSesion, { onIngresar: ingresar })
+						className: "mt-5 text-center text-xs text-slate-400",
+						children: "Tus datos se administran de forma local en este equipo."
+					})
 				]
 			})
 		})]
@@ -15815,9 +16948,14 @@ var opciones = [
 		icono: ChefHat
 	},
 	{
-		nombre: "Clientes",
-		ruta: "/clientes",
-		icono: Users
+		nombre: "Producción",
+		ruta: "/produccion",
+		icono: MonitorPlay
+	},
+	{
+		nombre: "Caja",
+		ruta: "/caja",
+		icono: Wallet
 	},
 	{
 		nombre: "Productos",
@@ -15825,14 +16963,14 @@ var opciones = [
 		icono: Pizza
 	},
 	{
-		nombre: "Publicidad",
-		ruta: "/publicidad",
-		icono: MonitorPlay
+		nombre: "Clientes",
+		ruta: "/clientes",
+		icono: Users
 	},
 	{
-		nombre: "Caja",
-		ruta: "/caja",
-		icono: Wallet
+		nombre: "TV y publicidad",
+		ruta: "/publicidad",
+		icono: MonitorPlay
 	},
 	{
 		nombre: "Reportes",
@@ -15848,37 +16986,98 @@ var opciones = [
 		nombre: "Configuración",
 		ruta: "/configuracion",
 		icono: Settings
+	},
+	{
+		nombre: "Respaldos",
+		ruta: "/respaldos",
+		icono: ArchiveArrowUp
+	},
+	{
+		nombre: "Licencia",
+		ruta: "/licencias",
+		icono: KeyRound
 	}
 ];
-function BarraLateral() {
+function BarraLateral({ onNavigate }) {
+	const navigate = useNavigate();
+	const usuario = useEstadoAutenticacion((estado) => estado.usuario);
+	const cerrarSesion = useEstadoAutenticacion((estado) => estado.cerrarSesion);
+	const [empresa, setEmpresa] = (0, import_react.useState)({
+		nombre_negocio: "Pizzería",
+		telefono_negocio: "",
+		logotipo_ruta: ""
+	});
+	(0, import_react.useEffect)(() => {
+		let vigente = true;
+		const cargar = () => window.sistema.configuracion.publica().then((datos) => {
+			if (vigente) setEmpresa(datos);
+		}).catch(() => {});
+		cargar();
+		const actualizar = (evento) => setEmpresa((actual) => ({
+			...actual,
+			...evento.detail
+		}));
+		window.addEventListener("configuracion:actualizada", actualizar);
+		return () => {
+			vigente = false;
+			window.removeEventListener("configuracion:actualizada", actualizar);
+		};
+	}, []);
+	const logoUrl = empresa.logotipo_ruta ? `pizzeria-media://archivo?ruta=${encodeURIComponent(empresa.logotipo_ruta)}` : "";
+	const opcionesVisibles = opciones.filter((opcion) => usuario?.rol === "administrador" || ![
+		"/usuarios",
+		"/configuracion",
+		"/licencias",
+		"/respaldos"
+	].includes(opcion.ruta));
+	async function salir() {
+		await cerrarSesion();
+		navigate("/", { replace: true });
+	}
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("aside", {
 		className: "flex h-full w-64 min-w-64 flex-col bg-slate-950 text-white",
 		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "h-20 flex items-center px-6 border-b border-slate-800",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-					className: "text-xl font-bold tracking-wide",
-					children: "PIZZERÍA"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "text-xs text-slate-400",
-					children: "Sistema de gestión"
-				})] })
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "flex min-h-20 items-center gap-3 border-b border-slate-800 px-5 py-3",
+				children: [logoUrl ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+					src: logoUrl,
+					alt: "",
+					className: "h-11 w-11 shrink-0 rounded-xl bg-white object-contain p-1"
+				}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-violet-600 text-lg font-black text-white",
+					children: (empresa.nombre_negocio || "P").slice(0, 1).toUpperCase()
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "min-w-0",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+						className: "truncate text-base font-bold tracking-wide",
+						title: empresa.nombre_negocio,
+						children: empresa.nombre_negocio || "Pizzería"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "truncate text-xs text-slate-400",
+						children: empresa.telefono_negocio || "Sistema de gestión"
+					})]
+				})]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("nav", {
-				className: "flex-1 p-4 space-y-1 overflow-y-auto",
-				children: opciones.map((opcion) => {
+				"aria-label": "Menú principal",
+				className: "flex-1 space-y-1 overflow-y-auto p-3",
+				children: opcionesVisibles.map((opcion) => {
 					const Icono = opcion.icono;
 					return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(NavLink, {
 						to: opcion.ruta,
-						end: opcion.ruta === "/",
-						className: ({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-lg text-sm transition-colors ${isActive ? "bg-violet-600 text-white" : "text-slate-300 hover:bg-slate-800 hover:text-white"}`,
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icono, { size: 19 }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: opcion.nombre })]
+						onClick: onNavigate,
+						className: ({ isActive }) => `flex items-start gap-3 rounded-xl px-3 py-2.5 text-sm transition-colors ${isActive ? "bg-violet-600 text-white" : "text-slate-300 hover:bg-slate-800 hover:text-white"}`,
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icono, {
+							className: "mt-0.5 shrink-0",
+							size: 19
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: opcion.nombre })]
 					}, opcion.ruta);
 				})
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "p-4 border-t border-slate-800",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+					onClick: salir,
 					className: "flex items-center gap-3 text-sm text-slate-400 hover:text-white",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LogOut, { size: 19 }), "Cerrar sesión"]
 				})
@@ -15887,167 +17086,492 @@ function BarraLateral() {
 	});
 }
 // src/disenos/componentes/Encabezado.jsx
-function Encabezado() {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
-		className: "h-16 bg-white border-b border-slate-200 px-6 flex items-center justify-between",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-			className: "text-sm font-semibold text-slate-800",
-			children: "Panel de administración"
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-			className: "text-xs text-slate-500",
-			children: "Sistema de gestión para pizzería"
-		})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "flex items-center gap-5",
+var input$3 = "w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100";
+function Encabezado({ onMenu }) {
+	const navigate = useNavigate();
+	const usuario = useEstadoAutenticacion((estado) => estado.usuario);
+	const cerrarSesion = useEstadoAutenticacion((estado) => estado.cerrarSesion);
+	const actualizarPerfil = useEstadoAutenticacion((estado) => estado.actualizarPerfil);
+	const cambiarContrasena = useEstadoAutenticacion((estado) => estado.cambiarContrasenaPropia);
+	const [abierto, setAbierto] = (0, import_react.useState)(false);
+	const [perfil, setPerfil] = (0, import_react.useState)(() => ({
+		nombre: usuario?.nombre || "",
+		usuario: usuario?.usuario || ""
+	}));
+	const [clave, setClave] = (0, import_react.useState)({
+		actual: "",
+		nueva: ""
+	});
+	const [error, setError] = (0, import_react.useState)("");
+	const [aviso, setAviso] = (0, import_react.useState)("");
+	const [guardando, setGuardando] = (0, import_react.useState)(false);
+	const [ahora, setAhora] = (0, import_react.useState)(() => /* @__PURE__ */ new Date());
+	(0, import_react.useEffect)(() => {
+		const intervalo = setInterval(() => setAhora(/* @__PURE__ */ new Date()), 1e3);
+		return () => clearInterval(intervalo);
+	}, []);
+	async function salir() {
+		await cerrarSesion();
+		setAbierto(false);
+		navigate("/", { replace: true });
+	}
+	async function guardarPerfil(e) {
+		e.preventDefault();
+		setGuardando(true);
+		setError("");
+		setAviso("");
+		try {
+			await actualizarPerfil(perfil);
+			setAviso("Perfil actualizado.");
+		} catch (e) {
+			setError(e.message || "No se pudo guardar el perfil.");
+		} finally {
+			setGuardando(false);
+		}
+	}
+	async function guardarClave(e) {
+		e.preventDefault();
+		setGuardando(true);
+		setError("");
+		setAviso("");
+		try {
+			await cambiarContrasena({
+				contrasenaActual: clave.actual,
+				contrasenaNueva: clave.nueva
+			});
+			setClave({
+				actual: "",
+				nueva: ""
+			});
+			setAviso("Contraseña cambiada.");
+		} catch (e) {
+			setError(e.message || "No se pudo cambiar la contraseña.");
+		} finally {
+			setGuardando(false);
+		}
+	}
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
+		className: "flex h-16 shrink-0 items-center justify-between gap-2 border-b border-slate-200 bg-white px-3 sm:px-6",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "flex min-w-0 items-center gap-3",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-				className: "text-slate-500 hover:text-slate-800",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Bell, { size: 20 })
+				type: "button",
+				onClick: onMenu,
+				"aria-label": "Abrir menú",
+				className: "rounded-lg p-2 text-slate-600 hover:bg-slate-100 md:hidden",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Menu, { size: 20 })
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "flex items-center gap-2",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleUserRound, {
-					size: 24,
-					className: "text-slate-600"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "text-sm font-medium text-slate-800",
-					children: "Usuario"
+				className: "min-w-0",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+					className: "text-sm font-semibold text-slate-800",
+					children: "Panel de operación"
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "text-xs text-slate-500",
-					children: "Sesión de prueba"
-				})] })]
+					className: "truncate text-xs text-slate-500",
+					children: "Sistema de gestión para pizzería"
+				})]
 			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "flex shrink-0 items-center gap-1 sm:gap-3",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+					"aria-label": `Hora actual ${ahora.toLocaleTimeString("es-MX")}`,
+					className: "inline-flex items-center gap-1.5 rounded-lg bg-slate-50 px-2 py-2 font-mono text-xs font-bold tabular-nums text-slate-600 sm:px-3 sm:text-sm",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Clock3, {
+						size: 15,
+						className: "text-violet-600"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("time", { children: ahora.toLocaleTimeString("es-MX", {
+						hour: "2-digit",
+						minute: "2-digit"
+					}) })]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+					onClick: () => {
+						setPerfil({
+							nombre: usuario?.nombre || "",
+							usuario: usuario?.usuario || ""
+						});
+						setAbierto(true);
+						setError("");
+						setAviso("");
+					},
+					className: "flex items-center gap-2 rounded-xl px-2 py-2 text-left hover:bg-slate-50 sm:px-3",
+					"aria-label": "Abrir perfil de usuario",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleUserRound, {
+						size: 27,
+						className: "text-violet-700"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "hidden sm:block",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "block text-sm font-semibold text-slate-800",
+							children: usuario?.nombre || "Usuario"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "block text-xs capitalize text-slate-500",
+							children: usuario?.rol || "Sin sesión"
+						})]
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					onClick: salir,
+					title: "Cerrar sesión",
+					className: "rounded-lg p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-800",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LogOut, { size: 19 })
+				})
+			]
 		})]
+	}), abierto && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+			role: "dialog",
+			"aria-modal": "true",
+			"aria-labelledby": "titulo-perfil",
+			className: "max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white p-6 shadow-2xl",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "mb-5 flex items-center justify-between",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex items-center gap-3",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "flex h-11 w-11 items-center justify-center rounded-xl bg-violet-100 text-violet-700",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(UserRound, {})
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							id: "titulo-perfil",
+							className: "text-xl font-bold text-slate-900",
+							children: "Mi perfil"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-sm capitalize text-slate-500",
+							children: usuario?.rol
+						})] })]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						onClick: () => setAbierto(false),
+						"aria-label": "Cerrar perfil",
+						className: "rounded-lg px-3 py-2 text-xl text-slate-500 hover:bg-slate-100",
+						children: "×"
+					})]
+				}),
+				error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					role: "alert",
+					className: "mb-4 rounded-lg bg-red-50 p-3 text-sm text-red-700",
+					children: error
+				}),
+				aviso && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					role: "status",
+					className: "mb-4 rounded-lg bg-emerald-50 p-3 text-sm text-emerald-800",
+					children: aviso
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+					onSubmit: guardarPerfil,
+					className: "space-y-4 rounded-xl border border-slate-200 p-4",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+							className: "font-semibold text-slate-900",
+							children: "Datos personales"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "grid gap-4 sm:grid-cols-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$5, {
+								etiqueta: "Nombre",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+									className: input$3,
+									maxLength: 100,
+									value: perfil.nombre,
+									onChange: (e) => setPerfil({
+										...perfil,
+										nombre: e.target.value
+									}),
+									required: true
+								})
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$5, {
+								etiqueta: "Usuario",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+									className: input$3,
+									maxLength: 50,
+									autoComplete: "username",
+									value: perfil.usuario,
+									onChange: (e) => setPerfil({
+										...perfil,
+										usuario: e.target.value
+									}),
+									required: true
+								})
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "flex justify-end",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								disabled: guardando,
+								className: "rounded-lg bg-violet-600 px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-60",
+								children: "Guardar perfil"
+							})
+						})
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+					onSubmit: guardarClave,
+					className: "mt-4 space-y-4 rounded-xl border border-slate-200 p-4",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex items-center gap-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(KeyRound, {
+								size: 17,
+								className: "text-violet-700"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+								className: "font-semibold text-slate-900",
+								children: "Cambiar contraseña"
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "grid gap-4 sm:grid-cols-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$5, {
+								etiqueta: "Contraseña actual",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+									className: input$3,
+									type: "password",
+									autoComplete: "current-password",
+									value: clave.actual,
+									onChange: (e) => setClave({
+										...clave,
+										actual: e.target.value
+									}),
+									required: true
+								})
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$5, {
+								etiqueta: "Nueva contraseña",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+									className: input$3,
+									type: "password",
+									minLength: 8,
+									autoComplete: "new-password",
+									value: clave.nueva,
+									onChange: (e) => setClave({
+										...clave,
+										nueva: e.target.value
+									}),
+									required: true
+								})
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "flex justify-end",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								disabled: guardando,
+								className: "rounded-lg border border-violet-200 bg-violet-50 px-4 py-2.5 text-sm font-semibold text-violet-800 disabled:opacity-60",
+								children: "Actualizar contraseña"
+							})
+						})
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "mt-5 flex justify-between border-t border-slate-100 pt-4",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+						onClick: salir,
+						className: "inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-red-700 hover:bg-red-50",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LogOut, { size: 16 }), " Cerrar sesión"]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						onClick: () => setAbierto(false),
+						className: "rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700",
+						children: "Cerrar"
+					})]
+				})
+			]
+		})
+	})] });
+}
+function Campo$5({ etiqueta, children }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+		className: "block space-y-1.5 text-sm font-medium text-slate-700",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: etiqueta }), children]
 	});
 }
 // src/disenos/principal/DisenoPrincipal.jsx
 function DisenoPrincipal() {
+	const [menuAbierto, setMenuAbierto] = (0, import_react.useState)(false);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "flex h-screen overflow-hidden bg-slate-100",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "fixed inset-y-0 left-0 z-30 w-64",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BarraLateral, {})
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "ml-64 flex h-screen min-w-0 flex-1 flex-col",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Encabezado, {}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", {
-				className: "min-h-0 flex-1 overflow-y-auto p-6",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Outlet, {})
-			})]
-		})]
-	});
-}
-// src/modulos/tablero/componentes/TarjetaIndicador.jsx
-function TarjetaIndicador({ titulo, valor = "—", descripcion, icono: Icono, color = "morado" }) {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-		className: "bg-white border border-borde rounded-2xl p-5 shadow-sm",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "flex items-start justify-between",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-				className: "text-sm font-medium text-texto-secundario",
-				children: titulo
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-				className: "text-3xl font-bold text-texto mt-3",
-				children: valor
-			})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: `w-12 h-12 rounded-xl flex items-center justify-center ${{
-					morado: "bg-morado-50 text-morado-700",
-					azul: "bg-blue-50 text-blue-700",
-					naranja: "bg-orange-50 text-orange-700",
-					rojo: "bg-red-50 text-red-700"
-				}[color]}`,
-				children: Icono && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icono, { size: 23 })
-			})]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-			className: "text-xs text-texto-secundario mt-4",
-			children: descripcion
-		})]
-	});
-}
-// src/modulos/tablero/componentes/ResumenPagos.jsx
-function ResumenPagos() {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-		className: "bg-white border border-borde rounded-2xl p-6",
+		className: "flex h-[100dvh] min-w-0 overflow-hidden bg-slate-100",
 		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-				className: "text-lg font-bold text-texto",
-				children: "Resumen de pagos"
+			menuAbierto && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+				type: "button",
+				"aria-label": "Cerrar menú",
+				onClick: () => setMenuAbierto(false),
+				className: "fixed inset-0 z-30 bg-slate-950/50 md:hidden"
 			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-				className: "text-sm text-texto-secundario mt-1",
-				children: "Cobros registrados durante el día"
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: `fixed inset-y-0 left-0 z-40 w-64 transition-transform duration-200 md:translate-x-0 ${menuAbierto ? "translate-x-0" : "-translate-x-full"}`,
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BarraLateral, { onNavigate: () => setMenuAbierto(false) })
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "grid grid-cols-2 gap-4 mt-6",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "bg-slate-50 rounded-xl p-4",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex items-center gap-2 text-texto-secundario",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Banknote, { size: 19 }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-sm",
-								children: "Efectivo"
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "text-xl font-bold mt-3",
-							children: "—"
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "text-xs text-texto-secundario",
-							children: "Pendiente de datos"
-						})
-					]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "bg-slate-50 rounded-xl p-4",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex items-center gap-2 text-texto-secundario",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowLeftRight, { size: 19 }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-sm",
-								children: "Transferencias"
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "text-xl font-bold mt-3",
-							children: "—"
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "text-xs text-texto-secundario",
-							children: "Pendiente de datos"
-						})
-					]
+				className: "flex h-[100dvh] min-w-0 flex-1 flex-col md:ml-64",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Encabezado, { onMenu: () => setMenuAbierto(true) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", {
+					className: "min-h-0 flex-1 overflow-y-auto p-4 sm:p-6",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Outlet, {})
 				})]
 			})
 		]
 	});
 }
-// src/modulos/tablero/componentes/ActividadReciente.jsx
-function ActividadReciente() {
+// src/modulos/tablero/componentes/TarjetaIndicador.jsx
+function TarjetaIndicador({ titulo, valor = "—", descripcion, icono: Icono, color = "morado" }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+		className: "group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "flex items-start justify-between gap-3",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "min-w-0",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-sm font-medium text-slate-500",
+					children: titulo
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+					className: "mt-3 text-3xl font-black tracking-tight text-slate-900",
+					children: valor
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+				className: `flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ring-1 ${{
+					morado: "bg-violet-50 text-violet-700 ring-violet-100",
+					azul: "bg-blue-50 text-blue-700 ring-blue-100",
+					naranja: "bg-orange-50 text-orange-700 ring-orange-100",
+					rojo: "bg-rose-50 text-rose-700 ring-rose-100"
+				}[color]}`,
+				children: Icono && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icono, {
+					size: 21,
+					strokeWidth: 2.1
+				})
+			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+			className: "mt-4 border-t border-slate-100 pt-3 text-xs text-slate-500",
+			children: descripcion
+		})]
+	});
+}
+// src/modulos/tablero/componentes/ResumenPagos.jsx
+function dinero$4(centavos = 0) {
+	return new Intl.NumberFormat("es-MX", {
+		style: "currency",
+		currency: "MXN"
+	}).format((Number(centavos) || 0) / 100);
+}
+function ResumenPagos({ resumen, cargando }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-		className: "bg-white border border-borde rounded-2xl p-6",
+		className: "rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm sm:p-6",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "flex items-start justify-between gap-3",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+				className: "text-lg font-bold text-slate-900",
+				children: "Resumen de pagos"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "mt-1 text-sm text-slate-500",
+				children: "Cobros registrados durante el día"
+			})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+				className: "rounded-lg bg-violet-50 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-violet-700",
+				children: "Hoy"
+			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "rounded-xl border border-emerald-100 bg-emerald-50/60 p-4",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex items-center justify-between gap-2 text-emerald-800",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							className: "flex items-center gap-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Banknote, { size: 18 }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "text-sm font-semibold",
+								children: "Efectivo"
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-2 w-2 rounded-full bg-emerald-400" })]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-4 break-words text-2xl font-black tracking-tight text-slate-900",
+						children: cargando ? "…" : dinero$4(resumen?.efectivo)
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-1 text-xs text-slate-500",
+						children: "Total cobrado"
+					})
+				]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "rounded-xl border border-blue-100 bg-blue-50/60 p-4",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex items-center justify-between gap-2 text-blue-800",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							className: "flex items-center gap-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowLeftRight, { size: 18 }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "text-sm font-semibold",
+								children: "Transferencias"
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-2 w-2 rounded-full bg-blue-400" })]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-4 break-words text-2xl font-black tracking-tight text-slate-900",
+						children: cargando ? "…" : dinero$4(resumen?.transferencias)
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-1 text-xs text-slate-500",
+						children: "Total recibido"
+					})
+				]
+			})]
+		})]
+	});
+}
+// src/modulos/tablero/componentes/ActividadReciente.jsx
+function ActividadReciente({ actividad = [], cargando = false }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+		className: "rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm sm:p-6",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "flex items-center justify-between",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-				className: "text-lg font-bold text-texto",
+				className: "text-lg font-bold text-slate-900",
 				children: "Actividad reciente"
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-				className: "text-sm text-texto-secundario mt-1",
+				className: "mt-1 text-sm text-slate-500",
 				children: "Últimos pedidos registrados"
 			})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
 				to: "/pedidos",
-				className: "text-sm text-morado-700 font-semibold hover:text-morado-900",
+				className: "rounded-lg px-3 py-2 text-sm font-semibold text-violet-700 transition hover:bg-violet-50",
 				children: "Ver pedidos"
 			})]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "py-12 flex flex-col items-center text-center",
+		}), cargando ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "space-y-3 py-5",
+			children: [
+				0,
+				1,
+				2
+			].map((n) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-14 animate-pulse rounded-xl bg-slate-100" }, n))
+		}) : actividad.length ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+			className: "mt-4 divide-y divide-slate-100",
+			children: actividad.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+				className: "flex flex-wrap items-start justify-between gap-x-4 gap-y-1 py-3",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "min-w-0 flex-1",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "text-sm font-semibold text-slate-800",
+						children: item.descripcion || `${item.accion} · ${item.modulo}`
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+						className: "mt-1 text-xs text-slate-500",
+						children: [
+							item.usuario_nombre || "Sistema",
+							" · ",
+							item.modulo
+						]
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("time", {
+					className: "shrink-0 text-xs text-slate-400",
+					children: item.fecha
+				})]
+			}, item.id))
+		}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "flex flex-col items-center rounded-xl border border-dashed border-slate-200 bg-slate-50/70 px-5 py-9 text-center",
 			children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "w-14 h-14 rounded-full bg-morado-50 text-morado-700 flex items-center justify-center",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ClipboardList, { size: 26 })
+					className: "flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-violet-700 shadow-sm ring-1 ring-slate-200",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ClipboardList, { size: 23 })
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-					className: "font-semibold text-texto mt-4",
+					className: "mt-4 font-semibold text-slate-800",
 					children: "Sin actividad registrada"
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "text-sm text-texto-secundario mt-2 max-w-xs",
+					className: "mt-2 max-w-xs text-sm leading-6 text-slate-500",
 					children: "Cuando se registren pedidos, aparecerán aquí sus movimientos más recientes."
 				})
 			]
@@ -16055,124 +17579,214 @@ function ActividadReciente() {
 	});
 }
 // src/modulos/tablero/paginas/Pagina.jsx
-function Pagina$4() {
+var accesos = [
+	{
+		nombre: "Punto de venta",
+		descripcion: "Registrar un pedido",
+		ruta: "/punto-venta",
+		icono: ShoppingCart,
+		color: "violet"
+	},
+	{
+		nombre: "Clientes",
+		descripcion: "Consultar y actualizar",
+		ruta: "/clientes",
+		icono: Users,
+		color: "blue"
+	},
+	{
+		nombre: "Productos",
+		descripcion: "Administrar el catálogo",
+		ruta: "/productos",
+		icono: Package,
+		color: "orange"
+	}
+];
+function Pagina() {
+	const [resumen, setResumen] = (0, import_react.useState)(null);
+	const [error, setError] = (0, import_react.useState)("");
+	const [cargando, setCargando] = (0, import_react.useState)(true);
+	const cargarResumen = (0, import_react.useCallback)(async () => {
+		setCargando(true);
+		setError("");
+		const ahora = /* @__PURE__ */ new Date();
+		const hoy = `${ahora.getFullYear()}-${String(ahora.getMonth() + 1).padStart(2, "0")}-${String(ahora.getDate()).padStart(2, "0")}`;
+		try {
+			setResumen(await window.sistema.reportes.resumen({
+				desde: hoy,
+				hasta: hoy
+			}));
+		} catch (e) {
+			setError(e.message || "No se pudo cargar la información del tablero.");
+		} finally {
+			setCargando(false);
+		}
+	}, []);
+	(0, import_react.useEffect)(() => {
+		cargarResumen();
+		const timer = setInterval(cargarResumen, 6e4);
+		return () => clearInterval(timer);
+	}, [cargarResumen]);
+	const fecha = new Intl.DateTimeFormat("es-MX", {
+		weekday: "long",
+		day: "numeric",
+		month: "long"
+	}).format(/* @__PURE__ */ new Date());
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "space-y-7",
+		className: "mx-auto max-w-[1500px] space-y-7 pb-8",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-				className: "flex items-center justify-between flex-wrap gap-4",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-					className: "text-2xl font-bold text-texto",
-					children: "Tablero principal"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "text-sm text-texto-secundario mt-1",
-					children: "Resumen general de las operaciones de tu pizzería."
-				})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
-					to: "/punto-venta",
-					className: "inline-flex items-center gap-2 bg-morado-700 hover:bg-morado-800 text-white px-5 py-3 rounded-xl font-semibold shadow-sm transition-colors",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { size: 19 }), "Nuevo pedido"]
+				className: "relative isolate overflow-hidden rounded-[28px] bg-gradient-to-br from-[#21134a] via-[#45218a] to-[#6b35bc] px-6 py-7 text-white shadow-xl shadow-violet-950/10 sm:px-9 sm:py-9",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "pointer-events-none absolute -right-16 -top-28 -z-10 h-80 w-80 rounded-full border-[42px] border-white/[0.06]" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "pointer-events-none absolute -bottom-36 right-1/4 -z-10 h-72 w-72 rounded-full bg-fuchsia-400/10 blur-2xl" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "relative flex flex-wrap items-end justify-between gap-6",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "max-w-2xl",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-semibold text-violet-100 backdrop-blur",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sparkles, { size: 14 }), " Centro de operaciones"]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+									className: "mt-5 text-3xl font-black tracking-tight sm:text-4xl",
+									children: "Tu pizzería, de un vistazo"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "mt-2 max-w-xl text-sm leading-6 text-violet-100/80 sm:text-base",
+									children: "Pedidos, cocina y ventas reunidos en un solo lugar."
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+									className: "mt-5 inline-flex items-center gap-2 text-xs font-medium capitalize text-white/65",
+									children: [
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CalendarDays, { size: 15 }),
+										" ",
+										fecha
+									]
+								})
+							]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+							to: "/punto-venta",
+							className: "inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-bold text-violet-900 shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-violet-50",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { size: 18 }), " Nuevo pedido"]
+						})]
+					})
+				]
+			}),
+			error && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				role: "alert",
+				className: "flex flex-wrap items-center justify-between gap-3 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: error }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					onClick: cargarResumen,
+					className: "font-bold underline",
+					children: "Reintentar"
 				})]
 			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "grid grid-cols-4 gap-4",
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				"aria-label": "Indicadores principales",
+				className: "grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4",
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TarjetaIndicador, {
 						titulo: "Ventas del día",
-						valor: "—",
-						descripcion: "Total de cobros registrados",
+						valor: cargando ? "…" : formatoDinero(resumen?.ventas),
+						descripcion: "Total de cobros registrados hoy",
 						icono: Wallet,
 						color: "morado"
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TarjetaIndicador, {
 						titulo: "Pedidos activos",
-						valor: "—",
-						descripcion: "Pedidos pendientes de completar",
+						valor: cargando ? "…" : resumen?.pedidosActivos ?? 0,
+						descripcion: "Pendientes de completar hoy",
 						icono: ClipboardList,
 						color: "azul"
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TarjetaIndicador, {
 						titulo: "En preparación",
-						valor: "—",
-						descripcion: "Pedidos actualmente en cocina",
+						valor: cargando ? "…" : resumen?.pedidosPreparando ?? 0,
+						descripcion: "Actualmente en cocina",
 						icono: ChefHat,
 						color: "naranja"
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TarjetaIndicador, {
 						titulo: "Pedidos retrasados",
-						valor: "—",
-						descripcion: "Pedidos que requieren atención",
+						valor: cargando ? "…" : resumen?.pedidosRetrasados ?? 0,
+						descripcion: "Requieren atención",
 						icono: AlarmClock,
 						color: "rojo"
 					})
 				]
-			}) }),
+			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-				className: "grid grid-cols-5 gap-5",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "col-span-2",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ResumenPagos, {})
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "col-span-3",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ActividadReciente, {})
+				className: "grid grid-cols-1 gap-5 2xl:grid-cols-[0.9fr_1.35fr]",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ResumenPagos, {
+					resumen,
+					cargando
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ActividadReciente, {
+					actividad: resumen?.actividad || [],
+					cargando
 				})]
 			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-				className: "text-lg font-bold text-texto mb-4",
-				children: "Accesos rápidos"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "grid grid-cols-3 gap-4",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
-						to: "/punto-venta",
-						className: "bg-white border border-borde rounded-xl p-5 flex items-center gap-4 hover:border-morado-300 hover:shadow-sm transition-all",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "w-11 h-11 rounded-xl bg-morado-50 text-morado-700 flex items-center justify-center",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShoppingCart, { size: 22 })
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "font-semibold text-texto",
-							children: "Punto de venta"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "text-xs text-texto-secundario mt-1",
-							children: "Registrar un pedido"
-						})] })]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
-						to: "/clientes",
-						className: "bg-white border border-borde rounded-xl p-5 flex items-center gap-4 hover:border-morado-300 hover:shadow-sm transition-all",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "w-11 h-11 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Users, { size: 22 })
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "font-semibold text-texto",
-							children: "Clientes"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "text-xs text-texto-secundario mt-1",
-							children: "Consultar clientes"
-						})] })]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
-						to: "/productos",
-						className: "bg-white border border-borde rounded-xl p-5 flex items-center gap-4 hover:border-morado-300 hover:shadow-sm transition-all",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "w-11 h-11 rounded-xl bg-orange-50 text-orange-700 flex items-center justify-center",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Package, { size: 22 })
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "font-semibold text-texto",
-							children: "Productos"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "text-xs text-texto-secundario mt-1",
-							children: "Consultar catálogo"
-						})] })]
-					})
-				]
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "mb-4 flex items-end justify-between gap-3",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+					className: "text-lg font-bold text-slate-900",
+					children: "Accesos rápidos"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-1 text-sm text-slate-500",
+					children: "Lo que más usas durante el turno."
+				})] })
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "grid grid-cols-1 gap-4 md:grid-cols-3",
+				children: accesos.map(({ nombre, descripcion, ruta, icono: Icono, color }) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+					to: ruta,
+					className: "group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-violet-200 hover:shadow-md",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: `flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${color === "violet" ? "bg-violet-50 text-violet-700" : color === "blue" ? "bg-blue-50 text-blue-700" : "bg-orange-50 text-orange-700"}`,
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icono, { size: 22 })
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							className: "min-w-0 flex-1",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "block font-bold text-slate-900",
+								children: nombre
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "mt-1 block text-xs text-slate-500",
+								children: descripcion
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowUpRight, {
+							size: 18,
+							className: "text-slate-300 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-violet-600"
+						})
+					]
+				}, ruta))
 			})] })
 		]
 	});
+}
+function formatoDinero(centavos = 0) {
+	return new Intl.NumberFormat("es-MX", {
+		style: "currency",
+		currency: "MXN",
+		maximumFractionDigits: 0
+	}).format((Number(centavos) || 0) / 100);
 }
 // src/modulos/pedidos/hooks/useAlarmaRetrasos.js
 function useAlarmaRetrasos(activa, cantidadPendiente) {
 	const audioRef = (0, import_react.useRef)(null);
 	const ultimaAlarmaRef = (0, import_react.useRef)(0);
+	const volumenNotificacionesRef = (0, import_react.useRef)(.7);
+	(0, import_react.useEffect)(() => {
+		let vigente = true;
+		window.sistema?.configuracion?.operativa?.().then((configuracion) => {
+			if (vigente) volumenNotificacionesRef.current = configuracion.volumenNotificaciones / 100;
+		}).catch(() => {});
+		return () => {
+			vigente = false;
+		};
+	}, []);
 	(0, import_react.useEffect)(() => {
 		if (!activa || cantidadPendiente === 0) {
 			ultimaAlarmaRef.current = 0;
@@ -16195,7 +17809,7 @@ function useAlarmaRetrasos(activa, cantidadPendiente) {
 					oscilador.frequency.value = 880;
 					const momento = inicio + i * .35;
 					volumen.gain.setValueAtTime(1e-4, momento);
-					volumen.gain.exponentialRampToValueAtTime(.12, momento + .02);
+					volumen.gain.exponentialRampToValueAtTime(Math.max(1e-4, .12 * volumenNotificacionesRef.current), momento + .02);
 					volumen.gain.exponentialRampToValueAtTime(1e-4, momento + .22);
 					oscilador.connect(volumen);
 					volumen.connect(contexto.destination);
@@ -16219,15 +17833,15 @@ function useAlarmaRetrasos(activa, cantidadPendiente) {
 	}, []);
 }
 // src/modulos/pedidos/servicios/pedidos.js
-function obtenerAPI$2() {
+function obtenerAPI$3() {
 	if (!window.sistema?.pedidos) throw new Error("El servicio de pedidos no está disponible.");
 	return window.sistema.pedidos;
 }
 var servicioPedidos = {
-	listar: (filtros = {}) => obtenerAPI$2().listar(filtros),
-	obtener: (id) => obtenerAPI$2().obtener(id),
-	cambiarEstado: (id, estado, motivo = "") => obtenerAPI$2().cambiarEstado(id, estado, motivo),
-	resumen: () => obtenerAPI$2().resumen()
+	listar: (filtros = {}) => obtenerAPI$3().listar(filtros),
+	obtener: (id) => obtenerAPI$3().obtener(id),
+	cambiarEstado: (id, estado, motivo = "") => obtenerAPI$3().cambiarEstado(id, estado, motivo),
+	resumen: () => obtenerAPI$3().resumen()
 };
 // src/modulos/pedidos/estado/EstadoPedidos.js
 var resumenInicial = {
@@ -16404,14 +18018,8 @@ function obtenerAccionesPedido(pedido) {
 		case "Listo": return pedido.tipo === "domicilio" ? [{
 			estado: "En reparto",
 			etiqueta: "Salir a reparto"
-		}] : [{
-			estado: "Entregado",
-			etiqueta: "Marcar entregado"
-		}];
-		case "En reparto": return [{
-			estado: "Entregado",
-			etiqueta: "Marcar entregado"
-		}];
+		}] : [];
+		case "En reparto": return [];
 		default: return [];
 	}
 }
@@ -21619,7 +23227,7 @@ function TarjetaResumen({ estado, cantidad, seleccionada, onClick }) {
 		})]
 	});
 }
-function Modal$2({ titulo, cerrar, children }) {
+function Modal$3({ titulo, cerrar, children }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -21659,7 +23267,7 @@ function ModalCancelacion({ pedido, cerrar, confirmar, guardando }) {
 			setError(err.message || "No se pudo cancelar el pedido.");
 		}
 	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Modal$2, {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Modal$3, {
 		titulo: `Cancelar pedido ${pedido.folio}`,
 		cerrar,
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
@@ -21764,6 +23372,17 @@ function DetallePedido({ pedido, ahora, volver, cambiarEstado, abrirCancelacion,
 						className: "inline-flex items-center gap-2 rounded-xl border border-red-200 px-4 py-2.5 text-sm font-medium text-red-600 hover:bg-red-50 disabled:opacity-50",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Ban, { size: 17 }), "Cancelar pedido"]
 					})]
+				})]
+			}),
+			pedido.metodo_pago ? null : (pedido.estado === "Listo" || pedido.estado === "En reparto") && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				role: "status",
+				className: "rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "font-semibold",
+					children: "Falta cobrar y confirmar la entrega"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-1",
+					children: pedido.estado === "En reparto" ? "Al entregar el pedido, registra el cobro en Caja. El cobro lo marcará como entregado." : pedido.tipo === "domicilio" ? "Cuando salga a reparto, registra el cobro en Caja al entregarlo." : "Cuando el cliente recoja el pedido, registra el cobro en Caja. El cobro lo marcará como entregado."
 				})]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -22400,56 +24019,1921 @@ function PaginaPedidos() {
 		]
 	});
 }
+// src/modulos/caja/servicios/caja.js
+function obtenerAPI$2() {
+	if (!window.sistema?.caja) throw new Error("El servicio de caja no está disponible.");
+	return window.sistema.caja;
+}
+var servicioCaja = {
+	estado: () => obtenerAPI$2().estado(),
+	validarCierre: () => obtenerAPI$2().validarCierre(),
+	abrir: (datos) => obtenerAPI$2().abrir(datos),
+	registrarPago: (datos) => obtenerAPI$2().registrarPago(datos),
+	registrarMovimiento: (datos) => obtenerAPI$2().registrarMovimiento(datos),
+	cerrar: (datos) => obtenerAPI$2().cerrar(datos)
+};
 // src/modulos/caja/paginas/Pagina.jsx
-function Pagina$3() {
+var moneda = (centavos = 0) => new Intl.NumberFormat("es-MX", {
+	style: "currency",
+	currency: "MXN"
+}).format((Number(centavos) || 0) / 100);
+function convertirCentavos(valor, permitirCero = false) {
+	const numero = Number(valor);
+	if (!Number.isFinite(numero) || numero < 0 || !permitirCero && numero === 0) throw new Error("Escribe un importe válido en pesos.");
+	const centavos = Math.round(numero * 100);
+	if (!Number.isSafeInteger(centavos)) throw new Error("El importe es demasiado grande.");
+	return centavos;
+}
+function Campo$4({ etiqueta, children }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+		className: "block space-y-1.5 text-sm font-medium text-slate-700",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: etiqueta }), children]
+	});
+}
+var claseInput = "w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-violet-500 focus:ring-2 focus:ring-violet-100";
+function PaginaCaja() {
+	const [estado, setEstado] = (0, import_react.useState)(null);
+	const [cargando, setCargando] = (0, import_react.useState)(true);
+	const [guardando, setGuardando] = (0, import_react.useState)(false);
+	const [error, setError] = (0, import_react.useState)("");
+	const [aviso, setAviso] = (0, import_react.useState)("");
+	const [montoInicial, setMontoInicial] = (0, import_react.useState)("0");
+	const [pedidoPago, setPedidoPago] = (0, import_react.useState)(null);
+	const [metodoPago, setMetodoPago] = (0, import_react.useState)("efectivo");
+	const [montoRecibido, setMontoRecibido] = (0, import_react.useState)("");
+	const [referencia, setReferencia] = (0, import_react.useState)("");
+	const [tipoMovimiento, setTipoMovimiento] = (0, import_react.useState)("gasto");
+	const [metodoMovimiento, setMetodoMovimiento] = (0, import_react.useState)("efectivo");
+	const [concepto, setConcepto] = (0, import_react.useState)("");
+	const [montoMovimiento, setMontoMovimiento] = (0, import_react.useState)("");
+	const [efectivoContado, setEfectivoContado] = (0, import_react.useState)("");
+	const [observaciones, setObservaciones] = (0, import_react.useState)("");
+	const cargar = (0, import_react.useCallback)(async () => {
+		setCargando(true);
+		setError("");
+		try {
+			setEstado(await servicioCaja.estado());
+		} catch (e) {
+			setError(e.message || "No se pudo cargar la caja.");
+		} finally {
+			setCargando(false);
+		}
+	}, []);
+	(0, import_react.useEffect)(() => {
+		cargar();
+		const intervalo = setInterval(() => void cargar(), 5e3);
+		return () => clearInterval(intervalo);
+	}, [cargar]);
+	async function ejecutar(accion, mensaje) {
+		setGuardando(true);
+		setError("");
+		setAviso("");
+		try {
+			const resultado = await accion();
+			setAviso(typeof mensaje === "function" ? mensaje(resultado) : mensaje);
+			await cargar();
+			return true;
+		} catch (e) {
+			setError(e.message || "No se pudo completar la operación.");
+			return false;
+		} finally {
+			setGuardando(false);
+		}
+	}
+	const sesion = estado?.sesion;
+	const resumen = sesion?.efectivo_esperado_centavos;
+	const pedidosSinPagar = estado?.pedidosSinPagar ?? estado?.pendientes?.length ?? 0;
+	const pedidosEnProceso = estado?.pedidosEnProcesoCantidad ?? estado?.pedidosEnProceso?.length ?? 0;
+	if (cargando && !estado) return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "flex items-center gap-3 rounded-xl bg-white p-8 text-slate-600",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LoaderCircle, { className: "animate-spin" }), " Cargando caja…"]
+	});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "mx-auto max-w-7xl space-y-6",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
+				className: "flex flex-wrap items-center justify-between gap-4",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "text-sm font-semibold uppercase tracking-wide text-violet-600",
+						children: "Operación diaria"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+						className: "mt-1 text-3xl font-bold text-slate-900",
+						children: "Caja"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-1 text-slate-500",
+						children: "Apertura, cobros y movimientos de efectivo."
+					})
+				] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+					onClick: cargar,
+					disabled: cargando,
+					className: "inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-60",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, {
+						size: 16,
+						className: cargando ? "animate-spin" : ""
+					}), " Actualizar"]
+				})]
+			}),
+			error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				role: "alert",
+				className: "rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700",
+				children: error
+			}),
+			aviso && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				role: "status",
+				className: "rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800",
+				children: aviso
+			}),
+			!sesion ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				className: "grid gap-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:grid-cols-[1fr_1.2fr] md:p-8",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex flex-col justify-center",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-100 text-violet-700",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DoorOpen, {})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							className: "text-xl font-bold text-slate-900",
+							children: "Abrir turno de caja"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "mt-2 max-w-md text-sm leading-6 text-slate-500",
+							children: "Registra el efectivo inicial disponible. Solo puede haber una caja abierta a la vez."
+						})
+					]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+					className: "flex flex-col justify-end gap-4 rounded-xl bg-slate-50 p-5",
+					onSubmit: (e) => {
+						e.preventDefault();
+						ejecutar(() => servicioCaja.abrir({ montoInicialCentavos: convertirCentavos(montoInicial, true) }), "Caja abierta.");
+					},
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$4, {
+						etiqueta: "Efectivo inicial (MXN)",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+							className: claseInput,
+							type: "number",
+							min: "0",
+							step: "0.01",
+							value: montoInicial,
+							onChange: (e) => setMontoInicial(e.target.value),
+							required: true
+						})
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+						disabled: guardando,
+						className: "inline-flex items-center justify-center gap-2 rounded-lg bg-violet-600 px-4 py-3 text-sm font-semibold text-white hover:bg-violet-700 disabled:opacity-60",
+						children: [guardando ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LoaderCircle, {
+							className: "animate-spin",
+							size: 17
+						}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DoorOpen, { size: 17 }), " Abrir caja"]
+					})]
+				})]
+			}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+					className: "flex flex-wrap items-center justify-between gap-4 rounded-2xl bg-slate-900 p-5 text-white shadow-sm md:p-6",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex items-center gap-4",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-400/15 text-emerald-300",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Wallet, {})
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex items-center gap-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+								className: "text-lg font-bold",
+								children: "Caja abierta"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "rounded-full bg-emerald-400/15 px-2.5 py-1 text-xs font-semibold text-emerald-300",
+								children: "En curso"
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+							className: "mt-1 text-sm text-slate-300",
+							children: [
+								"Abierta ",
+								sesion.fecha_apertura,
+								" · Sesión #",
+								sesion.id
+							]
+						})] })]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "text-left sm:text-right",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-sm text-slate-300",
+							children: "Efectivo esperado en cajón"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-3xl font-bold",
+							children: moneda(resumen)
+						})]
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+					className: "grid gap-4 sm:grid-cols-2 xl:grid-cols-4",
+					children: [
+						[
+							"Fondo inicial",
+							sesion.monto_inicial_centavos,
+							Wallet,
+							"text-slate-700 bg-slate-100"
+						],
+						[
+							"Cobros en efectivo",
+							sesion.pagos_efectivo_centavos,
+							Banknote,
+							"text-emerald-700 bg-emerald-100"
+						],
+						[
+							"Transferencias netas",
+							sesion.transferencias_centavos,
+							CreditCard,
+							"text-blue-700 bg-blue-100"
+						],
+						[
+							"Pedidos por cobrar",
+							pedidosSinPagar,
+							Clock3,
+							"text-amber-700 bg-amber-100",
+							true
+						]
+					].map(([titulo, valor, Icono, color, esCantidad]) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+						className: "rounded-xl border border-slate-200 bg-white p-5 shadow-sm",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex items-center justify-between",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "text-sm font-medium text-slate-500",
+								children: titulo
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: `flex h-9 w-9 items-center justify-center rounded-lg ${color}`,
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icono, { size: 18 })
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "mt-3 text-2xl font-bold text-slate-900",
+							children: esCantidad ? valor : moneda(valor)
+						})]
+					}, titulo))
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+					className: "grid items-start gap-6 xl:grid-cols-[1.4fr_0.9fr]",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 p-5",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+									className: "font-bold text-slate-900",
+									children: "Pedidos pendientes de pago"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "mt-1 text-sm text-slate-500",
+									children: "Se cobra el total una sola vez. Al confirmar el cobro, el pedido queda entregado."
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "mt-1 text-xs text-slate-500",
+									children: "Recoger: cobra cuando está listo. Domicilio: cobra cuando ya salió a reparto."
+								})
+							] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "rounded-full bg-amber-50 px-3 py-1 text-sm font-semibold text-amber-800",
+								children: estado.pendientes.length
+							})]
+						}), estado.pendientes.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "p-8 text-center text-sm text-slate-500",
+							children: "No hay pedidos pendientes de cobro."
+						}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "max-h-[28rem] overflow-auto",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
+								className: "w-full text-left text-sm",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", {
+									className: "sticky top-0 bg-slate-50 text-xs uppercase tracking-wide text-slate-500",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", {
+											className: "px-5 py-3",
+											children: "Pedido"
+										}),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", {
+											className: "px-5 py-3",
+											children: "Cliente / tipo"
+										}),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", {
+											className: "px-5 py-3 text-right",
+											children: "Total"
+										}),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { className: "px-5 py-3" })
+									] })
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", {
+									className: "divide-y divide-slate-100",
+									children: estado.pendientes.map((pedido) => {
+										const listo = pedido.estado === "entregado" || (pedido.tipo === "domicilio" ? pedido.estado === "en_reparto" : pedido.estado === "listo");
+										return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
+											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("td", {
+												className: "px-5 py-4",
+												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+													className: "font-semibold text-slate-900",
+													children: pedido.folio
+												}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+													className: "mt-1 block text-xs capitalize text-slate-500",
+													children: pedido.estado.replaceAll("_", " ")
+												})]
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("td", {
+												className: "px-5 py-4 text-slate-600",
+												children: [pedido.cliente_nombre || "Sin cliente", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+													className: "mt-1 block text-xs capitalize text-slate-400",
+													children: pedido.tipo
+												})]
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+												className: "px-5 py-4 text-right font-semibold text-slate-900",
+												children: moneda(pedido.total_centavos)
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+												className: "px-5 py-4 text-right",
+												children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+													disabled: !listo,
+													title: listo ? "Registrar cobro y confirmar entrega" : "Disponible cuando esté listo para entregar",
+													onClick: () => {
+														setPedidoPago(pedido);
+														setReferencia("");
+														setMontoRecibido("");
+													},
+													className: "rounded-lg bg-violet-600 px-3 py-2 text-xs font-semibold text-white hover:bg-violet-700 disabled:cursor-not-allowed disabled:bg-slate-300",
+													children: listo ? "Cobrar y entregar" : "Cobrar"
+												})
+											})
+										] }, pedido.id);
+									})
+								})]
+							})
+						})]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "space-y-6",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+							className: "space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm",
+							onSubmit: (e) => {
+								e.preventDefault();
+								ejecutar(() => servicioCaja.registrarMovimiento({
+									tipo: tipoMovimiento,
+									metodo: metodoMovimiento,
+									concepto,
+									montoCentavos: convertirCentavos(montoMovimiento)
+								}), "Movimiento registrado.").then(() => {
+									setConcepto("");
+									setMontoMovimiento("");
+								});
+							},
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+									className: "font-bold text-slate-900",
+									children: "Registrar movimiento"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "mt-1 text-sm text-slate-500",
+									children: "Gasto, retiro o ingreso extraordinario."
+								})] }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "grid grid-cols-2 gap-3",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$4, {
+										etiqueta: "Tipo",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
+											className: claseInput,
+											value: tipoMovimiento,
+											onChange: (e) => setTipoMovimiento(e.target.value),
+											children: [
+												/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+													value: "gasto",
+													children: "Gasto"
+												}),
+												/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+													value: "retiro",
+													children: "Retiro"
+												}),
+												/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+													value: "ingreso",
+													children: "Ingreso"
+												})
+											]
+										})
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$4, {
+										etiqueta: "Método",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
+											className: claseInput,
+											value: metodoMovimiento,
+											onChange: (e) => setMetodoMovimiento(e.target.value),
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+												value: "efectivo",
+												children: "Efectivo"
+											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+												value: "transferencia",
+												children: "Transferencia"
+											})]
+										})
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$4, {
+									etiqueta: "Concepto",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+										className: claseInput,
+										maxLength: 200,
+										value: concepto,
+										onChange: (e) => setConcepto(e.target.value),
+										placeholder: "Ej. compra de ingredientes",
+										required: true
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$4, {
+									etiqueta: "Importe (MXN)",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+										className: claseInput,
+										type: "number",
+										min: "0.01",
+										step: "0.01",
+										value: montoMovimiento,
+										onChange: (e) => setMontoMovimiento(e.target.value),
+										required: true
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+									disabled: guardando,
+									className: "inline-flex w-full items-center justify-center gap-2 rounded-lg border border-violet-200 bg-violet-50 px-4 py-2.5 text-sm font-semibold text-violet-800 hover:bg-violet-100 disabled:opacity-60",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { size: 16 }), " Registrar movimiento"]
+								})
+							]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+							className: "space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm",
+							onSubmit: (e) => {
+								e.preventDefault();
+								ejecutar(() => servicioCaja.cerrar({
+									efectivoContadoCentavos: convertirCentavos(efectivoContado, true),
+									observaciones
+								}), (resultado) => `Caja cerrada. Esperado: ${moneda(resultado.cierre.efectivoEsperadoCentavos)} · contado: ${moneda(resultado.cierre.efectivoContadoCentavos)} · diferencia: ${resultado.cierre.diferenciaCentavos >= 0 ? "+" : "−"}${moneda(Math.abs(resultado.cierre.diferenciaCentavos))}.`);
+							},
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+									className: "font-bold text-slate-900",
+									children: "Cerrar caja"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+									className: "mt-1 text-sm text-slate-500",
+									children: [
+										"Cuenta el efectivo y compara con el esperado de ",
+										moneda(resumen),
+										"."
+									]
+								})] }),
+								pedidosSinPagar > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+									role: "alert",
+									className: "rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm leading-5 text-amber-900",
+									children: [
+										"No se puede cerrar la caja: hay ",
+										pedidosSinPagar,
+										" ",
+										pedidosSinPagar === 1 ? "pedido pendiente de pago" : "pedidos pendientes de pago",
+										". Cobra o cancela esos pedidos antes del corte."
+									]
+								}),
+								pedidosEnProceso > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+									role: "status",
+									className: "rounded-xl border border-sky-200 bg-sky-50 p-3 text-sm leading-5 text-sky-900",
+									children: [
+										"Hay ",
+										pedidosEnProceso,
+										" ",
+										pedidosEnProceso === 1 ? "pedido en cocina" : "pedidos en cocina",
+										estado.pedidosEnProceso?.length ? ` (${estado.pedidosEnProceso.slice(0, 3).map((pedido) => pedido.folio).join(", ")}${pedidosEnProceso > 3 ? "…" : ""})` : "",
+										". Termínalos antes de cerrar la aplicación."
+									]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$4, {
+									etiqueta: "Efectivo contado (MXN)",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+										className: claseInput,
+										type: "number",
+										min: "0",
+										step: "0.01",
+										value: efectivoContado,
+										onChange: (e) => setEfectivoContado(e.target.value),
+										required: true
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$4, {
+									etiqueta: "Observaciones (opcional)",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", {
+										className: claseInput,
+										rows: 2,
+										maxLength: 500,
+										value: observaciones,
+										onChange: (e) => setObservaciones(e.target.value)
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+									disabled: guardando || pedidosSinPagar > 0 || pedidosEnProceso > 0,
+									title: pedidosEnProceso > 0 ? "Primero termina los pedidos de cocina." : pedidosSinPagar > 0 ? "Primero cobra o cancela los pedidos sin pagar." : "Cerrar turno de caja",
+									className: "inline-flex w-full items-center justify-center gap-2 rounded-lg bg-slate-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-900 disabled:cursor-not-allowed disabled:opacity-50",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(DoorClosed, { size: 16 }), pedidosEnProceso > 0 ? "Termina pedidos de cocina" : pedidosSinPagar > 0 ? "Cobra los pedidos pendientes" : "Cerrar turno"]
+								})
+							]
+						})]
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+					className: "grid gap-6 lg:grid-cols-2",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Lista, {
+						titulo: "Pagos recientes",
+						vacio: "Aún no hay pagos registrados.",
+						items: estado.pagos,
+						render: (p) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "font-semibold text-slate-800",
+								children: p.folio
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "ml-2 text-xs capitalize text-slate-500",
+								children: p.metodo
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+								className: "mt-1 block text-xs text-slate-500",
+								children: [
+									"Recibido ",
+									moneda(p.monto_recibido_centavos ?? p.monto_centavos),
+									" · Cambio ",
+									moneda(p.cambio_centavos || 0)
+								]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "mt-1 block text-xs text-slate-400",
+								children: p.fecha_pago
+							})
+						] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "font-semibold text-emerald-700",
+							children: moneda(p.monto_centavos)
+						})] })
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Lista, {
+						titulo: "Movimientos recientes",
+						vacio: "Aún no hay movimientos.",
+						items: estado.movimientos,
+						render: (m) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "font-semibold capitalize text-slate-800",
+								children: m.tipo
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "ml-2 text-xs capitalize text-slate-500",
+								children: m.metodo
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "mt-1 block text-xs text-slate-500",
+								children: m.concepto
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+								className: "mt-1 block text-xs text-slate-400",
+								children: [
+									m.fecha,
+									" · ",
+									m.usuario_nombre || "Usuario"
+								]
+							})
+						] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							className: `font-semibold ${m.tipo === "ingreso" ? "text-emerald-700" : "text-slate-700"}`,
+							children: [m.tipo === "ingreso" ? "+" : "−", moneda(m.monto_centavos)]
+						})] })
+					})]
+				})
+			] }),
+			pedidoPago && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4",
+				role: "presentation",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+					role: "dialog",
+					"aria-modal": "true",
+					"aria-labelledby": "titulo-cobro",
+					className: "w-full max-w-md space-y-5 rounded-2xl bg-white p-6 shadow-2xl",
+					onSubmit: (e) => {
+						e.preventDefault();
+						ejecutar(() => servicioCaja.registrarPago({
+							pedidoId: pedidoPago.id,
+							metodo: metodoPago,
+							referencia,
+							montoRecibidoCentavos: metodoPago === "efectivo" ? Math.round(Number(montoRecibido) * 100) : pedidoPago.total_centavos
+						}), `Pago del pedido ${pedidoPago.folio} registrado.`).then((ok) => {
+							if (ok) setPedidoPago(null);
+						});
+					},
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							id: "titulo-cobro",
+							className: "text-xl font-bold text-slate-900",
+							children: "Cobrar y confirmar entrega"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+							className: "mt-1 text-sm text-slate-500",
+							children: [
+								pedidoPago.folio,
+								" · ",
+								pedidoPago.cliente_nombre || "Sin cliente"
+							]
+						})] }),
+						error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							role: "alert",
+							className: "rounded-lg bg-red-50 p-3 text-sm text-red-700",
+							children: error
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "rounded-xl bg-slate-50 p-4",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-sm text-slate-500",
+								children: "Total a cobrar"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-1 text-2xl font-bold text-slate-900",
+								children: moneda(pedidoPago.total_centavos)
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$4, {
+							etiqueta: "Método de pago",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
+								className: claseInput,
+								value: metodoPago,
+								onChange: (e) => setMetodoPago(e.target.value),
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+									value: "efectivo",
+									children: "Efectivo"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+									value: "transferencia",
+									children: "Transferencia"
+								})]
+							})
+						}),
+						metodoPago === "efectivo" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$4, {
+							etiqueta: "¿Cuánto va a dar? (MXN)",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								className: claseInput,
+								type: "number",
+								min: (pedidoPago.total_centavos / 100).toFixed(2),
+								step: "0.01",
+								value: montoRecibido,
+								onChange: (e) => setMontoRecibido(e.target.value),
+								placeholder: `Mínimo ${moneda(pedidoPago.total_centavos)}`,
+								required: true
+							})
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: `rounded-xl p-4 ${Math.round(Number(montoRecibido || 0) * 100) >= pedidoPago.total_centavos ? "bg-emerald-50 text-emerald-900" : "bg-amber-50 text-amber-900"}`,
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "text-sm font-medium",
+									children: Math.round(Number(montoRecibido || 0) * 100) >= pedidoPago.total_centavos ? "Cambio" : "Falta por pagar"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "mt-1 text-2xl font-black",
+									children: moneda(Math.abs(Math.round(Number(montoRecibido || 0) * 100) - pedidoPago.total_centavos))
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "mt-1 text-xs",
+									children: Math.round(Number(montoRecibido || 0) * 100) >= pedidoPago.total_centavos ? "Se registrará el efectivo recibido y el cambio." : "El pago no se activará hasta cubrir el total."
+								})
+							]
+						})] }),
+						metodoPago === "transferencia" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$4, {
+							etiqueta: "Referencia (opcional)",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								className: claseInput,
+								maxLength: 100,
+								value: referencia,
+								onChange: (e) => setReferencia(e.target.value),
+								placeholder: "Folio o referencia bancaria"
+							})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex gap-3",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								type: "button",
+								onClick: () => setPedidoPago(null),
+								className: "flex-1 rounded-lg border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-700",
+								children: "Cancelar"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								disabled: guardando || metodoPago === "efectivo" && (!montoRecibido || Math.round(Number(montoRecibido) * 100) < pedidoPago.total_centavos),
+								className: "flex-1 rounded-lg bg-violet-600 px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-60",
+								children: guardando ? "Registrando…" : "Confirmar pago"
+							})]
+						})
+					]
+				})
+			})
+		]
+	});
+}
+function Lista({ titulo, vacio, items, render }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-		className: "bg-white rounded-xl border border-slate-200 p-8",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-			className: "text-2xl font-bold text-slate-800",
-			children: "Caja"
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-			className: "mt-2 text-slate-500",
-			children: "Módulo preparado. Su funcionalidad se desarrollará en su fase correspondiente."
+		className: "overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "border-b border-slate-200 p-5",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+				className: "font-bold text-slate-900",
+				children: titulo
+			})
+		}), items.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+			className: "p-6 text-sm text-slate-500",
+			children: vacio
+		}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+			className: "divide-y divide-slate-100",
+			children: items.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", {
+				className: "flex items-center justify-between gap-4 px-5 py-4 text-sm",
+				children: render(item)
+			}, item.id))
 		})]
 	});
 }
 // src/modulos/reportes/paginas/Pagina.jsx
-function Pagina$2() {
+var pesos = (centavos = 0) => new Intl.NumberFormat("es-MX", {
+	style: "currency",
+	currency: "MXN"
+}).format((Number(centavos) || 0) / 100);
+var fechaLocal = (fecha) => `${fecha.getFullYear()}-${String(fecha.getMonth() + 1).padStart(2, "0")}-${String(fecha.getDate()).padStart(2, "0")}`;
+var inicioMes = (fecha) => fechaLocal(new Date(fecha.getFullYear(), fecha.getMonth(), 1));
+var input$2 = "rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-700 outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100";
+function PaginaReportes() {
+	const hoy = fechaLocal(/* @__PURE__ */ new Date());
+	const [periodo, setPeriodo] = (0, import_react.useState)("hoy");
+	const [desde, setDesde] = (0, import_react.useState)(hoy);
+	const [hasta, setHasta] = (0, import_react.useState)(hoy);
+	const [datos, setDatos] = (0, import_react.useState)(null);
+	const [cargando, setCargando] = (0, import_react.useState)(true);
+	const [error, setError] = (0, import_react.useState)("");
+	const cargar = (0, import_react.useCallback)(async (rangoDesde = desde, rangoHasta = hasta) => {
+		setCargando(true);
+		setError("");
+		try {
+			setDatos(await window.sistema.reportes.resumen({
+				desde: rangoDesde,
+				hasta: rangoHasta
+			}));
+		} catch (e) {
+			setError(e.message || "No se pudieron cargar los reportes.");
+		} finally {
+			setCargando(false);
+		}
+	}, [desde, hasta]);
+	(0, import_react.useEffect)(() => {
+		queueMicrotask(() => {
+			cargar();
+		});
+	}, [cargar]);
+	function cambiarPeriodo(valor) {
+		setPeriodo(valor);
+		const ahora = /* @__PURE__ */ new Date();
+		const fin = fechaLocal(ahora);
+		const inicio = valor === "hoy" ? fin : valor === "semana" ? fechaLocal(new Date(ahora.getFullYear(), ahora.getMonth(), ahora.getDate() - 6)) : inicioMes(ahora);
+		setDesde(inicio);
+		setHasta(fin);
+		if (valor !== "personalizado") cargar(inicio, fin);
+	}
+	function exportarCSV() {
+		if (!datos) return;
+		const contenido = [
+			["Reporte de ventas de pizzería"],
+			["Desde", datos.periodo.desde],
+			["Hasta", datos.periodo.hasta],
+			[],
+			["Indicador", "Valor"],
+			["Ventas cobradas (MXN)", (datos.ventas / 100).toFixed(2)],
+			["Efectivo (MXN)", (datos.efectivo / 100).toFixed(2)],
+			["Transferencias (MXN)", (datos.transferencias / 100).toFixed(2)],
+			["Pagos", datos.cantidadPagos],
+			["Pedidos creados", datos.cantidadPedidos],
+			["Pedidos activos", datos.pedidosActivos],
+			["Pedidos cancelados", datos.pedidosCancelados],
+			["Pedidos retrasados", datos.pedidosRetrasados],
+			["Promedio de preparación (min)", datos.promedioPreparacionMinutos],
+			[],
+			["Productos más vendidos"],
+			[
+				"Producto",
+				"Unidades",
+				"Ventas (MXN)"
+			],
+			...datos.productos.map((p) => [
+				p.nombre_producto,
+				p.unidades,
+				(p.ventas_centavos / 100).toFixed(2)
+			]),
+			[],
+			["Métodos de pago"],
+			[
+				"Método",
+				"Pagos",
+				"Total (MXN)"
+			],
+			...datos.metodos.map((m) => [
+				m.metodo,
+				m.cantidad,
+				(m.total_centavos / 100).toFixed(2)
+			]),
+			[],
+			["Motivos de cancelación"],
+			["Motivo", "Cantidad"],
+			...datos.cancelaciones.map((c) => [c.motivo || "Sin motivo", c.cantidad]),
+			[],
+			["Movimientos de caja"],
+			[
+				"Tipo",
+				"Método",
+				"Cantidad",
+				"Total (MXN)"
+			],
+			...datos.movimientos.map((m) => [
+				m.tipo,
+				m.metodo,
+				m.cantidad,
+				(m.total_centavos / 100).toFixed(2)
+			])
+		].map((fila) => fila.map((celda) => `"${String(celda ?? "").replaceAll("\"", "\"\"")}"`).join(";")).join("\r\n");
+		const archivo = new Blob(["﻿", contenido], { type: "text/csv;charset=utf-8" });
+		const url = URL.createObjectURL(archivo);
+		const enlace = document.createElement("a");
+		enlace.href = url;
+		enlace.download = `reporte-${datos.periodo.desde}-${datos.periodo.hasta}.csv`;
+		enlace.click();
+		URL.revokeObjectURL(url);
+	}
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "mx-auto max-w-7xl space-y-6",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
+				className: "flex flex-wrap items-end justify-between gap-4",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "text-sm font-semibold uppercase tracking-wide text-violet-600",
+						children: "Análisis de operación"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+						className: "mt-1 text-3xl font-bold text-slate-900",
+						children: "Reportes"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-1 text-slate-500",
+						children: "Ventas cobradas, pedidos y actividad de caja."
+					})
+				] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex gap-2",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+						onClick: exportarCSV,
+						disabled: !datos || cargando,
+						className: "inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Download, { size: 16 }), " Exportar CSV"]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+						onClick: () => window.print(),
+						disabled: !datos || cargando,
+						className: "inline-flex items-center gap-2 rounded-lg bg-violet-600 px-3 py-2.5 text-sm font-semibold text-white hover:bg-violet-700 disabled:opacity-50",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Printer, { size: 16 }), " Imprimir / PDF"]
+					})]
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				className: "flex flex-wrap items-end gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm print:hidden",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "min-w-48",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+							className: "mb-1.5 block text-xs font-semibold uppercase text-slate-500",
+							children: "Periodo"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
+							value: periodo,
+							onChange: (e) => cambiarPeriodo(e.target.value),
+							className: input$2,
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+									value: "hoy",
+									children: "Hoy"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+									value: "semana",
+									children: "Últimos 7 días"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+									value: "mes",
+									children: "Este mes"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+									value: "personalizado",
+									children: "Personalizado"
+								})
+							]
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+						className: "mb-1.5 block text-xs font-semibold uppercase text-slate-500",
+						children: "Desde"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+						type: "date",
+						className: input$2,
+						value: desde,
+						onChange: (e) => {
+							setPeriodo("personalizado");
+							setDesde(e.target.value);
+						}
+					})] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+						className: "mb-1.5 block text-xs font-semibold uppercase text-slate-500",
+						children: "Hasta"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+						type: "date",
+						className: input$2,
+						value: hasta,
+						onChange: (e) => {
+							setPeriodo("personalizado");
+							setHasta(e.target.value);
+						}
+					})] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+						onClick: () => cargar(),
+						disabled: cargando,
+						className: "inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, {
+							size: 16,
+							className: cargando ? "animate-spin" : ""
+						}), " Aplicar"]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "ml-auto inline-flex items-center gap-2 text-xs text-slate-400",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CalendarDays, { size: 15 }),
+							" ",
+							desde,
+							" — ",
+							hasta
+						]
+					})
+				]
+			}),
+			error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				role: "alert",
+				className: "rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700",
+				children: error
+			}),
+			cargando && !datos ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "flex items-center gap-3 rounded-xl bg-white p-8 text-slate-600",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LoaderCircle, { className: "animate-spin" }), " Preparando reporte…"]
+			}) : datos && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "space-y-6 print:space-y-3",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "hidden print:block",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							className: "text-xl font-bold",
+							children: "Reporte de operación"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { children: [
+							datos.periodo.desde,
+							" — ",
+							datos.periodo.hasta
+						] })]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+						className: "grid gap-4 sm:grid-cols-2 xl:grid-cols-4",
+						children: [
+							[
+								"Ventas cobradas",
+								pesos(datos.ventas),
+								Banknote,
+								"text-emerald-700 bg-emerald-100"
+							],
+							[
+								"Pedidos creados",
+								datos.cantidadPedidos,
+								ClipboardList,
+								"text-blue-700 bg-blue-100"
+							],
+							[
+								"Cancelados",
+								datos.pedidosCancelados,
+								FileDown,
+								"text-red-700 bg-red-100"
+							],
+							[
+								"Preparación promedio",
+								`${datos.promedioPreparacionMinutos} min`,
+								AlarmClock,
+								"text-amber-700 bg-amber-100"
+							]
+						].map(([label, valor, Icono, color]) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+							className: "rounded-xl border border-slate-200 bg-white p-5 shadow-sm",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex items-center justify-between",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-sm font-medium text-slate-500",
+									children: label
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: `flex h-9 w-9 items-center justify-center rounded-lg ${color}`,
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icono, { size: 18 })
+								})]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-3 text-2xl font-bold text-slate-900",
+								children: valor
+							})]
+						}, label))
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+						className: "grid gap-6 lg:grid-cols-2",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Panel, {
+								titulo: "Ventas por método de pago",
+								vacio: "Sin pagos para este periodo.",
+								children: datos.metodos.length ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Tabla, {
+									columnas: [
+										"Método",
+										"Pagos",
+										"Total"
+									],
+									filas: datos.metodos.map((m) => [
+										m.metodo,
+										m.cantidad,
+										pesos(m.total_centavos)
+									])
+								}) : null
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Panel, {
+								titulo: "Productos más vendidos",
+								vacio: "Sin productos vendidos en el periodo.",
+								children: datos.productos.length ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Tabla, {
+									columnas: [
+										"Producto",
+										"Unidades",
+										"Ventas"
+									],
+									filas: datos.productos.map((p) => [
+										p.nombre_producto,
+										p.unidades,
+										pesos(p.ventas_centavos)
+									])
+								}) : null
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Panel, {
+								titulo: "Motivos de cancelación",
+								vacio: "No hubo pedidos cancelados.",
+								children: datos.cancelaciones.length ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Tabla, {
+									columnas: ["Motivo", "Pedidos"],
+									filas: datos.cancelaciones.map((c) => [c.motivo || "Sin motivo", c.cantidad])
+								}) : null
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Panel, {
+								titulo: "Movimientos de caja",
+								vacio: "Sin movimientos en el periodo.",
+								children: datos.movimientos.length ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Tabla, {
+									columnas: [
+										"Tipo",
+										"Método",
+										"Cantidad",
+										"Total"
+									],
+									filas: datos.movimientos.map((m) => [
+										m.tipo,
+										m.metodo,
+										m.cantidad,
+										pesos(m.total_centavos)
+									])
+								}) : null
+							})
+						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+						className: "grid gap-4 sm:grid-cols-3",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Dato, {
+								label: "Efectivo cobrado",
+								valor: pesos(datos.efectivo)
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Dato, {
+								label: "Transferencias cobradas",
+								valor: pesos(datos.transferencias)
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Dato, {
+								label: "Pedidos retrasados",
+								valor: datos.pedidosRetrasados
+							})
+						]
+					})
+				]
+			})
+		]
+	});
+}
+function Panel({ titulo, vacio, children }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-		className: "bg-white rounded-xl border border-slate-200 p-8",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-			className: "text-2xl font-bold text-slate-800",
-			children: "Reportes"
+		className: "overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "border-b border-slate-200 p-5",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+				className: "font-bold text-slate-900",
+				children: titulo
+			})
+		}), children || /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+			className: "p-6 text-sm text-slate-500",
+			children: vacio
+		})]
+	});
+}
+function Tabla({ columnas, filas }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "overflow-x-auto",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
+			className: "w-full text-left text-sm",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", {
+				className: "bg-slate-50 text-xs uppercase text-slate-500",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tr", { children: columnas.map((c) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", {
+					className: "px-5 py-3",
+					children: c
+				}, c)) })
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", {
+				className: "divide-y divide-slate-100",
+				children: filas.map((fila, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tr", { children: fila.map((celda, j) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+					className: "px-5 py-3 text-slate-700",
+					children: celda
+				}, j)) }, i))
+			})]
+		})
+	});
+}
+function Dato({ label, valor }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "rounded-xl border border-slate-200 bg-white p-5",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+			className: "text-sm text-slate-500",
+			children: label
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-			className: "mt-2 text-slate-500",
-			children: "Módulo preparado. Su funcionalidad se desarrollará en su fase correspondiente."
+			className: "mt-2 text-xl font-bold text-slate-900",
+			children: valor
 		})]
 	});
 }
 // src/modulos/usuarios/paginas/Pagina.jsx
-function Pagina$1() {
+var input$1 = "w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100";
+function PaginaUsuarios() {
+	const usuarioActual = useEstadoAutenticacion((estado) => estado.usuario);
+	const [usuarios, setUsuarios] = (0, import_react.useState)([]);
+	const [busqueda, setBusqueda] = (0, import_react.useState)("");
+	const [cargando, setCargando] = (0, import_react.useState)(true);
+	const [guardando, setGuardando] = (0, import_react.useState)(false);
+	const [error, setError] = (0, import_react.useState)("");
+	const [aviso, setAviso] = (0, import_react.useState)("");
+	const [formulario, setFormulario] = (0, import_react.useState)(null);
+	const [contrasena, setContrasena] = (0, import_react.useState)(null);
+	const [mostrarContrasena, setMostrarContrasena] = (0, import_react.useState)(false);
+	const cargar = (0, import_react.useCallback)(async () => {
+		setCargando(true);
+		setError("");
+		try {
+			setUsuarios(await servicioUsuarios.listar());
+		} catch (e) {
+			setError(e.message || "No se pudo cargar la lista de usuarios.");
+		} finally {
+			setCargando(false);
+		}
+	}, []);
+	(0, import_react.useEffect)(() => {
+		queueMicrotask(() => {
+			cargar();
+		});
+	}, [cargar]);
+	async function guardarUsuario(e) {
+		e.preventDefault();
+		setGuardando(true);
+		setError("");
+		setAviso("");
+		try {
+			if (formulario.id) await servicioUsuarios.actualizar(formulario);
+			else await servicioUsuarios.crear(formulario);
+			setFormulario(null);
+			setAviso(formulario.id ? "Usuario actualizado." : "Usuario creado.");
+			await cargar();
+		} catch (err) {
+			setError(err.message || "No se pudo guardar el usuario.");
+		} finally {
+			setGuardando(false);
+		}
+	}
+	async function guardarContrasena(e) {
+		e.preventDefault();
+		setGuardando(true);
+		setError("");
+		setAviso("");
+		try {
+			await servicioUsuarios.cambiarContrasena({
+				id: contrasena.id,
+				contrasena: contrasena.nueva
+			});
+			setContrasena(null);
+			setAviso("Contraseña restablecida. Comparte la nueva contraseña directamente con el usuario.");
+		} catch (err) {
+			setError(err.message || "No se pudo restablecer la contraseña.");
+		} finally {
+			setGuardando(false);
+		}
+	}
+	async function cambiarEstado(usuario) {
+		setError("");
+		setAviso("");
+		try {
+			await servicioUsuarios.cambiarEstado({
+				id: usuario.id,
+				activo: !usuario.activo
+			});
+			setAviso(usuario.activo ? "Usuario desactivado." : "Usuario activado.");
+			await cargar();
+		} catch (err) {
+			setError(err.message || "No se pudo actualizar el usuario.");
+		}
+	}
+	const filtrados = usuarios.filter((u) => `${u.nombre} ${u.usuario} ${u.rol}`.toLowerCase().includes(busqueda.toLowerCase()));
+	if (usuarioActual?.rol !== "administrador") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Aviso, {
+		titulo: "Acceso restringido",
+		texto: "Solo un administrador puede gestionar usuarios."
+	});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "mx-auto max-w-7xl space-y-6",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
+				className: "flex flex-wrap items-center justify-between gap-4",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "text-sm font-semibold uppercase tracking-wide text-violet-600",
+						children: "Administración"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+						className: "mt-1 text-3xl font-bold text-slate-900",
+						children: "Usuarios"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-1 text-slate-500",
+						children: "Administra accesos, perfiles y contraseñas."
+					})
+				] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+					onClick: () => setFormulario({
+						nombre: "",
+						usuario: "",
+						rol: "empleado",
+						contrasena: ""
+					}),
+					className: "inline-flex items-center gap-2 rounded-lg bg-violet-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-violet-700",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { size: 17 }), " Nuevo usuario"]
+				})]
+			}),
+			error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				role: "alert",
+				className: "rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700",
+				children: error
+			}),
+			aviso && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				role: "status",
+				className: "rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-800",
+				children: aviso
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				className: "overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 p-5",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						className: "font-bold text-slate-900",
+						children: "Equipo"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+						className: "mt-1 text-sm text-slate-500",
+						children: [usuarios.length, " cuentas registradas"]
+					})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+						className: "relative block w-full sm:w-72",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Search, {
+							className: "absolute left-3 top-2.5 text-slate-400",
+							size: 17
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+							className: `${input$1} pl-9`,
+							value: busqueda,
+							onChange: (e) => setBusqueda(e.target.value),
+							placeholder: "Buscar por nombre o usuario"
+						})]
+					})]
+				}), cargando ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex items-center gap-2 p-8 text-sm text-slate-500",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LoaderCircle, {
+						className: "animate-spin",
+						size: 18
+					}), " Cargando usuarios…"]
+				}) : filtrados.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "p-10 text-center text-sm text-slate-500",
+					children: "No hay usuarios que coincidan."
+				}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "overflow-x-auto",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
+						className: "w-full min-w-[650px] text-left text-sm",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", {
+							className: "bg-slate-50 text-xs uppercase tracking-wide text-slate-500",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", {
+									className: "px-5 py-3",
+									children: "Usuario"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", {
+									className: "px-5 py-3",
+									children: "Rol"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", {
+									className: "px-5 py-3",
+									children: "Estado"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", {
+									className: "px-5 py-3",
+									children: "Creación"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", {
+									className: "px-5 py-3 text-right",
+									children: "Acciones"
+								})
+							] })
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", {
+							className: "divide-y divide-slate-100",
+							children: filtrados.map((u) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+									className: "px-5 py-4",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "flex items-center gap-3",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: "flex h-10 w-10 items-center justify-center rounded-full bg-violet-100 text-violet-700",
+											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(UserRound, { size: 19 })
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+											className: "block font-semibold text-slate-900",
+											children: [u.nombre, u.id === usuarioActual.id && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+												className: "ml-2 text-xs font-normal text-violet-600",
+												children: "Tú"
+											})]
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+											className: "text-xs text-slate-500",
+											children: ["@", u.usuario]
+										})] })]
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+									className: "px-5 py-4",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+										className: "inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium capitalize text-slate-700",
+										children: [u.rol === "administrador" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShieldCheck, { size: 13 }), u.rol]
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+									className: "px-5 py-4",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+										className: `inline-flex items-center gap-1.5 text-xs font-semibold ${u.activo ? "text-emerald-700" : "text-slate-400"}`,
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: `h-2 w-2 rounded-full ${u.activo ? "bg-emerald-500" : "bg-slate-300"}` }), u.activo ? "Activo" : "Inactivo"]
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+									className: "px-5 py-4 text-slate-500",
+									children: u.fecha_creacion
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
+									className: "px-5 py-4",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "flex justify-end gap-2",
+										children: [
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+												title: "Editar usuario",
+												onClick: () => setFormulario({
+													id: u.id,
+													nombre: u.nombre,
+													usuario: u.usuario,
+													rol: u.rol
+												}),
+												className: "rounded-lg border border-slate-200 p-2 text-slate-600 hover:bg-slate-50",
+												children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pencil, { size: 16 })
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+												title: "Restablecer contraseña",
+												onClick: () => {
+													setContrasena({
+														id: u.id,
+														nombre: u.nombre,
+														nueva: ""
+													});
+													setMostrarContrasena(false);
+												},
+												className: "rounded-lg border border-slate-200 p-2 text-slate-600 hover:bg-slate-50",
+												children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(KeyRound, { size: 16 })
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+												title: u.activo ? "Desactivar usuario" : "Activar usuario",
+												disabled: u.id === usuarioActual.id,
+												onClick: () => cambiarEstado(u),
+												className: "rounded-lg border border-slate-200 p-2 text-slate-600 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40",
+												children: u.activo ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(UserRoundX, { size: 16 }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(UserRound, { size: 16 })
+											})
+										]
+									})
+								})
+							] }, u.id))
+						})]
+					})
+				})]
+			}),
+			formulario && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Modal$2, {
+				titulo: formulario.id ? "Editar usuario" : "Crear usuario",
+				cerrar: () => setFormulario(null),
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+					onSubmit: guardarUsuario,
+					className: "space-y-4",
+					children: [
+						error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							role: "alert",
+							className: "rounded-lg bg-red-50 p-3 text-sm text-red-700",
+							children: error
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$3, {
+							etiqueta: "Nombre completo",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								className: input$1,
+								maxLength: 100,
+								value: formulario.nombre,
+								onChange: (e) => setFormulario({
+									...formulario,
+									nombre: e.target.value
+								}),
+								required: true
+							})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$3, {
+							etiqueta: "Usuario",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								className: input$1,
+								maxLength: 50,
+								autoComplete: "username",
+								value: formulario.usuario,
+								onChange: (e) => setFormulario({
+									...formulario,
+									usuario: e.target.value
+								}),
+								required: true
+							})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$3, {
+							etiqueta: "Rol",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
+								className: input$1,
+								value: formulario.rol,
+								onChange: (e) => setFormulario({
+									...formulario,
+									rol: e.target.value
+								}),
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+									value: "empleado",
+									children: "Empleado"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+									value: "administrador",
+									children: "Administrador"
+								})]
+							})
+						}),
+						!formulario.id && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Campo$3, {
+							etiqueta: "Contraseña inicial",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								className: input$1,
+								type: "password",
+								minLength: 8,
+								autoComplete: "new-password",
+								value: formulario.contrasena,
+								onChange: (e) => setFormulario({
+									...formulario,
+									contrasena: e.target.value
+								}),
+								required: true
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "block text-xs font-normal text-slate-500",
+								children: "Mínimo 8 caracteres."
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Acciones, {
+							guardando,
+							cerrar: () => setFormulario(null)
+						})
+					]
+				})
+			}),
+			"\\n    ",
+			contrasena && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Modal$2, {
+				titulo: "Restablecer contraseña",
+				cerrar: () => setContrasena(null),
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+					onSubmit: guardarContrasena,
+					className: "space-y-4",
+					children: [
+						error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							role: "alert",
+							className: "rounded-lg bg-red-50 p-3 text-sm text-red-700",
+							children: error
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+							className: "text-sm text-slate-600",
+							children: [
+								"Define una contraseña nueva para ",
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: contrasena.nombre }),
+								" y compártela en persona."
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Campo$3, {
+							etiqueta: "Nueva contraseña",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								className: input$1,
+								type: mostrarContrasena ? "text" : "password",
+								minLength: 8,
+								autoComplete: "new-password",
+								value: contrasena.nueva,
+								onChange: (e) => setContrasena({
+									...contrasena,
+									nueva: e.target.value
+								}),
+								required: true
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+								type: "button",
+								onClick: () => setMostrarContrasena(!mostrarContrasena),
+								className: "mt-2 text-xs font-medium text-violet-700",
+								children: [mostrarContrasena ? "Ocultar" : "Mostrar", " contraseña"]
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Acciones, {
+							guardando,
+							cerrar: () => setContrasena(null),
+							etiqueta: "Restablecer"
+						})
+					]
+				})
+			})
+		]
+	});
+}
+function Campo$3({ etiqueta, children }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+		className: "block space-y-1.5 text-sm font-medium text-slate-700",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: etiqueta }), children]
+	});
+}
+function Modal$2({ titulo, cerrar, children }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+			role: "dialog",
+			"aria-modal": "true",
+			className: "w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mb-5 flex items-center justify-between",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+					className: "text-xl font-bold text-slate-900",
+					children: titulo
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					onClick: cerrar,
+					type: "button",
+					"aria-label": "Cerrar",
+					className: "rounded-lg p-2 text-slate-500 hover:bg-slate-100",
+					children: "×"
+				})]
+			}), children]
+		})
+	});
+}
+function Acciones({ guardando, cerrar, etiqueta = "Guardar" }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "flex justify-end gap-3 border-t border-slate-100 pt-4",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+			type: "button",
+			onClick: cerrar,
+			className: "rounded-lg border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-700",
+			children: "Cancelar"
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+			disabled: guardando,
+			className: "rounded-lg bg-violet-600 px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-60",
+			children: guardando ? "Guardando…" : etiqueta
+		})]
+	});
+}
+function Aviso({ titulo, texto }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-		className: "bg-white rounded-xl border border-slate-200 p-8",
+		className: "rounded-2xl border border-amber-200 bg-amber-50 p-6",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-			className: "text-2xl font-bold text-slate-800",
-			children: "Usuarios"
+			className: "font-bold text-amber-900",
+			children: titulo
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-			className: "mt-2 text-slate-500",
-			children: "Módulo preparado. Su funcionalidad se desarrollará en su fase correspondiente."
+			className: "mt-2 text-sm text-amber-800",
+			children: texto
 		})]
 	});
 }
 // src/modulos/configuracion/paginas/Pagina.jsx
-function Pagina() {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-		className: "bg-white rounded-xl border border-slate-200 p-8",
+var input = "w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100";
+var valoresIniciales = {
+	nombre_negocio: "Pizzería",
+	telefono_negocio: "",
+	direccion_negocio: "",
+	horario_negocio: "",
+	logotipo_ruta: "",
+	moneda: "MXN",
+	tiempo_preparacion_minutos: "20",
+	volumen_notificaciones: "70"
+};
+function PaginaConfiguracion() {
+	const rol = useEstadoAutenticacion((estado) => estado.usuario?.rol);
+	const [datos, setDatos] = (0, import_react.useState)(valoresIniciales);
+	const [cargando, setCargando] = (0, import_react.useState)(true);
+	const [guardando, setGuardando] = (0, import_react.useState)(false);
+	const [error, setError] = (0, import_react.useState)("");
+	const [aviso, setAviso] = (0, import_react.useState)("");
+	const cargar = (0, import_react.useCallback)(async () => {
+		setCargando(true);
+		setError("");
+		try {
+			setDatos({
+				...valoresIniciales,
+				...await window.sistema.configuracion.listar()
+			});
+		} catch (e) {
+			setError(e.message || "No se pudo cargar la configuración.");
+		} finally {
+			setCargando(false);
+		}
+	}, []);
+	(0, import_react.useEffect)(() => {
+		queueMicrotask(() => {
+			cargar();
+		});
+	}, [cargar]);
+	async function guardar(e) {
+		e.preventDefault();
+		setGuardando(true);
+		setError("");
+		setAviso("");
+		try {
+			const guardados = await window.sistema.configuracion.guardar(datos);
+			setDatos(guardados);
+			window.dispatchEvent(new CustomEvent("configuracion:actualizada", { detail: {
+				nombre_negocio: guardados.nombre_negocio,
+				telefono_negocio: guardados.telefono_negocio,
+				logotipo_ruta: guardados.logotipo_ruta
+			} }));
+			setAviso("La configuración del negocio quedó guardada.");
+		} catch (err) {
+			setError(err.message || "No se pudo guardar la configuración.");
+		} finally {
+			setGuardando(false);
+		}
+	}
+	async function seleccionarLogotipo() {
+		setError("");
+		try {
+			const archivo = await window.sistema.configuracion.seleccionarLogotipo();
+			if (archivo) setDatos((actual) => ({
+				...actual,
+				logotipo_ruta: archivo.ruta
+			}));
+		} catch (err) {
+			setError(err.message || "No se pudo abrir el selector de imágenes.");
+		}
+	}
+	if (rol !== "administrador") return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "rounded-2xl border border-amber-200 bg-amber-50 p-6",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-			className: "text-2xl font-bold text-slate-800",
-			children: "Configuracion"
+			className: "font-bold text-amber-900",
+			children: "Acceso restringido"
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-			className: "mt-2 text-slate-500",
-			children: "Módulo preparado. Su funcionalidad se desarrollará en su fase correspondiente."
+			className: "mt-2 text-sm text-amber-800",
+			children: "Solo un administrador puede cambiar la configuración."
 		})]
+	});
+	if (cargando) return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "flex items-center gap-3 rounded-xl bg-white p-8 text-slate-600",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LoaderCircle, { className: "animate-spin" }), " Cargando configuración…"]
+	});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "mx-auto max-w-5xl space-y-6",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-sm font-semibold uppercase tracking-wide text-violet-600",
+					children: "Administración"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+					className: "mt-1 text-3xl font-bold text-slate-900",
+					children: "Configuración"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-1 text-slate-500",
+					children: "Datos del negocio y preferencias de operación."
+				})
+			] }),
+			error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				role: "alert",
+				className: "rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700",
+				children: error
+			}),
+			aviso && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				role: "status",
+				className: "rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-800",
+				children: aviso
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+				onSubmit: guardar,
+				className: "space-y-6",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+						className: "rounded-2xl border border-slate-200 bg-white shadow-sm",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex items-center gap-3 border-b border-slate-200 p-5",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "flex h-10 w-10 items-center justify-center rounded-xl bg-violet-100 text-violet-700",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Store, { size: 20 })
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+								className: "font-bold text-slate-900",
+								children: "Datos del negocio"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-sm text-slate-500",
+								children: "Información para identificar la sucursal."
+							})] })]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "grid gap-5 p-5 md:grid-cols-2",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$2, {
+									etiqueta: "Nombre comercial",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+										className: input,
+										maxLength: 100,
+										value: datos.nombre_negocio,
+										onChange: (e) => setDatos({
+											...datos,
+											nombre_negocio: e.target.value
+										}),
+										required: true
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$2, {
+									etiqueta: "Teléfono",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+										className: input,
+										maxLength: 30,
+										value: datos.telefono_negocio,
+										onChange: (e) => setDatos({
+											...datos,
+											telefono_negocio: e.target.value
+										}),
+										placeholder: "Número de contacto"
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$2, {
+									etiqueta: "Dirección",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+										className: input,
+										maxLength: 250,
+										value: datos.direccion_negocio,
+										onChange: (e) => setDatos({
+											...datos,
+											direccion_negocio: e.target.value
+										}),
+										placeholder: "Dirección de la sucursal"
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$2, {
+									etiqueta: "Horario de atención",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+										className: input,
+										maxLength: 250,
+										value: datos.horario_negocio,
+										onChange: (e) => setDatos({
+											...datos,
+											horario_negocio: e.target.value
+										}),
+										placeholder: "Ej. Lun–Dom 13:00–22:00"
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "md:col-span-2",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "mb-2 block text-sm font-medium text-slate-700",
+										children: "Logotipo de la empresa"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "flex flex-wrap items-center gap-4 rounded-xl border border-dashed border-slate-300 bg-slate-50 p-4",
+										children: [datos.logotipo_ruta ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+											src: `pizzeria-media://archivo?ruta=${encodeURIComponent(datos.logotipo_ruta)}`,
+											alt: "Vista previa del logotipo",
+											className: "h-20 w-20 rounded-xl border border-slate-200 bg-white object-contain p-2"
+										}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+											className: "flex h-20 w-20 items-center justify-center rounded-xl bg-violet-100 text-violet-600",
+											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ImagePlus, { size: 28 })
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+											className: "flex-1",
+											children: [
+												/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+													className: "text-sm font-semibold text-slate-800",
+													children: "Elige una imagen desde tu computadora"
+												}),
+												/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+													className: "mt-1 text-xs text-slate-500",
+													children: "PNG, JPG o WebP. No necesitas copiar ni escribir una ruta."
+												}),
+												/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+													className: "mt-3 flex flex-wrap gap-2",
+													children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+														type: "button",
+														onClick: seleccionarLogotipo,
+														className: "inline-flex items-center gap-2 rounded-lg bg-violet-600 px-3 py-2 text-sm font-semibold text-white hover:bg-violet-700",
+														children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(FolderOpen, { size: 16 }), " Abrir carpeta y elegir imagen"]
+													}), datos.logotipo_ruta && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+														type: "button",
+														onClick: () => setDatos({
+															...datos,
+															logotipo_ruta: ""
+														}),
+														className: "inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-100",
+														children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Trash, { size: 15 }), " Quitar logotipo"]
+													})]
+												})
+											]
+										})]
+									})]
+								})
+							]
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+						className: "rounded-2xl border border-slate-200 bg-white shadow-sm",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex items-center gap-3 border-b border-slate-200 p-5",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-blue-700",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Settings2, { size: 20 })
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+								className: "font-bold text-slate-900",
+								children: "Preferencias operativas"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-sm text-slate-500",
+								children: "Valores iniciales para la operación diaria."
+							})] })]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "grid gap-5 p-5 md:grid-cols-3",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Campo$2, {
+									etiqueta: "Moneda",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("select", {
+										className: input,
+										value: datos.moneda,
+										onChange: (e) => setDatos({
+											...datos,
+											moneda: e.target.value
+										}),
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+											value: "MXN",
+											children: "Peso mexicano (MXN)"
+										})
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "block text-xs font-normal text-slate-500",
+										children: "Los importes del sistema se manejan en MXN."
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$2, {
+									etiqueta: "Preparación predeterminada (minutos)",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+										className: input,
+										type: "number",
+										min: "1",
+										max: "600",
+										value: datos.tiempo_preparacion_minutos,
+										onChange: (e) => setDatos({
+											...datos,
+											tiempo_preparacion_minutos: e.target.value
+										}),
+										required: true
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Campo$2, {
+									etiqueta: "Volumen de notificaciones (%)",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+										className: input,
+										type: "number",
+										min: "0",
+										max: "100",
+										value: datos.volumen_notificaciones,
+										onChange: (e) => setDatos({
+											...datos,
+											volumen_notificaciones: e.target.value
+										}),
+										required: true
+									})
+								})
+							]
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "flex justify-end",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+							disabled: guardando,
+							className: "inline-flex items-center gap-2 rounded-lg bg-violet-600 px-5 py-3 text-sm font-semibold text-white hover:bg-violet-700 disabled:opacity-60",
+							children: [guardando ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LoaderCircle, {
+								size: 17,
+								className: "animate-spin"
+							}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Save, { size: 17 }), " Guardar configuración"]
+						})
+					})
+				]
+			})
+		]
+	});
+}
+function Campo$2({ etiqueta, children }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+		className: "block space-y-1.5 text-sm font-medium text-slate-700",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: etiqueta }), children]
 	});
 }
 // src/compartidos/componentes/RutaProtegida.jsx
@@ -22465,6 +25949,39 @@ function RutaProtegida({ roles }) {
 	});
 	if (roles && !roles.includes(usuario.rol)) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Navigate, {
 		to: "/tablero",
+		replace: true
+	});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Outlet, {});
+}
+// src/compartidos/componentes/RutaLicencia.jsx
+function RutaLicencia() {
+	const navigate = useNavigate();
+	const [activa, setActiva] = (0, import_react.useState)(null);
+	(0, import_react.useEffect)(() => {
+		let vigente = true;
+		const revisar = async () => {
+			try {
+				const estado = await window.sistema.licencias.estado();
+				if (!vigente) return;
+				setActiva(estado.activa);
+				if (!estado.activa) navigate("/", { replace: true });
+			} catch {
+				if (vigente) setActiva(false);
+			}
+		};
+		revisar();
+		const intervalo = setInterval(revisar, 3e4);
+		return () => {
+			vigente = false;
+			clearInterval(intervalo);
+		};
+	}, [navigate]);
+	if (activa === null) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "flex min-h-screen items-center justify-center text-sm font-medium text-slate-500",
+		children: "Comprobando licencia…"
+	});
+	if (!activa) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Navigate, {
+		to: "/",
 		replace: true
 	});
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Outlet, {});
@@ -22548,7 +26065,7 @@ function validarProducto(datos) {
 	return errores;
 }
 // src/modulos/productos/paginas/Pagina.jsx
-var dinero$2 = (centavos) => new Intl.NumberFormat("es-MX", {
+var dinero$3 = (centavos) => new Intl.NumberFormat("es-MX", {
 	style: "currency",
 	currency: "MXN"
 }).format(centavos / 100);
@@ -22582,6 +26099,7 @@ function PaginaProductos() {
 	const [busqueda, setBusqueda] = (0, import_react.useState)("");
 	const [mensaje, setMensaje] = (0, import_react.useState)("");
 	const [error, setError] = (0, import_react.useState)("");
+	const [confirmacion, setConfirmacion] = (0, import_react.useState)(null);
 	const [modalProductoAbierto, setModalProductoAbierto] = (0, import_react.useState)(false);
 	const [modalCategoriaAbierto, setModalCategoriaAbierto] = (0, import_react.useState)(false);
 	const [modalAdicionalAbierto, setModalAdicionalAbierto] = (0, import_react.useState)(false);
@@ -22668,8 +26186,14 @@ function PaginaProductos() {
 		});
 		setModalCategoriaAbierto(true);
 	}
-	async function eliminarCategoria(id) {
-		if (!window.confirm("¿Deseas eliminar esta categoría del catálogo?")) return;
+	async function eliminarCategoria(id, confirmado = false) {
+		if (!confirmado) {
+			setConfirmacion({
+				mensaje: "¿Deseas eliminar esta categoría del catálogo?",
+				accion: () => eliminarCategoria(id, true)
+			});
+			return;
+		}
 		await ejecutar(async () => {
 			await servicioProductos.cambiarEstadoCategoria({
 				id,
@@ -22687,8 +26211,14 @@ function PaginaProductos() {
 		});
 		setModalAdicionalAbierto(true);
 	}
-	async function eliminarAdicional(id) {
-		if (!window.confirm("¿Deseas eliminar este ingrediente adicional?")) return;
+	async function eliminarAdicional(id, confirmado = false) {
+		if (!confirmado) {
+			setConfirmacion({
+				mensaje: "¿Deseas eliminar este ingrediente adicional?",
+				accion: () => eliminarAdicional(id, true)
+			});
+			return;
+		}
 		await ejecutar(async () => {
 			await servicioProductos.cambiarEstadoAdicional({
 				id,
@@ -22782,8 +26312,14 @@ function PaginaProductos() {
 		};
 		lector.readAsDataURL(archivo);
 	}
-	async function cambiarEstado(id, activo) {
-		if (!window.confirm(activo ? "¿Deseas eliminar este producto del catálogo?" : "¿Deseas activar este elemento?")) return;
+	async function cambiarEstado(id, activo, confirmado = false) {
+		if (!confirmado) {
+			setConfirmacion({
+				mensaje: activo ? "¿Deseas eliminar este producto del catálogo?" : "¿Deseas activar este elemento?",
+				accion: () => cambiarEstado(id, activo, true)
+			});
+			return;
+		}
 		await ejecutar(async () => {
 			await servicioProductos.cambiarEstado({
 				id,
@@ -22824,8 +26360,14 @@ function PaginaProductos() {
 		});
 		setModalPresentacionAbierto(true);
 	}
-	async function eliminarPresentacion(presentacionSeleccionada) {
-		if (!window.confirm("¿Deseas eliminar esta presentación?")) return;
+	async function eliminarPresentacion(presentacionSeleccionada, confirmado = false) {
+		if (!confirmado) {
+			setConfirmacion({
+				mensaje: "¿Deseas eliminar esta presentación?",
+				accion: () => eliminarPresentacion(presentacionSeleccionada, true)
+			});
+			return;
+		}
 		await ejecutar(async () => {
 			await servicioProductos.cambiarEstadoPresentacion({
 				id: presentacionSeleccionada.id,
@@ -22907,8 +26449,19 @@ function PaginaProductos() {
 					className: "mt-1 text-sm text-slate-500",
 					children: "Administra el menú, las presentaciones y los precios."
 				})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "rounded-xl bg-violet-50 px-4 py-3 text-sm text-violet-700",
-					children: [productos.length, " productos activos"]
+					className: "flex items-center gap-3",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "rounded-xl bg-violet-50 px-4 py-3 text-sm text-violet-700",
+						children: [productos.length, " productos activos"]
+					}), esAdministrador && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+						type: "button",
+						onClick: () => {
+							limpiarMensajes();
+							setModalProductoAbierto(true);
+						},
+						className: "inline-flex items-center gap-2 rounded-xl bg-violet-600 px-4 py-3 text-sm font-semibold text-white hover:bg-violet-700",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { size: 17 }), " Nuevo producto"]
+					})]
 				})]
 			}),
 			mensaje && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -22940,7 +26493,7 @@ function PaginaProductos() {
 				children: "Cargando catálogo..."
 			}),
 			pestana === "productos" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "grid gap-6 xl:grid-cols-[1.1fr_0.9fr]",
+				className: "grid gap-6",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
 					className: "rounded-2xl border border-slate-200 bg-white p-5",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -23001,28 +26554,7 @@ function PaginaProductos() {
 							children: "No hay productos para mostrar."
 						})]
 					})]
-				}), esAdministrador && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-					type: "button",
-					onClick: () => {
-						limpiarMensajes();
-						setModalProductoAbierto(true);
-					},
-					className: "flex min-h-64 flex-col items-center justify-center rounded-2xl border-2 border-dashed border-violet-200 bg-violet-50/60 p-6 text-center transition hover:border-violet-400 hover:bg-violet-50",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-600 text-white shadow-lg shadow-violet-200",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { size: 28 })
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "text-lg font-bold text-slate-800",
-							children: producto.id ? "Editar producto" : "Crear producto"
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "mt-1 text-sm text-slate-500",
-							children: "Agrega nombre, precios e imagen"
-						})
-					]
-				}), modalProductoAbierto && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				}), esAdministrador && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: modalProductoAbierto && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					className: "fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4 backdrop-blur-sm",
 					onMouseDown: (e) => {
 						if (e.target === e.currentTarget) setModalProductoAbierto(false);
@@ -23212,7 +26744,7 @@ function PaginaProductos() {
 							]
 						})]
 					})
-				})] })]
+				}) })]
 			}),
 			pestana === "categorias" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "grid gap-6 xl:grid-cols-[1.1fr_0.9fr]",
@@ -23382,7 +26914,7 @@ function PaginaProductos() {
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 										className: "mt-1 text-lg font-bold text-violet-700",
-										children: dinero$2(a.precio_centavos)
+										children: dinero$3(a.precio_centavos)
 									}),
 									a.descripcion && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 										className: "mt-1 text-xs text-slate-500",
@@ -23553,7 +27085,7 @@ function PaginaProductos() {
 									children: p.nombre
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 									className: "mt-1 font-bold text-violet-700",
-									children: dinero$2(p.precio_centavos)
+									children: dinero$3(p.precio_centavos)
 								})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 									className: "flex gap-1 opacity-0 transition group-hover:opacity-100",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
@@ -23689,7 +27221,7 @@ function PaginaProductos() {
 										}),
 										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 											className: "text-sm text-slate-500",
-											children: dinero$2(a.precio_centavos)
+											children: dinero$3(a.precio_centavos)
 										})
 									]
 								}, a.id))
@@ -23705,6 +27237,42 @@ function PaginaProductos() {
 			pestana === "presentaciones" && !esAdministrador && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "rounded-2xl border border-slate-200 bg-white p-8 text-center text-slate-500",
 				children: "Solo el administrador puede gestionar presentaciones y precios."
+			}),
+			confirmacion && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+					role: "alertdialog",
+					"aria-modal": "true",
+					className: "w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							className: "text-lg font-bold text-slate-900",
+							children: "Confirmar acción"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "mt-2 text-sm text-slate-600",
+							children: confirmacion.mensaje
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "mt-6 flex justify-end gap-3",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								type: "button",
+								onClick: () => setConfirmacion(null),
+								className: "rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold",
+								children: "Cancelar"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								type: "button",
+								onClick: () => {
+									const accion = confirmacion.accion;
+									setConfirmacion(null);
+									accion();
+								},
+								className: "rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white",
+								children: "Confirmar"
+							})]
+						})
+					]
+				})
 			})
 		]
 	});
@@ -23811,7 +27379,7 @@ var esquemaCliente = object({
 	referencias: string().trim().max(500, "Las referencias son demasiado largas.").optional().default("")
 });
 // src/modulos/clientes/paginas/Pagina.jsx
-var dinero$1 = (centavos = 0) => new Intl.NumberFormat("es-MX", {
+var dinero$2 = (centavos = 0) => new Intl.NumberFormat("es-MX", {
 	style: "currency",
 	currency: "MXN"
 }).format((centavos || 0) / 100);
@@ -24076,7 +27644,7 @@ function FichaCliente({ historial, onVolver, onEditar }) {
 							children: "Total comprado"
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 							className: "mt-3 text-2xl font-bold text-violet-700",
-							children: dinero$1(resumen.totalCompradoCentavos)
+							children: dinero$2(resumen.totalCompradoCentavos)
 						})]
 					})
 				]
@@ -24165,7 +27733,7 @@ function FichaCliente({ historial, onVolver, onEditar }) {
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
 									className: "px-5 py-3 text-right font-semibold text-slate-700",
-									children: dinero$1(pedido.total_centavos)
+									children: dinero$2(pedido.total_centavos)
 								})
 							] }, pedido.id))
 						})]
@@ -24194,6 +27762,8 @@ function PaginaClientes() {
 	const [modal, setModal] = (0, import_react.useState)(null);
 	const [clienteEditando, setClienteEditando] = (0, import_react.useState)(null);
 	const [guardando, setGuardando] = (0, import_react.useState)(false);
+	const [clienteConfirmacion, setClienteConfirmacion] = (0, import_react.useState)(null);
+	const [errorLocal, setErrorLocal] = (0, import_react.useState)("");
 	(0, import_react.useEffect)(() => {
 		cargarClientes().catch(() => {});
 	}, [cargarClientes]);
@@ -24229,11 +27799,11 @@ function PaginaClientes() {
 	};
 	const cambiarEstado = async (cliente) => {
 		const nuevoEstado = !cliente.activo;
-		if (!window.confirm(nuevoEstado ? `¿Deseas reactivar a ${cliente.nombre}?` : `¿Deseas desactivar a ${cliente.nombre}?`)) return;
 		try {
 			await cambiarEstadoCliente(cliente.id, nuevoEstado);
+			setClienteConfirmacion(null);
 		} catch (err) {
-			window.alert(err.message || "No se pudo cambiar el estado.");
+			setErrorLocal(err.message || "No se pudo cambiar el estado.");
 		}
 	};
 	if (historial) return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -24265,21 +27835,29 @@ function PaginaClientes() {
 					className: "mt-1 text-sm text-slate-500",
 					children: "Administra la información y el historial de tus clientes."
 				})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "rounded-xl bg-violet-50 px-4 py-3 text-sm text-violet-700",
-					children: [
-						clientes.length,
-						" clientes ",
-						incluirInactivos ? "en total" : "activos"
-					]
+					className: "flex items-center gap-3",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "rounded-xl bg-violet-50 px-4 py-3 text-sm text-violet-700",
+						children: [
+							clientes.length,
+							" clientes ",
+							incluirInactivos ? "en total" : "activos"
+						]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+						type: "button",
+						onClick: abrirNuevo,
+						className: "inline-flex items-center gap-2 rounded-xl bg-violet-600 px-4 py-3 text-sm font-semibold text-white hover:bg-violet-700",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { size: 17 }), " Nuevo cliente"]
+					})]
 				})]
 			}),
-			error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			(errorLocal || error) && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700",
-				children: error
+				children: errorLocal || error
 			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "grid gap-6 xl:grid-cols-[1.1fr_0.9fr]",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "grid gap-6",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
 					className: "overflow-hidden rounded-2xl border border-slate-200 bg-white",
 					children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -24375,7 +27953,7 @@ function PaginaClientes() {
 											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("td", {
 												className: "px-5 py-4",
 												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-													onClick: () => seleccionarCliente(cliente.id).catch((err) => window.alert(err.message)),
+													onClick: () => seleccionarCliente(cliente.id).catch((err) => setErrorLocal(err.message)),
 													className: "font-semibold text-slate-800 hover:text-violet-700",
 													children: cliente.nombre
 												}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
@@ -24408,7 +27986,7 @@ function PaginaClientes() {
 													className: "flex justify-end gap-1",
 													children: [
 														/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-															onClick: () => seleccionarCliente(cliente.id).catch((err) => window.alert(err.message)),
+															onClick: () => seleccionarCliente(cliente.id).catch((err) => setErrorLocal(err.message)),
 															title: "Ver ficha e historial",
 															className: "rounded-lg p-2 text-slate-500 hover:bg-violet-50 hover:text-violet-700",
 															children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RotateCcwClock, { size: 17 })
@@ -24420,7 +27998,7 @@ function PaginaClientes() {
 															children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pencil, { size: 17 })
 														}),
 														esAdministrador && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-															onClick: () => cambiarEstado(cliente),
+															onClick: () => setClienteConfirmacion(cliente),
 															title: cliente.activo ? "Desactivar" : "Reactivar",
 															className: "rounded-lg p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-800",
 															children: cliente.activo ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(UserX, { size: 17 }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(UserCheck, { size: 17 })
@@ -24434,25 +28012,7 @@ function PaginaClientes() {
 							})
 						})
 					]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-					type: "button",
-					onClick: abrirNuevo,
-					className: "flex min-h-64 flex-col items-center justify-center rounded-2xl border-2 border-dashed border-violet-200 bg-violet-50/60 p-6 text-center transition hover:border-violet-400 hover:bg-violet-50",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-600 text-white shadow-lg shadow-violet-200",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { size: 28 })
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "text-lg font-bold text-slate-800",
-							children: "Registrar cliente"
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "mt-1 text-sm text-slate-500",
-							children: "Agrega sus datos de contacto y domicilio"
-						})
-					]
-				})]
+				})
 			}),
 			modal && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Modal$1, {
 				titulo: modal === "editar" ? "Editar cliente" : "Registrar cliente",
@@ -24462,6 +28022,44 @@ function PaginaClientes() {
 					onGuardar: guardar,
 					onCancelar: () => setModal(null),
 					guardando
+				})
+			}),
+			clienteConfirmacion && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+					role: "alertdialog",
+					"aria-modal": "true",
+					className: "w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							className: "text-lg font-bold text-slate-900",
+							children: clienteConfirmacion.activo ? "Desactivar cliente" : "Reactivar cliente"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+							className: "mt-2 text-sm text-slate-600",
+							children: [
+								"¿Deseas ",
+								clienteConfirmacion.activo ? "desactivar" : "reactivar",
+								" a ",
+								clienteConfirmacion.nombre,
+								"?"
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "mt-6 flex justify-end gap-3",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								type: "button",
+								onClick: () => setClienteConfirmacion(null),
+								className: "rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700",
+								children: "Cancelar"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								type: "button",
+								onClick: () => cambiarEstado(clienteConfirmacion),
+								className: "rounded-lg bg-violet-700 px-4 py-2 text-sm font-semibold text-white",
+								children: "Confirmar"
+							})]
+						})
+					]
 				})
 			})
 		]
@@ -24652,7 +28250,7 @@ var esquemaPedido = object({
 	})).min(1)
 });
 // src/modulos/punto-venta/paginas/Pagina.jsx
-var dinero = (centavos = 0) => new Intl.NumberFormat("es-MX", {
+var dinero$1 = (centavos = 0) => new Intl.NumberFormat("es-MX", {
 	style: "currency",
 	currency: "MXN"
 }).format((centavos || 0) / 100);
@@ -24734,7 +28332,7 @@ function SelectorProducto({ producto, cerrar, agregar }) {
 								children: item.nombre
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 								className: "mt-1 text-xs",
-								children: dinero(item.precio_centavos)
+								children: dinero$1(item.precio_centavos)
 							})]
 						}, item.id))
 					})
@@ -24760,7 +28358,7 @@ function SelectorProducto({ producto, cerrar, agregar }) {
 									})]
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
 									className: "text-sm font-medium text-slate-600",
-									children: ["+", dinero(extra.precio_centavos)]
+									children: ["+", dinero$1(extra.precio_centavos)]
 								})]
 							}, extra.id);
 						})
@@ -24788,7 +28386,7 @@ function SelectorProducto({ producto, cerrar, agregar }) {
 						children: "Precio unitario"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 						className: "text-xl font-bold text-slate-800",
-						children: dinero(total)
+						children: dinero$1(total)
 					})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
 						onClick: agregarCarrito,
 						className: "inline-flex items-center gap-2 rounded-xl bg-violet-600 px-5 py-3 text-sm font-semibold text-white hover:bg-violet-700",
@@ -24930,7 +28528,7 @@ function ElementoCarrito({ item, cambiarCantidad, cambiarNotas, eliminar }) {
 				className: "text-right",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 					className: "font-semibold text-slate-800",
-					children: dinero(item.precioUnitarioCentavos * item.cantidad)
+					children: dinero$1(item.precioUnitarioCentavos * item.cantidad)
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
 					onClick: () => eliminar(item.clave),
 					className: "mt-2 inline-flex items-center gap-1 rounded-lg px-2 py-1 text-xs font-medium text-slate-400 transition hover:bg-slate-100 hover:text-slate-700",
@@ -24960,7 +28558,7 @@ function ElementoCarrito({ item, cambiarCantidad, cambiarNotas, eliminar }) {
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
 					className: "ml-auto text-xs text-slate-400",
-					children: [dinero(item.precioUnitarioCentavos), " c/u"]
+					children: [dinero$1(item.precioUnitarioCentavos), " c/u"]
 				})
 			]
 		})]
@@ -24992,6 +28590,8 @@ function PaginaPuntoVenta() {
 	const [pedidoRegistrado, setPedidoRegistrado] = (0, import_react.useState)(null);
 	const [errorLocal, setErrorLocal] = (0, import_react.useState)("");
 	const [mostrarOpciones, setMostrarOpciones] = (0, import_react.useState)(false);
+	const [editandoEnvio, setEditandoEnvio] = (0, import_react.useState)(false);
+	const [costoEnvioInput, setCostoEnvioInput] = (0, import_react.useState)((costoEnvioCentavos / 100).toFixed(2));
 	(0, import_react.useEffect)(() => {
 		estado.getState().cargarCatalogo().catch(() => {});
 	}, []);
@@ -25077,10 +28677,17 @@ function PaginaPuntoVenta() {
 		}
 	};
 	const cambiarEnvio = (valor) => {
-		const numero = Math.round(Number(valor || 0) * 100);
-		if (!Number.isSafeInteger(numero) || numero < 0) return;
-		estado.getState().establecerCostoEnvio(numero);
+		setCostoEnvioInput(valor);
+		if (valor === "") return;
+		const pesos = Number(valor);
+		if (!Number.isFinite(pesos) || pesos < 0) return;
+		const centavos = Math.round(pesos * 100);
+		if (!Number.isSafeInteger(centavos)) return;
+		estado.getState().establecerCostoEnvio(centavos);
 	};
+	(0, import_react.useEffect)(() => {
+		if (!editandoEnvio) setCostoEnvioInput((costoEnvioCentavos / 100).toFixed(2));
+	}, [costoEnvioCentavos, editandoEnvio]);
 	const cambiarDescuento = (valor) => {
 		const numero = Math.round(Number(valor || 0) * 100);
 		if (!Number.isSafeInteger(numero) || numero < 0) return;
@@ -25294,8 +28901,16 @@ function PaginaPuntoVenta() {
 													min: "0",
 													step: "0.01",
 													className: claseEntrada,
-													value: (costoEnvioCentavos / 100).toFixed(2),
-													onChange: (e) => cambiarEnvio(e.target.value)
+													value: costoEnvioInput,
+													onFocus: () => setEditandoEnvio(true),
+													onChange: (e) => cambiarEnvio(e.target.value),
+													onBlur: () => {
+														setEditandoEnvio(false);
+														if (costoEnvioInput === "") {
+															estado.getState().establecerCostoEnvio(0);
+															setCostoEnvioInput("0.00");
+														} else setCostoEnvioInput((costoEnvioCentavos / 100).toFixed(2));
+													}
 												})
 											})
 										] })
@@ -25394,19 +29009,19 @@ function PaginaPuntoVenta() {
 									children: [
 										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 											className: "flex justify-between text-slate-500",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Subtotal" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: dinero(subtotal) })]
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Subtotal" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: dinero$1(subtotal) })]
 										}),
 										descuentoCentavos > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 											className: "flex justify-between text-emerald-700",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Descuento" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: ["-", dinero(descuentoCentavos)] })]
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Descuento" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: ["-", dinero$1(descuentoCentavos)] })]
 										}),
 										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 											className: "flex justify-between text-slate-500",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Envío" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: dinero(tipo === "recoger" ? 0 : costoEnvioCentavos) })]
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Envío" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: dinero$1(tipo === "recoger" ? 0 : costoEnvioCentavos) })]
 										}),
 										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 											className: "flex justify-between border-t border-slate-200 pt-3 text-lg font-bold text-slate-800",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Total" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: dinero(total) })]
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Total" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: dinero$1(total) })]
 										})
 									]
 								}),
@@ -25469,25 +29084,25 @@ function PaginaPuntoVenta() {
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 										className: "text-slate-500",
 										children: "Subtotal"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: dinero(confirmacion.subtotal) })]
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: dinero$1(confirmacion.subtotal) })]
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 									className: "flex justify-between",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 										className: "text-slate-500",
 										children: "Descuento"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: ["-", dinero(confirmacion.descuento)] })]
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: ["-", dinero$1(confirmacion.descuento)] })]
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 									className: "flex justify-between",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 										className: "text-slate-500",
 										children: "Envío"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: dinero(confirmacion.envio) })]
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: dinero$1(confirmacion.envio) })]
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 									className: "flex justify-between border-t border-slate-200 pt-3 text-lg font-bold",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Total" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: dinero(confirmacion.total) })]
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Total" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: dinero$1(confirmacion.total) })]
 								})
 							]
 						}),
@@ -25556,7 +29171,7 @@ function PaginaPuntoVenta() {
 									children: "Total"
 								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "text-xl font-bold text-violet-700",
-									children: dinero(pedidoRegistrado.totalCentavos)
+									children: dinero$1(pedidoRegistrado.totalCentavos)
 								})]
 							})]
 						}),
@@ -25665,8 +29280,18 @@ var useEstadoCocina = create((set, get) => ({
 // src/modulos/cocina/hooks/useAlarmasCocina.js
 function useAlarmasCocina(pedidos, temporizadores = {}) {
 	const audioRef = (0, import_react.useRef)(null);
+	const volumenNotificacionesRef = (0, import_react.useRef)(.7);
 	const [ahora, setAhora] = (0, import_react.useState)(() => Date.now());
 	const [sonidoActivo, setSonidoActivo] = (0, import_react.useState)(false);
+	(0, import_react.useEffect)(() => {
+		let vigente = true;
+		window.sistema?.configuracion?.operativa?.().then((configuracion) => {
+			if (vigente) volumenNotificacionesRef.current = configuracion.volumenNotificaciones / 100;
+		}).catch(() => {});
+		return () => {
+			vigente = false;
+		};
+	}, []);
 	const reproducirTono = (audio) => {
 		const inicio = audio.currentTime;
 		[
@@ -25680,7 +29305,7 @@ function useAlarmasCocina(pedidos, temporizadores = {}) {
 			oscilador.type = "sine";
 			oscilador.frequency.value = frecuencia;
 			volumen.gain.setValueAtTime(1e-4, momento);
-			volumen.gain.exponentialRampToValueAtTime(.15, momento + .03);
+			volumen.gain.exponentialRampToValueAtTime(Math.max(1e-4, .15 * volumenNotificacionesRef.current), momento + .03);
 			volumen.gain.exponentialRampToValueAtTime(1e-4, momento + .22);
 			oscilador.connect(volumen);
 			volumen.connect(audio.destination);
@@ -26149,6 +29774,7 @@ function PaginaCocina() {
 	const cargarPedidos = useEstadoCocina((estado) => estado.cargarPedidos);
 	const avanzarPedido = useEstadoCocina((estado) => estado.avanzarPedido);
 	const limpiarError = useEstadoCocina((estado) => estado.limpiarError);
+	const [pedidoConfirmacion, setPedidoConfirmacion] = (0, import_react.useState)(null);
 	const [pedidoSeleccionado, setPedidoSeleccionado] = (0, import_react.useState)(null);
 	const [procesandoId, setProcesandoId] = (0, import_react.useState)(null);
 	const [pantallaCompleta, setPantallaCompleta] = (0, import_react.useState)(false);
@@ -26194,15 +29820,15 @@ function PaginaCocina() {
 			});
 			return;
 		}
-		if (!window.confirm(`¿Deseas cambiar el pedido ${pedido.folio || pedido.id} a "${nuevoEstado}"?`)) return;
 		setProcesandoId(pedido.id);
 		limpiarError();
 		const resultado = await avanzarPedido(pedido, nuevoEstado);
 		setProcesandoId(null);
 		if (!resultado.correcto) {
-			window.alert(resultado.error || "No se pudo actualizar el pedido.");
+			useEstadoCocina.setState({ error: resultado.error || "No se pudo actualizar el pedido." });
 			return;
 		}
+		setPedidoConfirmacion(null);
 		if (pedidoSeleccionado?.id === pedido.id) setPedidoSeleccionado(null);
 	};
 	const confirmarTemporizadorHorno = async () => {
@@ -26337,7 +29963,13 @@ function PaginaCocina() {
 					retrasados: pedidosRetrasados,
 					color: columna.color,
 					onSeleccionar: abrirDetalle,
-					onAvanzar: cambiarEstado,
+					onAvanzar: (pedido, estado) => {
+						if (estado === "En horno") cambiarEstado(pedido, estado);
+						else setPedidoConfirmacion({
+							pedido,
+							estado
+						});
+					},
 					procesandoId,
 					temporizadores
 				}, columna.estado))
@@ -26398,6 +30030,44 @@ function PaginaCocina() {
 						})
 					]
 				})
+			}),
+			pedidoConfirmacion && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+					role: "alertdialog",
+					"aria-modal": "true",
+					className: "w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							className: "text-lg font-bold text-slate-900",
+							children: "Actualizar pedido"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+							className: "mt-2 text-sm text-slate-600",
+							children: [
+								"¿Cambiar el pedido ",
+								pedidoConfirmacion.pedido.folio || pedidoConfirmacion.pedido.id,
+								" a “",
+								pedidoConfirmacion.estado,
+								"”?"
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "mt-6 flex justify-end gap-3",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								type: "button",
+								onClick: () => setPedidoConfirmacion(null),
+								className: "rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold",
+								children: "Cancelar"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								type: "button",
+								onClick: () => cambiarEstado(pedidoConfirmacion.pedido, pedidoConfirmacion.estado),
+								className: "rounded-lg bg-violet-700 px-4 py-2 text-sm font-semibold text-white",
+								children: "Confirmar"
+							})]
+						})
+					]
+				})
 			})
 		]
 	});
@@ -26431,6 +30101,18 @@ var servicioTelevision = {
 	},
 	async eliminarPublicidad(id) {
 		return obtenerAPI().television.eliminarMultimedia(id);
+	},
+	async obtenerMusica() {
+		return obtenerAPI().television.obtenerMusica();
+	},
+	async guardarMusica(archivo) {
+		return obtenerAPI().television.guardarMusica(archivo);
+	},
+	async guardarVolumenMusica(volumen) {
+		return obtenerAPI().television.guardarVolumenMusica(volumen);
+	},
+	async quitarMusica() {
+		return obtenerAPI().television.quitarMusica();
 	},
 	async listarPantallas() {
 		return obtenerAPI().television.listarPantallas();
@@ -26502,6 +30184,10 @@ var useEstadoTV = create((set, get) => ({
 function usePedidosTV() {
 	const pedidos = useEstadoTV((estado) => estado.pedidos);
 	const cargarPedidos = useEstadoTV((estado) => estado.cargarPedidos);
+	const ultimaActualizacion = useEstadoTV((estado) => estado.ultimaActualizacion);
+	const [avisosListos, setAvisosListos] = (0, import_react.useState)([]);
+	const estadosAnteriores = (0, import_react.useRef)(null);
+	const temporizadorAviso = (0, import_react.useRef)(null);
 	(0, import_react.useEffect)(() => {
 		cargarPedidos();
 		const intervalo = setInterval(() => {
@@ -26509,9 +30195,25 @@ function usePedidosTV() {
 		}, 5e3);
 		return () => clearInterval(intervalo);
 	}, [cargarPedidos]);
+	(0, import_react.useEffect)(() => {
+		if (!ultimaActualizacion) return;
+		const actuales = new Map(pedidos.map((pedido) => [pedido.id, pedido.estado]));
+		if (estadosAnteriores.current) {
+			const nuevos = pedidos.filter((pedido) => pedido.estado === "Listo" && estadosAnteriores.current.get(pedido.id) !== "Listo");
+			if (nuevos.length) {
+				setAvisosListos(nuevos);
+				clearTimeout(temporizadorAviso.current);
+				temporizadorAviso.current = setTimeout(() => setAvisosListos([]), 16e3);
+				estadosAnteriores.current = actuales;
+			}
+		}
+		estadosAnteriores.current = actuales;
+	}, [pedidos, ultimaActualizacion]);
+	(0, import_react.useEffect)(() => () => clearTimeout(temporizadorAviso.current), []);
 	return {
 		pedidosPreparando: pedidos.filter((pedido) => pedido.estado === "Preparando" || pedido.estado === "En horno"),
-		pedidosListos: pedidos.filter((pedido) => pedido.estado === "Listo")
+		pedidosListos: pedidos.filter((pedido) => pedido.estado === "Listo"),
+		avisosListos
 	};
 }
 // src/modulos/television/hooks/usePublicidadTV.js
@@ -26553,214 +30255,414 @@ function RelojTV() {
 	});
 }
 // src/modulos/television/componentes/EncabezadoTV.jsx
-function EncabezadoTV() {
+function EncabezadoTV({ empresa }) {
+	const logo = empresa.logotipo_ruta ? `pizzeria-media://archivo?ruta=${encodeURIComponent(empresa.logotipo_ruta)}` : "";
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
-		className: "flex min-w-0 items-center justify-between gap-4 border-b border-white/10 bg-[#11111d] px-5 py-3 sm:px-8 sm:py-4",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "flex min-w-0 items-center gap-3 sm:gap-4",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-600 text-xl shadow-lg shadow-violet-900/30 sm:h-12 sm:w-12 sm:text-2xl",
-				children: "🍕"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-				className: "truncate text-xl font-black tracking-tight sm:text-3xl",
-				children: "¡Gracias por tu preferencia!"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-				className: "truncate text-[11px] text-white/50 sm:text-sm",
-				children: "Estamos preparando algo delicioso para ti"
-			})] })]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RelojTV, {})]
+		className: "relative flex min-w-0 items-center justify-between gap-4 border-b border-white/[0.08] bg-[#0e111b] px-5 py-3.5 sm:px-9 sm:py-5",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "flex min-w-0 items-center gap-3 sm:gap-4",
+				children: [logo ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+					src: logo,
+					alt: "",
+					className: "h-11 w-11 shrink-0 rounded-2xl bg-white object-contain p-1.5 shadow-lg sm:h-14 sm:w-14"
+				}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-300 to-orange-500 text-2xl font-black tracking-tighter text-[#211340] shadow-lg shadow-orange-950/30 ring-1 ring-white/15 sm:h-14 sm:w-14 sm:text-3xl",
+					children: (empresa.nombre_negocio || "P").trim().slice(0, 1).toUpperCase()
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "min-w-0",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+						className: "truncate text-lg font-black tracking-tight sm:text-3xl",
+						children: empresa.nombre_negocio || "Pizzería"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-0.5 truncate text-[11px] text-white/65 sm:text-sm",
+						children: empresa.telefono_negocio ? `Pedidos y contacto: ${empresa.telefono_negocio}` : "Gracias por visitarnos"
+					})]
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "hidden items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-2 sm:flex",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.7)]" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-[9px] font-bold uppercase tracking-[0.18em] text-white/40",
+					children: "En vivo"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RelojTV, {})] })]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "sm:hidden",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RelojTV, {})
+			})
+		]
 	});
 }
 // src/modulos/television/componentes/PedidoListoTV.jsx
 function PedidoListoTV({ pedido }) {
-	const nombreCliente = pedido.cliente_nombre?.trim() || "Cliente de mostrador";
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-		className: "rounded-2xl border border-emerald-400/30 bg-gradient-to-br from-emerald-500/20 to-emerald-950/30 p-4 shadow-lg shadow-emerald-950/20",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "flex items-center justify-between gap-3",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "text-xs font-bold uppercase tracking-wider text-emerald-300",
-					children: "¡Pedido listo!"
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-					className: "mt-1 break-all text-2xl font-black leading-tight text-white",
-					children: pedido.folio || `#${pedido.id}`
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "mt-2 max-w-[16rem] truncate text-sm font-semibold text-white/75",
-					children: nombreCliente
-				})
-			] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-				className: "rounded-xl bg-emerald-300/15 p-2 text-3xl",
-				children: "🔔"
-			})]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-			className: "mt-2 text-xs font-semibold text-emerald-100 sm:text-sm",
-			children: pedido.tipo === "domicilio" ? "Listo para salir a reparto" : "Puedes pasar a recogerlo"
-		})]
+		className: "relative flex min-w-0 flex-col justify-center overflow-hidden rounded-xl border border-emerald-300/20 bg-gradient-to-br from-[#123c35] via-[#102d2b] to-[#14201f] px-3 py-2 shadow-lg shadow-emerald-950/15 ring-1 ring-white/[0.04]",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "pointer-events-none absolute -right-8 -top-10 h-32 w-32 rounded-full border-[18px] border-emerald-200/[0.06]" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "relative flex items-center justify-between gap-3",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "min-w-0",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+							className: "flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.19em] text-emerald-200",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-2 w-2 rounded-full bg-emerald-300 shadow-[0_0_10px_rgba(110,231,183,0.65)]" }), " Pedido listo"]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+							className: "mt-1 truncate text-lg font-black leading-tight tracking-tight text-white sm:text-xl",
+							children: pedido.cliente_nombre || "Pedido rápido"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+							className: "mt-0.5 text-[10px] font-semibold text-emerald-100/70 sm:text-xs",
+							children: ["Orden ", pedido.folio || `#${pedido.id}`]
+						})
+					]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-300/10 text-lg text-emerald-200 ring-1 ring-emerald-200/10",
+					children: "✓"
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "relative mt-1.5 border-t border-white/[0.08] pt-1.5 text-[10px] font-semibold text-emerald-100 sm:text-xs",
+				children: pedido.tipo === "domicilio" ? "Listo para salir a reparto" : "Puedes pasar a recogerlo"
+			})
+		]
 	});
 }
 // src/modulos/television/componentes/ListaPedidosTV.jsx
+function Columna({ pedidos, listos = false, titulo, eyebrow, tono }) {
+	const [pagina, setPagina] = (0, import_react.useState)(0);
+	const paginas = Math.max(1, Math.ceil(pedidos.length / 4));
+	(0, import_react.useEffect)(() => {
+		setPagina(0);
+	}, [pedidos.length]);
+	(0, import_react.useEffect)(() => {
+		if (paginas < 2) return void 0;
+		const timer = setInterval(() => setPagina((actual) => (actual + 1) % paginas), 7e3);
+		return () => clearInterval(timer);
+	}, [paginas]);
+	const visibles = pedidos.slice(pagina * 4, pagina * 4 + 4);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "flex min-h-0 flex-1 flex-col overflow-hidden",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mb-2 flex shrink-0 items-center justify-between gap-3 sm:mb-3",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: `text-[9px] font-bold uppercase tracking-[0.2em] ${tono}`,
+					children: eyebrow
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+					className: "mt-0.5 text-base font-black tracking-tight sm:text-xl",
+					children: titulo
+				})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: `flex h-8 min-w-8 items-center justify-center rounded-xl px-2 text-sm font-black ${listos ? "bg-emerald-400/15 text-emerald-200" : "bg-violet-400/15 text-violet-200"}`,
+					children: pedidos.length
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "grid min-h-0 flex-1 grid-cols-1 content-start gap-2 overflow-hidden sm:grid-cols-2",
+				children: [visibles.map((pedido) => listos ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PedidoListoTV, { pedido }, pedido.id) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+					className: "flex min-w-0 flex-col justify-center rounded-xl border border-white/[0.08] bg-gradient-to-br from-[#171a28] to-[#11141e] px-3 py-2.5 shadow-lg",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex items-center justify-between gap-2",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "min-w-0",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+								className: "truncate text-base font-black tracking-tight sm:text-lg",
+								children: pedido.cliente_nombre || "Pedido rápido"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+								className: "mt-0.5 text-[10px] font-semibold text-white/45",
+								children: ["Orden ", pedido.folio || `#${pedido.id}`]
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "shrink-0 rounded-full bg-violet-400/15 px-2 py-1 text-[9px] font-bold text-violet-200",
+							children: pedido.estado
+						})]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-1.5 text-xs text-white/65",
+						children: pedido.estado === "En horno" ? "Tu pedido está en el horno" : "Estamos preparando tu pedido"
+					})]
+				}, pedido.id)), !pedidos.length && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "col-span-full flex items-center justify-center rounded-xl border border-dashed border-white/10 text-center text-xs text-white/40",
+					children: listos ? "Aún no hay pedidos listos" : "No hay pedidos en preparación"
+				})]
+			}),
+			pedidos.length > 4 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+				className: "mt-1.5 shrink-0 text-right text-[10px] text-white/40",
+				children: [
+					"Vista ",
+					pagina + 1,
+					" de ",
+					paginas,
+					" · cambia automáticamente"
+				]
+			})
+		]
+	});
+}
 function ListaPedidosTV({ pedidosPreparando, pedidosListos }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-		className: "flex h-full min-h-0 flex-col gap-5 overflow-hidden p-4 sm:p-5 lg:p-6",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "min-h-0 shrink-0",
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "mb-4 flex items-center justify-between",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-						className: "text-xl font-extrabold tracking-tight",
-						children: "En preparación"
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "rounded-full bg-violet-500/20 px-4 py-1 text-sm font-bold text-violet-200 ring-1 ring-violet-400/30",
-						children: pedidosPreparando.length
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-2",
-					children: pedidosPreparando.map((pedido) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-						className: "rounded-2xl border border-white/10 bg-[#151522] p-4 shadow-lg shadow-black/10",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								className: "mb-2 truncate text-xs font-semibold text-white/55",
-								children: pedido.cliente_nombre?.trim() || "Cliente de mostrador"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex items-center justify-between gap-2",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-									className: "break-all text-xl font-black",
-									children: pedido.folio || `#${pedido.id}`
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "rounded-full bg-violet-500/15 px-3 py-1 text-[10px] font-bold text-violet-200",
-									children: pedido.estado
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								className: "mt-2 text-sm text-white/60",
-								children: pedido.estado === "En horno" ? "Tu pedido está en el horno" : "Estamos preparando tu pedido"
-							})
-						]
-					}, pedido.id))
-				}),
-				pedidosPreparando.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "rounded-2xl border border-dashed border-white/10 bg-white/[0.03] p-5 text-center text-sm text-white/40",
-					children: "No hay pedidos en preparación"
-				})
-			]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "min-h-0 shrink-0",
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "mb-4 flex items-center justify-between",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-						className: "text-xl font-extrabold tracking-tight",
-						children: "Pedidos listos"
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "rounded-full bg-emerald-500/20 px-4 py-1 text-sm font-bold text-emerald-300 ring-1 ring-emerald-400/30",
-						children: pedidosListos.length
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-2",
-					children: pedidosListos.map((pedido) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PedidoListoTV, { pedido }, pedido.id))
-				}),
-				pedidosListos.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "rounded-2xl border border-dashed border-white/10 bg-white/[0.03] p-5 text-center text-sm text-white/40",
-					children: "Aún no hay pedidos listos"
-				})
-			]
-		})]
+		className: "flex h-full min-h-0 flex-col gap-3 overflow-hidden p-3 sm:gap-4 sm:p-5 lg:p-6",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Columna, {
+				pedidos: pedidosPreparando,
+				titulo: "En preparación",
+				eyebrow: "Cocina",
+				tono: "text-violet-300/70"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "shrink-0 border-t border-white/[0.08]" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Columna, {
+				pedidos: pedidosListos,
+				listos: true,
+				titulo: "Pedidos listos",
+				eyebrow: "Para recoger o recibir",
+				tono: "text-emerald-300/70"
+			})
+		]
 	});
 }
 // src/modulos/television/componentes/ReproductorMultimedia.jsx
+var duracionManual = (elemento) => Math.max(3, Number(elemento?.duracion_segundos || 10));
 function ReproductorMultimedia({ elementos = [] }) {
 	const [indice, setIndice] = (0, import_react.useState)(0);
-	const indiceSeguro = elementos.length ? indice % elementos.length : 0;
-	const elemento = elementos[indiceSeguro];
+	const [fallidos, setFallidos] = (0, import_react.useState)(() => /* @__PURE__ */ new Set());
+	const timer = (0, import_react.useRef)(null);
+	const watchdog = (0, import_react.useRef)(null);
+	const ultimoTiempo = (0, import_react.useRef)(0);
+	const sinProgresoDesde = (0, import_react.useRef)(0);
+	const videoRef = (0, import_react.useRef)(null);
+	const elementosValidos = (0, import_react.useMemo)(() => elementos.filter((elemento) => elemento?.url || elemento?.ruta), [elementos]);
+	const firma = elementosValidos.map((elemento) => `${elemento.id}:${elemento.url || elemento.ruta}`).join("|");
+	const indiceActual = elementosValidos.length ? indice % elementosValidos.length : 0;
+	const elemento = elementosValidos[indiceActual];
+	const elementoId = elemento?.id;
+	const rutaElemento = elemento?.url || elemento?.ruta;
+	const tipoElemento = elemento?.tipo;
+	const modoElemento = elemento?.duracion_modo;
+	const duracionElemento = elemento?.duracion_segundos;
+	const avanzar = (0, import_react.useCallback)((desde = indiceActual) => {
+		clearTimeout(timer.current);
+		clearInterval(watchdog.current);
+		setIndice((actual) => {
+			const base = desde === actual ? actual : desde;
+			if (!elementosValidos.length) return 0;
+			for (let paso = 1; paso <= elementosValidos.length; paso += 1) {
+				const candidato = (base + paso) % elementosValidos.length;
+				if (!fallidos.has(candidato)) return candidato;
+			}
+			return base;
+		});
+	}, [
+		elementosValidos.length,
+		fallidos,
+		indiceActual
+	]);
+	const marcarFallido = (0, import_react.useCallback)((actual) => {
+		setFallidos((anteriores) => new Set(anteriores).add(actual));
+		avanzar(actual);
+	}, [avanzar]);
 	(0, import_react.useEffect)(() => {
-		if (!elemento) return;
-		if (elemento.tipo === "video") return;
-		const duracion = Math.max(3, Number(elemento.duracion_segundos || 10));
-		const intervalo = setTimeout(() => {
-			setIndice((actual) => elementos.length ? (actual + 1) % elementos.length : 0);
-		}, duracion * 1e3);
-		return () => clearTimeout(intervalo);
-	}, [elemento, elementos]);
-	const siguiente = () => {
-		setIndice((actual) => elementos.length ? (actual + 1) % elementos.length : 0);
-	};
-	if (!elemento) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "flex h-full min-h-[260px] items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500/10 to-fuchsia-500/5 text-center",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "mb-4 text-6xl",
-				children: "🍕"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-				className: "text-xl font-bold",
-				children: "STARMY PIZZERÍA"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-				className: "mt-2 text-sm text-white/50",
-				children: "Próximamente promociones especiales"
-			})
-		] })
+		setIndice(0);
+		setFallidos(/* @__PURE__ */ new Set());
+	}, [firma]);
+	(0, import_react.useEffect)(() => () => {
+		clearTimeout(timer.current);
+		clearInterval(watchdog.current);
+	}, []);
+	(0, import_react.useEffect)(() => {
+		clearTimeout(timer.current);
+		clearInterval(watchdog.current);
+		if (!elemento) return void 0;
+		const manual = elemento.duracion_modo !== "automatico";
+		const segundos = duracionManual(elemento);
+		ultimoTiempo.current = 0;
+		sinProgresoDesde.current = Date.now();
+		if (elemento.tipo !== "video" || manual) {
+			timer.current = setTimeout(() => avanzar(indiceActual), segundos * 1e3);
+			return () => clearTimeout(timer.current);
+		}
+		timer.current = setTimeout(() => marcarFallido(indiceActual), 3e4);
+		watchdog.current = setInterval(() => {
+			const video = videoRef.current;
+			if (!video) return;
+			if (video.currentTime > ultimoTiempo.current + .15) {
+				ultimoTiempo.current = video.currentTime;
+				sinProgresoDesde.current = Date.now();
+				return;
+			}
+			if (video.ended) return avanzar(indiceActual);
+			if (Date.now() - sinProgresoDesde.current > 18e3) marcarFallido(indiceActual);
+		}, 3e3);
+		return () => {
+			clearTimeout(timer.current);
+			clearInterval(watchdog.current);
+		};
+	}, [
+		elementoId,
+		rutaElemento,
+		tipoElemento,
+		modoElemento,
+		duracionElemento,
+		indiceActual,
+		avanzar,
+		marcarFallido
+	]);
+	if (!elemento || fallidos.size >= elementosValidos.length) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "flex h-full min-h-[260px] items-center justify-center rounded-[22px] bg-[radial-gradient(ellipse_at_center,rgba(124,58,237,0.18),transparent_58%),linear-gradient(145deg,#191326,#0d1018_70%)] px-6 text-center",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "max-w-sm",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-[28px] bg-amber-300/10 text-4xl text-amber-200 ring-1 ring-amber-200/15",
+					children: "✦"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-2xl font-black tracking-tight text-white sm:text-3xl",
+					children: "Gracias por visitarnos"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-4 text-sm leading-6 text-white/55 sm:text-base",
+					children: "Las promociones de la casa aparecerán aquí."
+				})
+			]
+		})
 	});
 	const ruta = elemento.url || elemento.ruta;
-	if (!ruta) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "flex h-full items-center justify-center text-white/60",
-		children: "Archivo multimedia sin ruta"
-	});
+	const modoAutomatico = elemento.duracion_modo === "automatico";
 	if (elemento.tipo === "video") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("video", {
+		ref: videoRef,
 		src: ruta,
 		autoPlay: true,
-		loop: elementos.length === 1,
 		muted: true,
 		playsInline: true,
-		onEnded: siguiente,
-		onError: siguiente,
-		onLoadedData: (evento) => evento.currentTarget.play().catch(() => {}),
-		className: "h-full w-full rounded-2xl bg-black object-contain"
-	}, `${elemento.id || ruta}-${indiceSeguro}`);
+		preload: "auto",
+		onEnded: () => avanzar(indiceActual),
+		onError: () => marcarFallido(indiceActual),
+		onCanPlay: (evento) => {
+			sinProgresoDesde.current = Date.now();
+			evento.currentTarget.play().catch(() => marcarFallido(indiceActual));
+		},
+		onTimeUpdate: (evento) => {
+			ultimoTiempo.current = evento.currentTarget.currentTime;
+			sinProgresoDesde.current = Date.now();
+		},
+		onLoadedMetadata: (evento) => {
+			const video = evento.currentTarget;
+			if (modoAutomatico && Number.isFinite(video.duration) && video.duration > 0) {
+				clearTimeout(timer.current);
+				timer.current = setTimeout(() => avanzar(indiceActual), (video.duration + 12) * 1e3);
+			}
+			video.play().catch(() => marcarFallido(indiceActual));
+		},
+		onStalled: () => {
+			sinProgresoDesde.current = Date.now();
+		},
+		className: "h-full w-full rounded-[22px] bg-[#080a10] object-contain"
+	}, `${elemento.id || ruta}-${indiceActual}`);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 		src: ruta,
-		alt: "Promoción",
-		onError: siguiente,
-		className: "h-full w-full rounded-2xl object-cover"
+		alt: elemento.nombre || "Promoción",
+		onError: () => marcarFallido(indiceActual),
+		className: "h-full w-full rounded-[22px] bg-[#080a10] object-contain"
 	}, elemento.id || ruta);
 }
 // src/modulos/television/componentes/PanelPublicidad.jsx
-function PanelPublicidad({ elementos }) {
+function PanelPublicidad({ elementos, nombreNegocio }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-		className: "flex h-full min-h-0 min-w-0 flex-col p-4 sm:p-5 lg:p-6",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "mb-4 flex items-center justify-between",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-				className: "truncate text-xl font-extrabold tracking-tight",
-				children: "Nuestras promociones"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-				className: "text-sm text-white/50",
-				children: "Descubre algo delicioso"
-			})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-				className: "rounded-xl bg-fuchsia-500/15 p-2 text-xl",
-				children: "📢"
-			})]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "min-h-0 min-w-0 flex-1 overflow-hidden rounded-3xl border border-white/10 bg-[#151522] p-2 shadow-2xl shadow-black/20",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ReproductorMultimedia, { elementos })
-		})]
+		className: "flex h-full min-h-0 min-w-0 flex-col p-4 sm:p-6 lg:p-7",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mb-4 flex shrink-0 items-center justify-between gap-4 sm:mb-5",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "text-[10px] font-bold uppercase tracking-[0.2em] text-amber-300/70",
+						children: "Algo rico te espera"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						className: "mt-1 truncate text-lg font-black tracking-tight sm:text-2xl",
+						children: "Promociones"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-1 text-xs text-white/45 sm:text-sm",
+						children: "Descubre algo delicioso"
+					})
+				] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-amber-300/10 text-lg text-amber-200 ring-1 ring-amber-200/10",
+					children: "✦"
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "relative min-h-0 min-w-0 flex-1 overflow-hidden rounded-[26px] border border-white/[0.09] bg-[#080a10] p-1.5 shadow-2xl shadow-black/30 ring-1 ring-white/[0.04] sm:p-2",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ReproductorMultimedia, { elementos })
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mt-3 flex shrink-0 items-center justify-between gap-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/30 sm:mt-4 sm:text-[11px]",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "truncate",
+					children: nombreNegocio || "Gracias por visitarnos"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "shrink-0",
+					children: elementos.length ? `${elementos.length} ${elementos.length === 1 ? "anuncio" : "anuncios"}` : "Bienvenido"
+				})]
+			})
+		]
 	});
 }
 // src/modulos/television/paginas/PaginaTV.jsx
 function PaginaTV() {
-	const { pedidosPreparando, pedidosListos } = usePedidosTV();
+	const { pedidosPreparando, pedidosListos, avisosListos } = usePedidosTV();
 	const publicidad = usePublicidadTV();
+	const [empresa, setEmpresa] = (0, import_react.useState)({
+		nombre_negocio: "Pizzería",
+		telefono_negocio: "",
+		logotipo_ruta: ""
+	});
+	const [musica, setMusica] = (0, import_react.useState)(null);
+	const audioRef = (0, import_react.useRef)(null);
 	const cargarPublicidad = useEstadoTV((estado) => estado.cargarPublicidad);
 	(0, import_react.useEffect)(() => {
 		cargarPublicidad();
 	}, [cargarPublicidad]);
+	(0, import_react.useEffect)(() => {
+		let vigente = true;
+		const cargarIdentidad = async () => {
+			try {
+				const datosEmpresa = await window.sistema.configuracion.publica();
+				if (vigente) setEmpresa(datosEmpresa);
+			} catch (error) {
+				console.error("No se pudo cargar la identidad de la TV:", error);
+			}
+		};
+		cargarIdentidad();
+		const intervalo = setInterval(cargarIdentidad, 3e4);
+		return () => {
+			vigente = false;
+			clearInterval(intervalo);
+		};
+	}, []);
+	(0, import_react.useEffect)(() => {
+		let vigente = true;
+		const cargarMusica = async () => {
+			try {
+				const pista = await window.sistema.television.obtenerMusica();
+				if (vigente) setMusica(pista);
+			} catch (error) {
+				console.error("No se pudo actualizar la música de promociones:", error);
+			}
+		};
+		cargarMusica();
+		const intervalo = setInterval(cargarMusica, 2500);
+		return () => {
+			vigente = false;
+			clearInterval(intervalo);
+		};
+	}, []);
+	(0, import_react.useEffect)(() => {
+		if (audioRef.current) {
+			const volumen = Number(musica?.volumen ?? 35);
+			audioRef.current.volume = Math.min(1, Math.max(0, volumen / 100));
+		}
+	}, [musica?.ruta, musica?.volumen]);
 	(0, import_react.useEffect)(() => {
 		document.documentElement.classList.add("tv-mode");
 		document.body.classList.add("tv-mode");
@@ -26770,37 +30672,78 @@ function PaginaTV() {
 		};
 	}, []);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
-		className: "flex h-[100dvh] min-w-0 flex-col overflow-hidden bg-[#0b0b14] text-white",
+		className: "relative flex h-[100dvh] min-w-0 flex-col overflow-hidden bg-[#090c14] text-white selection:bg-amber-300 selection:text-slate-950",
 		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(EncabezadoTV, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(EncabezadoTV, { empresa }),
+			musica?.ruta && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("audio", {
+				ref: audioRef,
+				src: musica.ruta,
+				autoPlay: true,
+				loop: true,
+				style: { display: "none" },
+				onCanPlay: (evento) => {
+					evento.currentTarget.volume = Math.min(1, Math.max(0, Number(musica.volumen ?? 35) / 100));
+					evento.currentTarget.play().catch((error) => console.warn("No se pudo iniciar la música ambiental:", error));
+				}
+			}, musica.ruta),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "grid min-h-0 min-w-0 flex-1 grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] divide-x divide-white/10",
+				className: "grid min-h-0 min-w-0 flex-1 grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)] divide-x divide-white/[0.08]",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "min-h-0 overflow-hidden",
+					className: "min-h-0 overflow-hidden bg-[radial-gradient(ellipse_at_top_left,rgba(124,58,237,0.12),transparent_45%)]",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ListaPedidosTV, {
 						pedidosPreparando,
 						pedidosListos
 					})
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "min-h-0",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PanelPublicidad, { elementos: publicidad })
+					className: "min-h-0 overflow-hidden bg-[radial-gradient(ellipse_at_top_right,rgba(251,146,60,0.08),transparent_48%)]",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PanelPublicidad, {
+						elementos: publicidad,
+						nombreNegocio: empresa.nombre_negocio
+					})
 				})]
 			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("footer", {
-				className: "flex items-center justify-center border-t border-white/10 px-5 py-2 text-[11px] text-white/35",
-				children: "Gracias por elegirnos · Tu pizza estará lista muy pronto"
+			avisosListos.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "pointer-events-none absolute inset-x-0 top-16 z-20 flex justify-center px-4",
+				"aria-live": "assertive",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "w-full max-w-2xl animate-[fade-in_250ms_ease-out] rounded-2xl border border-emerald-200/30 bg-emerald-950/95 px-5 py-4 text-center shadow-2xl shadow-emerald-950/50 ring-1 ring-emerald-100/10 backdrop-blur-xl sm:px-8 sm:py-5",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-[10px] font-black uppercase tracking-[0.24em] text-emerald-200",
+							children: "¡Recién salido de cocina!"
+						}),
+						avisosListos.map((pedido) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+							className: "mt-1 text-lg font-black text-white sm:text-2xl",
+							children: [
+								pedido.cliente_nombre || "Pedido rápido",
+								" · orden ",
+								pedido.folio || `#${pedido.id}`
+							]
+						}, pedido.id)),
+						avisosListos.map((pedido) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "mt-1 text-xs font-semibold text-emerald-100/80 sm:text-sm",
+							children: pedido.tipo === "domicilio" ? "Tu pedido está listo para salir a reparto." : "Tu pedido está listo; puedes pasar a recogerlo."
+						}, `mensaje-${pedido.id}`))
+					]
+				})
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("footer", {
+				className: "flex items-center justify-center gap-2 border-t border-white/[0.08] bg-[#080a10] px-5 py-2.5 text-center text-[11px] font-medium tracking-wide text-white/40 sm:text-xs",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-1.5 w-1.5 shrink-0 rounded-full bg-amber-400" }), " Disfruta nuestras promociones mientras preparamos algo delicioso para ti"]
 			})
 		]
 	});
 }
 // src/modulos/television/paginas/PaginaPublicidad.jsx
 function PaginaPublicidad() {
+	const esAdministrador = useEstadoAutenticacion((estado) => estado.usuario?.rol === "administrador");
 	const publicidad = useEstadoTV((estado) => estado.publicidad);
 	const cargarPublicidad = useEstadoTV((estado) => estado.cargarPublicidad);
 	const agregarPublicidad = useEstadoTV((estado) => estado.agregarPublicidad);
 	const cambiarEstadoPublicidad = useEstadoTV((estado) => estado.cambiarEstadoPublicidad);
 	const eliminarPublicidad = useEstadoTV((estado) => estado.eliminarPublicidad);
 	const [nombre, setNombre] = (0, import_react.useState)("");
+	const [modoDuracion, setModoDuracion] = (0, import_react.useState)("automatico");
 	const [duracion, setDuracion] = (0, import_react.useState)(10);
 	const [archivo, setArchivo] = (0, import_react.useState)(null);
 	const [guardando, setGuardando] = (0, import_react.useState)(false);
@@ -26809,6 +30752,13 @@ function PaginaPublicidad() {
 	const [pantallaSeleccionada, setPantallaSeleccionada] = (0, import_react.useState)("");
 	const [buscandoPantallas, setBuscandoPantallas] = (0, import_react.useState)(false);
 	const [proyectando, setProyectando] = (0, import_react.useState)(false);
+	const [pendienteEliminar, setPendienteEliminar] = (0, import_react.useState)(null);
+	const [musica, setMusica] = (0, import_react.useState)(null);
+	const [guardandoMusica, setGuardandoMusica] = (0, import_react.useState)(false);
+	const [volumenMusica, setVolumenMusica] = (0, import_react.useState)(35);
+	const [volumenGuardado, setVolumenGuardado] = (0, import_react.useState)(35);
+	const [guardandoVolumen, setGuardandoVolumen] = (0, import_react.useState)(false);
+	const [avisoMusica, setAvisoMusica] = (0, import_react.useState)("");
 	const buscarPantallas = async () => {
 		setBuscandoPantallas(true);
 		try {
@@ -26840,6 +30790,11 @@ function PaginaPublicidad() {
 	};
 	(0, import_react.useEffect)(() => {
 		cargarPublicidad();
+		servicioTelevision.obtenerMusica().then((datos) => {
+			setMusica(datos);
+			setVolumenMusica(datos?.volumen ?? 35);
+			setVolumenGuardado(datos?.volumen ?? 35);
+		}).catch(() => {});
 	}, [cargarPublicidad]);
 	(0, import_react.useEffect)(() => {
 		let montado = true;
@@ -26901,10 +30856,12 @@ function PaginaPublicidad() {
 				ruta: importado.ruta,
 				tipo: archivo.tipo,
 				duracion_segundos: Number(duracion),
+				duracion_modo: modoDuracion,
 				orden: publicidad.length + 1,
 				activo: 1
 			});
 			setNombre("");
+			setModoDuracion("automatico");
 			setDuracion(10);
 			setArchivo(null);
 			evento.target.reset();
@@ -26915,9 +30872,9 @@ function PaginaPublicidad() {
 		}
 	};
 	const eliminar = async (elemento) => {
-		if (!window.confirm(`¿Eliminar "${elemento.nombre}"?`)) return;
 		try {
 			await eliminarPublicidad(elemento.id);
+			setPendienteEliminar(null);
 		} catch (error) {
 			setError(error.message || "No se pudo eliminar el anuncio.");
 		}
@@ -26929,8 +30886,72 @@ function PaginaPublicidad() {
 			setError(error.message || "No se pudo actualizar el anuncio.");
 		}
 	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
-		className: "space-y-6 p-6",
+	const agregarMusica = async (evento) => {
+		const seleccion = evento.target.files?.[0];
+		if (!seleccion) return;
+		const extension = seleccion.name.split(".").pop().toLowerCase();
+		if (![
+			"mp3",
+			"wav",
+			"ogg",
+			"m4a"
+		].includes(extension)) {
+			setError("Elige un archivo MP3, WAV, OGG o M4A.");
+			evento.target.value = "";
+			return;
+		}
+		if (seleccion.size > 41943040) {
+			setError("La música no puede superar 40 MB.");
+			evento.target.value = "";
+			return;
+		}
+		setGuardandoMusica(true);
+		setError("");
+		try {
+			const datos = await seleccion.arrayBuffer();
+			const pista = await servicioTelevision.guardarMusica({
+				nombre: seleccion.name,
+				datos
+			});
+			setMusica(pista);
+			setVolumenMusica(pista.volumen ?? volumenMusica);
+			setVolumenGuardado(pista.volumen ?? volumenMusica);
+		} catch (error) {
+			setError(error.message || "No se pudo guardar la música.");
+		} finally {
+			setGuardandoMusica(false);
+			evento.target.value = "";
+		}
+	};
+	const quitarMusica = async () => {
+		setGuardandoMusica(true);
+		setError("");
+		try {
+			await servicioTelevision.quitarMusica();
+			setMusica(await servicioTelevision.obtenerMusica());
+		} catch (error) {
+			setError(error.message || "No se pudo quitar la música.");
+		} finally {
+			setGuardandoMusica(false);
+		}
+	};
+	const guardarVolumen = async () => {
+		setGuardandoVolumen(true);
+		setError("");
+		setAvisoMusica("");
+		try {
+			const actualizado = await servicioTelevision.guardarVolumenMusica(volumenMusica);
+			setMusica(actualizado);
+			setVolumenGuardado(actualizado.volumen);
+			setAvisoMusica("Volumen guardado. Se aplicará en la TV de promociones.");
+		} catch (error) {
+			setError(error.message || "No se pudo guardar el volumen.");
+		} finally {
+			setGuardandoVolumen(false);
+		}
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "mx-auto max-w-[1500px] space-y-6 pb-8",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
 				className: "flex items-center justify-between gap-4",
@@ -26940,15 +30961,19 @@ function PaginaPublicidad() {
 						className: "flex h-11 w-11 items-center justify-center rounded-2xl bg-violet-600 text-white",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MonitorPlay, { size: 23 })
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-						className: "text-2xl font-extrabold text-slate-900",
+						className: "text-2xl font-black tracking-tight text-slate-950 sm:text-3xl",
 						children: "Publicidad de televisión"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 						className: "text-sm text-slate-500",
 						children: "Diseña lo que tus clientes verán mientras esperan su pedido."
 					})] })]
 				}) }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-					className: "hidden rounded-full bg-violet-50 px-3 py-1.5 text-xs font-semibold text-violet-700 sm:inline-flex",
-					children: [publicidad.filter((elemento) => elemento.activo).length, " activos"]
+					className: "hidden items-center gap-2 rounded-full border border-violet-100 bg-white px-3.5 py-2 text-xs font-bold text-violet-700 shadow-sm sm:inline-flex",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-2 w-2 rounded-full bg-emerald-500" }),
+						publicidad.filter((elemento) => elemento.activo).length,
+						" activos"
+					]
 				})]
 			}),
 			error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -26956,7 +30981,101 @@ function PaginaPublicidad() {
 				children: error
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-				className: "rounded-2xl border border-sky-100 bg-white p-5 shadow-sm",
+				className: "rounded-2xl border border-amber-100 bg-gradient-to-r from-amber-50 to-orange-50 p-5 shadow-sm",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex flex-wrap items-center justify-between gap-4",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex min-w-0 items-center gap-3",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-800",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EighthNote, { size: 21 })
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "min-w-0",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+								className: "font-bold text-slate-900",
+								children: "Música ambiental"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-0.5 text-sm text-slate-600",
+								children: musica?.ruta ? `${musica.nombre} · se reproduce en ciclo en la TV` : "Agrega una pista para acompañar las promociones."
+							})]
+						})]
+					}), esAdministrador && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex shrink-0 items-center gap-2",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+							className: `inline-flex cursor-pointer items-center gap-2 rounded-xl bg-amber-700 px-4 py-2.5 text-sm font-bold text-white hover:bg-amber-800 ${guardandoMusica ? "pointer-events-none opacity-60" : ""}`,
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CloudUpload, { size: 16 }),
+								" ",
+								guardandoMusica ? "Guardando…" : musica?.ruta ? "Cambiar música" : "Agregar música",
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+									type: "file",
+									accept: "audio/mpeg,audio/wav,audio/ogg,audio/mp4,.mp3,.wav,.ogg,.m4a",
+									onChange: agregarMusica,
+									className: "sr-only",
+									disabled: guardandoMusica
+								})
+							]
+						}), musica?.ruta && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							type: "button",
+							onClick: quitarMusica,
+							disabled: guardandoMusica,
+							className: "rounded-xl border border-amber-200 bg-white px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-amber-50 disabled:opacity-50",
+							children: "Quitar"
+						})]
+					})]
+				}), esAdministrador && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "mt-5 grid gap-3 rounded-xl border border-amber-100 bg-white/70 p-4 sm:grid-cols-[1fr_auto] sm:items-center",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+							className: "block min-w-0",
+							htmlFor: "volumen-musica-tv",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "flex items-center justify-between gap-3 text-sm font-semibold text-slate-800",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+										className: "flex items-center gap-2",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Volume2, {
+											size: 16,
+											className: "text-amber-700"
+										}), "Volumen de la música en la TV"]
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+										className: "font-mono tabular-nums text-amber-800",
+										children: [volumenMusica, "%"]
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+									id: "volumen-musica-tv",
+									type: "range",
+									min: "0",
+									max: "100",
+									step: "5",
+									value: volumenMusica,
+									onChange: (evento) => setVolumenMusica(Number(evento.target.value)),
+									className: "mt-3 w-full accent-amber-700"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "mt-1 flex justify-between text-[10px] text-slate-400",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Silencio" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Máximo" })]
+								})
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							type: "button",
+							onClick: guardarVolumen,
+							disabled: guardandoVolumen || volumenMusica === volumenGuardado,
+							className: "inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-bold text-white hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-45",
+							children: guardandoVolumen ? "Guardando…" : "Guardar volumen"
+						}),
+						avisoMusica && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							role: "status",
+							className: "text-xs font-medium text-emerald-700 sm:col-span-2",
+							children: avisoMusica
+						})
+					]
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				className: "rounded-2xl border border-sky-100/80 bg-white p-5 shadow-sm sm:p-6",
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						className: "flex flex-wrap items-start justify-between gap-4",
@@ -26990,7 +31109,7 @@ function PaginaPublicidad() {
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						className: "mt-4 grid gap-3 md:grid-cols-2",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "rounded-xl border border-slate-100 bg-slate-50 p-4",
+							className: "rounded-xl border border-slate-100 bg-gradient-to-br from-slate-50 to-white p-4",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
 								className: "flex items-center gap-2 font-semibold text-slate-800",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Cable, {
@@ -27002,7 +31121,7 @@ function PaginaPublicidad() {
 								children: "Conecta el cable HDMI. Windows la detectará automáticamente."
 							})]
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "rounded-xl border border-slate-100 bg-slate-50 p-4",
+							className: "rounded-xl border border-slate-100 bg-gradient-to-br from-slate-50 to-white p-4",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
 								className: "flex items-center gap-2 font-semibold text-slate-800",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Wifi, {
@@ -27024,7 +31143,7 @@ function PaginaPublicidad() {
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
 							value: pantallaSeleccionada,
 							onChange: (evento) => setPantallaSeleccionada(evento.target.value),
-							className: "min-w-0 flex-1 rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-sky-500",
+							className: "min-w-0 flex-1 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-sky-500 focus:bg-white focus:ring-4 focus:ring-sky-100",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
 								value: "",
 								children: "3. Selecciona dónde mostrar la TV"
@@ -27043,7 +31162,7 @@ function PaginaPublicidad() {
 							type: "button",
 							onClick: proyectarPantalla,
 							disabled: proyectando || !pantallaSeleccionada,
-							className: "rounded-xl bg-sky-600 px-5 py-3 text-sm font-bold text-white hover:bg-sky-700 disabled:opacity-50",
+							className: "rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 px-5 py-3 text-sm font-bold text-white shadow-md shadow-sky-900/10 transition hover:-translate-y-0.5 hover:from-sky-700 hover:to-blue-700 disabled:translate-y-0 disabled:opacity-50",
 							children: proyectando ? "Abriendo TV..." : "4. Mostrar pantalla TV"
 						})]
 					}),
@@ -27055,7 +31174,7 @@ function PaginaPublicidad() {
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
 				onSubmit: guardar,
-				className: "grid gap-4 rounded-2xl border border-violet-100 bg-gradient-to-br from-white to-violet-50/60 p-5 shadow-sm md:grid-cols-2",
+				className: "grid gap-4 rounded-2xl border border-violet-100/80 bg-gradient-to-br from-white via-white to-violet-50/60 p-5 shadow-sm sm:p-6 md:grid-cols-2",
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
 						className: "mb-2 block text-sm font-semibold text-slate-700",
@@ -27066,24 +31185,40 @@ function PaginaPublicidad() {
 						placeholder: "Ej. Promoción familiar",
 						className: "w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-violet-500"
 					})] }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-						className: "mb-2 block text-sm font-semibold text-slate-700",
-						children: "Duración de imagen (segundos)"
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-						type: "number",
-						min: "3",
-						max: "300",
-						value: duracion,
-						onChange: (evento) => setDuracion(evento.target.value),
-						className: "w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-violet-500"
-					})] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+							className: "mb-2 block text-sm font-semibold text-slate-700",
+							children: "Duración de reproducción"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
+							value: modoDuracion,
+							onChange: (evento) => setModoDuracion(evento.target.value),
+							className: "w-full rounded-xl border border-slate-200 bg-white px-4 py-3 outline-none focus:border-violet-500",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+								value: "automatico",
+								children: "Automática · video completo, imágenes 10 segundos"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+								value: "manual",
+								children: "Manual · elegir duración"
+							})]
+						}),
+						modoDuracion === "manual" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+							"aria-label": "Duración manual en segundos",
+							type: "number",
+							min: "3",
+							max: "300",
+							value: duracion,
+							onChange: (evento) => setDuracion(evento.target.value),
+							className: "mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-violet-500"
+						})
+					] }),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						className: "md:col-span-2",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
 							className: "mb-2 block text-sm font-semibold text-slate-700",
 							children: "Archivo multimedia"
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
-							className: "flex cursor-pointer items-center gap-3 rounded-xl border border-dashed border-violet-300 bg-white px-4 py-4 text-sm text-violet-700 transition hover:bg-violet-50",
+							className: "flex cursor-pointer items-center gap-3 rounded-xl border border-dashed border-violet-300 bg-white px-4 py-4 text-sm font-medium text-violet-700 transition hover:border-violet-500 hover:bg-violet-50",
 							children: [
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CloudUpload, { size: 20 }),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
@@ -27121,20 +31256,20 @@ function PaginaPublicidad() {
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						className: "grid gap-4 md:grid-cols-2 xl:grid-cols-3",
 						children: publicidad.map((elemento) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-							className: "overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm",
+							className: "group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "flex h-36 items-center justify-center bg-slate-900",
+								className: "relative flex h-48 items-center justify-center overflow-hidden bg-[#11131c]",
 								children: elemento.tipo === "video" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("video", {
 									src: elemento.ruta,
 									muted: true,
-									className: "h-full w-full object-cover"
+									className: "h-full w-full object-contain"
 								}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 									src: elemento.ruta,
 									alt: "",
-									className: "h-full w-full object-cover"
+									className: "h-full w-full object-contain"
 								})
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "space-y-3 p-4",
+								className: "space-y-3 p-5",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 									className: "flex items-start justify-between gap-3",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
@@ -27146,8 +31281,7 @@ function PaginaPublicidad() {
 											elemento.tipo === "video" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Video, { size: 13 }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Image, { size: 13 }),
 											elemento.tipo,
 											" · ",
-											elemento.duracion_segundos || 10,
-											"s"
+											elemento.duracion_modo === "automatico" ? elemento.tipo === "video" ? "video completo" : "10 s" : `${elemento.duracion_segundos || 10}s · manual`
 										]
 									})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 										className: `rounded-full px-2 py-1 text-[11px] font-semibold ${elemento.activo ? "bg-emerald-100 text-emerald-700" : "bg-slate-100 text-slate-500"}`,
@@ -27162,7 +31296,7 @@ function PaginaPublicidad() {
 										children: [elemento.activo ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PowerOff, { size: 14 }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Power, { size: 14 }), elemento.activo ? "Pausar" : "Activar"]
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
 										type: "button",
-										onClick: () => eliminar(elemento),
+										onClick: () => setPendienteEliminar(elemento),
 										className: "inline-flex items-center gap-1 rounded-lg bg-red-50 px-3 py-2 text-xs font-semibold text-red-700 hover:bg-red-100",
 										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Trash, { size: 14 }), "Eliminar"]
 									})]
@@ -27175,74 +31309,1226 @@ function PaginaPublicidad() {
 						children: "Todavía no has agregado publicidad."
 					})
 				]
+			}),
+			pendienteEliminar && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+					role: "alertdialog",
+					"aria-modal": "true",
+					className: "w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							className: "text-lg font-bold text-slate-900",
+							children: "Eliminar publicidad"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+							className: "mt-2 text-sm text-slate-600",
+							children: [
+								"¿Deseas eliminar “",
+								pendienteEliminar.nombre,
+								"” de la pantalla de TV?"
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "mt-6 flex justify-end gap-3",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								type: "button",
+								onClick: () => setPendienteEliminar(null),
+								className: "rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700",
+								children: "Cancelar"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								type: "button",
+								onClick: () => eliminar(pendienteEliminar),
+								className: "rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white",
+								children: "Eliminar"
+							})]
+						})
+					]
+				})
 			})
 		]
 	});
 }
-// src/rutas/RutasAplicacion.jsx
-function RutasAplicacion() {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HashRouter, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Routes, { children: [
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InicioSesion, {})
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/pantalla-tv",
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaTV, {})
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RutaProtegida, {}),
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
-				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DisenoPrincipal, {}),
+// src/modulos/respaldos/paginas/Pagina.jsx
+function formatoTamano(bytes = 0) {
+	if (bytes < 1048576) return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+	return `${(bytes / 1048576).toFixed(1)} MB`;
+}
+function PaginaRespaldos() {
+	const [datos, setDatos] = (0, import_react.useState)(null);
+	const [cargando, setCargando] = (0, import_react.useState)(true);
+	const [guardando, setGuardando] = (0, import_react.useState)(false);
+	const [error, setError] = (0, import_react.useState)("");
+	const [aviso, setAviso] = (0, import_react.useState)("");
+	const cargar = (0, import_react.useCallback)(async () => {
+		setError("");
+		try {
+			setDatos(await window.sistema.respaldos.listar());
+		} catch (e) {
+			setError(e.message || "No se pudo cargar el módulo de respaldos.");
+		} finally {
+			setCargando(false);
+		}
+	}, []);
+	(0, import_react.useEffect)(() => {
+		cargar();
+	}, [cargar]);
+	async function guardarPreferencias(cambios) {
+		setGuardando(true);
+		setError("");
+		setAviso("");
+		try {
+			await window.sistema.respaldos.configurar({
+				carpeta: datos.carpeta,
+				alCerrar: datos.alCerrar,
+				...cambios
+			});
+			await cargar();
+			setAviso("Preferencias guardadas.");
+		} catch (e) {
+			setError(e.message || "No se pudieron guardar las preferencias.");
+		} finally {
+			setGuardando(false);
+		}
+	}
+	async function seleccionarCarpeta() {
+		try {
+			const carpeta = await window.sistema.respaldos.seleccionarCarpeta();
+			if (carpeta) await guardarPreferencias({ carpeta });
+		} catch (e) {
+			setError(e.message || "No se pudo seleccionar la carpeta.");
+		}
+	}
+	async function crearRespaldo() {
+		setGuardando(true);
+		setError("");
+		setAviso("");
+		try {
+			const resultado = await window.sistema.respaldos.crear();
+			await cargar();
+			setAviso(`Respaldo creado y verificado: ${resultado.nombre}`);
+		} catch (e) {
+			setError(e.message || "No se pudo crear el respaldo.");
+		} finally {
+			setGuardando(false);
+		}
+	}
+	if (cargando) return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "flex items-center gap-3 p-8 text-slate-500",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LoaderCircle, { className: "animate-spin" }), " Cargando respaldos…"]
+	});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "mx-auto max-w-6xl space-y-6 p-5 md:p-8",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
+				className: "flex flex-wrap items-end justify-between gap-4",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "text-sm font-bold uppercase tracking-wide text-violet-600",
+						children: "Seguridad de los datos"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+						className: "mt-1 text-3xl font-black text-slate-900",
+						children: "Respaldos"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-2 text-slate-500",
+						children: "Crea copias verificadas y configura el respaldo automático al salir."
+					})
+				] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+					onClick: () => void cargar(),
+					className: "inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { size: 16 }), " Actualizar"]
+				})]
+			}),
+			error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				role: "alert",
+				className: "rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700",
+				children: error
+			}),
+			aviso && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				role: "status",
+				className: "rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800",
+				children: aviso
+			}),
+			datos?.requiereAviso && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				className: "flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 p-5",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex items-start gap-3",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "rounded-xl bg-amber-100 p-2 text-amber-700",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Clock3, { size: 20 })
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						className: "font-bold text-amber-950",
+						children: "Toca hacer un respaldo"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-1 text-sm text-amber-800",
+						children: "No hay una copia reciente. Hazla ahora o el sistema la creará al cerrar."
+					})] })]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+					disabled: guardando,
+					onClick: crearRespaldo,
+					className: "inline-flex items-center gap-2 rounded-xl bg-amber-700 px-4 py-2.5 text-sm font-bold text-white hover:bg-amber-800 disabled:opacity-60",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(HardDriveDownload, { size: 17 }), " Respaldar ahora"]
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				className: "grid gap-5 lg:grid-cols-[1fr_0.8fr]",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+					className: "rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex items-center gap-3",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "rounded-xl bg-violet-100 p-2.5 text-violet-700",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FolderOpen, { size: 21 })
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+								className: "font-bold text-slate-900",
+								children: "Carpeta de destino"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-sm text-slate-500",
+								children: "Elige dónde guardar las copias de la base de datos."
+							})] })]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "mt-5 rounded-xl bg-slate-50 p-4",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("code", {
+								className: "break-all text-sm text-slate-700",
+								children: datos?.carpeta
+							})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+							disabled: guardando,
+							onClick: seleccionarCarpeta,
+							className: "mt-4 inline-flex items-center gap-2 rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-60",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(FolderOpen, { size: 16 }), " Elegir carpeta"]
+						})
+					]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+					className: "rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex items-center gap-3",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "rounded-xl bg-emerald-100 p-2.5 text-emerald-700",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Archive, { size: 21 })
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+								className: "font-bold text-slate-900",
+								children: "Respaldo al cerrar"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-sm text-slate-500",
+								children: "Copia automática al salir del sistema."
+							})] })]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+							className: "mt-5 flex cursor-pointer items-center justify-between gap-4 rounded-xl border border-slate-100 p-4",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "block text-sm font-semibold text-slate-800",
+								children: "Crear respaldo automáticamente"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "mt-1 block text-xs text-slate-500",
+								children: "Se verifica la integridad antes de cerrar."
+							})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								type: "checkbox",
+								checked: Boolean(datos?.alCerrar),
+								disabled: guardando,
+								onChange: (e) => guardarPreferencias({ alCerrar: e.target.checked }),
+								className: "h-5 w-5 accent-violet-600"
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+							disabled: guardando,
+							onClick: crearRespaldo,
+							className: "mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-violet-700 px-4 py-3 text-sm font-bold text-white hover:bg-violet-800 disabled:opacity-60",
+							children: [guardando ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LoaderCircle, {
+								size: 17,
+								className: "animate-spin"
+							}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HardDriveDownload, { size: 17 }), " Crear respaldo ahora"]
+						})
+					]
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				className: "overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex items-center justify-between border-b border-slate-100 p-5",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						className: "font-bold text-slate-900",
+						children: "Historial de respaldos"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+						className: "mt-1 text-sm text-slate-500",
+						children: [datos?.historial?.length || 0, " copias recientes"]
+					})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShieldCheck, { className: "text-emerald-600" })]
+				}), !datos?.historial?.length ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "p-10 text-center text-sm text-slate-500",
+					children: "Todavía no hay respaldos. Crea el primero con el botón anterior."
+				}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "divide-y divide-slate-100",
+					children: datos.historial.map((respaldo) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+						className: "flex flex-wrap items-center justify-between gap-3 px-5 py-4",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex min-w-0 items-center gap-3",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "rounded-lg bg-slate-100 p-2 text-slate-600",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Archive, { size: 17 })
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "min-w-0",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "truncate text-sm font-semibold text-slate-800",
+									children: respaldo.nombre_archivo
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+									className: "mt-1 truncate text-xs text-slate-500",
+									children: [
+										respaldo.fecha_creacion,
+										" · ",
+										respaldo.tipo === "automatico" ? "Automático al cerrar" : "Manual",
+										" · ",
+										formatoTamano(respaldo.tamano_bytes)
+									]
+								})]
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							className: `inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${respaldo.integridad_verificada ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-700"}`,
+							children: [respaldo.integridad_verificada ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { size: 14 }) : null, respaldo.integridad_verificada ? "Verificado" : "Revisar"]
+						})]
+					}, respaldo.id))
+				})]
+			})
+		]
+	});
+}
+// src/modulos/produccion/paginas/Pagina.jsx
+function PaginaProduccion() {
+	const [pantallas, setPantallas] = (0, import_react.useState)([]);
+	const [pantallaId, setPantallaId] = (0, import_react.useState)("");
+	const [cargando, setCargando] = (0, import_react.useState)(true);
+	const [abriendo, setAbriendo] = (0, import_react.useState)(false);
+	const [error, setError] = (0, import_react.useState)("");
+	const cargarPantallas = async () => {
+		setCargando(true);
+		setError("");
+		try {
+			const resultado = await window.sistema.television.listarPantallas();
+			const disponibles = Array.isArray(resultado) ? resultado : [];
+			setPantallas(disponibles);
+			setPantallaId((actual) => actual || disponibles.find((pantalla) => !pantalla.principal)?.id || "");
+		} catch (e) {
+			setError(e.message || "No se pudieron detectar las pantallas.");
+		} finally {
+			setCargando(false);
+		}
+	};
+	(0, import_react.useEffect)(() => {
+		cargarPantallas();
+	}, []);
+	const abrirProyeccion = async () => {
+		if (!pantallaId) {
+			setError("Conecta una segunda pantalla para proyectar producción.");
+			return;
+		}
+		setAbriendo(true);
+		setError("");
+		try {
+			await window.sistema.television.abrirProduccion(pantallaId);
+		} catch (e) {
+			setError(e.message || "No se pudo abrir la pantalla de producción.");
+		} finally {
+			setAbriendo(false);
+		}
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "mx-auto max-w-5xl space-y-6",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
+				className: "flex items-center gap-4",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-orange-100 text-orange-700",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChefHat, { size: 27 })
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+					className: "text-3xl font-black text-slate-900",
+					children: "Producción"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-1 text-slate-500",
+					children: "Proyecta en cocina los pedidos activos y el tiempo que falta para terminarlos."
+				})] })]
+			}),
+			error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				role: "alert",
+				className: "rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700",
+				children: error
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				className: "grid gap-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:grid-cols-[1fr_0.9fr] md:p-8",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex flex-col justify-center",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-100 text-violet-700",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MonitorPlay, { size: 23 })
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							className: "text-xl font-bold text-slate-900",
+							children: "Pantalla de producción"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "mt-2 max-w-lg text-sm leading-6 text-slate-600",
+							children: "Muestra pedidos en preparación y en horno con una cuenta regresiva visible. Se actualiza automáticamente mientras cocina trabaja."
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "mt-5 flex items-center gap-2 text-sm text-slate-500",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Timer, {
+								size: 17,
+								className: "text-violet-600"
+							}), " El tiempo se basa en el estimado de cada pedido."]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "mt-4 rounded-xl border border-emerald-100 bg-emerald-50 p-3 text-sm leading-5 text-emerald-800",
+							children: "La proyección queda abierta en su TV aunque cambies a otro módulo. Solo se cierra al cerrar la aplicación o desde el botón de la pantalla proyectada."
+						})
+					]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "rounded-2xl bg-slate-50 p-5 sm:p-6",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex items-center justify-between gap-3",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+								htmlFor: "pantalla-produccion",
+								className: "text-sm font-bold text-slate-800",
+								children: "Pantalla para proyectar"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								type: "button",
+								onClick: () => void cargarPantallas(),
+								disabled: cargando,
+								"aria-label": "Actualizar pantallas",
+								className: "rounded-lg border border-slate-200 bg-white p-2 text-slate-600 hover:bg-slate-100 disabled:opacity-50",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, {
+									size: 16,
+									className: cargando ? "animate-spin" : ""
+								})
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
+							id: "pantalla-produccion",
+							value: pantallaId,
+							onChange: (evento) => setPantallaId(evento.target.value),
+							className: "mt-3 w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm text-slate-800 outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+								value: "",
+								children: "Selecciona una pantalla"
+							}), pantallas.map((pantalla) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("option", {
+								value: pantalla.id,
+								children: [
+									pantalla.nombre,
+									" · ",
+									pantalla.ancho,
+									" × ",
+									pantalla.alto
+								]
+							}, pantalla.id))]
+						}),
+						!cargando && pantallas.length < 2 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "mt-2 text-xs text-amber-700",
+							children: "Conecta otra pantalla o TV para usar la proyección independiente."
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+							type: "button",
+							onClick: () => void abrirProyeccion(),
+							disabled: abriendo || cargando || !pantallaId,
+							className: "mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-violet-700 px-4 py-3 text-sm font-bold text-white hover:bg-violet-800 disabled:cursor-not-allowed disabled:opacity-50",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MonitorPlay, { size: 17 }), abriendo ? "Abriendo pantalla…" : "Abrir pantalla de producción"]
+						})
+					]
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				className: "rounded-2xl border border-sky-100 bg-white p-5 shadow-sm sm:p-6",
 				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-						path: "/tablero",
-						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$4, {})
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex items-center gap-2",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MonitorPlay, {
+							size: 20,
+							className: "text-sky-600"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							className: "text-lg font-bold text-slate-900",
+							children: "Conectar la TV de cocina"
+						})]
 					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-						path: "/punto-venta",
-						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaPuntoVenta, {})
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-1 text-sm text-slate-500",
+						children: "Se conecta igual que la pantalla de TV y publicidad."
 					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-						path: "/pedidos",
-						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaPedidos, {})
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "mt-4 grid gap-3 md:grid-cols-2",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+							className: "rounded-xl border border-slate-100 bg-slate-50 p-4",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+								className: "flex items-center gap-2 font-semibold text-slate-800",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Cable, {
+									size: 17,
+									className: "text-sky-600"
+								}), "Por HDMI"]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+								className: "mt-1 text-xs leading-5 text-slate-500",
+								children: [
+									"Conecta la TV por HDMI y en Windows presiona ",
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Win + P" }),
+									"; elige ",
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Extender" }),
+									"."
+								]
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+							className: "rounded-xl border border-slate-100 bg-slate-50 p-4",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+								className: "flex items-center gap-2 font-semibold text-slate-800",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Wifi, {
+									size: 17,
+									className: "text-emerald-600"
+								}), "Inalámbrica"]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+								className: "mt-1 text-xs leading-5 text-slate-500",
+								children: [
+									"Presiona ",
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Win + K" }),
+									", selecciona la TV y espera a que Windows termine de conectarla."
+								]
+							})]
+						})]
 					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-						path: "/cocina",
-						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaCocina, {})
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-						path: "/clientes",
-						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaClientes, {})
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-						path: "/productos",
-						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaProductos, {})
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-						path: "/publicidad",
-						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaPublicidad, {})
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-						path: "/caja",
-						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$3, {})
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-						path: "/reportes",
-						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$2, {})
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-						path: "/usuarios",
-						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$1, {})
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-						path: "/configuracion",
-						element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina, {})
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("ol", {
+						className: "mt-4 grid gap-2 text-sm text-slate-600 sm:grid-cols-3",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+								className: "rounded-lg bg-slate-50 p-3",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
+									className: "text-slate-800",
+									children: "1."
+								}), " Pulsa el botón de actualizar junto a la lista de pantallas."]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+								className: "rounded-lg bg-slate-50 p-3",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
+									className: "text-slate-800",
+									children: "2."
+								}), " Selecciona la TV externa donde estará cocina."]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+								className: "rounded-lg bg-slate-50 p-3",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
+									className: "text-slate-800",
+									children: "3."
+								}), " Pulsa “Abrir pantalla de producción”."]
+							})
+						]
 					})
 				]
 			})
+		]
+	});
+}
+// src/modulos/produccion/paginas/PaginaProyeccion.jsx
+var ESTADOS_EN_PANTALLA = [
+	"Nuevo",
+	"Preparando",
+	"En horno"
+];
+var ESTADOS_CON_AVISO = [...ESTADOS_EN_PANTALLA, "Listo"];
+function leerTemporizadores() {
+	try {
+		return JSON.parse(localStorage.getItem("cocina-temporizadores") || "{}");
+	} catch {
+		return {};
+	}
+}
+function mostrarTiempo(segundos) {
+	const minutos = Math.floor(segundos / 60);
+	const segundosRestantes = segundos % 60;
+	return `${String(minutos).padStart(2, "0")}:${String(segundosRestantes).padStart(2, "0")}`;
+}
+function calcularReloj(pedido, temporizadores, ahora) {
+	if (pedido.estado === "Nuevo") return {
+		texto: "EN COLA",
+		estado: "nuevo",
+		progreso: 0
+	};
+	const timer = temporizadores[pedido.id];
+	const enHorno = pedido.estado === "En horno";
+	const inicio = enHorno ? timer?.iniciadoEn || pedido.fecha_entrada_horno : pedido.fecha_inicio_preparacion;
+	const minutos = Number((enHorno ? timer?.minutos : null) || pedido.tiempo_estimado_minutos || 0);
+	const inicioMs = inicio ? new Date(inicio).getTime() : NaN;
+	if (!Number.isFinite(inicioMs) || minutos <= 0) return {
+		texto: "SIN ESTIMADO",
+		estado: "sin-estimado",
+		progreso: 0
+	};
+	const totalSegundos = minutos * 60;
+	const restante = Math.ceil((inicioMs + totalSegundos * 1e3 - ahora) / 1e3);
+	const progreso = Math.min(100, Math.max(0, (totalSegundos - restante) / totalSegundos * 100));
+	if (restante < 0) return {
+		texto: `+${mostrarTiempo(Math.abs(restante))}`,
+		estado: "retrasado",
+		progreso
+	};
+	if (restante <= 120) return {
+		texto: mostrarTiempo(restante),
+		estado: "por-terminar",
+		progreso
+	};
+	return {
+		texto: mostrarTiempo(restante),
+		estado: "a-tiempo",
+		progreso
+	};
+}
+function TarjetaProduccion({ pedido, reloj }) {
+	const tono = {
+		nuevo: "border-slate-700 bg-slate-900 text-slate-300",
+		"sin-estimado": "border-slate-700 bg-slate-900 text-slate-300",
+		"a-tiempo": "border-emerald-400/30 bg-emerald-950/40 text-emerald-300",
+		"por-terminar": "border-amber-400/40 bg-amber-950/50 text-amber-200",
+		retrasado: "border-red-400/50 bg-red-950/60 text-red-200"
+	}[reloj.estado];
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+		className: `flex h-full min-w-0 flex-col overflow-hidden rounded-3xl border p-3 shadow-xl sm:p-4 ${tono}`,
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "flex items-start justify-between gap-4",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "min-w-0",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-xs font-black uppercase tracking-[0.2em] opacity-75",
+							children: pedido.estado
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							className: "mt-2 truncate text-xl font-black text-white sm:text-2xl",
+							children: pedido.folio || `Pedido #${pedido.id}`
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "mt-1 truncate text-sm text-white/65",
+							children: pedido.cliente_nombre || "Pedido de mostrador"
+						})
+					]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "shrink-0 rounded-xl bg-white/10 px-3 py-2 text-xs font-bold text-white/80",
+					children: pedido.tipo === "domicilio" ? "DOMICILIO" : "RECOGER"
+				})]
+			}),
+			pedido.detalles?.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("ul", {
+				className: "mt-2 space-y-0.5 border-t border-white/10 pt-2 text-xs text-white/80",
+				children: [pedido.detalles.slice(0, 2).map((detalle, indice) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+					className: "truncate",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("strong", { children: [detalle.cantidad, "×"] }),
+						" ",
+						detalle.nombre_producto || detalle.producto,
+						detalle.nombre_presentacion || detalle.presentacion ? ` · ${detalle.nombre_presentacion || detalle.presentacion}` : ""
+					]
+				}, detalle.id || indice)), pedido.detalles.length > 2 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+					className: "text-[10px] text-white/45",
+					children: [
+						"+",
+						pedido.detalles.length - 2,
+						" productos más"
+					]
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mt-auto border-t border-white/10 pt-3",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex items-center justify-between gap-2",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+							className: "flex items-center gap-2 text-[9px] font-bold uppercase tracking-[0.18em] opacity-70 sm:text-[10px]",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Clock3, { size: 13 }), reloj.estado === "retrasado" ? "Tiempo excedido" : reloj.estado === "nuevo" ? "Siguiente pedido" : "Tiempo restante"]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "text-[10px] font-bold tabular-nums text-white/55",
+							children: reloj.estado === "nuevo" || reloj.estado === "sin-estimado" ? "" : `${Math.round(reloj.progreso)}%`
+						})]
+					}),
+					reloj.estado !== "nuevo" && reloj.estado !== "sin-estimado" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "mt-2 h-2 overflow-hidden rounded-full bg-white/10",
+						role: "progressbar",
+						"aria-label": "Tiempo transcurrido",
+						"aria-valuemin": 0,
+						"aria-valuemax": 100,
+						"aria-valuenow": Math.round(reloj.progreso),
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: `h-full rounded-full transition-[width] duration-1000 ${reloj.estado === "retrasado" ? "bg-red-400" : reloj.estado === "por-terminar" ? "bg-amber-300" : "bg-emerald-300"}`,
+							style: { width: `${reloj.progreso}%` }
+						})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-2 font-mono text-4xl font-black leading-none tracking-tight text-white sm:text-5xl",
+						children: reloj.texto
+					})
+				]
+			})
+		]
+	});
+}
+function PaginaProyeccionProduccion() {
+	const [pedidos, setPedidos] = (0, import_react.useState)([]);
+	const [ahora, setAhora] = (0, import_react.useState)(Date.now());
+	const [actualizando, setActualizando] = (0, import_react.useState)(true);
+	const [error, setError] = (0, import_react.useState)("");
+	const [vozActiva, setVozActiva] = (0, import_react.useState)(() => localStorage.getItem("produccion-voz-activa") !== "false");
+	const [dimensiones, setDimensiones] = (0, import_react.useState)({
+		ancho: window.innerWidth,
+		alto: window.innerHeight
+	});
+	const [pagina, setPagina] = (0, import_react.useState)(0);
+	const estadosAnteriores = (0, import_react.useRef)(null);
+	const retrasosAnteriores = (0, import_react.useRef)(/* @__PURE__ */ new Set());
+	const cargar = (0, import_react.useCallback)(async () => {
+		setError("");
+		try {
+			const resultado = await window.sistema.pedidos.listar({ limite: 200 });
+			const activos = Array.isArray(resultado) ? resultado.filter((pedido) => ESTADOS_CON_AVISO.includes(pedido.estado)) : [];
+			const pedidosConDetalle = await Promise.all(activos.map(async (pedido) => {
+				try {
+					return await window.sistema.pedidos.obtener(pedido.id) || pedido;
+				} catch {
+					return pedido;
+				}
+			}));
+			setPedidos(pedidosConDetalle);
+		} catch (e) {
+			setError(e.message || "No se pudieron actualizar los pedidos de producción.");
+		} finally {
+			setActualizando(false);
+		}
+	}, []);
+	(0, import_react.useEffect)(() => {
+		cargar();
+		const consulta = setInterval(() => void cargar(), 5e3);
+		const reloj = setInterval(() => setAhora(Date.now()), 1e3);
+		return () => {
+			clearInterval(consulta);
+			clearInterval(reloj);
+		};
+	}, [cargar]);
+	const temporizadores = leerTemporizadores();
+	const pedidosOrdenados = (0, import_react.useMemo)(() => pedidos.filter((pedido) => ESTADOS_EN_PANTALLA.includes(pedido.estado)).sort((a, b) => new Date(a.fecha_creacion || 0) - new Date(b.fecha_creacion || 0)), [pedidos]);
+	const retrasados = pedidosOrdenados.filter((pedido) => calcularReloj(pedido, temporizadores, ahora).estado === "retrasado").length;
+	(0, import_react.useEffect)(() => {
+		if (actualizando) return;
+		const actuales = new Map(pedidos.map((pedido) => [pedido.id, pedido.estado]));
+		const retrasosActuales = new Set(pedidosOrdenados.filter((pedido) => calcularReloj(pedido, temporizadores, ahora).estado === "retrasado").map((pedido) => pedido.id));
+		if (!estadosAnteriores.current) {
+			estadosAnteriores.current = actuales;
+			retrasosAnteriores.current = retrasosActuales;
+			return;
+		}
+		const frases = [];
+		for (const pedido of pedidos) {
+			const estadoAnterior = estadosAnteriores.current.get(pedido.id);
+			if (vozActiva && !estadosAnteriores.current.has(pedido.id) && pedido.estado === "Nuevo") frases.push(`Nuevo pedido ${pedido.folio || pedido.id}.`);
+			else if (vozActiva && pedido.estado === "Listo" && estadoAnterior && estadoAnterior !== "Listo") frases.push(`Pedido ${pedido.folio || pedido.id}, listo.`);
+		}
+		if (vozActiva) {
+			for (const pedido of pedidosOrdenados) if (retrasosActuales.has(pedido.id) && !retrasosAnteriores.current.has(pedido.id)) frases.push(`Atención. Pedido ${pedido.folio || pedido.id} superó su tiempo estimado.`);
+		}
+		estadosAnteriores.current = actuales;
+		retrasosAnteriores.current = retrasosActuales;
+		if (frases.length && window.speechSynthesis && window.SpeechSynthesisUtterance) {
+			const voz = new window.SpeechSynthesisUtterance(frases.join(" "));
+			voz.lang = "es-MX";
+			voz.rate = .95;
+			voz.volume = .85;
+			const voces = window.speechSynthesis.getVoices();
+			voz.voice = voces.find((opcion) => opcion.lang?.toLowerCase() === "es-mx") || voces.find((opcion) => opcion.lang?.toLowerCase().startsWith("es")) || null;
+			window.speechSynthesis.cancel();
+			window.speechSynthesis.speak(voz);
+		}
+	}, [
+		pedidos,
+		pedidosOrdenados,
+		temporizadores,
+		ahora,
+		vozActiva,
+		actualizando
+	]);
+	(0, import_react.useEffect)(() => () => window.speechSynthesis?.cancel(), []);
+	(0, import_react.useEffect)(() => {
+		const medir = () => setDimensiones({
+			ancho: window.innerWidth,
+			alto: window.innerHeight
+		});
+		window.addEventListener("resize", medir);
+		return () => window.removeEventListener("resize", medir);
+	}, []);
+	const maxColumnas = Math.max(1, Math.floor((dimensiones.ancho - 64) / 500));
+	const columnas = Math.min(maxColumnas, Math.max(1, Math.min(pedidosOrdenados.length, 4)));
+	const altoFila = Math.max(270, Math.min(340, Math.round(dimensiones.alto * .31)));
+	const pedidosPorPagina = columnas * Math.max(1, Math.min(3, Math.floor((dimensiones.alto - 190) / altoFila)));
+	const paginas = Math.max(1, Math.ceil(pedidosOrdenados.length / pedidosPorPagina));
+	const pedidosVisibles = pedidosOrdenados.slice(pagina * pedidosPorPagina, (pagina + 1) * pedidosPorPagina);
+	(0, import_react.useEffect)(() => {
+		setPagina(0);
+	}, [pedidosPorPagina, pedidosOrdenados.length]);
+	(0, import_react.useEffect)(() => {
+		if (paginas < 2) return void 0;
+		const timer = setInterval(() => setPagina((actual) => (actual + 1) % paginas), 1e4);
+		return () => clearInterval(timer);
+	}, [paginas]);
+	const cambiarVoz = () => {
+		const nuevoEstado = !vozActiva;
+		setVozActiva(nuevoEstado);
+		localStorage.setItem("produccion-voz-activa", String(nuevoEstado));
+		if (!nuevoEstado) window.speechSynthesis?.cancel();
+		else if (window.speechSynthesis && window.SpeechSynthesisUtterance) {
+			const prueba = new window.SpeechSynthesisUtterance("Avisos de producción activados");
+			prueba.lang = "es-MX";
+			window.speechSynthesis.speak(prueba);
+		}
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
+		className: "flex h-[100dvh] min-w-0 flex-col overflow-hidden bg-[#080b12] text-white",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
+				className: "flex shrink-0 flex-wrap items-center justify-between gap-4 border-b border-white/10 bg-[#101522] px-5 py-4 sm:px-8",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex min-w-0 items-center gap-3",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-orange-400/15 text-orange-300",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChefHat, { size: 25 })
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "min-w-0",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+							className: "truncate text-xl font-black sm:text-2xl",
+							children: "Producción en cocina"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "mt-0.5 text-xs text-white/50 sm:text-sm",
+							children: "Pedidos activos y cuenta regresiva · Actualiza cada 5 segundos"
+						})]
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex items-center gap-2",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: `rounded-full px-3 py-2 text-xs font-bold ${retrasados ? "bg-red-400/15 text-red-200" : "bg-emerald-400/10 text-emerald-200"}`,
+							children: retrasados ? `${retrasados} con retraso` : "Todo al día"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+							type: "button",
+							onClick: cambiarVoz,
+							"aria-pressed": vozActiva,
+							"aria-label": vozActiva ? "Desactivar avisos de voz" : "Activar avisos de voz",
+							className: `inline-flex items-center gap-2 rounded-xl border px-3 py-2.5 text-xs font-bold ${vozActiva ? "border-sky-300/20 bg-sky-300/10 text-sky-200" : "border-white/10 text-white/50"}`,
+							children: [
+								vozActiva ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Volume2, { size: 17 }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(VolumeX, { size: 17 }),
+								"Voz ",
+								vozActiva ? "activa" : "silenciada"
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							type: "button",
+							onClick: () => void cargar(),
+							"aria-label": "Actualizar pedidos",
+							className: "rounded-xl border border-white/10 p-2.5 text-white/70 hover:bg-white/10",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, {
+								size: 17,
+								className: actualizando ? "animate-spin" : ""
+							})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							type: "button",
+							onClick: () => window.sistema.television.cerrarProduccion(),
+							"aria-label": "Cerrar proyección",
+							className: "rounded-xl border border-white/10 p-2.5 text-white/70 hover:bg-white/10",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MonitorX, { size: 17 })
+						})
+					]
+				})]
+			}),
+			error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				role: "alert",
+				className: "shrink-0 bg-red-950 px-5 py-2 text-center text-sm text-red-200",
+				children: error
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+				className: "flex min-h-0 flex-1 flex-col overflow-hidden p-3 sm:p-5 lg:p-6",
+				children: pedidosOrdenados.length ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "grid min-h-0 flex-1 content-start justify-center gap-3 sm:gap-4",
+					style: {
+						gridTemplateColumns: `repeat(${columnas}, minmax(0, 520px))`,
+						gridAutoRows: "minmax(250px, 31vh)"
+					},
+					children: pedidosVisibles.map((pedido) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TarjetaProduccion, {
+						pedido,
+						reloj: calcularReloj(pedido, temporizadores, ahora)
+					}, pedido.id))
+				}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex h-full min-h-64 flex-col items-center justify-center text-center",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "flex h-20 w-20 items-center justify-center rounded-3xl bg-white/[0.04] text-white/30",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChefHat, { size: 38 })
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							className: "mt-5 text-2xl font-black",
+							children: actualizando ? "Cargando producción…" : "Cocina lista para recibir pedidos"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "mt-2 max-w-md text-sm text-white/50",
+							children: "Al iniciar la preparación, los pedidos y sus tiempos aparecerán aquí automáticamente."
+						})
+					]
+				})
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("footer", {
+				className: "flex shrink-0 items-center justify-center gap-3 border-t border-white/10 bg-[#101522] px-5 py-2.5 text-center text-xs font-semibold tracking-wide text-white/40",
+				children: [paginas > 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+					className: "text-orange-200",
+					children: [
+						"Vista ",
+						pagina + 1,
+						" de ",
+						paginas,
+						" · cambio automático"
+					]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Mantén el ritmo · Un pedido a la vez, recién hecho" })]
+			})
+		]
+	});
+}
+// src/compartidos/componentes/DialogoCierreSistema.jsx
+var dinero = (centavos = 0) => new Intl.NumberFormat("es-MX", {
+	style: "currency",
+	currency: "MXN"
+}).format((Number(centavos) || 0) / 100);
+function DialogoCierreSistema() {
+	const [abierto, setAbierto] = (0, import_react.useState)(false);
+	const [estadoCaja, setEstadoCaja] = (0, import_react.useState)(null);
+	const [contado, setContado] = (0, import_react.useState)("");
+	const [observaciones, setObservaciones] = (0, import_react.useState)("");
+	const [error, setError] = (0, import_react.useState)("");
+	const [cargando, setCargando] = (0, import_react.useState)(false);
+	const [revisando, setRevisando] = (0, import_react.useState)(false);
+	const [reglasVerificadas, setReglasVerificadas] = (0, import_react.useState)(false);
+	(0, import_react.useEffect)(() => window.sistema.aplicacion.onSolicitarCierre(async () => {
+		setAbierto(true);
+		setError("");
+		setEstadoCaja(null);
+		setContado("");
+		setReglasVerificadas(false);
+		setRevisando(true);
+		try {
+			const [bloqueos, caja] = await Promise.all([servicioCaja.validarCierre(), servicioCaja.estado().catch(() => ({ sesion: null }))]);
+			setEstadoCaja({
+				...caja,
+				...bloqueos
+			});
+			setReglasVerificadas(true);
+		} catch (e) {
+			setError(e.message || "No se pudieron verificar los pedidos antes de salir.");
+		} finally {
+			setRevisando(false);
+		}
+	}), []);
+	const pedidosEnProceso = estadoCaja?.pedidosEnProcesoCantidad || 0;
+	const pedidosSinPagar = estadoCaja?.pedidosSinPagar || 0;
+	async function salirSinCorte() {
+		if (!reglasVerificadas) {
+			setError("Espera a que termine la revisión de pedidos.");
+			return;
+		}
+		setRevisando(true);
+		setError("");
+		try {
+			const bloqueos = await servicioCaja.validarCierre();
+			setEstadoCaja((actual) => ({
+				...actual,
+				...bloqueos
+			}));
+			if (bloqueos.pedidosEnProcesoCantidad > 0) {
+				setError("No puedes salir: termina o cancela los pedidos que siguen en cocina.");
+				return;
+			}
+		} catch (e) {
+			setError(e.message || "No se pudieron verificar los pedidos antes de salir.");
+			return;
+		} finally {
+			setRevisando(false);
+		}
+		window.sistema.aplicacion.finalizarCierre();
+	}
+	function seguirTrabajando() {
+		setAbierto(false);
+		window.sistema.aplicacion.cancelarCierre();
+	}
+	async function hacerCorte() {
+		if (pedidosEnProceso > 0) {
+			setError("No puedes hacer el corte mientras haya pedidos en cocina.");
+			return;
+		}
+		if (pedidosSinPagar > 0) {
+			setError(`No puedes hacer el corte: quedan ${pedidosSinPagar} pedidos sin pagar.`);
+			return;
+		}
+		const numero = Number(contado);
+		if (!Number.isFinite(numero) || numero < 0) {
+			setError("Escribe el efectivo contado para realizar el corte.");
+			return;
+		}
+		setCargando(true);
+		setError("");
+		try {
+			await servicioCaja.cerrar({
+				efectivoContadoCentavos: Math.round(numero * 100),
+				observaciones: observaciones.trim()
+			});
+			salirSinCorte();
+		} catch (e) {
+			setError(e.message || "No se pudo cerrar la caja.");
+		} finally {
+			setCargando(false);
+		}
+	}
+	if (!abierto) return null;
+	const sesion = estadoCaja?.sesion;
+	const hayBloqueoCocina = pedidosEnProceso > 0;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/60 p-4 backdrop-blur-sm",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+			role: "alertdialog",
+			"aria-modal": "true",
+			"aria-labelledby": "dialogo-cierre-titulo",
+			className: "max-h-[92vh] w-full max-w-lg overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl sm:p-8",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex items-start gap-4",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-violet-100 text-violet-700",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DoorClosed, { size: 23 })
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-xs font-bold uppercase tracking-[0.16em] text-violet-600",
+								children: "Antes de salir"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+								id: "dialogo-cierre-titulo",
+								className: "mt-1 text-xl font-black text-slate-900",
+								children: "¿Deseas hacer el corte de caja?"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-2 text-sm leading-6 text-slate-600",
+								children: "El sistema revisa que cocina no tenga pedidos activos antes de cerrar."
+							})
+						] }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							onClick: seguirTrabajando,
+							"aria-label": "Seguir trabajando",
+							className: "ml-auto rounded-lg p-2 text-slate-400 hover:bg-slate-100",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { size: 18 })
+						})
+					]
+				}),
+				sesion && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "mt-5 space-y-4 rounded-2xl bg-slate-50 p-4",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex justify-between text-sm",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "text-slate-500",
+								children: "Efectivo esperado"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
+								className: "text-slate-900",
+								children: dinero(sesion.efectivo_esperado_centavos)
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+							className: "block space-y-1.5 text-sm font-semibold text-slate-700",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Efectivo contado (MXN)" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								type: "number",
+								min: "0",
+								step: "0.01",
+								value: contado,
+								onChange: (e) => setContado(e.target.value),
+								placeholder: "Escribe cuánto hay en caja",
+								className: "w-full rounded-xl border border-slate-200 bg-white px-3 py-3 outline-none focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+							className: "block space-y-1.5 text-sm font-semibold text-slate-700",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Observaciones (opcional)" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", {
+								rows: 2,
+								maxLength: 500,
+								value: observaciones,
+								onChange: (e) => setObservaciones(e.target.value),
+								className: "w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 outline-none focus:border-violet-500 focus:ring-4 focus:ring-violet-100"
+							})]
+						})
+					]
+				}),
+				revisando && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "mt-5 flex items-center gap-2 text-sm text-slate-500",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LoaderCircle, {
+						size: 16,
+						className: "animate-spin"
+					}), " Revisando caja y pedidos…"]
+				}),
+				reglasVerificadas && !sesion && !hayBloqueoCocina && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-5 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600",
+					children: "No hay una caja abierta ni pedidos en cocina. Puedes salir."
+				}),
+				hayBloqueoCocina && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					role: "alert",
+					className: "mt-5 rounded-xl border border-red-200 bg-red-50 p-4",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+							className: "flex items-center gap-2 font-bold text-red-900",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TriangleExclamationPoint, { size: 18 }), "No se puede cerrar la aplicación"]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+							className: "mt-1 text-sm leading-5 text-red-800",
+							children: [
+								"Hay ",
+								pedidosEnProceso,
+								" ",
+								pedidosEnProceso === 1 ? "pedido activo" : "pedidos activos",
+								" en cocina. Termínalos o cancélalos y vuelve a cerrar."
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+							className: "mt-2 space-y-1 text-xs font-semibold text-red-800",
+							children: estadoCaja.pedidosEnProceso.slice(0, 5).map((pedido) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { children: [
+								pedido.folio || `Pedido #${pedido.id}`,
+								" · ",
+								pedido.estado.replaceAll("_", " ")
+							] }, pedido.id))
+						})
+					]
+				}),
+				!hayBloqueoCocina && pedidosSinPagar > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+					role: "status",
+					className: "mt-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900",
+					children: [
+						"Hay ",
+						pedidosSinPagar,
+						" pedidos sin pagar. No se hará el corte; puedes continuar trabajando para cobrarlos."
+					]
+				}),
+				error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					role: "alert",
+					className: "mt-4 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700",
+					children: error
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							disabled: revisando || cargando,
+							onClick: seguirTrabajando,
+							className: "rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-600 disabled:opacity-50",
+							children: "Seguir trabajando"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							disabled: revisando || cargando || !reglasVerificadas || hayBloqueoCocina,
+							onClick: salirSinCorte,
+							className: "rounded-xl bg-slate-100 px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-200 disabled:cursor-not-allowed disabled:opacity-50",
+							children: "Salir sin corte"
+						}),
+						sesion && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+							disabled: revisando || cargando || !reglasVerificadas || hayBloqueoCocina || pedidosSinPagar > 0 || !contado,
+							onClick: hacerCorte,
+							className: "inline-flex items-center justify-center gap-2 rounded-xl bg-violet-700 px-4 py-3 text-sm font-bold text-white hover:bg-violet-800 disabled:cursor-not-allowed disabled:opacity-50",
+							children: [cargando ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LoaderCircle, {
+								size: 17,
+								className: "animate-spin"
+							}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShieldCheck, { size: 17 }), "Hacer corte y salir"]
+						})
+					]
+				})
+			]
 		})
-	] }) });
+	});
+}
+// src/rutas/RutasAplicacion.jsx
+function RutasAplicacion() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(HashRouter, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(DialogoCierreSistema, {}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Routes, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+		path: "/",
+		element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InicioSesion, {})
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
+		element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RutaLicencia, {}),
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+				path: "/pantalla-tv",
+				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaTV, {})
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+				path: "/pantalla-produccion",
+				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaProyeccionProduccion, {})
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+				element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RutaProtegida, {}),
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Route, {
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DisenoPrincipal, {}),
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+							path: "/tablero",
+							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina, {})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+							path: "/punto-venta",
+							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaPuntoVenta, {})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+							path: "/pedidos",
+							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaPedidos, {})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+							path: "/cocina",
+							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaCocina, {})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+							path: "/produccion",
+							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaProduccion, {})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+							path: "/clientes",
+							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaClientes, {})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+							path: "/productos",
+							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaProductos, {})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+							path: "/publicidad",
+							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaPublicidad, {})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+							path: "/caja",
+							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaCaja, {})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+							path: "/reportes",
+							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaReportes, {})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+							path: "/usuarios",
+							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaUsuarios, {})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+							path: "/configuracion",
+							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaConfiguracion, {})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+							path: "/licencias",
+							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaLicencias, {})
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+							path: "/respaldos",
+							element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaRespaldos, {})
+						})
+					]
+				})
+			})
+		]
+	})] })] });
 }
 // src/Aplicacion.jsx
 function Aplicacion() {

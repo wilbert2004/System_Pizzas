@@ -276,6 +276,21 @@ function DetallePedido({
         </div>
       </div>
 
+      {pedido.metodo_pago
+        ? null
+        : (pedido.estado === "Listo" || pedido.estado === "En reparto") && (
+            <div role="status" className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+              <p className="font-semibold">Falta cobrar y confirmar la entrega</p>
+              <p className="mt-1">
+                {pedido.estado === "En reparto"
+                  ? "Al entregar el pedido, registra el cobro en Caja. El cobro lo marcará como entregado."
+                  : pedido.tipo === "domicilio"
+                    ? "Cuando salga a reparto, registra el cobro en Caja al entregarlo."
+                    : "Cuando el cliente recoja el pedido, registra el cobro en Caja. El cobro lo marcará como entregado."}
+              </p>
+            </div>
+          )}
+
       <div className="grid gap-5 lg:grid-cols-2">
         <div className="space-y-5">
           <section className="rounded-2xl border border-slate-200 bg-white p-5">
