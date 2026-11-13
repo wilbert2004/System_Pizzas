@@ -39,6 +39,14 @@ export function crearServicioPedidos(db, obtenerSesion) {
     return {
       ...pedido,
       estado: ETIQUETAS_ESTADO[pedido.estado] || pedido.estado,
+      fecha_inicio_preparacion:
+        pedido.inicio_preparacion ?? pedido.fecha_inicio_preparacion ?? null,
+      fecha_entrada_horno:
+        pedido.entrada_horno ?? pedido.fecha_entrada_horno ?? null,
+      fecha_salida_reparto:
+        pedido.salida_reparto ?? pedido.fecha_salida_reparto ?? null,
+      fecha_cancelacion:
+        pedido.fecha_cancelado ?? pedido.fecha_cancelacion ?? null,
     };
   }
 
