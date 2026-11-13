@@ -1,4 +1,4 @@
-import { app, BrowserWindow, screen } from "electron";
+import { app, BrowserWindow } from "electron";
 import { join } from "node:path";
 
 import { inicializarBaseDatos } from "./base-datos/inicializacion.js";
@@ -52,21 +52,9 @@ app.whenReady().then(() => {
 
   crearVentanaPrincipal();
 
-  crearVentanaTV();
-
-  screen.on("display-added", () => {
-    crearVentanaTV();
-  });
-
-  screen.on("display-removed", () => {
-    cerrarVentanaTV();
-    crearVentanaTV();
-  });
-
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       crearVentanaPrincipal();
-      crearVentanaTV();
     }
   });
 });

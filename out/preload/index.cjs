@@ -16,5 +16,34 @@ electron.contextBridge.exposeInMainWorld("sistema", {
 		actualizar: (datos) => electron.ipcRenderer.invoke("usuarios:actualizar", datos),
 		cambiarContrasena: (datos) => electron.ipcRenderer.invoke("usuarios:cambiar-contrasena", datos),
 		cambiarEstado: (datos) => electron.ipcRenderer.invoke("usuarios:cambiar-estado", datos)
+	},
+	productos: {
+		categorias: {
+			listar: () => electron.ipcRenderer.invoke("productos:categorias:listar"),
+			listarTodas: () => electron.ipcRenderer.invoke("productos:categorias:listar-todas"),
+			crear: (datos) => electron.ipcRenderer.invoke("productos:categorias:crear", datos),
+			actualizar: (datos) => electron.ipcRenderer.invoke("productos:categorias:actualizar", datos),
+			cambiarEstado: (datos) => electron.ipcRenderer.invoke("productos:categorias:estado", datos)
+		},
+		listar: () => electron.ipcRenderer.invoke("productos:listar"),
+		listarTodos: () => electron.ipcRenderer.invoke("productos:listar-todos"),
+		obtener: (id) => electron.ipcRenderer.invoke("productos:obtener", id),
+		crear: (datos) => electron.ipcRenderer.invoke("productos:crear", datos),
+		actualizar: (datos) => electron.ipcRenderer.invoke("productos:actualizar", datos),
+		cambiarEstado: (datos) => electron.ipcRenderer.invoke("productos:estado", datos),
+		presentaciones: {
+			listar: (id) => electron.ipcRenderer.invoke("productos:presentaciones:listar", id),
+			crear: (datos) => electron.ipcRenderer.invoke("productos:presentaciones:crear", datos),
+			actualizar: (datos) => electron.ipcRenderer.invoke("productos:presentaciones:actualizar", datos),
+			cambiarEstado: (datos) => electron.ipcRenderer.invoke("productos:presentaciones:estado", datos)
+		},
+		adicionales: {
+			listar: () => electron.ipcRenderer.invoke("productos:adicionales:listar"),
+			listarTodos: () => electron.ipcRenderer.invoke("productos:adicionales:listar-todos"),
+			crear: (datos) => electron.ipcRenderer.invoke("productos:adicionales:crear", datos),
+			actualizar: (datos) => electron.ipcRenderer.invoke("productos:adicionales:actualizar", datos),
+			cambiarEstado: (datos) => electron.ipcRenderer.invoke("productos:adicionales:estado", datos),
+			asignar: (datos) => electron.ipcRenderer.invoke("productos:adicionales:asignar", datos)
+		}
 	}
 });

@@ -42,4 +42,6 @@ export function registrarControladoresAutenticacion(ipcMain, db) {
   ipcMain.handle("usuarios:cambiar-estado", (_, datos) => {
     return servicio.cambiarEstado(datos);
   });
+
+  return servicio;
 }

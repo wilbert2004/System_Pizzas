@@ -31,4 +31,65 @@ contextBridge.exposeInMainWorld("sistema", {
     cambiarEstado: (datos) =>
       ipcRenderer.invoke("usuarios:cambiar-estado", datos),
   },
+
+  productos: {
+    categorias: {
+      listar: () => ipcRenderer.invoke("productos:categorias:listar"),
+
+      listarTodas: () =>
+        ipcRenderer.invoke("productos:categorias:listar-todas"),
+
+      crear: (datos) => ipcRenderer.invoke("productos:categorias:crear", datos),
+
+      actualizar: (datos) =>
+        ipcRenderer.invoke("productos:categorias:actualizar", datos),
+
+      cambiarEstado: (datos) =>
+        ipcRenderer.invoke("productos:categorias:estado", datos),
+    },
+
+    listar: () => ipcRenderer.invoke("productos:listar"),
+
+    listarTodos: () => ipcRenderer.invoke("productos:listar-todos"),
+
+    obtener: (id) => ipcRenderer.invoke("productos:obtener", id),
+
+    crear: (datos) => ipcRenderer.invoke("productos:crear", datos),
+
+    actualizar: (datos) => ipcRenderer.invoke("productos:actualizar", datos),
+
+    cambiarEstado: (datos) => ipcRenderer.invoke("productos:estado", datos),
+
+    presentaciones: {
+      listar: (id) => ipcRenderer.invoke("productos:presentaciones:listar", id),
+
+      crear: (datos) =>
+        ipcRenderer.invoke("productos:presentaciones:crear", datos),
+
+      actualizar: (datos) =>
+        ipcRenderer.invoke("productos:presentaciones:actualizar", datos),
+
+      cambiarEstado: (datos) =>
+        ipcRenderer.invoke("productos:presentaciones:estado", datos),
+    },
+
+    adicionales: {
+      listar: () => ipcRenderer.invoke("productos:adicionales:listar"),
+
+      listarTodos: () =>
+        ipcRenderer.invoke("productos:adicionales:listar-todos"),
+
+      crear: (datos) =>
+        ipcRenderer.invoke("productos:adicionales:crear", datos),
+
+      actualizar: (datos) =>
+        ipcRenderer.invoke("productos:adicionales:actualizar", datos),
+
+      cambiarEstado: (datos) =>
+        ipcRenderer.invoke("productos:adicionales:estado", datos),
+
+      asignar: (datos) =>
+        ipcRenderer.invoke("productos:adicionales:asignar", datos),
+    },
+  },
 });

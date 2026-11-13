@@ -13674,7 +13674,7 @@ function createLucideIcon(iconDataOrName, iconNode = [], aliases = []) {
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$20 = {
+var __iconData$24 = {
 	name: "alarm-clock",
 	size: 24,
 	node: [
@@ -13706,8 +13706,8 @@ var __iconData$20 = {
 		}]
 	]
 };
-__iconData$20.node;
-var AlarmClock = createLucideIcon(__iconData$20);
+__iconData$24.node;
+var AlarmClock = createLucideIcon(__iconData$24);
 // node_modules/lucide-react/dist/esm/icons/arrow-left-right.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13715,7 +13715,7 @@ var AlarmClock = createLucideIcon(__iconData$20);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$19 = {
+var __iconData$23 = {
 	name: "arrow-left-right",
 	size: 24,
 	node: [
@@ -13737,8 +13737,8 @@ var __iconData$19 = {
 		}]
 	]
 };
-__iconData$19.node;
-var ArrowLeftRight = createLucideIcon(__iconData$19);
+__iconData$23.node;
+var ArrowLeftRight = createLucideIcon(__iconData$23);
 // node_modules/lucide-react/dist/esm/icons/banknote.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13746,7 +13746,7 @@ var ArrowLeftRight = createLucideIcon(__iconData$19);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$18 = {
+var __iconData$22 = {
 	name: "banknote",
 	size: 24,
 	node: [
@@ -13770,8 +13770,8 @@ var __iconData$18 = {
 		}]
 	]
 };
-__iconData$18.node;
-var Banknote = createLucideIcon(__iconData$18);
+__iconData$22.node;
+var Banknote = createLucideIcon(__iconData$22);
 // node_modules/lucide-react/dist/esm/icons/bell.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13779,7 +13779,7 @@ var Banknote = createLucideIcon(__iconData$18);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$17 = {
+var __iconData$21 = {
 	name: "bell",
 	size: 24,
 	node: [["path", {
@@ -13790,8 +13790,8 @@ var __iconData$17 = {
 		key: "11g9vi"
 	}]]
 };
-__iconData$17.node;
-var Bell = createLucideIcon(__iconData$17);
+__iconData$21.node;
+var Bell = createLucideIcon(__iconData$21);
 // node_modules/lucide-react/dist/esm/icons/chart-no-axes-combined.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13799,7 +13799,7 @@ var Bell = createLucideIcon(__iconData$17);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$16 = {
+var __iconData$20 = {
 	name: "chart-no-axes-combined",
 	size: 24,
 	node: [
@@ -13829,8 +13829,8 @@ var __iconData$16 = {
 		}]
 	]
 };
-__iconData$16.node;
-var ChartNoAxesCombined = createLucideIcon(__iconData$16);
+__iconData$20.node;
+var ChartNoAxesCombined = createLucideIcon(__iconData$20);
 // node_modules/lucide-react/dist/esm/icons/chef-hat.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13838,7 +13838,7 @@ var ChartNoAxesCombined = createLucideIcon(__iconData$16);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$15 = {
+var __iconData$19 = {
 	name: "chef-hat",
 	size: 24,
 	node: [
@@ -13860,8 +13860,8 @@ var __iconData$15 = {
 		}]
 	]
 };
-__iconData$15.node;
-var ChefHat = createLucideIcon(__iconData$15);
+__iconData$19.node;
+var ChefHat = createLucideIcon(__iconData$19);
 // node_modules/lucide-react/dist/esm/icons/circle-user-round.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13869,7 +13869,7 @@ var ChefHat = createLucideIcon(__iconData$15);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$14 = {
+var __iconData$18 = {
 	name: "circle-user-round",
 	size: 24,
 	node: [
@@ -13892,8 +13892,8 @@ var __iconData$14 = {
 	],
 	aliases: ["user-circle-2"]
 };
-__iconData$14.node;
-var CircleUserRound = createLucideIcon(__iconData$14);
+__iconData$18.node;
+var CircleUserRound = createLucideIcon(__iconData$18);
 // node_modules/lucide-react/dist/esm/icons/clipboard-list.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13901,7 +13901,7 @@ var CircleUserRound = createLucideIcon(__iconData$14);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$13 = {
+var __iconData$17 = {
 	name: "clipboard-list",
 	size: 24,
 	node: [
@@ -13936,8 +13936,8 @@ var __iconData$13 = {
 		}]
 	]
 };
-__iconData$13.node;
-var ClipboardList = createLucideIcon(__iconData$13);
+__iconData$17.node;
+var ClipboardList = createLucideIcon(__iconData$17);
 // node_modules/lucide-react/dist/esm/icons/eye.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13945,7 +13945,7 @@ var ClipboardList = createLucideIcon(__iconData$13);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$12 = {
+var __iconData$16 = {
 	name: "eye",
 	size: 24,
 	node: [["path", {
@@ -13958,8 +13958,8 @@ var __iconData$12 = {
 		key: "1v7zrd"
 	}]]
 };
-__iconData$12.node;
-var Eye = createLucideIcon(__iconData$12);
+__iconData$16.node;
+var Eye = createLucideIcon(__iconData$16);
 // node_modules/lucide-react/dist/esm/icons/eye-off.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13967,7 +13967,7 @@ var Eye = createLucideIcon(__iconData$12);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$11 = {
+var __iconData$15 = {
 	name: "eye-off",
 	size: 24,
 	node: [
@@ -13989,8 +13989,45 @@ var __iconData$11 = {
 		}]
 	]
 };
-__iconData$11.node;
-var EyeOff = createLucideIcon(__iconData$11);
+__iconData$15.node;
+var EyeOff = createLucideIcon(__iconData$15);
+// node_modules/lucide-react/dist/esm/icons/image-plus.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$14 = {
+	name: "image-plus",
+	size: 24,
+	node: [
+		["path", {
+			d: "M16 5h6",
+			key: "1vod17"
+		}],
+		["path", {
+			d: "M19 2v6",
+			key: "4bpg5p"
+		}],
+		["path", {
+			d: "M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5",
+			key: "1ue2ih"
+		}],
+		["path", {
+			d: "m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21",
+			key: "1xmnt7"
+		}],
+		["circle", {
+			cx: "9",
+			cy: "9",
+			r: "2",
+			key: "af1f0g"
+		}]
+	]
+};
+__iconData$14.node;
+var ImagePlus = createLucideIcon(__iconData$14);
 // node_modules/lucide-react/dist/esm/icons/layout-dashboard.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -13998,7 +14035,7 @@ var EyeOff = createLucideIcon(__iconData$11);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$10 = {
+var __iconData$13 = {
 	name: "layout-dashboard",
 	size: 24,
 	node: [
@@ -14036,8 +14073,8 @@ var __iconData$10 = {
 		}]
 	]
 };
-__iconData$10.node;
-var LayoutDashboard = createLucideIcon(__iconData$10);
+__iconData$13.node;
+var LayoutDashboard = createLucideIcon(__iconData$13);
 // node_modules/lucide-react/dist/esm/icons/log-out.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14045,7 +14082,7 @@ var LayoutDashboard = createLucideIcon(__iconData$10);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$9 = {
+var __iconData$12 = {
 	name: "log-out",
 	size: 24,
 	node: [
@@ -14063,8 +14100,8 @@ var __iconData$9 = {
 		}]
 	]
 };
-__iconData$9.node;
-var LogOut = createLucideIcon(__iconData$9);
+__iconData$12.node;
+var LogOut = createLucideIcon(__iconData$12);
 // node_modules/lucide-react/dist/esm/icons/monitor-play.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14072,7 +14109,7 @@ var LogOut = createLucideIcon(__iconData$9);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$8 = {
+var __iconData$11 = {
 	name: "monitor-play",
 	size: 24,
 	node: [
@@ -14098,8 +14135,8 @@ var __iconData$8 = {
 		}]
 	]
 };
-__iconData$8.node;
-var MonitorPlay = createLucideIcon(__iconData$8);
+__iconData$11.node;
+var MonitorPlay = createLucideIcon(__iconData$11);
 // node_modules/lucide-react/dist/esm/icons/package.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14107,7 +14144,7 @@ var MonitorPlay = createLucideIcon(__iconData$8);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$7 = {
+var __iconData$10 = {
 	name: "package",
 	size: 24,
 	node: [
@@ -14129,8 +14166,28 @@ var __iconData$7 = {
 		}]
 	]
 };
-__iconData$7.node;
-var Package = createLucideIcon(__iconData$7);
+__iconData$10.node;
+var Package = createLucideIcon(__iconData$10);
+// node_modules/lucide-react/dist/esm/icons/pencil.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$9 = {
+	name: "pencil",
+	size: 24,
+	node: [["path", {
+		d: "M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z",
+		key: "1a8usu"
+	}], ["path", {
+		d: "m15 5 4 4",
+		key: "1mk7zo"
+	}]]
+};
+__iconData$9.node;
+var Pencil = createLucideIcon(__iconData$9);
 // node_modules/lucide-react/dist/esm/icons/pizza.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14138,7 +14195,7 @@ var Package = createLucideIcon(__iconData$7);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$6 = {
+var __iconData$8 = {
 	name: "pizza",
 	size: 24,
 	node: [
@@ -14164,8 +14221,8 @@ var __iconData$6 = {
 		}]
 	]
 };
-__iconData$6.node;
-var Pizza = createLucideIcon(__iconData$6);
+__iconData$8.node;
+var Pizza = createLucideIcon(__iconData$8);
 // node_modules/lucide-react/dist/esm/icons/plus.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14173,7 +14230,7 @@ var Pizza = createLucideIcon(__iconData$6);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$5 = {
+var __iconData$7 = {
 	name: "plus",
 	size: 24,
 	node: [["path", {
@@ -14184,8 +14241,8 @@ var __iconData$5 = {
 		key: "s699le"
 	}]]
 };
-__iconData$5.node;
-var Plus = createLucideIcon(__iconData$5);
+__iconData$7.node;
+var Plus = createLucideIcon(__iconData$7);
 // node_modules/lucide-react/dist/esm/icons/settings.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14193,7 +14250,7 @@ var Plus = createLucideIcon(__iconData$5);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$4 = {
+var __iconData$6 = {
 	name: "settings",
 	size: 24,
 	node: [["path", {
@@ -14206,8 +14263,8 @@ var __iconData$4 = {
 		key: "1v7zrd"
 	}]]
 };
-__iconData$4.node;
-var Settings = createLucideIcon(__iconData$4);
+__iconData$6.node;
+var Settings = createLucideIcon(__iconData$6);
 // node_modules/lucide-react/dist/esm/icons/shopping-cart.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14215,7 +14272,7 @@ var Settings = createLucideIcon(__iconData$4);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$3 = {
+var __iconData$5 = {
 	name: "shopping-cart",
 	size: 24,
 	node: [
@@ -14241,8 +14298,44 @@ var __iconData$3 = {
 		}]
 	]
 };
-__iconData$3.node;
-var ShoppingCart = createLucideIcon(__iconData$3);
+__iconData$5.node;
+var ShoppingCart = createLucideIcon(__iconData$5);
+// node_modules/lucide-react/dist/esm/icons/trash.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData$4 = {
+	name: "trash",
+	size: 24,
+	node: [
+		["path", {
+			d: "M10 11v6",
+			key: "nco0om"
+		}],
+		["path", {
+			d: "M14 11v6",
+			key: "outv1u"
+		}],
+		["path", {
+			d: "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6",
+			key: "miytrc"
+		}],
+		["path", {
+			d: "M3 6h18",
+			key: "d0wm0j"
+		}],
+		["path", {
+			d: "M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2",
+			key: "e791ji"
+		}]
+	],
+	aliases: ["trash-2"]
+};
+__iconData$4.node;
+var Trash = createLucideIcon(__iconData$4);
 // node_modules/lucide-react/dist/esm/icons/user-cog.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14250,7 +14343,7 @@ var ShoppingCart = createLucideIcon(__iconData$3);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$2 = {
+var __iconData$3 = {
 	name: "user-cog",
 	size: 24,
 	node: [
@@ -14304,8 +14397,8 @@ var __iconData$2 = {
 		}]
 	]
 };
-__iconData$2.node;
-var UserCog = createLucideIcon(__iconData$2);
+__iconData$3.node;
+var UserCog = createLucideIcon(__iconData$3);
 // node_modules/lucide-react/dist/esm/icons/users.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14313,7 +14406,7 @@ var UserCog = createLucideIcon(__iconData$2);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$1 = {
+var __iconData$2 = {
 	name: "users",
 	size: 24,
 	node: [
@@ -14337,8 +14430,8 @@ var __iconData$1 = {
 		}]
 	]
 };
-__iconData$1.node;
-var Users = createLucideIcon(__iconData$1);
+__iconData$2.node;
+var Users = createLucideIcon(__iconData$2);
 // node_modules/lucide-react/dist/esm/icons/wallet.mjs
 /**
 * @license lucide-react v1.72.0 - ISC
@@ -14346,7 +14439,7 @@ var Users = createLucideIcon(__iconData$1);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData = {
+var __iconData$1 = {
 	name: "wallet",
 	size: 24,
 	node: [["path", {
@@ -14357,8 +14450,28 @@ var __iconData = {
 		key: "xoc0q4"
 	}]]
 };
+__iconData$1.node;
+var Wallet = createLucideIcon(__iconData$1);
+// node_modules/lucide-react/dist/esm/icons/x.mjs
+/**
+* @license lucide-react v1.72.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var __iconData = {
+	name: "x",
+	size: 24,
+	node: [["path", {
+		d: "M18 6 6 18",
+		key: "1bl5f8"
+	}], ["path", {
+		d: "m6 6 12 12",
+		key: "d8bk6v"
+	}]]
+};
 __iconData.node;
-var Wallet = createLucideIcon(__iconData);
+var X = createLucideIcon(__iconData);
 // node_modules/react/cjs/react-jsx-runtime.production.js
 /**
 * @license React
@@ -14371,6 +14484,7 @@ var Wallet = createLucideIcon(__iconData);
 */
 var require_react_jsx_runtime_production = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element");
+	var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
 	function jsxProd(type, config, maybeKey) {
 		var key = null;
 		void 0 !== maybeKey && (key = "" + maybeKey);
@@ -14388,6 +14502,7 @@ var require_react_jsx_runtime_production = /* @__PURE__ */ __commonJSMin(((expor
 			props: maybeKey
 		};
 	}
+	exports.Fragment = REACT_FRAGMENT_TYPE;
 	exports.jsx = jsxProd;
 	exports.jsxs = jsxProd;
 }));
@@ -14631,22 +14746,22 @@ function FormularioAdministrador({ onCrear }) {
 	});
 }
 // src/modulos/autenticacion/servicios/autenticacion.js
-var api = window.sistema;
+var api$1 = window.sistema;
 var servicioAutenticacion = {
 	obtenerEstadoInicial() {
-		return api.autenticacion.estadoInicial();
+		return api$1.autenticacion.estadoInicial();
 	},
 	crearAdministrador(datos) {
-		return api.autenticacion.crearAdministrador(datos);
+		return api$1.autenticacion.crearAdministrador(datos);
 	},
 	iniciarSesion(datos) {
-		return api.autenticacion.iniciarSesion(datos);
+		return api$1.autenticacion.iniciarSesion(datos);
 	},
 	cerrarSesion() {
-		return api.autenticacion.cerrarSesion();
+		return api$1.autenticacion.cerrarSesion();
 	},
 	obtenerSesion() {
-		return api.autenticacion.obtenerSesion();
+		return api$1.autenticacion.obtenerSesion();
 	}
 };
 // src/modulos/autenticacion/paginas/ConfiguracionInicial.jsx
@@ -15100,7 +15215,7 @@ function ActividadReciente() {
 	});
 }
 // src/modulos/tablero/paginas/Pagina.jsx
-function Pagina$10() {
+function Pagina$9() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "space-y-7",
 		children: [
@@ -15215,7 +15330,7 @@ function Pagina$10() {
 	});
 }
 // src/modulos/punto-venta/paginas/Pagina.jsx
-function Pagina$9() {
+function Pagina$8() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
 		className: "bg-white rounded-xl border border-slate-200 p-8",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
@@ -15228,7 +15343,7 @@ function Pagina$9() {
 	});
 }
 // src/modulos/pedidos/paginas/Pagina.jsx
-function Pagina$8() {
+function Pagina$7() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
 		className: "bg-white rounded-xl border border-slate-200 p-8",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
@@ -15241,7 +15356,7 @@ function Pagina$8() {
 	});
 }
 // src/modulos/cocina/paginas/Pagina.jsx
-function Pagina$7() {
+function Pagina$6() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
 		className: "bg-white rounded-xl border border-slate-200 p-8",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
@@ -15254,7 +15369,7 @@ function Pagina$7() {
 	});
 }
 // src/modulos/clientes/paginas/Pagina.jsx
-function Pagina$6() {
+function Pagina$5() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
 		className: "bg-white rounded-xl border border-slate-200 p-8",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
@@ -15266,17 +15381,1244 @@ function Pagina$6() {
 		})]
 	});
 }
+// src/modulos/productos/servicios/productos.js
+var api = window.sistema.productos;
+var servicioProductos = {
+	listar: () => api.listar(),
+	listarTodos: () => api.listarTodos(),
+	obtener: (id) => api.obtener(id),
+	crear: (datos) => api.crear(datos),
+	actualizar: (datos) => api.actualizar(datos),
+	cambiarEstado: (datos) => api.cambiarEstado(datos),
+	listarCategorias: () => api.categorias.listar(),
+	listarTodasCategorias: () => api.categorias.listarTodas(),
+	crearCategoria: (datos) => api.categorias.crear(datos),
+	actualizarCategoria: (datos) => api.categorias.actualizar(datos),
+	cambiarEstadoCategoria: (datos) => api.categorias.cambiarEstado(datos),
+	listarPresentaciones: (id) => api.presentaciones.listar(id),
+	crearPresentacion: (datos) => api.presentaciones.crear(datos),
+	actualizarPresentacion: (datos) => api.presentaciones.actualizar(datos),
+	cambiarEstadoPresentacion: (datos) => api.presentaciones.cambiarEstado(datos),
+	listarAdicionales: () => api.adicionales.listar(),
+	listarTodosAdicionales: () => api.adicionales.listarTodos(),
+	crearAdicional: (datos) => api.adicionales.crear(datos),
+	actualizarAdicional: (datos) => api.adicionales.actualizar(datos),
+	cambiarEstadoAdicional: (datos) => api.adicionales.cambiarEstado(datos),
+	asignarAdicionales: (datos) => api.adicionales.asignar(datos)
+};
+// src/modulos/productos/estado/EstadoProductos.js
+var useEstadoProductos = create((set) => ({
+	productos: [],
+	categorias: [],
+	adicionales: [],
+	cargando: false,
+	error: null,
+	cargarCatalogo: async () => {
+		set({
+			cargando: true,
+			error: null
+		});
+		try {
+			const [productos, categorias, adicionales] = await Promise.all([
+				servicioProductos.listar(),
+				servicioProductos.listarCategorias(),
+				servicioProductos.listarAdicionales()
+			]);
+			set({
+				productos,
+				categorias,
+				adicionales,
+				cargando: false
+			});
+		} catch (error) {
+			set({
+				error: error.message,
+				cargando: false
+			});
+			throw error;
+		}
+	}
+}));
+// src/modulos/productos/validaciones/esquemas.js
+function validarProducto(datos) {
+	const errores = {};
+	if (!datos.nombre?.trim()) errores.nombre = "El nombre es obligatorio.";
+	if (!datos.categoria_id) errores.categoria_id = "Selecciona una categoría.";
+	if (!datos.presentaciones?.length) errores.presentaciones = "Agrega al menos una presentación.";
+	for (const presentacion of datos.presentaciones || []) {
+		if (!presentacion.nombre?.trim()) {
+			errores.presentaciones = "Todas las presentaciones necesitan un nombre.";
+			break;
+		}
+		const precio = Number(presentacion.precio_centavos);
+		if (!Number.isSafeInteger(precio) || precio < 0) {
+			errores.presentaciones = "Hay un precio no válido.";
+			break;
+		}
+	}
+	if (!datos.requiere_presentacion && datos.presentaciones?.length !== 1) errores.presentaciones = "Un producto de presentación única necesita exactamente una presentación.";
+	return errores;
+}
 // src/modulos/productos/paginas/Pagina.jsx
-function Pagina$5() {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-		className: "bg-white rounded-xl border border-slate-200 p-8",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-			className: "text-2xl font-bold text-slate-800",
-			children: "Productos"
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-			className: "mt-2 text-slate-500",
-			children: "Módulo preparado. Su funcionalidad se desarrollará en su fase correspondiente."
-		})]
+var dinero = (centavos) => new Intl.NumberFormat("es-MX", {
+	style: "currency",
+	currency: "MXN"
+}).format(centavos / 100);
+var precioEnCentavos = (pesos) => Math.round(Number(pesos) * 100);
+var formularioInicial = {
+	nombre: "",
+	categoria_id: "",
+	descripcion: "",
+	imagen_url: "",
+	orden: 0,
+	requiere_presentacion: true,
+	presentaciones: [
+		{
+			nombre: "Chica",
+			precio: ""
+		},
+		{
+			nombre: "Mediana",
+			precio: ""
+		},
+		{
+			nombre: "Grande",
+			precio: ""
+		}
+	]
+};
+function PaginaProductos() {
+	const { productos, categorias, adicionales, cargando, cargarCatalogo } = useEstadoProductos();
+	const usuario = useEstadoAutenticacion((estado) => estado.usuario);
+	const [pestana, setPestana] = (0, import_react.useState)("productos");
+	const [busqueda, setBusqueda] = (0, import_react.useState)("");
+	const [mensaje, setMensaje] = (0, import_react.useState)("");
+	const [error, setError] = (0, import_react.useState)("");
+	const [modalProductoAbierto, setModalProductoAbierto] = (0, import_react.useState)(false);
+	const [modalCategoriaAbierto, setModalCategoriaAbierto] = (0, import_react.useState)(false);
+	const [modalAdicionalAbierto, setModalAdicionalAbierto] = (0, import_react.useState)(false);
+	const [modalPresentacionAbierto, setModalPresentacionAbierto] = (0, import_react.useState)(false);
+	const [producto, setProducto] = (0, import_react.useState)(formularioInicial);
+	const [categoria, setCategoria] = (0, import_react.useState)({
+		nombre: "",
+		descripcion: ""
+	});
+	const [adicional, setAdicional] = (0, import_react.useState)({
+		nombre: "",
+		descripcion: "",
+		precio: ""
+	});
+	const [productoSeleccionado, setProductoSeleccionado] = (0, import_react.useState)("");
+	const [presentacion, setPresentacion] = (0, import_react.useState)({
+		nombre: "",
+		precio: ""
+	});
+	const [presentacionesProducto, setPresentacionesProducto] = (0, import_react.useState)([]);
+	const [adicionalesSeleccionados, setAdicionalesSeleccionados] = (0, import_react.useState)([]);
+	const esAdministrador = usuario?.rol === "administrador";
+	async function cargar() {
+		try {
+			await cargarCatalogo();
+		} catch (e) {
+			setError(e.message);
+		}
+	}
+	(0, import_react.useEffect)(() => {
+		cargar();
+	}, []);
+	function limpiarMensajes() {
+		setMensaje("");
+		setError("");
+	}
+	async function ejecutar(accion, mensajeExito) {
+		limpiarMensajes();
+		try {
+			await accion();
+			await cargar();
+			setMensaje(mensajeExito);
+		} catch (e) {
+			setError(e.message || "Ocurrió un error.");
+		}
+	}
+	async function guardarCategoria(e) {
+		e.preventDefault();
+		await ejecutar(async () => {
+			if (!categoria.nombre.trim()) throw new Error("Escribe el nombre de la categoría.");
+			if (categoria.id) await servicioProductos.actualizarCategoria(categoria);
+			else await servicioProductos.crearCategoria(categoria);
+			setCategoria({
+				nombre: "",
+				descripcion: ""
+			});
+			setModalCategoriaAbierto(false);
+		}, categoria.id ? "Categoría actualizada correctamente." : "Categoría creada correctamente.");
+	}
+	async function guardarAdicional(e) {
+		e.preventDefault();
+		await ejecutar(async () => {
+			if (!adicional.nombre.trim()) throw new Error("Escribe el nombre del adicional.");
+			const datos = {
+				...adicional,
+				precio_centavos: precioEnCentavos(adicional.precio)
+			};
+			if (adicional.id) await servicioProductos.actualizarAdicional(datos);
+			else await servicioProductos.crearAdicional(datos);
+			setAdicional({
+				nombre: "",
+				descripcion: "",
+				precio: ""
+			});
+			setModalAdicionalAbierto(false);
+		}, adicional.id ? "Ingrediente actualizado correctamente." : "Ingrediente creado correctamente.");
+	}
+	async function editarCategoria(categoriaSeleccionada) {
+		limpiarMensajes();
+		setCategoria({
+			id: categoriaSeleccionada.id,
+			nombre: categoriaSeleccionada.nombre,
+			descripcion: categoriaSeleccionada.descripcion || ""
+		});
+		setModalCategoriaAbierto(true);
+	}
+	async function eliminarCategoria(id) {
+		if (!window.confirm("¿Deseas eliminar esta categoría del catálogo?")) return;
+		await ejecutar(async () => {
+			await servicioProductos.cambiarEstadoCategoria({
+				id,
+				activo: false
+			});
+		}, "Categoría eliminada del catálogo.");
+	}
+	function editarAdicional(adicionalSeleccionado) {
+		limpiarMensajes();
+		setAdicional({
+			id: adicionalSeleccionado.id,
+			nombre: adicionalSeleccionado.nombre,
+			descripcion: adicionalSeleccionado.descripcion || "",
+			precio: (adicionalSeleccionado.precio_centavos / 100).toFixed(2)
+		});
+		setModalAdicionalAbierto(true);
+	}
+	async function eliminarAdicional(id) {
+		if (!window.confirm("¿Deseas eliminar este ingrediente adicional?")) return;
+		await ejecutar(async () => {
+			await servicioProductos.cambiarEstadoAdicional({
+				id,
+				activo: false
+			});
+		}, "Ingrediente eliminado del catálogo.");
+	}
+	async function guardarProducto(e) {
+		e.preventDefault();
+		await ejecutar(async () => {
+			const esEdicion = Boolean(producto.id);
+			const datos = {
+				...producto,
+				categoria_id: Number(producto.categoria_id),
+				presentaciones: producto.presentaciones.map((p) => ({
+					id: p.id,
+					nombre: p.nombre,
+					precio_centavos: precioEnCentavos(p.precio)
+				}))
+			};
+			const errores = validarProducto(datos);
+			if (Object.keys(errores).length) throw new Error(Object.values(errores)[0]);
+			if (!esEdicion) await servicioProductos.crear(datos);
+			else {
+				const productoId = Number(producto.id);
+				const presentacionesOriginales = producto.presentaciones.filter((presentacion) => presentacion.id);
+				await servicioProductos.actualizar({
+					...datos,
+					id: productoId
+				});
+				await Promise.all(datos.presentaciones.map((presentacion, indice) => presentacion.id ? servicioProductos.actualizarPresentacion({
+					...presentacion,
+					id: presentacion.id,
+					producto_id: productoId,
+					orden: indice
+				}) : servicioProductos.crearPresentacion({
+					...presentacion,
+					producto_id: productoId,
+					orden: indice
+				})));
+				const idsActualizados = new Set(datos.presentaciones.filter((presentacion) => presentacion.id).map((presentacion) => presentacion.id));
+				await Promise.all(presentacionesOriginales.filter((presentacion) => !idsActualizados.has(presentacion.id)).map((presentacion) => servicioProductos.cambiarEstadoPresentacion({
+					id: presentacion.id,
+					producto_id: productoId,
+					activo: false
+				})));
+			}
+			setProducto(formularioInicial);
+			setModalProductoAbierto(false);
+		}, producto.id ? "Producto actualizado correctamente." : "Producto registrado correctamente.");
+	}
+	async function editarProducto(id) {
+		limpiarMensajes();
+		try {
+			const detalle = await servicioProductos.obtener(id);
+			setProducto({
+				...detalle,
+				categoria_id: String(detalle.categoria_id),
+				requiere_presentacion: Boolean(detalle.requiere_presentacion),
+				presentaciones: (detalle.presentaciones || []).map((p) => ({
+					...p,
+					precio: (p.precio_centavos / 100).toFixed(2)
+				}))
+			});
+			setModalProductoAbierto(true);
+		} catch (e) {
+			setError(e.message || "No se pudo cargar el producto.");
+		}
+	}
+	function seleccionarImagen(e) {
+		const archivo = e.target.files?.[0];
+		if (!archivo) return;
+		if (!archivo.type.startsWith("image/")) {
+			setError("Selecciona un archivo de imagen válido.");
+			return;
+		}
+		if (archivo.size > 5242880) {
+			setError("La imagen no puede superar los 5 MB.");
+			return;
+		}
+		const lector = new FileReader();
+		lector.onload = () => {
+			setProducto((actual) => ({
+				...actual,
+				imagen_url: String(lector.result)
+			}));
+			setError("");
+		};
+		lector.onerror = () => {
+			setError("No se pudo leer la imagen seleccionada.");
+		};
+		lector.readAsDataURL(archivo);
+	}
+	async function cambiarEstado(id, activo) {
+		if (!window.confirm(activo ? "¿Deseas eliminar este producto del catálogo?" : "¿Deseas activar este elemento?")) return;
+		await ejecutar(async () => {
+			await servicioProductos.cambiarEstado({
+				id,
+				activo: !activo
+			});
+		}, activo ? "Producto eliminado del catálogo." : "Producto activado correctamente.");
+	}
+	async function cargarPresentacionesProducto(id) {
+		setProductoSeleccionado(String(id));
+		const resultado = await servicioProductos.listarPresentaciones(id);
+		setPresentacionesProducto(resultado.filter((item) => item.activo));
+	}
+	async function guardarPresentacion(e) {
+		e.preventDefault();
+		await ejecutar(async () => {
+			if (!productoSeleccionado) throw new Error("Selecciona un producto.");
+			const datos = {
+				...presentacion,
+				producto_id: Number(productoSeleccionado),
+				precio_centavos: precioEnCentavos(presentacion.precio)
+			};
+			if (presentacion.id) await servicioProductos.actualizarPresentacion(datos);
+			else await servicioProductos.crearPresentacion(datos);
+			setPresentacion({
+				nombre: "",
+				precio: ""
+			});
+			setModalPresentacionAbierto(false);
+			await cargarPresentacionesProducto(productoSeleccionado);
+		}, presentacion.id ? "Presentación actualizada correctamente." : "Presentación agregada correctamente.");
+	}
+	function editarPresentacion(presentacionSeleccionada) {
+		limpiarMensajes();
+		setPresentacion({
+			id: presentacionSeleccionada.id,
+			nombre: presentacionSeleccionada.nombre,
+			precio: (presentacionSeleccionada.precio_centavos / 100).toFixed(2)
+		});
+		setModalPresentacionAbierto(true);
+	}
+	async function eliminarPresentacion(presentacionSeleccionada) {
+		if (!window.confirm("¿Deseas eliminar esta presentación?")) return;
+		await ejecutar(async () => {
+			await servicioProductos.cambiarEstadoPresentacion({
+				id: presentacionSeleccionada.id,
+				producto_id: Number(productoSeleccionado),
+				activo: false
+			});
+			await cargarPresentacionesProducto(productoSeleccionado);
+		}, "Presentación eliminada.");
+	}
+	async function guardarAsignacion(e) {
+		e.preventDefault();
+		await ejecutar(async () => {
+			if (!productoSeleccionado) throw new Error("Selecciona un producto.");
+			await servicioProductos.asignarAdicionales({
+				producto_id: Number(productoSeleccionado),
+				adicionales: adicionalesSeleccionados
+			});
+		}, "Adicionales asignados correctamente.");
+	}
+	const productosFiltrados = productos.filter((p) => p.nombre.toLowerCase().includes(busqueda.toLowerCase()));
+	function actualizarPresentacion(indice, campo, valor) {
+		setProducto((actual) => ({
+			...actual,
+			presentaciones: actual.presentaciones.map((p, i) => i === indice ? {
+				...p,
+				[campo]: valor
+			} : p)
+		}));
+	}
+	function agregarFilaPresentacion() {
+		setProducto((actual) => ({
+			...actual,
+			presentaciones: [...actual.presentaciones, {
+				nombre: "",
+				precio: ""
+			}]
+		}));
+	}
+	function quitarFilaPresentacion(indice) {
+		setProducto((actual) => ({
+			...actual,
+			presentaciones: actual.presentaciones.filter((_, i) => i !== indice)
+		}));
+	}
+	function cambiarTipoPresentacion(usaTamanos) {
+		setProducto((actual) => ({
+			...actual,
+			requiere_presentacion: usaTamanos,
+			presentaciones: usaTamanos ? [
+				{
+					nombre: "Chica",
+					precio: ""
+				},
+				{
+					nombre: "Mediana",
+					precio: ""
+				},
+				{
+					nombre: "Grande",
+					precio: ""
+				}
+			] : [{
+				nombre: "Única",
+				precio: ""
+			}]
+		}));
+	}
+	const inputClase = "w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100";
+	const botonClase = "rounded-xl bg-violet-600 px-4 py-2.5 font-semibold text-white hover:bg-violet-700 disabled:opacity-50";
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "space-y-6 p-5 md:p-7",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
+				className: "flex flex-wrap items-center justify-between gap-4",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+					className: "text-2xl font-bold text-slate-900",
+					children: "Productos y catálogo"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-1 text-sm text-slate-500",
+					children: "Administra el menú, las presentaciones y los precios."
+				})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "rounded-xl bg-violet-50 px-4 py-3 text-sm text-violet-700",
+					children: [productos.length, " productos activos"]
+				})]
+			}),
+			mensaje && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "rounded-xl bg-green-50 p-3 text-sm text-green-700",
+				children: mensaje
+			}),
+			error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "rounded-xl bg-red-50 p-3 text-sm text-red-700",
+				children: error
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("nav", {
+				className: "flex flex-wrap gap-2",
+				children: [
+					["productos", "Productos"],
+					["categorias", "Categorías"],
+					["adicionales", "Ingredientes adicionales"],
+					["presentaciones", "Presentaciones"]
+				].map(([id, nombre]) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					onClick: () => {
+						setPestana(id);
+						limpiarMensajes();
+					},
+					className: `rounded-xl px-4 py-2.5 text-sm font-medium transition ${pestana === id ? "bg-violet-600 text-white" : "bg-white text-slate-600 hover:bg-violet-50"}`,
+					children: nombre
+				}, id))
+			}),
+			cargando && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "text-sm text-slate-500",
+				children: "Cargando catálogo..."
+			}),
+			pestana === "productos" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "grid gap-6 xl:grid-cols-[1.1fr_0.9fr]",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+					className: "rounded-2xl border border-slate-200 bg-white p-5",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "mb-4 flex flex-wrap justify-between gap-3",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+							className: "text-lg font-semibold",
+							children: "Catálogo actual"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+							value: busqueda,
+							onChange: (e) => setBusqueda(e.target.value),
+							placeholder: "Buscar producto...",
+							className: "rounded-xl border border-slate-200 px-3 py-2 text-sm"
+						})]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "grid gap-4 sm:grid-cols-2",
+						children: [productosFiltrados.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md",
+							children: [p.imagen_url ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+								src: p.imagen_url,
+								alt: p.nombre,
+								className: "h-36 w-full object-cover"
+							}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "flex h-36 items-center justify-center bg-gradient-to-br from-violet-100 to-fuchsia-50 text-violet-400",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ImagePlus, {
+									size: 34,
+									strokeWidth: 1.5
+								})
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex items-start justify-between gap-3 p-4",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "min-w-0",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										className: "truncate font-semibold text-slate-800",
+										children: p.nombre
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										className: "mt-1 text-xs text-slate-500",
+										children: p.categoria_nombre
+									})]
+								}), esAdministrador && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex shrink-0 gap-1 opacity-0 transition group-hover:opacity-100",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										onClick: () => editarProducto(p.id),
+										className: "rounded-lg p-2 text-violet-600 hover:bg-violet-50",
+										"aria-label": `Editar ${p.nombre}`,
+										title: "Editar producto",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pencil, { size: 16 })
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										onClick: () => cambiarEstado(p.id, true),
+										className: "rounded-lg p-2 text-red-600 hover:bg-red-50",
+										"aria-label": `Eliminar ${p.nombre}`,
+										title: "Eliminar producto",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Trash, { size: 16 })
+									})]
+								})]
+							})]
+						}, p.id)), !productosFiltrados.length && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "py-8 text-center text-sm text-slate-500",
+							children: "No hay productos para mostrar."
+						})]
+					})]
+				}), esAdministrador && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+					type: "button",
+					onClick: () => {
+						limpiarMensajes();
+						setModalProductoAbierto(true);
+					},
+					className: "flex min-h-64 flex-col items-center justify-center rounded-2xl border-2 border-dashed border-violet-200 bg-violet-50/60 p-6 text-center transition hover:border-violet-400 hover:bg-violet-50",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-600 text-white shadow-lg shadow-violet-200",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { size: 28 })
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "text-lg font-bold text-slate-800",
+							children: producto.id ? "Editar producto" : "Crear producto"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "mt-1 text-sm text-slate-500",
+							children: "Agrega nombre, precios e imagen"
+						})
+					]
+				}), modalProductoAbierto && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4 backdrop-blur-sm",
+					onMouseDown: (e) => {
+						if (e.target === e.currentTarget) setModalProductoAbierto(false);
+					},
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+						className: "max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white p-5 shadow-2xl md:p-7",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "mb-6 flex items-start justify-between gap-4",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "text-sm font-semibold text-violet-600",
+									children: "Nuevo artículo"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+									className: "mt-1 text-2xl font-bold text-slate-900",
+									children: producto.id ? "Editar producto" : "Crear producto"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "mt-1 text-sm text-slate-500",
+									children: "Completa la información para publicarlo en tu menú."
+								})
+							] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								type: "button",
+								onClick: () => setModalProductoAbierto(false),
+								className: "rounded-xl p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-700",
+								"aria-label": "Cerrar formulario",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { size: 21 })
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+							onSubmit: guardarProducto,
+							className: "space-y-4",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+									className: "mb-1.5 block text-sm font-medium",
+									children: "Nombre"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+									className: inputClase,
+									value: producto.nombre,
+									onChange: (e) => setProducto({
+										...producto,
+										nombre: e.target.value
+									}),
+									placeholder: "Ej. Pizza Pepperoni"
+								})] }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+									className: "mb-1.5 block text-sm font-medium",
+									children: "Categoría"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
+									className: inputClase,
+									value: producto.categoria_id,
+									onChange: (e) => setProducto({
+										...producto,
+										categoria_id: e.target.value
+									}),
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+										value: "",
+										children: "Selecciona una categoría"
+									}), categorias.map((c) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+										value: c.id,
+										children: c.nombre
+									}, c.id))]
+								})] }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+									className: "mb-1.5 block text-sm font-medium",
+									children: "Descripción"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", {
+									className: inputClase,
+									rows: "2",
+									value: producto.descripcion,
+									onChange: (e) => setProducto({
+										...producto,
+										descripcion: e.target.value
+									})
+								})] }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+										className: "mb-1.5 block text-sm font-medium",
+										children: "Imagen del producto"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+										className: "flex cursor-pointer items-center gap-4 rounded-2xl border-2 border-dashed border-slate-200 p-3 transition hover:border-violet-400 hover:bg-violet-50/50",
+										children: [
+											producto.imagen_url ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+												src: producto.imagen_url,
+												alt: "Vista previa",
+												className: "h-20 w-20 rounded-xl object-cover"
+											}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+												className: "flex h-20 w-20 items-center justify-center rounded-xl bg-violet-50 text-violet-500",
+												children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ImagePlus, { size: 28 })
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+												className: "block font-semibold text-slate-700",
+												children: "Seleccionar imagen"
+											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+												className: "mt-1 block text-xs text-slate-500",
+												children: "JPG, PNG o WEBP · máximo 5 MB"
+											})] }),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+												type: "file",
+												accept: "image/png,image/jpeg,image/webp",
+												className: "hidden",
+												onChange: seleccionarImagen
+											})
+										]
+									}),
+									producto.imagen_url && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										type: "button",
+										onClick: () => setProducto({
+											...producto,
+											imagen_url: ""
+										}),
+										className: "mt-2 text-xs font-semibold text-red-600",
+										children: "Quitar imagen"
+									})
+								] }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+									className: "mb-2 block text-sm font-medium",
+									children: "Tipo de producto"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex flex-wrap gap-2",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										type: "button",
+										onClick: () => cambiarTipoPresentacion(true),
+										className: `rounded-xl px-3 py-2 text-sm ${producto.requiere_presentacion ? "bg-violet-600 text-white" : "bg-slate-100 text-slate-700"}`,
+										children: "Varios tamaños"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										type: "button",
+										onClick: () => cambiarTipoPresentacion(false),
+										className: `rounded-xl px-3 py-2 text-sm ${!producto.requiere_presentacion ? "bg-violet-600 text-white" : "bg-slate-100 text-slate-700"}`,
+										children: "Presentación única"
+									})]
+								})] }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "space-y-3 rounded-xl bg-slate-50 p-3",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "flex items-center justify-between",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+											className: "font-semibold",
+											children: "Presentaciones y precios"
+										}), producto.requiere_presentacion && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+											type: "button",
+											onClick: agregarFilaPresentacion,
+											className: "text-sm font-semibold text-violet-700",
+											children: "+ Agregar tamaño"
+										})]
+									}), producto.presentaciones.map((p, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "flex gap-2",
+										children: [
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+												className: inputClase,
+												placeholder: "Nombre",
+												value: p.nombre,
+												onChange: (e) => actualizarPresentacion(i, "nombre", e.target.value)
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+												className: inputClase,
+												type: "number",
+												min: "0",
+												step: "0.01",
+												placeholder: "Precio $",
+												value: p.precio,
+												onChange: (e) => actualizarPresentacion(i, "precio", e.target.value)
+											}),
+											producto.requiere_presentacion && producto.presentaciones.length > 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+												type: "button",
+												onClick: () => quitarFilaPresentacion(i),
+												className: "rounded-lg px-2 text-red-600",
+												"aria-label": "Quitar presentación",
+												children: "×"
+											})
+										]
+									}, i))]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex justify-end gap-3 border-t border-slate-100 pt-5",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										type: "button",
+										onClick: () => setModalProductoAbierto(false),
+										className: "rounded-xl px-4 py-2.5 font-semibold text-slate-600 hover:bg-slate-100",
+										children: "Cancelar"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										type: "submit",
+										className: botonClase,
+										children: producto.id ? "Actualizar producto" : "Guardar producto"
+									})]
+								})
+							]
+						})]
+					})
+				})] })]
+			}),
+			pestana === "categorias" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "grid gap-6 xl:grid-cols-[1.1fr_0.9fr]",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+					className: "rounded-2xl border border-slate-200 bg-white p-5",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "mb-5",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-sm font-semibold text-violet-600",
+								children: "Catálogo"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+								className: "mt-1 text-xl font-bold text-slate-900",
+								children: "Categorías activas"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-1 text-sm text-slate-500",
+								children: "Organiza tus productos por tipo."
+							})
+						]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "grid gap-3 sm:grid-cols-2",
+						children: categorias.map((c) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "group rounded-2xl border border-slate-200 bg-slate-50 p-4 transition hover:border-violet-200 hover:bg-violet-50/40",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex items-start justify-between gap-3",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "font-semibold text-slate-800",
+									children: c.nombre
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "mt-1 text-sm text-slate-500",
+									children: c.descripcion || "Sin descripción"
+								})] }), esAdministrador && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex gap-1 opacity-0 transition group-hover:opacity-100",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										onClick: () => editarCategoria(c),
+										className: "rounded-lg p-2 text-violet-600 hover:bg-violet-100",
+										"aria-label": `Editar ${c.nombre}`,
+										title: "Editar categoría",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pencil, { size: 16 })
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										onClick: () => eliminarCategoria(c.id),
+										className: "rounded-lg p-2 text-red-600 hover:bg-red-100",
+										"aria-label": `Eliminar ${c.nombre}`,
+										title: "Eliminar categoría",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Trash, { size: 16 })
+									})]
+								})]
+							})
+						}, c.id))
+					})]
+				}), esAdministrador && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+					type: "button",
+					onClick: () => {
+						limpiarMensajes();
+						setCategoria({
+							nombre: "",
+							descripcion: ""
+						});
+						setModalCategoriaAbierto(true);
+					},
+					className: "flex min-h-56 flex-col items-center justify-center rounded-2xl border-2 border-dashed border-violet-200 bg-violet-50/60 p-6 text-center transition hover:border-violet-400 hover:bg-violet-50",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-600 text-white shadow-lg shadow-violet-200",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { size: 28 })
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "text-lg font-bold text-slate-800",
+							children: "Nueva categoría"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "mt-1 text-sm text-slate-500",
+							children: "Crea una sección para tu menú"
+						})
+					]
+				}), modalCategoriaAbierto && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4 backdrop-blur-sm",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+						className: "w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "mb-6 flex items-start justify-between",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-sm font-semibold text-violet-600",
+								children: "Organización del menú"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+								className: "mt-1 text-2xl font-bold text-slate-900",
+								children: categoria.id ? "Editar categoría" : "Nueva categoría"
+							})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								type: "button",
+								onClick: () => setModalCategoriaAbierto(false),
+								className: "rounded-xl p-2 text-slate-400 hover:bg-slate-100",
+								"aria-label": "Cerrar formulario",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { size: 21 })
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+							onSubmit: guardarCategoria,
+							className: "space-y-4",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+									className: inputClase,
+									placeholder: "Nombre de categoría",
+									value: categoria.nombre,
+									onChange: (e) => setCategoria({
+										...categoria,
+										nombre: e.target.value
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", {
+									className: inputClase,
+									rows: "3",
+									placeholder: "Descripción opcional",
+									value: categoria.descripcion,
+									onChange: (e) => setCategoria({
+										...categoria,
+										descripcion: e.target.value
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex justify-end gap-3",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										type: "button",
+										onClick: () => setModalCategoriaAbierto(false),
+										className: "rounded-xl px-4 py-2.5 font-semibold text-slate-600 hover:bg-slate-100",
+										children: "Cancelar"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										className: botonClase,
+										children: categoria.id ? "Actualizar categoría" : "Guardar categoría"
+									})]
+								})
+							]
+						})]
+					})
+				})] })]
+			}),
+			pestana === "adicionales" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "grid gap-6 xl:grid-cols-[1.1fr_0.9fr]",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+					className: "rounded-2xl border border-slate-200 bg-white p-5",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "mb-5",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-sm font-semibold text-violet-600",
+								children: "Personaliza"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+								className: "mt-1 text-xl font-bold text-slate-900",
+								children: "Ingredientes adicionales"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-1 text-sm text-slate-500",
+								children: "Extras que tus clientes pueden agregar a sus pedidos."
+							})
+						]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "grid gap-3 sm:grid-cols-2",
+						children: adicionales.map((a) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "group rounded-2xl border border-slate-200 bg-slate-50 p-4 transition hover:border-violet-200 hover:bg-violet-50/40",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex items-start justify-between gap-3",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										className: "font-semibold text-slate-800",
+										children: a.nombre
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										className: "mt-1 text-lg font-bold text-violet-700",
+										children: dinero(a.precio_centavos)
+									}),
+									a.descripcion && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										className: "mt-1 text-xs text-slate-500",
+										children: a.descripcion
+									})
+								] }), esAdministrador && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex gap-1 opacity-0 transition group-hover:opacity-100",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										onClick: () => editarAdicional(a),
+										className: "rounded-lg p-2 text-violet-600 hover:bg-violet-100",
+										"aria-label": `Editar ${a.nombre}`,
+										title: "Editar ingrediente",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pencil, { size: 16 })
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										onClick: () => eliminarAdicional(a.id),
+										className: "rounded-lg p-2 text-red-600 hover:bg-red-100",
+										"aria-label": `Eliminar ${a.nombre}`,
+										title: "Eliminar ingrediente",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Trash, { size: 16 })
+									})]
+								})]
+							})
+						}, a.id))
+					})]
+				}), esAdministrador && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+					type: "button",
+					onClick: () => {
+						limpiarMensajes();
+						setAdicional({
+							nombre: "",
+							descripcion: "",
+							precio: ""
+						});
+						setModalAdicionalAbierto(true);
+					},
+					className: "flex min-h-56 flex-col items-center justify-center rounded-2xl border-2 border-dashed border-violet-200 bg-violet-50/60 p-6 text-center transition hover:border-violet-400 hover:bg-violet-50",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-600 text-white shadow-lg shadow-violet-200",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { size: 28 })
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "text-lg font-bold text-slate-800",
+							children: "Nuevo ingrediente"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "mt-1 text-sm text-slate-500",
+							children: "Define su nombre y precio"
+						})
+					]
+				}), modalAdicionalAbierto && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4 backdrop-blur-sm",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+						className: "w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "mb-6 flex items-start justify-between",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "text-sm font-semibold text-violet-600",
+								children: "Personalización"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+								className: "mt-1 text-2xl font-bold text-slate-900",
+								children: adicional.id ? "Editar ingrediente" : "Nuevo ingrediente"
+							})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								type: "button",
+								onClick: () => setModalAdicionalAbierto(false),
+								className: "rounded-xl p-2 text-slate-400 hover:bg-slate-100",
+								"aria-label": "Cerrar formulario",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { size: 21 })
+							})]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+							onSubmit: guardarAdicional,
+							className: "space-y-4",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+									className: inputClase,
+									placeholder: "Ej. Queso extra",
+									value: adicional.nombre,
+									onChange: (e) => setAdicional({
+										...adicional,
+										nombre: e.target.value
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", {
+									className: inputClase,
+									rows: "3",
+									placeholder: "Descripción opcional",
+									value: adicional.descripcion,
+									onChange: (e) => setAdicional({
+										...adicional,
+										descripcion: e.target.value
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+									className: inputClase,
+									type: "number",
+									min: "0",
+									step: "0.01",
+									placeholder: "Precio en pesos",
+									value: adicional.precio,
+									onChange: (e) => setAdicional({
+										...adicional,
+										precio: e.target.value
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex justify-end gap-3",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										type: "button",
+										onClick: () => setModalAdicionalAbierto(false),
+										className: "rounded-xl px-4 py-2.5 font-semibold text-slate-600 hover:bg-slate-100",
+										children: "Cancelar"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										className: botonClase,
+										children: adicional.id ? "Actualizar ingrediente" : "Guardar ingrediente"
+									})]
+								})
+							]
+						})]
+					})
+				})] })]
+			}),
+			pestana === "presentaciones" && esAdministrador && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "grid gap-6 lg:grid-cols-2",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+					className: "rounded-2xl border border-slate-200 bg-white p-5",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "mb-5",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "text-sm font-semibold text-violet-600",
+									children: "Precios"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+									className: "mt-1 text-xl font-bold text-slate-900",
+									children: "Presentaciones"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "mt-1 text-sm text-slate-500",
+									children: "Selecciona un producto para administrar sus tamaños y precios."
+								})
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
+							className: inputClase,
+							value: productoSeleccionado,
+							onChange: (e) => {
+								if (e.target.value) cargarPresentacionesProducto(e.target.value).catch((e) => setError(e.message));
+								else {
+									setProductoSeleccionado("");
+									setPresentacionesProducto([]);
+								}
+							},
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+								value: "",
+								children: "Selecciona un producto"
+							}), productos.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+								value: p.id,
+								children: p.nombre
+							}, p.id))]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "mt-4 space-y-3",
+							children: [presentacionesProducto.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "group flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 p-4",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "font-semibold text-slate-800",
+									children: p.nombre
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "mt-1 font-bold text-violet-700",
+									children: dinero(p.precio_centavos)
+								})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex gap-1 opacity-0 transition group-hover:opacity-100",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										onClick: () => editarPresentacion(p),
+										className: "rounded-lg p-2 text-violet-600 hover:bg-violet-100",
+										"aria-label": `Editar ${p.nombre}`,
+										title: "Editar presentación",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pencil, { size: 16 })
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										onClick: () => eliminarPresentacion(p),
+										className: "rounded-lg p-2 text-red-600 hover:bg-red-100",
+										"aria-label": `Eliminar ${p.nombre}`,
+										title: "Eliminar presentación",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Trash, { size: 16 })
+									})]
+								})]
+							}, p.id)), productoSeleccionado && !presentacionesProducto.length && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "rounded-2xl bg-slate-50 p-6 text-center text-sm text-slate-500",
+								children: "Este producto todavía no tiene presentaciones."
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+							type: "button",
+							onClick: () => {
+								limpiarMensajes();
+								setPresentacion({
+									nombre: "",
+									precio: ""
+								});
+								setModalPresentacionAbierto(true);
+							},
+							disabled: !productoSeleccionado,
+							className: `${botonClase} mt-5 inline-flex items-center gap-2`,
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { size: 18 }), "Nueva presentación"]
+						}),
+						modalPresentacionAbierto && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4 backdrop-blur-sm",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+								className: "w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "mb-6 flex items-start justify-between",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+										className: "text-sm font-semibold text-violet-600",
+										children: "Precios del producto"
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+										className: "mt-1 text-2xl font-bold text-slate-900",
+										children: presentacion.id ? "Editar presentación" : "Nueva presentación"
+									})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										type: "button",
+										onClick: () => setModalPresentacionAbierto(false),
+										className: "rounded-xl p-2 text-slate-400 hover:bg-slate-100",
+										"aria-label": "Cerrar formulario",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { size: 21 })
+									})]
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+									onSubmit: guardarPresentacion,
+									className: "space-y-4",
+									children: [
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+											className: inputClase,
+											placeholder: "Ej. Familiar",
+											value: presentacion.nombre,
+											onChange: (e) => setPresentacion({
+												...presentacion,
+												nombre: e.target.value
+											})
+										}),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+											className: inputClase,
+											type: "number",
+											min: "0",
+											step: "0.01",
+											placeholder: "Precio en pesos",
+											value: presentacion.precio,
+											onChange: (e) => setPresentacion({
+												...presentacion,
+												precio: e.target.value
+											})
+										}),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+											className: "flex justify-end gap-3",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+												type: "button",
+												onClick: () => setModalPresentacionAbierto(false),
+												className: "rounded-xl px-4 py-2.5 font-semibold text-slate-600 hover:bg-slate-100",
+												children: "Cancelar"
+											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+												className: botonClase,
+												children: presentacion.id ? "Actualizar presentación" : "Guardar presentación"
+											})]
+										})
+									]
+								})]
+							})
+						})
+					]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+					className: "rounded-2xl border border-slate-200 bg-white p-5",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+						className: "mb-4 text-lg font-semibold",
+						children: "Asignar ingredientes a un producto"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+						onSubmit: guardarAsignacion,
+						className: "space-y-3",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
+								className: inputClase,
+								value: productoSeleccionado,
+								onChange: (e) => setProductoSeleccionado(e.target.value),
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+									value: "",
+									children: "Selecciona un producto"
+								}), productos.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
+									value: p.id,
+									children: p.nombre
+								}, p.id))]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "space-y-2",
+								children: adicionales.map((a) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+									className: "flex items-center gap-3 rounded-xl bg-slate-50 p-3",
+									children: [
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+											type: "checkbox",
+											checked: adicionalesSeleccionados.includes(a.id),
+											onChange: (e) => {
+												setAdicionalesSeleccionados((actual) => e.target.checked ? [...actual, a.id] : actual.filter((id) => id !== a.id));
+											}
+										}),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: "flex-1",
+											children: a.nombre
+										}),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: "text-sm text-slate-500",
+											children: dinero(a.precio_centavos)
+										})
+									]
+								}, a.id))
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								className: botonClase,
+								children: "Guardar asignaciones"
+							})
+						]
+					})]
+				})]
+			}),
+			pestana === "presentaciones" && !esAdministrador && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "rounded-2xl border border-slate-200 bg-white p-8 text-center text-slate-500",
+				children: "Solo el administrador puede gestionar presentaciones y precios."
+			})
+		]
 	});
 }
 // src/modulos/publicidad/paginas/Pagina.jsx
@@ -15404,28 +16746,29 @@ function RutasAplicacion() {
 			children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
 					path: "/tablero",
-					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$10, {})
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-					path: "/punto-venta",
 					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$9, {})
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-					path: "/pedidos",
+					path: "/punto-venta",
 					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$8, {})
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-					path: "/cocina",
+					path: "/pedidos",
 					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$7, {})
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-					path: "/clientes",
+					path: "/cocina",
 					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$6, {})
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-					path: "/productos",
+					path: "/clientes",
 					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$5, {})
 				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
+					path: "/productos",
+					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaginaProductos, {})
+				}),
+				" ",
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
 					path: "/publicidad",
 					element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagina$4, {})

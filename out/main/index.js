@@ -1,4 +1,4 @@
-import { BrowserWindow, app, ipcMain, screen } from "electron";
+import { BrowserWindow, app, ipcMain } from "electron";
 import { join } from "node:path";
 import Database from "better-sqlite3";
 import { mkdirSync } from "node:fs";
@@ -931,58 +931,391 @@ function registrarControladoresAutenticacion(ipcMain, db) {
 	ipcMain.handle("usuarios:cambiar-estado", (_, datos) => {
 		return servicio.cambiarEstado(datos);
 	});
+	return servicio;
+}
+// electron/proceso-principal/base-datos/modulos/productos/servicio.js
+function crearServicioProductos(db, obtenerSesion) {
+	function exigirSesion() {
+		const sesion = obtenerSesion();
+		if (!sesion) throw new Error("Debes iniciar sesión.");
+		return sesion;
+	}
+	function exigirAdministrador() {
+		const sesion = exigirSesion();
+		if (sesion.rol !== "administrador") throw new Error("No tienes permisos para modificar el catálogo.");
+		return sesion;
+	}
+	function validarNombre(nombre) {
+		if (typeof nombre !== "string" || !nombre.trim()) throw new Error("El nombre es obligatorio.");
+		return nombre.trim();
+	}
+	function validarPrecio(precio) {
+		const valor = Number(precio);
+		if (!Number.isSafeInteger(valor) || valor < 0) throw new Error("El precio debe ser un importe válido en centavos.");
+		return valor;
+	}
+	function listarCategorias() {
+		exigirSesion();
+		return db.prepare(`
+      SELECT *
+      FROM categorias
+      WHERE activo = 1
+      ORDER BY orden, nombre
+    `).all();
+	}
+	function listarTodasCategorias() {
+		exigirAdministrador();
+		return db.prepare(`
+      SELECT *
+      FROM categorias
+      ORDER BY orden, nombre
+    `).all();
+	}
+	function crearCategoria(datos) {
+		exigirAdministrador();
+		const nombre = validarNombre(datos.nombre);
+		return db.prepare(`
+      INSERT INTO categorias (nombre, descripcion, orden)
+      VALUES (?, ?, ?)
+    `).run(nombre, datos.descripcion?.trim() || null, Number(datos.orden) || 0).lastInsertRowid;
+	}
+	function actualizarCategoria(datos) {
+		exigirAdministrador();
+		if (!Number.isInteger(Number(datos.id))) throw new Error("Categoría no válida.");
+		const nombre = validarNombre(datos.nombre);
+		if (!db.prepare(`
+      UPDATE categorias
+      SET nombre = ?,
+          descripcion = ?,
+          orden = ?
+      WHERE id = ?
+    `).run(nombre, datos.descripcion?.trim() || null, Number(datos.orden) || 0, datos.id).changes) throw new Error("La categoría no existe.");
+		return true;
+	}
+	function cambiarEstadoCategoria(datos) {
+		exigirAdministrador();
+		if (!db.prepare(`
+      UPDATE categorias
+      SET activo = ?
+      WHERE id = ?
+    `).run(datos.activo ? 1 : 0, datos.id).changes) throw new Error("La categoría no existe.");
+		return true;
+	}
+	function listarProductos() {
+		exigirSesion();
+		return db.prepare(`
+      SELECT
+        p.*,
+        c.nombre AS categoria_nombre
+      FROM productos p
+      INNER JOIN categorias c ON c.id = p.categoria_id
+      WHERE p.activo = 1 AND c.activo = 1
+      ORDER BY c.orden, p.orden, p.nombre
+    `).all();
+	}
+	function listarTodosProductos() {
+		exigirAdministrador();
+		return db.prepare(`
+      SELECT
+        p.*,
+        c.nombre AS categoria_nombre
+      FROM productos p
+      INNER JOIN categorias c ON c.id = p.categoria_id
+      ORDER BY c.orden, p.orden, p.nombre
+    `).all();
+	}
+	function obtenerProducto(id) {
+		exigirSesion();
+		const producto = db.prepare(`
+      SELECT
+        p.*,
+        c.nombre AS categoria_nombre
+      FROM productos p
+      INNER JOIN categorias c ON c.id = p.categoria_id
+      WHERE p.id = ?
+    `).get(id);
+		if (!producto) throw new Error("Producto no encontrado.");
+		producto.presentaciones = db.prepare(`
+      SELECT *
+      FROM presentaciones_producto
+      WHERE producto_id = ?
+      ORDER BY orden, id
+    `).all(id);
+		producto.adicionales = db.prepare(`
+      SELECT
+        a.id,
+        a.nombre,
+        a.precio_centavos,
+        a.activo
+      FROM producto_adicionales pa
+      INNER JOIN adicionales a ON a.id = pa.adicional_id
+      WHERE pa.producto_id = ?
+      ORDER BY a.nombre
+    `).all(id);
+		return producto;
+	}
+	function crearProducto(datos) {
+		exigirAdministrador();
+		const nombre = validarNombre(datos.nombre);
+		const categoriaId = Number(datos.categoria_id);
+		if (!db.prepare(`
+      SELECT id FROM categorias
+      WHERE id = ? AND activo = 1
+    `).get(categoriaId)) throw new Error("Selecciona una categoría activa.");
+		const requierePresentacion = datos.requiere_presentacion ? 1 : 0;
+		const presentaciones = Array.isArray(datos.presentaciones) ? datos.presentaciones : [];
+		if (!presentaciones.length) throw new Error("Agrega al menos una presentación y su precio.");
+		if (!requierePresentacion && presentaciones.length !== 1) throw new Error("Un producto de presentación única debe tener una sola presentación.");
+		const adicionales = Array.isArray(datos.adicionales) ? datos.adicionales.map(Number) : [];
+		return db.transaction(() => {
+			const productoId = db.prepare(`
+        INSERT INTO productos (
+          categoria_id,
+          nombre,
+          descripcion,
+          imagen_url,
+          requiere_presentacion,
+          orden
+        )
+        VALUES (?, ?, ?, ?, ?, ?)
+      `).run(categoriaId, nombre, datos.descripcion?.trim() || null, datos.imagen_url?.trim() || null, requierePresentacion, Number(datos.orden) || 0).lastInsertRowid;
+			const insertarPresentacion = db.prepare(`
+        INSERT INTO presentaciones_producto (
+          producto_id,
+          nombre,
+          precio_centavos,
+          orden
+        )
+        VALUES (?, ?, ?, ?)
+      `);
+			presentaciones.forEach((presentacion, indice) => {
+				insertarPresentacion.run(productoId, validarNombre(presentacion.nombre), validarPrecio(presentacion.precio_centavos), indice);
+			});
+			const insertarAdicional = db.prepare(`
+        INSERT INTO producto_adicionales (producto_id, adicional_id)
+        SELECT ?, id FROM adicionales
+        WHERE id = ? AND activo = 1
+      `);
+			adicionales.forEach((adicionalId) => {
+				if (!insertarAdicional.run(productoId, adicionalId).changes) throw new Error("Uno de los adicionales seleccionados no existe o está inactivo.");
+			});
+			return productoId;
+		})();
+	}
+	function actualizarProducto(datos) {
+		exigirAdministrador();
+		const nombre = validarNombre(datos.nombre);
+		const categoriaId = Number(datos.categoria_id);
+		if (!db.prepare(`
+      SELECT id FROM productos WHERE id = ?
+    `).get(datos.id)) throw new Error("El producto no existe.");
+		if (!db.prepare(`
+      SELECT id FROM categorias
+      WHERE id = ? AND activo = 1
+    `).get(categoriaId)) throw new Error("La categoría no está disponible.");
+		return db.prepare(`
+      UPDATE productos
+      SET categoria_id = ?,
+          nombre = ?,
+          descripcion = ?,
+          imagen_url = ?,
+          requiere_presentacion = ?,
+          orden = ?,
+          fecha_actualizacion = CURRENT_TIMESTAMP
+      WHERE id = ?
+    `).run(categoriaId, nombre, datos.descripcion?.trim() || null, datos.imagen_url?.trim() || null, datos.requiere_presentacion ? 1 : 0, Number(datos.orden) || 0, datos.id).changes > 0;
+	}
+	function cambiarEstadoProducto(datos) {
+		exigirAdministrador();
+		if (!db.prepare(`
+      UPDATE productos
+      SET activo = ?,
+          fecha_actualizacion = CURRENT_TIMESTAMP
+      WHERE id = ?
+    `).run(datos.activo ? 1 : 0, datos.id).changes) throw new Error("El producto no existe.");
+		return true;
+	}
+	function listarPresentaciones(productoId) {
+		exigirSesion();
+		return db.prepare(`
+      SELECT *
+      FROM presentaciones_producto
+      WHERE producto_id = ?
+      ORDER BY orden, id
+    `).all(productoId);
+	}
+	function crearPresentacion(datos) {
+		exigirAdministrador();
+		const nombre = validarNombre(datos.nombre);
+		const precio = validarPrecio(datos.precio_centavos);
+		const producto = db.prepare(`
+      SELECT id, requiere_presentacion
+      FROM productos
+      WHERE id = ? AND activo = 1
+    `).get(datos.producto_id);
+		if (!producto) throw new Error("Producto no disponible.");
+		if (!producto.requiere_presentacion) throw new Error("Este producto utiliza una presentación única.");
+		return db.prepare(`
+      INSERT INTO presentaciones_producto (
+        producto_id,
+        nombre,
+        precio_centavos,
+        orden
+      )
+      VALUES (?, ?, ?, ?)
+    `).run(datos.producto_id, nombre, precio, Number(datos.orden) || 0).lastInsertRowid;
+	}
+	function actualizarPresentacion(datos) {
+		exigirAdministrador();
+		if (!db.prepare(`
+      UPDATE presentaciones_producto
+      SET nombre = ?,
+          precio_centavos = ?,
+          orden = ?
+      WHERE id = ? AND producto_id = ?
+    `).run(validarNombre(datos.nombre), validarPrecio(datos.precio_centavos), Number(datos.orden) || 0, datos.id, datos.producto_id).changes) throw new Error("No se encontró la presentación.");
+		return true;
+	}
+	function cambiarEstadoPresentacion(datos) {
+		exigirAdministrador();
+		if (!db.prepare(`
+      UPDATE presentaciones_producto
+      SET activo = ?
+      WHERE id = ? AND producto_id = ?
+    `).run(datos.activo ? 1 : 0, datos.id, datos.producto_id).changes) throw new Error("No se encontró la presentación.");
+		return true;
+	}
+	function listarAdicionales() {
+		exigirSesion();
+		return db.prepare(`
+      SELECT *
+      FROM adicionales
+      WHERE activo = 1
+      ORDER BY nombre
+    `).all();
+	}
+	function listarTodosAdicionales() {
+		exigirAdministrador();
+		return db.prepare(`
+      SELECT *
+      FROM adicionales
+      ORDER BY nombre
+    `).all();
+	}
+	function crearAdicional(datos) {
+		exigirAdministrador();
+		return db.prepare(`
+      INSERT INTO adicionales (
+        nombre,
+        descripcion,
+        precio_centavos
+      )
+      VALUES (?, ?, ?)
+    `).run(validarNombre(datos.nombre), datos.descripcion?.trim() || null, validarPrecio(datos.precio_centavos)).lastInsertRowid;
+	}
+	function actualizarAdicional(datos) {
+		exigirAdministrador();
+		if (!db.prepare(`
+      UPDATE adicionales
+      SET nombre = ?,
+          descripcion = ?,
+          precio_centavos = ?
+      WHERE id = ?
+    `).run(validarNombre(datos.nombre), datos.descripcion?.trim() || null, validarPrecio(datos.precio_centavos), datos.id).changes) throw new Error("El adicional no existe.");
+		return true;
+	}
+	function cambiarEstadoAdicional(datos) {
+		exigirAdministrador();
+		if (!db.prepare(`
+      UPDATE adicionales
+      SET activo = ?
+      WHERE id = ?
+    `).run(datos.activo ? 1 : 0, datos.id).changes) throw new Error("El adicional no existe.");
+		return true;
+	}
+	function actualizarAdicionalesProducto(datos) {
+		exigirAdministrador();
+		if (!db.prepare(`
+      SELECT id FROM productos WHERE id = ?
+    `).get(datos.producto_id)) throw new Error("Producto no encontrado.");
+		const ids = [...new Set((datos.adicionales || []).map(Number))];
+		db.transaction(() => {
+			db.prepare(`
+        DELETE FROM producto_adicionales
+        WHERE producto_id = ?
+      `).run(datos.producto_id);
+			const insertar = db.prepare(`
+        INSERT INTO producto_adicionales (producto_id, adicional_id)
+        SELECT ?, id FROM adicionales
+        WHERE id = ? AND activo = 1
+      `);
+			ids.forEach((id) => {
+				if (!insertar.run(datos.producto_id, id).changes) throw new Error("Uno de los adicionales no está disponible.");
+			});
+		})();
+		return true;
+	}
+	return {
+		listarCategorias,
+		listarTodasCategorias,
+		crearCategoria,
+		actualizarCategoria,
+		cambiarEstadoCategoria,
+		listarProductos,
+		listarTodosProductos,
+		obtenerProducto,
+		crearProducto,
+		actualizarProducto,
+		cambiarEstadoProducto,
+		listarPresentaciones,
+		crearPresentacion,
+		actualizarPresentacion,
+		cambiarEstadoPresentacion,
+		listarAdicionales,
+		listarTodosAdicionales,
+		crearAdicional,
+		actualizarAdicional,
+		cambiarEstadoAdicional,
+		actualizarAdicionalesProducto
+	};
+}
+// electron/proceso-principal/ipc/modulos/productos/controlador.js
+function registrarControladoresProductos(ipcMain, db, obtenerSesion) {
+	const servicio = crearServicioProductos(db, obtenerSesion);
+	ipcMain.handle("productos:categorias:listar", () => servicio.listarCategorias());
+	ipcMain.handle("productos:categorias:listar-todas", () => servicio.listarTodasCategorias());
+	ipcMain.handle("productos:categorias:crear", (_, datos) => servicio.crearCategoria(datos));
+	ipcMain.handle("productos:categorias:actualizar", (_, datos) => servicio.actualizarCategoria(datos));
+	ipcMain.handle("productos:categorias:estado", (_, datos) => servicio.cambiarEstadoCategoria(datos));
+	ipcMain.handle("productos:listar", () => servicio.listarProductos());
+	ipcMain.handle("productos:listar-todos", () => servicio.listarTodosProductos());
+	ipcMain.handle("productos:obtener", (_, id) => servicio.obtenerProducto(id));
+	ipcMain.handle("productos:crear", (_, datos) => servicio.crearProducto(datos));
+	ipcMain.handle("productos:actualizar", (_, datos) => servicio.actualizarProducto(datos));
+	ipcMain.handle("productos:estado", (_, datos) => servicio.cambiarEstadoProducto(datos));
+	ipcMain.handle("productos:presentaciones:listar", (_, id) => servicio.listarPresentaciones(id));
+	ipcMain.handle("productos:presentaciones:crear", (_, datos) => servicio.crearPresentacion(datos));
+	ipcMain.handle("productos:presentaciones:actualizar", (_, datos) => servicio.actualizarPresentacion(datos));
+	ipcMain.handle("productos:presentaciones:estado", (_, datos) => servicio.cambiarEstadoPresentacion(datos));
+	ipcMain.handle("productos:adicionales:listar", () => servicio.listarAdicionales());
+	ipcMain.handle("productos:adicionales:listar-todos", () => servicio.listarTodosAdicionales());
+	ipcMain.handle("productos:adicionales:crear", (_, datos) => servicio.crearAdicional(datos));
+	ipcMain.handle("productos:adicionales:actualizar", (_, datos) => servicio.actualizarAdicional(datos));
+	ipcMain.handle("productos:adicionales:estado", (_, datos) => servicio.cambiarEstadoAdicional(datos));
+	ipcMain.handle("productos:adicionales:asignar", (_, datos) => servicio.actualizarAdicionalesProducto(datos));
+	return servicio;
 }
 // electron/proceso-principal/ipc/index.js
 function registrarCanalesIPC() {
+	const db = obtenerConexion();
+	const servicioAutenticacion = registrarControladoresAutenticacion(ipcMain, db);
 	registrarCanalesAplicacion();
 	registrarCanalesBaseDatos();
-	registrarControladoresAutenticacion(ipcMain, obtenerConexion());
+	registrarControladoresProductos(ipcMain, db, () => servicioAutenticacion.obtenerSesion());
 	console.log("Canales IPC registrados correctamente");
 }
 // electron/proceso-principal/ventanas/ventana-tv.js
 var ventanaTV = null;
-function obtenerPantallaSecundaria() {
-	const principal = screen.getPrimaryDisplay();
-	return screen.getAllDisplays().find((pantalla) => pantalla.id !== principal.id);
-}
-function cargarPantallaTV(ventana) {
-	if (process.env.ELECTRON_RENDERER_URL) ventana.loadURL(`${process.env.ELECTRON_RENDERER_URL}/#/pantalla-tv`);
-	else ventana.loadFile(join(__dirname, "../../renderer/index.html"), { hash: "/pantalla-tv" });
-}
-function crearVentanaTV() {
-	if (ventanaTV && !ventanaTV.isDestroyed()) return ventanaTV;
-	const pantalla = obtenerPantallaSecundaria();
-	if (!pantalla) {
-		console.log("No se detectó una segunda pantalla.");
-		return null;
-	}
-	const { x, y, width, height } = pantalla.bounds;
-	ventanaTV = new BrowserWindow({
-		x,
-		y,
-		width,
-		height,
-		show: false,
-		frame: false,
-		fullscreen: true,
-		autoHideMenuBar: true,
-		backgroundColor: "#020617",
-		webPreferences: {
-			contextIsolation: true,
-			nodeIntegration: false,
-			sandbox: true
-		}
-	});
-	cargarPantallaTV(ventanaTV);
-	ventanaTV.once("ready-to-show", () => {
-		ventanaTV.show();
-	});
-	ventanaTV.on("closed", () => {
-		ventanaTV = null;
-	});
-	console.log("Ventana de TV creada correctamente.");
-	return ventanaTV;
-}
 function cerrarVentanaTV() {
 	if (ventanaTV && !ventanaTV.isDestroyed()) ventanaTV.close();
 }
@@ -1016,19 +1349,8 @@ app.whenReady().then(() => {
 	inicializarBaseDatos();
 	registrarCanalesIPC();
 	crearVentanaPrincipal();
-	crearVentanaTV();
-	screen.on("display-added", () => {
-		crearVentanaTV();
-	});
-	screen.on("display-removed", () => {
-		cerrarVentanaTV();
-		crearVentanaTV();
-	});
 	app.on("activate", () => {
-		if (BrowserWindow.getAllWindows().length === 0) {
-			crearVentanaPrincipal();
-			crearVentanaTV();
-		}
+		if (BrowserWindow.getAllWindows().length === 0) crearVentanaPrincipal();
 	});
 });
 app.on("before-quit", () => {
