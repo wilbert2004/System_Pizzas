@@ -79,7 +79,7 @@ electron.contextBridge.exposeInMainWorld("sistema", {
 	pedidos: {
 		listar: (filtros) => electron.ipcRenderer.invoke("pedidos:listar", filtros),
 		obtener: (id) => electron.ipcRenderer.invoke("pedidos:obtener", id),
-		cambiarEstado: (id, estado, motivo) => electron.ipcRenderer.invoke("pedidos:cambiar-estado", id, estado, motivo),
+		cambiarEstado: (id, estado, motivo, tiempoEstimadoMinutos) => electron.ipcRenderer.invoke("pedidos:cambiar-estado", id, estado, motivo, tiempoEstimadoMinutos),
 		resumen: () => electron.ipcRenderer.invoke("pedidos:resumen")
 	},
 	caja: {

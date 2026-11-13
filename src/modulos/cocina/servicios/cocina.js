@@ -43,11 +43,20 @@ export const servicioCocina = {
   },
 
   async obtenerPedido(id) {
-    return API().obtener(id);
+    const pedido = await API().obtener(id);
+    if (!pedido) return pedido;
+
+    const productosPreparados = (pedido.detalles || []).filter(
+      (producto) =>
+        producto.requiere_preparacion !== 0 &&
+        producto.requiere_preparacion !== false,
+    );
+
+    return { ...pedido, detalles: productosPreparados };
   },
 
-  async cambiarEstado(id, estado, motivo = null) {
-    return API().cambiarEstado(id, estado, motivo);
+  async cambiarEstado(id, estado, motivo = null, tiempoEstimadoMinutos = null) {
+    return API().cambiarEstado(id, estado, motivo, tiempoEstimadoMinutos);
   },
 
   async obtenerResumen() {

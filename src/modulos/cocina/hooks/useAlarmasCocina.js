@@ -1,4 +1,19 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+
+function obtenerTemporizador(pedido, temporizadores) {
+  const temporizador = temporizadores[pedido.id];
+  const enHorno = pedido.estado === "En horno";
+  return {
+    fechaInicio: enHorno
+      ? temporizador?.iniciadoEn || pedido.fecha_entrada_horno
+      : temporizador?.preparacion?.iniciadoEn || pedido.fecha_inicio_preparacion,
+    minutos: Number(
+      enHorno
+        ? temporizador?.minutos || pedido.tiempo_estimado_minutos || 15
+        : temporizador?.preparacion?.minutos || pedido.tiempo_estimado_minutos || 20,
+    ),
+  };
+}
 
 export function useAlarmasCocina(pedidos, temporizadores = {}) {
   const audioRef = useRef(null);
@@ -56,6 +71,11 @@ export function useAlarmasCocina(pedidos, temporizadores = {}) {
     setSonidoActivo(true);
   };
 
+  const notificarPedidoListo = useCallback(() => {
+    if (!sonidoActivo || !audioRef.current) return;
+    audioRef.current.resume().then(() => reproducirTono(audioRef.current)).catch(() => {});
+  }, [sonidoActivo]);
+
   useEffect(() => {
     const intervalo = setInterval(() => setAhora(Date.now()), 1000);
 
@@ -67,24 +87,13 @@ export function useAlarmasCocina(pedidos, temporizadores = {}) {
       return false;
     }
 
-    const temporizador = temporizadores[pedido.id];
-    const fechaInicio =
-      pedido.estado === "En horno"
-        ? temporizador?.iniciadoEn || pedido.fecha_entrada_horno
-        : pedido.fecha_inicio_preparacion;
+    const { fechaInicio, minutos: estimado } = obtenerTemporizador(pedido, temporizadores);
 
     if (!fechaInicio) {
       return false;
     }
 
     const inicio = new Date(fechaInicio).getTime();
-
-    const estimado =
-      Number(
-        pedido.estado === "En horno"
-          ? temporizador?.minutos || pedido.tiempo_estimado_minutos
-          : pedido.tiempo_estimado_minutos,
-      ) || 20;
 
     const minutosTranscurridos = (ahora - inicio) / 60000;
 
@@ -97,17 +106,8 @@ export function useAlarmasCocina(pedidos, temporizadores = {}) {
       pedidos.filter((pedido) => {
         if (!["Preparando", "En horno"].includes(pedido.estado)) return false;
 
-        const temporizador = temporizadores[pedido.id];
-        const fechaInicio =
-          pedido.estado === "En horno"
-            ? temporizador?.iniciadoEn || pedido.fecha_entrada_horno
-            : pedido.fecha_inicio_preparacion;
+        const { fechaInicio, minutos: estimado } = obtenerTemporizador(pedido, temporizadores);
         const inicio = fechaInicio ? new Date(fechaInicio).getTime() : NaN;
-        const estimado = Number(
-          pedido.estado === "En horno"
-            ? temporizador?.minutos || pedido.tiempo_estimado_minutos
-            : pedido.tiempo_estimado_minutos,
-        );
 
         return (
           Number.isFinite(inicio) &&
@@ -120,8 +120,7 @@ export function useAlarmasCocina(pedidos, temporizadores = {}) {
   );
   const identificadorAvisos = pedidosParaAvisar
     .map((pedido) => {
-      const etapa = pedido.estado === "En horno" ? "horno" : "preparacion";
-      return `${pedido.id}-${etapa}`;
+      return `${pedido.id}-${pedido.estado === "En horno" ? "horno" : "preparacion"}`;
     })
     .sort()
     .join(",");
@@ -164,5 +163,6 @@ export function useAlarmasCocina(pedidos, temporizadores = {}) {
     cantidadRetrasados,
     sonidoActivo,
     activarSonido,
+    notificarPedidoListo,
   };
 }

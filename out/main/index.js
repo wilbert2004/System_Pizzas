@@ -2191,11 +2191,12 @@ function crearServicioPedidos(db, obtenerSesion) {
 		parametros.push(cantidad);
 		return db.prepare(sql).all(...parametros).map(adaptarPedido);
 	}
-	function cambiarEstado(id, nuevoEstado, motivo = "") {
+	function cambiarEstado(id, nuevoEstado, motivo = "", tiempoEstimadoMinutos = null) {
 		const sesion = exigirSesion();
 		const pedidoId = validarId(id);
 		if (!ESTADOS.includes(nuevoEstado)) throw new Error("El estado solicitado no es válido.");
 		const motivoLimpio = String(motivo || "").trim();
+		if (nuevoEstado === "Preparando" && tiempoEstimadoMinutos !== null && (!Number.isInteger(tiempoEstimadoMinutos) || tiempoEstimadoMinutos < 1 || tiempoEstimadoMinutos > 600)) throw new Error("El tiempo de preparación debe estar entre 1 y 600 minutos.");
 		if (motivoLimpio.length > 500) throw new Error("El motivo no puede superar 500 caracteres.");
 		return db.transaction(() => {
 			const pedido = db.prepare(`
@@ -2222,13 +2223,17 @@ function crearServicioPedidos(db, obtenerSesion) {
 			if (campoFecha) db.prepare(`
           UPDATE pedidos
           SET estado = ?,
+              tiempo_estimado_minutos = CASE
+                WHEN ? IS NOT NULL AND ? = 'preparando' THEN ?
+                ELSE tiempo_estimado_minutos
+              END,
               ${campoFecha} = COALESCE(
                 ${campoFecha},
                 datetime('now', 'localtime')
               ),
               fecha_actualizacion = datetime('now', 'localtime')
           WHERE id = ?
-        `).run(ESTADOS_BD[nuevoEstado], pedidoId);
+        `).run(ESTADOS_BD[nuevoEstado], tiempoEstimadoMinutos, ESTADOS_BD[nuevoEstado], tiempoEstimadoMinutos, pedidoId);
 			else db.prepare(`
           UPDATE pedidos
           SET estado = ?,
@@ -2280,8 +2285,8 @@ function registrarControladoresPedidos(ipcMain, db, obtenerSesion) {
 	ipcMain.handle("pedidos:obtener", (_evento, id) => {
 		return servicio.obtenerPedido(id);
 	});
-	ipcMain.handle("pedidos:cambiar-estado", (_evento, id, estado, motivo) => {
-		return servicio.cambiarEstado(id, estado, motivo);
+	ipcMain.handle("pedidos:cambiar-estado", (_evento, id, estado, motivo, tiempoEstimadoMinutos) => {
+		return servicio.cambiarEstado(id, estado, motivo, tiempoEstimadoMinutos);
 	});
 	ipcMain.handle("pedidos:resumen", () => {
 		return servicio.obtenerResumen();

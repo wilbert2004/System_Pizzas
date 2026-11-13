@@ -1,3 +1,5 @@
+import ResumenProductosTV from "./ResumenProductosTV";
+
 export default function PedidoListoTV({ pedido }) {
   return (
     <article className="relative flex min-w-0 flex-col justify-center overflow-hidden rounded-xl border border-emerald-300/20 bg-gradient-to-br from-[#123c35] via-[#102d2b] to-[#14201f] px-3 py-2 shadow-lg shadow-emerald-950/15 ring-1 ring-white/[0.04]">
@@ -9,9 +11,9 @@ export default function PedidoListoTV({ pedido }) {
           </p>
 
           <h3 className="mt-1 truncate text-lg font-black leading-tight tracking-tight text-white sm:text-xl">
-            {pedido.cliente_nombre || "Pedido rápido"}
+            {pedido.cliente_nombre || "Pedido de mostrador"}
           </h3>
-          <p className="mt-0.5 text-[10px] font-semibold text-emerald-100/70 sm:text-xs">Orden {pedido.folio || `#${pedido.id}`}</p>
+          <p className="truncate text-[9px] text-white/50 sm:text-[10px]">{pedido.folio || `#${pedido.id}`}</p>
         </div>
 
         <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-300/10 text-lg text-emerald-200 ring-1 ring-emerald-200/10">✓</span>
@@ -22,6 +24,9 @@ export default function PedidoListoTV({ pedido }) {
           ? "Listo para salir a reparto"
           : "Puedes pasar a recogerlo"}
       </p>
+      <div className="relative mt-1">
+        <ResumenProductosTV productos={pedido.productosTV} />
+      </div>
     </article>
   );
 }

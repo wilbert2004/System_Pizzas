@@ -62,9 +62,14 @@ export const useEstadoCocina = create((set, get) => ({
     set({ pedidoSeleccionado: null });
   },
 
-  avanzarPedido: async (pedido, nuevoEstado) => {
+  avanzarPedido: async (pedido, nuevoEstado, tiempoEstimadoMinutos = null) => {
     try {
-      await servicioCocina.cambiarEstado(pedido.id, nuevoEstado);
+      await servicioCocina.cambiarEstado(
+        pedido.id,
+        nuevoEstado,
+        null,
+        tiempoEstimadoMinutos,
+      );
 
       await get().cargarPedidos(true);
 

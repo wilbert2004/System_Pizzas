@@ -142,8 +142,8 @@ contextBridge.exposeInMainWorld("sistema", {
 
     obtener: (id) => ipcRenderer.invoke("pedidos:obtener", id),
 
-    cambiarEstado: (id, estado, motivo) =>
-      ipcRenderer.invoke("pedidos:cambiar-estado", id, estado, motivo),
+    cambiarEstado: (id, estado, motivo, tiempoEstimadoMinutos) =>
+      ipcRenderer.invoke("pedidos:cambiar-estado", id, estado, motivo, tiempoEstimadoMinutos),
 
     resumen: () => ipcRenderer.invoke("pedidos:resumen"),
   },
